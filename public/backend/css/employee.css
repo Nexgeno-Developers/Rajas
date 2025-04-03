@@ -1,0 +1,105 @@
+//-------------------------------
+// Global
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;700&display=swap');
+
+$c-primary: #8e44ad;
+$c-success: #2ecc71;
+$offwhite:#f8f8f8;
+$ff-primary: 'Roboto Mono', monospace;
+$width-sm-min: (768px);
+
+@mixin control{
+  border-radius: .375em;
+  padding: 1em 1.2em;
+}
+@mixin transition{transition: all .3s ease}
+
+//-----------------------------------
+//Mixin Style Button Loading
+@mixin btn-state-loading{
+  .info-success{display:none}
+  .info-loading{
+    display:none;
+    &:after{
+      content:"";
+      position: relative;
+      top: -1px;
+      display:inline-block;
+      vertical-align:middle;
+      height:1.2em;
+      width:1.2em;
+      margin-left: .6em;
+      background-image: url("data:image/svg+xml,%3Csvg fill='%23fff' xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M14 22c0 1.104-.896 2-2 2s-2-.896-2-2 .896-2 2-2 2 .896 2 2zm-2-22c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm10 10c1.104 0 2 .896 2 2s-.896 2-2.001 2c-1.103 0-1.999-.895-1.999-2s.896-2 2-2zm-22 2c0 1.105.896 2 2 2s2-.895 2-2c0-1.104-.896-2-2-2s-2 .896-2 2zm19-9c1.104 0 2 .896 2 2s-.896 2-2.001 2c-1.103 0-1.999-.895-1.999-2s.896-2 2-2zm0 14c1.104 0 2 .896 2 2s-.896 2-2.001 2c-1.103 0-1.999-.895-1.999-2s.896-2 2-2zm-14-14c1.104 0 2 .896 2 2s-.896 2-2.001 2c-1.103 0-1.999-.895-1.999-2s.896-2 2-2zm0 14c1.104 0 2 .896 2 2s-.896 2-2.001 2c-1.103 0-1.999-.895-1.999-2s.896-2 2-2z'/%3E%3C/svg%3E");
+      background-repeat:no-repeat;
+      background-size:contain;
+      animation: rotateLoading 1.6s linear infinite;
+    }
+    @keyframes rotateLoading{
+      from{transform:rotate(0)}
+      to{transform:rotate(360deg);}
+    }
+  }
+  &:disabled{
+    opacity:.5;
+    cursor: progress;
+    .info-default{display:none}
+    .info-loading{display:block}
+  }  
+  &.state-success{
+    cursor:initial;
+    .info-loading{display:none}
+    .info-success{display:block}
+  }
+}
+//END - Mixin Style Button Loading
+//-----------------------------------
+
+*{ box-sizing: border-box !important; }
+
+html{
+  font-size: 16px;
+}
+body{
+  color: #555;
+  line-height: 1.6em;
+  font-family: $ff-primary;
+  background: $offwhite;
+  padding-top:3rem;
+}
+.container{  
+  max-width:420px;
+  margin: 0 auto;  
+}
+
+h1{
+  color: #333;
+  font-size:1rem;
+  margin:0 0 2em;
+  text-align:center;
+  text-transform: uppercase;
+}
+
+.card{
+  padding: 3rem 2rem;
+  background: #fff;
+  border-radius: .8rem;
+  box-shadow: 0 3px 8px rgba(0,0,0,.15);
+  text-align:center;
+}
+
+.btn{
+  cursor: pointer;
+  display:inline-block;
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing:0.052em;
+  background: $c-success;  
+  border: none;  
+  width:220px;
+  max-width:100%;
+  @include control;
+  @include transition;
+  @include btn-state-loading;  
+  &:hover{opacity:.45;  }  
+}

@@ -1,0 +1,93 @@
+#appointment-calendar {
+
+    padding: 20px 0 0;
+
+}
+
+.fc-button-group .fc-dayGridMonth-button, 
+.fc-button-group .fc-timeGridWeek-button, 
+.fc-button-group .fc-listWeek-button, 
+.fc-toolbar-chunk .fc-today-button
+{ 
+    text-transform: capitalize;
+}
+
+
+
+@media screen and (min-width: 990px) {
+
+    #appointment-calendar .fc-left {
+
+        width: 45%
+
+    }
+
+    #appointment-calendar .fc-center {
+
+        float: left;
+
+    }
+
+}
+
+@media screen and (max-width: 989px) {
+
+    #appointment-calendar .fc-left {
+
+        width: 100%
+
+    }
+
+    #appointment-calendar .fc-center {
+
+        display: block;
+
+    }
+
+}
+
+@media screen and (max-width: 1024px) {
+
+    #appointment-calendar .fc-left h2 {
+
+        font-size: 20px;
+
+        margin-bottom: 5px;
+
+    }
+
+}
+
+@media screen and (max-width: 468px) {
+
+    .fc-toolbar button {
+
+        font-size: 13px;
+
+    }
+ 
+
+}
+
+@media (max-width: 1094px) {
+
+    .fc-view {
+        width: 100%;
+        overflow: scroll;
+    }
+    /* .fc-view-container {
+  
+        width: 900px;
+    } */
+    
+    /* .fc-ltr {
+        
+        overflow-x: auto;
+    } */
+  }
+
+  @media screen and (max-width: 1200px) {
+    .fc-view-container .fc-view > table {
+        width: 900px;
+    }
+}
