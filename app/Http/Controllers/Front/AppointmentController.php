@@ -183,6 +183,11 @@ class AppointmentController extends Controller
                     $data["role_id"] = 2;
                     $data['country_name'] = $request->country_name;
                     $data['country_code'] = $request->country_code;
+                    $data['country'] = $request->country; //new
+                    $data['state'] = $request->state; //new
+                    $data['city'] = $request->city; //new
+                    $data['zipcode'] = $request->zipcode; //new
+                    $data['goverment_id'] = $request->goverment_id; //new                    
                     $user = $this->userRepository->insert(new User($data));
                     $notificationMsg = 'Hey '.$user->first_name.' '.$user->last_name.', Thanks for registration. Enjoy unlimited appointment of different services!';
                     $notification = DB::table('notification')->insert([
@@ -216,6 +221,16 @@ class AppointmentController extends Controller
                     if(!Auth::check()) {
                         return response()->json(['error' => trans('Email already exist in system. Please login and book a new appointment')]);
                     }
+
+                    DB::table('users')
+                    ->where('id', $user_id)
+                    ->update([
+                        //'country' => $request->country,
+                        //'state' => $request->state,
+                        'city' => $request->city,
+                        'zipcode' => $request->zipcode,
+                        'goverment_id' => $request->goverment_id,
+                    ]);                   
                 }
                 $post = $request->except(['_token','slots','number','email','name']);
                 $post["start_time"] = $start_time;

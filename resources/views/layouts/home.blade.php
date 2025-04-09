@@ -39,6 +39,9 @@
     <link rel="stylesheet" href="{{ url('rbtheme/css/custom.css?v='.time())}}">
     <link href="{{ asset('rbtheme/css/OverlayScrollbars.min.css') }}" rel="stylesheet">
     <link href="{{ asset('rbtheme/css/style.css?v='.time())}}" rel="stylesheet">
+
+    <!-- Bootstrap Select CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/css/bootstrap-select.min.css">    
     @yield('css')
 </head>
 
@@ -106,9 +109,14 @@
     @endguest
     <script src="{{ asset('rbtheme/js/wizard.js') }}"></script>
     <script src="{{ asset('rbtheme/js/main.js') }}"></script>
+
+    <!-- Bootstrap Select JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/js/bootstrap-select.min.js"></script>
     
     @yield('script')
     <script class="iti-load-utils" async src="{{ asset('backend/js/utils.js') }}"></script>
+
+    <script src="{{ asset('rbtheme/js/nexgeno.js') }}"></script>
 </body>
 
 </html>

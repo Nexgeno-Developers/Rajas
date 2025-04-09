@@ -248,3 +248,5 @@ Route::any('/page/unauthorized',function() {
 })->name('unauthorized')->middleware('xss');
 
 Route::get('/calendar', 'GoogleCalendarController@googleCalendarEventSync')->name('GoogleCalendarEventSync');
+
+Route::get('/states','Front\ServiceController@getStates')->name('get-state');

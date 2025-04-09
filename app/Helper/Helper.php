@@ -5,6 +5,7 @@ use App\Entities\Setting;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\DB;
 
 class Helper
 {
@@ -185,4 +186,15 @@ class Helper
         }
         return $googleOauthURL;
     }
+
+    // get all active countries
+
+    public static function get_active_countries()
+    {
+        $states = DB::table('countries')
+        ->where('status', 1)
+        ->get();
+        return $states;
+    }
+
 }

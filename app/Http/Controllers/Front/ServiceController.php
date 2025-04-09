@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Auth;
 
 class ServiceController extends Controller
 {
@@ -651,4 +652,39 @@ class ServiceController extends Controller
         }
         return response()->json(['success' => true, 'exits' => $result, 'msg'=> $message]);
     }
+
+
+    // public function getStates(Request $request)
+    // {
+    //     $states = DB::table('states')
+    //         ->where('status', 1)
+    //         ->where('country_id', $request->country_id)
+    //         ->get();
+    //     $html = '<option value="">' . __("Select State") . '</option>';
+
+    //     foreach ($states as $state) {
+    //         $html .= '<option value="' . $state->id . '">' . $state->name . '</option>';
+    //     }
+
+    //     echo json_encode($html);
+    // }  
+    
+    public function getStates(Request $request)
+    {
+        $states = DB::table('states')
+        ->where('status', 1)
+        ->where('country_id', $request->country_id)
+        ->get();
+
+        $selectedStateId = Auth::check() ? Auth::user()->state : null;
+
+        $html = '<option value="">' . __("Select State") . '</option>';
+
+        foreach ($states as $state) {
+            $selected = $selectedStateId == $state->id ? 'selected' : '';
+            $html .= '<option value="' . $state->id . '" ' . $selected . '>' . e($state->name) . '</option>';
+        }
+    
+        echo json_encode($html);
+    }    
 }

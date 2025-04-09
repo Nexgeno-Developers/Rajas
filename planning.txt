@@ -1,0 +1,15 @@
+Customer Information Modification - 7 Hours
+    - Remove stecial character validation in wherever workin in customer module - 1 Hour
+    - Make Email ID Readonly everywhere - 15 Minutes
+    - Add fileds Country, State, City, Zipcode in Customer Profile, 3rd Step of Booking Form, Customer Edit in admin, Customer View in admin - 4 Hour
+    - Do auto login after registration - 30 Minutes
+    - In Booking Form, Give Customer Detail Edit Options (Optional) - 1 Hour
+
+Employee Information Modification - 
+    - Remove stecial character validation in wherever workin in customer module
+    - Make Email ID Readonly everywhere
+    - Add fileds Country, State, City, Zipcode, Company Name
+
+Consider For now
+    - Superadmin role as Main Company, Which have all access
+    - Consider Employee as Branch Who can accept only Payments in panel
