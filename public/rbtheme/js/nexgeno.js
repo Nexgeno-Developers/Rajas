@@ -2,6 +2,7 @@ $(document).ready(function () {
 
     if($('[name=country]').val()) {
         get_states($('[name=country]').val());
+        $('.selectpicker').selectpicker('refresh');
     }
 
     $(document).on('change', '[name=country]', function() {

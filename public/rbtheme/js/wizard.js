@@ -133,8 +133,9 @@ var wizardInit = function wizardInit() {
         var letterPattern = /^([a-zA-z\s])+$/;
         var count = 0;
         var validatePattern = function validatePattern(pattern, value) {
-            var regexPattern = new RegExp(pattern);
-            return regexPattern.test(String(value).toLowerCase());
+            // var regexPattern = new RegExp(pattern);
+            // return regexPattern.test(String(value).toLowerCase());
+            return value;
         };
         var validatePhone = function validatePhone(e) {
             var validkeys = ['+','0','1','2','3','4','5','6','7','8','9'];
@@ -311,31 +312,31 @@ var wizardInit = function wizardInit() {
                     }
 
                     //validation start - new
-                    form.classList.add('was-validated');
-                    const country = document.querySelector('[name="country"]').value;
-                    const state = document.querySelector('[name="state"]').value;
-                    const govermentId = document.querySelector('[name="goverment_id"]').value;
+                    // form.classList.add('was-validated');
+                    // const country = document.querySelector('[name="country"]').value;
+                    // const state = document.querySelector('[name="state"]').value;
+                    // const govermentId = document.querySelector('[name="goverment_id"]').value;
 
-                    if (!country) {
-                        alert("country is required");
-                        return null;
-                    }
+                    // if (!country) {
+                    //     alert("country is required");
+                    //     return null;
+                    // }
 
-                    if (!state) {
-                        alert("state is required");
-                        return null;
-                    }     
+                    // if (!state) {
+                    //     alert("state is required");
+                    //     return null;
+                    // }     
                     
-                    if (!govermentId) {
-                        alert("state is required");
-                        return null;
-                    }                     
+                    // if (!govermentId) {
+                    //     alert("state is required");
+                    //     return null;
+                    // }                     
                     
-                    console.log("Country ID:", country);
-                    console.log("State ID:", state);
-                    console.log("Goverment ID:", govermentId);
+                    // console.log("Country ID:", country);
+                    // console.log("State ID:", state);
+                    // console.log("Goverment ID:", govermentId);
 
-                    form.classList.remove('was-validated');
+                    // form.classList.remove('was-validated');
                     //validation end - new
 
                 }
@@ -666,32 +667,32 @@ var wizardInit = function wizardInit() {
 
 
                         //validation start - new
-                        form.classList.add('was-validated');
-                        const country = document.querySelector('[name="country"]').value;
-                        const state = document.querySelector('[name="state"]').value;
-                        const govermentId = document.querySelector('[name="goverment_id"]').value;
+                        // form.classList.add('was-validated');
+                        // const country = document.querySelector('[name="country"]').value;
+                        // const state = document.querySelector('[name="state"]').value;
+                        // const govermentId = document.querySelector('[name="goverment_id"]').value;
 
-                        if (!country) {
-                            form.classList.add('was-validated');
-                            alert("country is required!");
-                            return null;
-                        }
+                        // if (!country) {
+                        //     form.classList.add('was-validated');
+                        //     alert("country is required!");
+                        //     return null;
+                        // }
 
-                        if (!state) {
-                            alert("state is required!");
-                            return null;
-                        }     
+                        // if (!state) {
+                        //     alert("state is required!");
+                        //     return null;
+                        // }     
                         
-                        if (!govermentId) {
-                            alert("state is required!");
-                            return null;
-                        }                     
+                        // if (!govermentId) {
+                        //     alert("state is required!");
+                        //     return null;
+                        // }                     
                         
-                        console.log("Country ID:", country);
-                        console.log("State ID:", state);
-                        console.log("Goverment ID:", govermentId);
+                        // console.log("Country ID:", country);
+                        // console.log("State ID:", state);
+                        // console.log("Goverment ID:", govermentId);
 
-                        form.classList.add('was-validated');
+                        // form.classList.add('was-validated');
                         //form.classList.remove('was-validated');
                         //validation end - new
 

@@ -36,6 +36,9 @@
 <script src="{{ asset('rbtheme/js/bootstrap-toggle.min.js') }} "></script>
 <script src="{{ asset('backend/js/intlTelInput.min.js') }}"></script>
 <script src="{{ asset('backend/js/intlTelInput-jquery.min.js') }}"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/js/bootstrap-select.min.js"></script>
+<script src="{{ asset('rbtheme/js/nexgeno.js') }}"></script>
 <script type="text/javascript">
     "use strict";
     var _token = "{{ csrf_token() }}";

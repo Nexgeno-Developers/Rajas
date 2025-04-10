@@ -68,7 +68,7 @@
                     @csrf
                     <div class="col-lg-6"> <label class="form-label" for="first-name">{{ __('First Name') }}</label><input class="form-control" id="first-name" name="first_name" type="text" value="{{ $user->first_name}}" /></div>
                     <div class="col-lg-6"> <label class="form-label" for="last-name">{{ __('Last Name') }}</label><input class="form-control" id="last-name" name="last_name" type="text" value="{{ $user->last_name}}" /></div>
-                    <div class="col-lg-6"> <label class="form-label" for="email1">{{ __('Email') }}</label><input class="form-control" id="email1" type="text" name="email" value="{{ $user->email}}" /></div>
+                    <div class="col-lg-6"> <label class="form-label" for="email1">{{ __('Email') }}</label><input readonly class="form-control" id="email1" type="text" name="email" value="{{ $user->email}}" /></div>
                     
                     <input type="hidden" name="country_name" id="iso2" class="country-name" value="{{ $user->country_name }}">
 
@@ -79,6 +79,54 @@
                           <span id="valid-msg" style="color: green;" class="d-none phone-valid-msg">✓ {{ __('Phone Number Valid') }}</span>
                           <span id="error-msg" style="color: #bd5252;" class="d-none phone-error-msg"></span>
                     </div>
+
+                    
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                        <div class="mb-3">
+                            <label class="form-label" for="bootstrap-wizard-wizard-email">{{ __('Country') }}<span class="text-danger">*</span></label>
+                            <select class="form-control rounded-0 selectpicker" data-wizard-validate-country="true" data-live-search="true" data-placeholder="{{ __('Select your country') }}" name="country" placeholder="Select Country" required="required" >
+                                <option value="">{{ __('Select your country') }}</option>
+                                @foreach (Helper::get_active_countries() as $key => $country)
+                                <option value="{{ $country->id }}" @auth @if(auth()->user()->country == $country->id) selected @endif @endauth>{{ $country->name }}</option>
+                                @endforeach
+                            </select>                                                        
+                        </div>
+                    </div>
+
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                        <div class="mb-3">
+                            <label class="form-label" for="bootstrap-wizard-wizard-email">{{ __('State') }}<span class="text-danger">*</span></label>
+                            <select class="form-control rounded-0 selectpicker" data-wizard-validate-state="true" data-live-search="true" name="state" required="required" placeholder="Select State">
+
+                            </select>                                            
+                        </div>
+                    </div>
+
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 d-none">
+                        <div class="mb-3">
+                            <label class="form-label" for="bootstrap-wizard-wizard-email">{{ __('City') }}</label>
+                            <input class="form-control" type="text" name="city"  value="{{auth()->user()->city}}" placeholder="{{ __('Enter City') }}" data-wizard-validate-city="true" id="bootstrap-wizard-city" />
+                            <div class="invalid-feedback">{{ __('Please enter the city name') }}</div>                                    
+                        </div>
+                    </div>
+
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 d-none">
+                        <div class="mb-3">
+                            <label class="form-label" for="bootstrap-wizard-wizard-email">{{ __('Zipcode') }}</label>                                            
+                            <input class="form-control" type="text" name="zipcode" value="{{auth()->user()->zipcode}}" placeholder="{{ __('Enter Zipcode') }}" data-wizard-validate-zipcode="true" id="bootstrap-zipcode" />
+                            <div class="invalid-feedback">{{ __('Please enter the zipcode') }}</div>                                             
+                        </div>
+                    </div>     
+                    
+                    <div class="col-xl-12 col-lg-6 col-md-6 col-sm-6">
+                        <div class="mb-3">
+                            <label class="form-label" for="bootstrap-wizard-wizard-email">{{ __('Goverment ID Number') }} <span class="text-danger">*</span></label>
+                            <input class="form-control" type="text" name="goverment_id" value="{{auth()->user()->goverment_id}}" placeholder="{{ __('Enter Goverment ID Number') }}"
+                                data-wizard-validate-goverment-id="true" id="bootstrap-wizard-goverment-id" required />
+                            <div class="invalid-feedback">{{ __('Please enter the Goverment ID Number') }}</div>                                    
+                        </div>
+                    </div>                    
+                                       
                     
                     <div class="col-12 d-flex justify-content-end mt-3"><button class="btn-valid btn btn-primary" type="submit">{{ __('Update') }}</button></div>
                   </form>

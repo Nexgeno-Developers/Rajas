@@ -25,3 +25,5 @@
 <link href="{{ asset('rbtheme/css/flatpickr.min.css') }}" rel="stylesheet" id="style-default">
 <link rel="stylesheet" href="{{ asset('backend/css/intlTelInput.min.css') }}">
 <link href="{{ asset('backend/css/custom.css') }}" rel="stylesheet"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/css/bootstrap-select.min.css">

@@ -1,8 +1,8 @@
 Customer Information Modification - 7 Hours
-    - Remove stecial character validation in wherever workin in customer module - 1 Hour
-    - Make Email ID Readonly everywhere - 15 Minutes
-    - Add fileds Country, State, City, Zipcode in Customer Profile, 3rd Step of Booking Form, Customer Edit in admin, Customer View in admin - 4 Hour
+    - Remove stecial character validation in wherever workin in customer module - 1 Hour -- Complete
+    - Make Email ID Readonly everywhere - 15 Minutes -- Complete
     - Do auto login after registration - 30 Minutes
+    - Add fileds Country, State, City, Zipcode in Customer Profile, 3rd Step of Booking Form, Customer Edit in admin, Customer View in admin - 4 Hour 
     - In Booking Form, Give Customer Detail Edit Options (Optional) - 1 Hour
 
 Employee Information Modification - 

@@ -96,6 +96,27 @@
                                                                 <span id="error-msg" style="color: #bd5252;" class="d-none"></span>
                                                             </div>
                                                         </div>
+
+                                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                                            <div class="mb-3">
+                                                                <label class="form-label" for="bootstrap-wizard-wizard-email">{{ __('Country') }}<span class="text-danger">*</span></label>
+                                                                <select class="form-control rounded-0 selectpicker" data-wizard-validate-country="true" data-live-search="true" data-placeholder="{{ __('Select your country') }}" name="country" placeholder="Select Country" required="required" >
+                                                                    <option value="">{{ __('Select your country') }}</option>
+                                                                    @foreach (Helper::get_active_countries() as $key => $country)
+                                                                    <option value="{{ $country->id }}">{{ $country->name }}</option>
+                                                                    @endforeach
+                                                                </select>                                                        
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                                            <div class="mb-3">
+                                                                <label class="form-label" for="bootstrap-wizard-wizard-email">{{ __('State') }}<span class="text-danger">*</span></label>
+                                                                <select class="form-control rounded-0 selectpicker" data-wizard-validate-state="true" data-live-search="true" name="state" required="required" placeholder="Select State">
+                                                                </select>                                            
+                                                            </div>
+                                                        </div>
+
                                                     </div>
         
                                                     <div class="row">

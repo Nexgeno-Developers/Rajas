@@ -61,6 +61,27 @@
                                                         <span id="error-msg" style="color: #bd5252; display:none;" class="d-none phone-error-msg"></span>
                                                     </div>
                                                 </div>
+
+
+                                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12" style="pointer-events:none;">
+                                                <div class="mb-3">
+                                                    <label class="form-label" for="bootstrap-wizard-wizard-email">{{ __('Country') }}<span class="text-danger">*</span></label>
+                                                    <select class="form-control rounded-0 selectpicker" data-wizard-validate-country="true" data-live-search="true" data-placeholder="{{ __('Select your country') }}" name="country" placeholder="Select Country" required="required" >
+                                                        <option value="">{{ __('Select your country') }}</option>
+                                                        @foreach (Helper::get_active_countries() as $key => $country)
+                                                        <option value="{{ $country->id }}" @if($country->id == $employee->country) selected @endif>{{ $country->name }}</option>
+                                                        @endforeach
+                                                    </select>                                                        
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12" style="pointer-events:none;">
+                                                <div class="mb-3">
+                                                    <label class="form-label" for="bootstrap-wizard-wizard-email">{{ __('State') }}<span class="text-danger">*</span></label>
+                                                    <select class="form-control rounded-0 selectpicker" data-wizard-validate-state="true" data-live-search="true" name="state" required="required" placeholder="Select State">
+                                                    </select>                                            
+                                                </div>
+                                            </div>                                               
                                             </div>
         
                                             <div class="row">
@@ -227,4 +248,13 @@
 @endsection
 @section('scripts')
 <script src="{{asset('backend/js/phone.js')}}"></script>
+<script>
+    $(document).ready(function () {
+        setTimeout(function() {
+            var state = '{{$employee->state}}';
+            $('[name="state"]').val(state);
+            $('[name="state"]').selectpicker('refresh');
+        }, 1000);
+    });
+</script>
 @endsection

@@ -246,7 +246,7 @@
                                     </div>
 
                                     <div class="row g-2">
-                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 d-none">
                                             <div class="mb-3">
                                                 <label class="form-label" for="bootstrap-wizard-wizard-email">{{ __('City') }}</label>
                                                 <input class="form-control" type="text" name="city" @auth
@@ -257,7 +257,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 d-none">
                                             <div class="mb-3">
                                                 <label class="form-label" for="bootstrap-wizard-wizard-email">{{ __('Zipcode') }}</label>                                            
                                                 <input class="form-control" type="text" name="zipcode" @auth

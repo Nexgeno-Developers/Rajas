@@ -4,6 +4,7 @@
 @endsection
 @section('content')
     <div class="row p-2">
+        @include('includes.message-block')
         <div class="col-sm-12 col-mobile">
             <div class="board-box">
                 <div class="board-title">

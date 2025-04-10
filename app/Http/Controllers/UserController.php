@@ -148,7 +148,12 @@ class UserController extends Controller
                                 'country_code'=>$request->country_code, 
                                 'phone'=>$request->phone,
                                 'email'=>$request->email,
-                                'position' => $request->position
+                                'position' => $request->position,
+                                'country' => $request->country, //new
+                                'state' => $request->state, //new
+                                'city' => $request->city, //new
+                                'zipcode' => $request->zipcode, //new
+                                'goverment_id' => $request->goverment_id, //new
                             ]);
             $messages = trans('Profile updated successfully');
             if($request->has('frm')) {

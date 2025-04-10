@@ -13,7 +13,7 @@ class EmployeeServiceViewModel extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id','service_id','category_id','first_name','days','last_name','country_name','country_code','phone', 'email','password','start_time','finish_time','rest_time','break_start_time','break_end_time'
+        'country','state','user_id','service_id','category_id','first_name','days','last_name','country_name','country_code','phone', 'email','password','start_time','finish_time','rest_time','break_start_time','break_end_time'
     ];
 
     public function toEmployee()
@@ -26,6 +26,8 @@ class EmployeeServiceViewModel extends Model
         $employee->country_code = $this->country_code;
         $employee->phone = $this->phone;
         $employee->email = $this->email;
+        $employee->country = $this->country;
+        $employee->state = $this->state;
         $employee->password = bcrypt($this->password);
         $employee->role_id = 3;
         return $employee;

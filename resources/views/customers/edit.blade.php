@@ -72,6 +72,55 @@
                                                         <span id="error-msg" style="color: #bd5252;" class="d-none"></span>
                                                 </div>
                                             </div>
+
+
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                                <div class="mb-3">
+                                                    <label class="form-label" for="bootstrap-wizard-wizard-email">{{ __('Country') }}<span class="text-danger">*</span></label>
+                                                    <select class="form-control rounded-0 selectpicker" data-wizard-validate-country="true" data-live-search="true" data-placeholder="{{ __('Select your country') }}" name="country" placeholder="Select Country" required="required" >
+                                                        <option value="">{{ __('Select your country') }}</option>
+                                                        @foreach (Helper::get_active_countries() as $key => $country)
+                                                        <option value="{{ $country->id }}" @auth @if($customers->country == $country->id) selected @endif @endauth>{{ $country->name }}</option>
+                                                        @endforeach
+                                                    </select>                                                        
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                                <div class="mb-3">
+                                                    <label class="form-label" for="bootstrap-wizard-wizard-email">{{ __('State') }}<span class="text-danger">*</span></label>
+                                                    <select class="form-control rounded-0 selectpicker" data-wizard-validate-state="true" data-live-search="true" name="state" required="required" placeholder="Select State">
+
+                                                    </select>                                            
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 d-none">
+                                                <div class="mb-3">
+                                                    <label class="form-label" for="bootstrap-wizard-wizard-email ">{{ __('City') }}</label>
+                                                    <input class="form-control" type="text" name="city"  value="{{$customers->city}}" placeholder="{{ __('Enter City') }}" data-wizard-validate-city="true" id="bootstrap-wizard-city" />
+                                                    <div class="invalid-feedback">{{ __('Please enter the city name') }}</div>                                    
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 d-none">
+                                                <div class="mb-3">
+                                                    <label class="form-label" for="bootstrap-wizard-wizard-email">{{ __('Zipcode') }}</label>                                            
+                                                    <input class="form-control" type="text" name="zipcode" value="{{$customers->zipcode}}" placeholder="{{ __('Enter Zipcode') }}" data-wizard-validate-zipcode="true" id="bootstrap-zipcode" />
+                                                    <div class="invalid-feedback">{{ __('Please enter the zipcode') }}</div>                                             
+                                                </div>
+                                            </div>     
+                                            
+                                            <div class="col-xl-12 col-lg-6 col-md-6 col-sm-6">
+                                                <div class="mb-3">
+                                                    <label class="form-label" for="bootstrap-wizard-wizard-email">{{ __('Goverment ID Number') }} <span class="text-danger">*</span></label>
+                                                    <input class="form-control" type="text" name="goverment_id" value="{{$customers->goverment_id}}" placeholder="{{ __('Enter Goverment ID Number') }}"
+                                                        data-wizard-validate-goverment-id="true" id="bootstrap-wizard-goverment-id" required />
+                                                    <div class="invalid-feedback">{{ __('Please enter the Goverment ID Number') }}</div>                                    
+                                                </div>
+                                            </div> 
+
+
                                         </div>
                                     </div>   
                                 </div>
@@ -93,5 +142,14 @@
 @endsection
 @section('scripts')
 <script src="{{asset('backend/js/phone.js')}}"></script>
+<script>
+    $(document).ready(function () {
+        setTimeout(function() {
+            var state = '{{$customers->state}}';
+            $('[name="state"]').val(state);
+            $('[name="state"]').selectpicker('refresh');
+        }, 1000);
+    });
+</script>
 @endsection
 

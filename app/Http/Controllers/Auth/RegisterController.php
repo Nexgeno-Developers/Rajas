@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RegisterValidation;
 use App\Http\Services\Interfaces\IRegisterService;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
@@ -67,6 +68,10 @@ class RegisterController extends Controller
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ]);
+
+        $user_id = $user->id; //new
+        Auth::loginUsingId($user_id); //new
+
         $smtp = Setting::first();
         $site = SiteConfig::first();
         if($smtp->smtp_mail == 1) {
@@ -84,8 +89,9 @@ class RegisterController extends Controller
             );
             $email = \App\Helper\Helper::emailinformation($data);
         } 
-        session()->flash('message', trans('Your registration is completed. Please check your email address to confirm.'));
-        return redirect()->route('welcome');
+        session()->flash('message', trans('Your registration is completed.'));
+        //return redirect()->route('welcome');
+        return redirect()->route('customer-profile', ['id' => $user_id]);
     }
 
     protected function signup(Request $request) {

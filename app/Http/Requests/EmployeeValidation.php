@@ -59,7 +59,8 @@ class EmployeeValidation extends FormRequest
                         'first_name' => 'required',
                         'last_name' => 'required',
                         'email' => ['required','email',Rule::unique('users')->ignore($this->route('employee'))],
-                        'phone' => ['required','numeric',Rule::unique('users')->ignore($this->route('employee'))],
+                        //'phone' => ['required','numeric',Rule::unique('users')->ignore($this->route('employee'))],
+                        'phone' => ['required'],
                         'category_id'=>Rule::requiredIf(function () {
                             return Setting::first()->categories;
                         }),

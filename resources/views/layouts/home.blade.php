@@ -102,6 +102,22 @@
             @endif
         }(jQuery));
     </script>
+    <!-- new -->
+    @if ($errors->any())
+        <script>
+        (function($) {
+            "use strict";
+
+            let errorList = `
+                @foreach ($errors->all() as $index => $error)
+                    {{ $index + 1 }}. {{ $error }}<br>
+                @endforeach
+            `;
+
+            toastr.error(errorList);
+        })(jQuery);
+        </script>
+    @endif    
     <script src="{{ asset('rbtheme/js/lang/'.app()->getLocale().'.js') }}"></script>
     <script src="{{ asset('rbtheme/js/custom.js?ver=1.1') }}"></script>
     @guest

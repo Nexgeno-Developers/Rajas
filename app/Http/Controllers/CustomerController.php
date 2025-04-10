@@ -108,7 +108,13 @@ class CustomerController extends Controller
                                         'country_name'=>$request->country_name,
                                         'country_code'=>$request->country_code,
                                         'phone'=>$request->phone,
-                                        'email'=>$request->email ]);
+                                        'email'=>$request->email,
+                                        'country'=>$request->country,
+                                        'state'=>$request->state,
+                                        'city'=>$request->city,
+                                        'zipcode'=>$request->zipcode,
+                                        'goverment_id'=>$request->goverment_id,
+                                    ]);
         session()->flash('message', trans('Customer updated successfully'));
         return redirect()->route('customers.index');
     }

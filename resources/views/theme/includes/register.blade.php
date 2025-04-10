@@ -17,7 +17,7 @@
 
             {{ csrf_field() }}
 
-            <div class="row gx-2">
+            <div class="row gx-2 d-none">
 
                 <div class="mb-3 col-sm-12">
 
@@ -29,13 +29,13 @@
 
                   </div>
 
-                  <div class="form-check form-check-inline">
+                  {{--<div class="form-check form-check-inline">
 
                     <input type="radio" name="role_id" class="form-check-input" value="3" id="employee_role">
 
                     <label for="employee_role" class="form-check-label">{{ __('Employee') }}</label>
 
-                  </div>
+                  </div>--}}
 
                 </div>
 
