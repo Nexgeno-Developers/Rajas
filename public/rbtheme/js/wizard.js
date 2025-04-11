@@ -121,6 +121,11 @@ var wizardInit = function wizardInit() {
         var inputFirstName = wizard.querySelector('[data-wizard-validate-first-name]');
         var inputLastName = wizard.querySelector('[data-wizard-validate-last-name]');
         var inputPhone = wizard.querySelector('[data-wizard-validate-phone]');
+        var country = wizard.querySelector('[data-wizard-validate-country]'); //new
+        var state = wizard.querySelector('[data-wizard-validate-state]'); //new
+        var allowedPerson = wizard.querySelector('[data-wizard-validate-allowed-person]'); //new
+        var allowedWeight = wizard.querySelector('[data-wizard-validate-allowed-weight]'); //new
+        var govermentId = wizard.querySelector('[data-wizard-validate-goverment-id]'); //new
         var inputDetail = wizard.querySelector('[data-wizard-validate-detail]');
         var inputEmail = wizard.querySelector('[data-wizard-validate-email]');
         var inputpayment = wizard.querySelector('[data-wizard-validate-payment]');
@@ -214,6 +219,14 @@ var wizardInit = function wizardInit() {
                     }
                     $(".booking_date").html(moment(selectDate.value).format('MMMM DD, YYYY'));
                     $(".booking_price").html(selectService.options[selectService.options.selectedIndex].getAttribute('data-price'));
+
+                    //new 
+                    $('#bootstrap-wizard-allowed-person').attr('max', selectService.options[selectService.options.selectedIndex].getAttribute('data-allowed-person'));
+                    $('#bootstrap-wizard-allowed-weight').attr('max', selectService.options[selectService.options.selectedIndex].getAttribute('data-allowed-weight'));
+                    allowedPerson.nextElementSibling.innerHTML = "Maximum number of persons allowed is " + allowedPerson.getAttribute('max');
+                    allowedWeight.nextElementSibling.innerHTML = "Maximum weight allowed is " + allowedWeight.getAttribute('max') + " kg";                    
+                    //new
+
                     count += 1;
                     var tab = new window.bootstrap.Tab(tabToggleButtonEl[count]);
                     tab.show();
@@ -235,7 +248,12 @@ var wizardInit = function wizardInit() {
                 }
             } else if (count == 2) {
                 inputPhone.value = inputPhone.value.replace("+","");
-                if ((!inputEmail.value || !inputFirstName.value || !inputLastName.value || !inputPhone.value || !inputDetail.value)) {
+                console.log("Goverment ID in Count :" + govermentId.value);
+                console.log("Country in Count :" + country.value);
+                console.log("State in Count :" + state.value);
+                console.log("allowedPerson in Count :" + allowedPerson.value);
+                console.log("allowedWeight in Count :" + allowedWeight.value);
+                if ((!inputEmail.value || !inputFirstName.value || !inputLastName.value || !inputPhone.value || !inputDetail.value || !govermentId.value || !country.value || !state.value || !allowedPerson.value || !allowedWeight.value)) {
                     if (!inputEmail.value) {
                         document.querySelector(".email-error").innerHTML = translate.please_enter_the_email;
                     }
@@ -264,7 +282,14 @@ var wizardInit = function wizardInit() {
                     // form.classList.add('was-validated');
                     document.querySelector(".phone-error").style.display = 'block';
                     document.querySelector(".phone-error").innerHTML = translate.phone_should_be_digits;
-                } else {
+                }  else if(allowedPerson.value && (parseFloat(allowedPerson.value) > parseFloat(allowedPerson.getAttribute('max'))) ){
+                    allowedPerson.nextElementSibling.innerHTML = "Maximum number of persons allowed is " + allowedPerson.getAttribute('max');
+                    allowedPerson.nextElementSibling.style.display = 'block';
+                }  else if(allowedWeight.value && (parseFloat(allowedWeight.value) > parseFloat(allowedWeight.getAttribute('max'))) ){
+                    //alert(allowedWeight.value + ' - ' + allowedWeight.getAttribute('max'));
+                    allowedWeight.nextElementSibling.innerHTML = "Maximum weight allowed is " + allowedWeight.getAttribute('max') + " kg";
+                    allowedWeight.nextElementSibling.style.display = 'block';
+                }  else {
                     document.querySelector(".phone-error").style.display = '';
                     document.querySelector(".email-error").style.display = '';
                     inputFirstName.nextElementSibling.style.display = '';
@@ -291,6 +316,7 @@ var wizardInit = function wizardInit() {
                                         flag = false;
                                     }
                                     document.getElementById('email-check').innerHTML = response.msg;
+                                    document.querySelector("#email-check").scrollIntoView({ behavior: 'smooth', block: 'center' }); // New
                                 }
                                 if(flag) {
                                     return null;
@@ -469,6 +495,13 @@ var wizardInit = function wizardInit() {
                             $(".booking_date").html(moment(selectDate.value).format('MMMM DD, YYYY'));
                             $(".booking_price").html(selectService.options[selectService.options.selectedIndex].getAttribute('data-price'));
 
+                            //new 
+                            $('#bootstrap-wizard-allowed-person').attr('max', selectService.options[selectService.options.selectedIndex].getAttribute('data-allowed-person'));
+                            $('#bootstrap-wizard-allowed-weight').attr('max', selectService.options[selectService.options.selectedIndex].getAttribute('data-allowed-weight'));
+                            allowedPerson.nextElementSibling.innerHTML = "Maximum number of persons allowed is " + allowedPerson.getAttribute('max');
+                            allowedWeight.nextElementSibling.innerHTML = "Maximum weight allowed is " + allowedWeight.getAttribute('max') + " kg";                    
+                            //new                          
+
                             var service_id = $("#bootstrap-wizard-service option:selected").data('id');
                             if(selectEmployee.nodeName == 'INPUT') {
                                 var employee_id = selectEmployee.value;
@@ -602,7 +635,12 @@ var wizardInit = function wizardInit() {
                         $(".booking_time").html(selectSlot.value);
                     } else if (step == 2) {
                         form.classList.remove('was-validated');
-                        if ((!(inputEmail.value && validatePattern(emailPattern, inputEmail.value)) || !inputFirstName.value || !inputLastName.value || !inputPhone.value || !inputDetail.value)) {
+                        console.log("Goverment ID in Step :" + govermentId.value);
+                        console.log("Country in Step :" + country.value);
+                        console.log("State in Step :" + state.value);
+                        console.log("allowedPerson in Step :" + allowedPerson.value);
+                        console.log("allowedWeight in Step :" + allowedWeight.value);                        
+                        if ((!(inputEmail.value && validatePattern(emailPattern, inputEmail.value)) || !inputFirstName.value || !inputLastName.value || !inputPhone.value || !inputDetail.value || !govermentId.value || !country.value || !state.value || !allowedPerson.value || !allowedWeight.value)) {
                             if (validatePattern(emailPattern, inputEmail.value)) {
                                 document.querySelector(".email-error").innerHTML = translate.please_enter_valid_email;
                             }else if(!selectSlot.value){
@@ -637,7 +675,15 @@ var wizardInit = function wizardInit() {
                             // document.querySelector(".phone-error").innerHTML = translate.phone_should_be_digits;
                             e.preventDefault();
                             return null;
-                        } else if(inputEmail.value && !LOGGED) {
+                        } else if(allowedPerson.value && (parseFloat(allowedPerson.value) > parseFloat(allowedPerson.getAttribute('max'))) ){
+                            //alert("max person allowed : " + allowedPerson.getAttribute('max'));
+                            e.preventDefault();
+                            return null;
+                        } else if(allowedWeight.value && (parseFloat(allowedWeight.value) > parseFloat(allowedWeight.getAttribute('max'))) ){
+                            //alert("max person allowed : " + allowedWeight.getAttribute('max'));
+                            e.preventDefault();
+                            return null;
+                        }  else if(inputEmail.value && !LOGGED) {
                             var flag = false;
                             $.ajax({
                                 url: route('check.user.email'),
@@ -656,6 +702,7 @@ var wizardInit = function wizardInit() {
                                             flag = false;
                                         }
                                         document.getElementById('email-check').innerHTML = response.msg;
+                                        document.querySelector("#email-check").scrollIntoView({ behavior: 'smooth', block: 'center' }); // New
                                     }
                                 }
                             });

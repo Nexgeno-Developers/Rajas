@@ -15,7 +15,7 @@ class Appointment extends Model
      * @var array
      */
     protected $fillable = [
-        'google_appointment_id','admin_id','service_id','category_id','employee_id','date', 'user_id', 'start_time', 'finish_time', 'comments','status','note','approved_by','cancel_reason','appointment_process'
+        'google_appointment_id','admin_id','service_id','category_id','employee_id','date', 'user_id', 'start_time', 'finish_time', 'comments', 'no_of_person_allowed', 'allowed_weight','status','note','approved_by','cancel_reason','appointment_process'
     ];
 
     public function setCategoryIdAttribute($value) {

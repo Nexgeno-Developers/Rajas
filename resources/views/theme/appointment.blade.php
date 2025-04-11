@@ -88,7 +88,7 @@
                                             </option>
                                             @if($custom->categories != 1)
                                                 @foreach ($services as $service)
-                                                <option value="{{$service->name}}" data-id="{{$service->id}}" data-price="{{ $service->price }}">
+                                                <option value="{{$service->name}}" data-id="{{$service->id}}" data-price="{{ $service->price }}" data-tax="{{ $service->tax }}" data-price-excluded-tax="{{ Helper::removeTax($service->price, $service->tax) }}" data-allowed-weight="{{ $service->allowed_weight }}" data-allowed-person="{{ $service->no_of_person_allowed }}">
                                                     {{ ucfirst($service->name) }}</option>
                                                 @endforeach
                                             @endif
@@ -229,9 +229,20 @@
                                                 <select class="form-control rounded-0 selectpicker" data-wizard-validate-country="true" data-live-search="true" data-placeholder="{{ __('Select your country') }}" name="country" placeholder="Select Country" required="required" >
                                                     <option value="">{{ __('Select your country') }}</option>
                                                     @foreach (Helper::get_active_countries() as $key => $country)
-                                                    <option value="{{ $country->id }}" @auth @if(auth()->user()->country == $country->id) selected @endif @endauth>{{ $country->name }}</option>
+                                                    {{--<option value="{{ $country->id }}" @auth @if(auth()->user()->country == $country->id) selected @elseif($country->id == 101) selected @endif @endauth>{{ $country->name }}</option>--}}
+                                                    <option value="{{ $country->id }}"
+                                                        @if(auth()->check() && auth()->user()->country == $country->id)
+                                                            selected
+                                                        @elseif(!auth()->check() && $country->id == 101)
+                                                            selected
+                                                        @elseif(auth()->check() && !auth()->user()->country && $country->id == 101)
+                                                            selected
+                                                        @endif>
+                                                        {{ $country->name }}
+                                                    </option>
                                                     @endforeach
-                                                </select>                                                        
+                                                </select>
+                                                <div class="invalid-feedback">{{ __('Please select the country') }}</div>                                                         
                                             </div>
                                         </div>
 
@@ -240,10 +251,31 @@
                                                 <label class="form-label" for="bootstrap-wizard-wizard-email">{{ __('State') }}<span class="text-danger">*</span></label>
                                                 <select class="form-control rounded-0 selectpicker" data-wizard-validate-state="true" data-live-search="true" name="state" required="required" placeholder="Select State">
 
-                                                </select>                                            
+                                                </select>  
+                                                <div class="invalid-feedback">{{ __('Please select the state') }}</div>                                              
                                             </div>
                                         </div>
                                     </div>
+
+                                    <div class="row g-2">
+                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                            <div class="mb-3">
+                                                <label class="form-label" for="bootstrap-wizard-wizard-email">{{ __('Number of Person') }}<span class="text-danger">*</span></label>
+                                                <input step="1" min="1" max="" class="form-control" type="number" name="no_of_person_allowed" placeholder="{{ __('Enter Number of Person') }}"
+                                                    data-wizard-validate-allowed-person="true" id="bootstrap-wizard-allowed-person" required />
+                                                <div class="invalid-feedback">{{ __('Please enter the number of person') }}</div>                                    
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                            <div class="mb-3">
+                                                <label class="form-label" for="bootstrap-wizard-wizard-email">{{ __('Allowed Weight') }}<span class="text-danger">*</span></label>                                            
+                                                <input step="1" min="1" max="" class="form-control" type="number" name="allowed_weight" placeholder="{{ __('Enter Weight') }}"
+                                                    data-wizard-validate-allowed-weight="true" id="bootstrap-wizard-allowed-weight" required />
+                                                <div class="invalid-feedback">{{ __('Please enter the weight') }}</div>                                             
+                                            </div>
+                                        </div>
+                                    </div>                                     
 
                                     <div class="row g-2">
                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 d-none">
