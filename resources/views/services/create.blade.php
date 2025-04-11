@@ -59,7 +59,7 @@
                                         </div>
                                     </div>
     
-                                    <div class="row">
+                                    <!-- <div class="row">
                                         <div class="col-lg-12">
                                             <div class="mb-3">
                                                 <label for="name" class="form-label">{{ __('Price')}}:</label>
@@ -74,13 +74,72 @@
                                                 @enderror
                                             </div>
                                         </div>
+                                    </div> -->
+                                    <div class="row">
+
+                                        <!-- Excluded Tax Price -->
+                                        <div class="col-md-4">
+                                            <div class="mb-3">
+                                                <label for="excluded_tax_price" class="form-label">{{ __('Price') }}:</label>
+                                                <div class='input-group'>
+                                                    <span class="input-group-text">{{ $custom->currency_icon }}</span>
+                                                    <input type="number" step="0.01" id="excluded_tax_price" class="form-control" name="excluded_tax_price" value="{{ old('excluded_tax_price') }}" placeholder="{{ __('Excluded Tax Price') }}">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Tax (%) -->
+                                        <div class="col-md-4">
+                                            <div class="mb-3">
+                                                <label for="tax" class="form-label">{{ __('GST (%)') }}:</label>
+                                                <input type="number" step="0.01" id="tax" class="form-control" name="tax" value="{{ old('tax', 0) }}" placeholder="{{ __('Tax') }}">
+                                            </div>
+                                        </div>
+
+
+                                        <!-- Price -->
+                                        <div class="col-md-4">
+                                            <div class="mb-3">
+                                                <label for="price" class="form-label">{{ __('Final Price') }}:</label>
+                                                <div class='input-group'>
+                                                    <span class="input-group-text">{{ $custom->currency_icon }}</span>
+                                                    <input required readonly type="number" step="0.01" id="price" class="form-control price @error('price') is-invalid @enderror" name="price" value="{{ old('price') }}" placeholder="{{ __('Price') }}">
+                                                </div>
+                                                @error('price')
+                                                    <span class="error-message">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+                                        </div>                                        
                                     </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="no_of_person_allowed" class="form-label">{{ __('Number of Person') }}:</label>
+                                                <input required type="number" id="no_of_person_allowed" class="form-control @error('no_of_person_allowed') is-invalid @enderror" name="no_of_person_allowed" value="{{ old('no_of_person_allowed') }}" placeholder="{{ __('Enter number of persons') }}">
+                                                @error('no_of_person_allowed')
+                                                    <span class="error-message">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="allowed_weight" class="form-label">{{ __('Weight') }} (kg):</label>
+                                                <input required type="text" id="allowed_weight" class="form-control @error('allowed_weight') is-invalid @enderror" name="allowed_weight" value="{{ old('allowed_weight') }}" placeholder="{{ __('Enter weight') }}">
+                                                @error('allowed_weight')
+                                                    <span class="error-message">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>                                    
+
     
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="mb-3">
                                                 <label for="description" class="form-label">{{ __('Description')}}: </label>
-                                                <textarea  class="form-control custom-control @error('description') is-invalid @enderror" placeholder="{{ __('Description')}}" id="description" value="{{old('discription')}}" name="description">{{old('description')}}</textarea>
+                                                <textarea  class="form-control tinymce-editor custom-control @error('description') is-invalid @enderror" placeholder="{{ __('Description')}}" id="description" value="{{old('discription')}}" name="description">{{old('description')}}</textarea>
                                                 @error('description')
                                                     <span class="error-message">{{ $message }}</span>
                                                 @enderror
@@ -170,4 +229,24 @@
 @section('scripts')
 <script src="{{ asset('backend/js/tempus-dominus.min.js') }}"></script>
 <script src="{{asset('backend/js/datetimepicker-config.js')}}"></script>
+
+<script>
+$(function () {
+    function updatePriceFromExcluded() {
+        let excluded = parseFloat($('#excluded_tax_price').val()) || 0;
+        let taxRate = parseFloat($('#tax').val()) || 0;
+
+        let taxAmount = excluded * (taxRate / 100);
+        let price = excluded + taxAmount;
+
+        $('#price').val(price); // Final price including tax
+    }
+
+    // Only trigger from excluded_tax_price and tax
+    $('#excluded_tax_price, #tax').on('input', function () {
+        updatePriceFromExcluded();
+    });
+});
+</script>
+
 @endsection

@@ -1358,4 +1358,20 @@
             $("#serviceImageModal").modal('toggle');
         }
     });
+
+    tinymce.init({
+        selector: 'textarea.tinymce-editor', // class or ID
+        plugins: 'lists link code table',
+        toolbar: 'undo redo | bold italic underline | alignleft aligncenter alignright | bullist numlist | link image | code',
+        height: 300,
+    });   
+    
+    tinymce.init({
+        selector: 'textarea.tinymce-readonly', // class or ID
+        plugins: 'lists link code table',
+        toolbar: false,
+        menubar: false,
+        readonly: true,
+        height: 500,
+    });     
 })(jQuery);

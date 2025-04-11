@@ -15,7 +15,7 @@ class Service extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id','category_id','name','price','description','duration','auto_approve','cancel_before','image'
+        'user_id','category_id','name','price','tax','no_of_person_allowed','allowed_weight','description','duration','auto_approve','cancel_before','image'
     ];
 
     public function setNameAttribute($value)

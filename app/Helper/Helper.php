@@ -197,4 +197,12 @@ class Helper
         return $states;
     }
 
+    public static function removeTax( $amount, $taxRate, $precision = 0)
+    {
+        if ($taxRate <= 0) return round($amount, $precision);
+
+        $basePrice = $amount / (1 + ($taxRate / 100));
+        return round($basePrice, $precision);
+    }
+
 }

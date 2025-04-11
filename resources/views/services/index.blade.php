@@ -39,7 +39,7 @@
                                     <td>{{ (ucfirst(isset($service->categories))) ? ucfirst($service->categories->name) : '-'}}</td>
                                     @endif
                                     <td>{{ $custom->currency_icon }}{{ $service->price }}</td>
-                                    <td>{{ $service->description }}</td>
+                                    <td>{!! $service->description !!}</td>
                                     <td>{{ Helper::timeformat($service->duration) }}</td>
                                     <td>{{ Helper::timeformat($service->cancel_before) }}</td>
                                     @if(!empty($service->image))

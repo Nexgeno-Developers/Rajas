@@ -43,7 +43,7 @@
                                         </div>
                                     </div>
     
-                                    <div class="row">
+                                    <!-- <div class="row">
                                         <div class="col-lg-12">
                                             <div class="mb-3">
                                                 <label for="name">{{ __('Price') }}:</label>
@@ -55,13 +55,74 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
+
+
+                                    <div class="row">
+
+                                        <!-- Excluded Tax Price -->
+                                        <div class="col-md-4">
+                                            <div class="mb-3">
+                                                <label for="excluded_tax_price" class="form-label">{{ __('Price') }}:</label>
+                                                <div class='input-group'>
+                                                    <span class="input-group-text">{{ $custom->currency_icon }}</span>
+                                                    <input type="number" step="0.01" id="excluded_tax_price" class="form-control custom-control" name="excluded_tax_price" value="{{Helper::removeTax($service->price, $service->tax)}}" placeholder="{{ __('Excluded Tax Price') }}">
+                                                </div>
+                                            </div>
+                                        </div>                                    
+
+                                        <!-- Tax (%) -->
+                                        <div class="col-md-4">
+                                            <div class="mb-3">
+                                                <label for="tax" class="form-label">{{ __('GST (%)') }}:</label>
+                                                <input readonly type="number" step="0.01" id="tax" class="form-control custom-control" name="tax" value="{{ $service->tax }}" placeholder="{{ __('Tax') }}">
+                                            </div>
+                                        </div>
+
+                                        <!-- Price -->
+                                        <div class="col-md-4">
+                                            <div class="mb-3">
+                                                <label for="price" class="form-label">{{ __('Final Price') }}:</label>
+                                                <div class='input-group'>
+                                                    <span class="input-group-text">{{ $custom->currency_icon }}</span>
+                                                    <input readonly type="number" step="0.01" id="price" class="form-control custom-control price @error('price') is-invalid @enderror" name="price" value="{{ $service->price }}" placeholder="{{ __('Price') }}">
+                                                </div>
+                                                @error('price')
+                                                    <span class="error-message">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+                                    </div>                                    
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="no_of_person_allowed" class="form-label">{{ __('Number of Person') }}:</label>
+                                                <input readonly type="number" id="no_of_person_allowed" class="form-control custom-control" name="no_of_person_allowed" value="{{ $service->no_of_person_allowed }}" placeholder="{{ __('Enter number of persons') }}">
+                                                @error('no_of_person_allowed')
+                                                    <span class="error-message">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="allowed_weight" class="form-label">{{ __('Weight') }} (kg):</label>
+                                                <input readonly type="text" id="allowed_weight" class="form-control custom-control" name="allowed_weight" value="{{ $service->allowed_weight }}" placeholder="{{ __('Enter weight') }}">
+                                                @error('allowed_weight')
+                                                    <span class="error-message">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>  
+
     
                                     <div class="row">
-                                        <div class="col-lg-12">
+                                        <div class="col-lg-12" style="pointer-events:none11;">
                                             <div class="mb-3">
                                                 <label for="description">{{ __('Description')}}: </label>
-                                                <textarea  class="form-control custom-control" id="description" value="{{ $service->description }}" name="description" readonly>{{ $service->description }}</textarea>
+                                                <textarea  class="form-control tinymce-readonly custom-control" id="description" value="{{ $service->description }}" name="description" readonly>{{ $service->description }}</textarea>
                                             </div>
                                         </div>
                                     </div>
