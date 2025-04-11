@@ -295,11 +295,11 @@
         rules: {
             name: {
                 required: true,
-                letterOnly: true
+                letterOnly: false
             },
             description: {
                 required:true,
-                letterOnly: true
+                letterOnly: false
             },
             price: {required: true, priceOnly: true},
             duration: {

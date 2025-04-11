@@ -66,7 +66,7 @@
                                                 <label for="excluded_tax_price" class="form-label">{{ __('Price') }}:</label>
                                                 <div class='input-group'>
                                                     <span class="input-group-text">{{ $custom->currency_icon }}</span>
-                                                    <input type="number" step="0.01" id="excluded_tax_price" class="form-control custom-control" name="excluded_tax_price" value="{{Helper::removeTax($service->price, $service->tax)}}" placeholder="{{ __('Excluded Tax Price') }}">
+                                                    <input readonly type="number" step="0.01" id="excluded_tax_price" class="form-control custom-control" name="excluded_tax_price" value="{{Helper::removeTax($service->price, $service->tax)}}" placeholder="{{ __('Excluded Tax Price') }}">
                                                 </div>
                                             </div>
                                         </div>                                    

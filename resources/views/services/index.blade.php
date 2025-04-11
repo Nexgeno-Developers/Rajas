@@ -23,10 +23,10 @@
                                 <th>{{ucfirst($custom->custom_field_category)}}</th>
                                 @endif
                                 <th>{{ucfirst($custom->custom_field_service)}} {{ __('Fee') }}</th>
-                                <th>{{ __('Description') }}</th>
+                                <!-- <th>{{ __('Description') }}</th> -->
                                 <th>{{ __('Duration') }}</th>
                                 <th>{{ __('Cancel Before') }}</th>
-                                <th>{{ __('Service Image') }}</th>
+                                <!-- <th>{{ __('Service Image') }}</th> -->
                                 <th class="t-right">{{ __('Action') }}</th>
                             </tr>
                             </thead>
@@ -39,10 +39,10 @@
                                     <td>{{ (ucfirst(isset($service->categories))) ? ucfirst($service->categories->name) : '-'}}</td>
                                     @endif
                                     <td>{{ $custom->currency_icon }}{{ $service->price }}</td>
-                                    <td>{!! $service->description !!}</td>
+                                    <!-- <td>{!! $service->description !!}</td> -->
                                     <td>{{ Helper::timeformat($service->duration) }}</td>
                                     <td>{{ Helper::timeformat($service->cancel_before) }}</td>
-                                    @if(!empty($service->image))
+                                    <!-- @if(!empty($service->image))
                                     <td>
                                         <a href="javascript:;" class="btn btn-default btn-lg open-service-image" data-original="{{ asset('img/services/'.$service->image) }}" title="{{ __('Service Image') }}">
                                             <span class="glyphicon glyphicon-picture"></span>
@@ -54,7 +54,7 @@
                                             <span class="glyphicon glyphicon-picture"></span>
                                         </a>
                                     </td>
-                                    @endif
+                                    @endif -->
     
                                     <td class="t-right">
                                         <a class="btn btn-default btn-lg" href="{{ route('services.show',$service->id) }}">

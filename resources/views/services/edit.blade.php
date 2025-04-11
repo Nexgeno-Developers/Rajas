@@ -256,8 +256,6 @@ $(function () {
     $('#excluded_tax_price, #tax').on('input', function () {
         updatePriceFromExcluded();
     });
-
-    //updatePriceFromExcluded();
 });
 </script>
 @endsection
