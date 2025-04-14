@@ -34,7 +34,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
-                        <h5 class="mb-3 fs-0">{{ __("Customer") }}</h5>
+                        <h5 class="mb-3 fs-0">{{ __("Customer") }} Details</h5>
                         <h6 class="mb-2">
                             {{ ucfirst($appointment->user->first_name).' '.ucfirst($appointment->user->last_name) }}
                         </h6>
@@ -42,18 +42,20 @@
                         <p class="mb-0 fs--1"> <strong>{{ __('Phone') }}: </strong>{{ $appointment->user->country_code.$appointment->user->phone }}</p>
                     </div>
                     <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
-                        <h5 class="mb-3 fs-0">{{ __('Employee') }}</h5>
+                        <h5 class="mb-3 fs-0">{{ __('Employee') }} Details</h5>
                         <h6 class="mb-2">
                             {{ ucfirst($appointment->employee->first_name).' '.ucfirst($appointment->employee->last_name) }}
                         </h6>
+                        <p class="mb-0 fs--1"> <strong>{{ __('Email') }}: </strong>{{ $appointment->employee->email }}</p>
+                        <p class="mb-0 fs--1"> <strong>{{ __('Phone') }}: </strong>{{ $appointment->employee->country_code.$appointment->employee->phone }}</p>                        
                     </div>
                     <div class="col-md-6 col-lg-4">
-                        <h5 class="mb-3 fs-0">{{ __('Payment Method') }}</h5>
+                        <h5 class="mb-3 fs-0">{{ __('Payment Information') }}</h5>
                         <div class="flex-1">
                             <h6 class="mb-0">
-                                <div class="badge rounded-pill badge-soft-success fs--2">
-                                    {{ isset($appointment->payment) ? ucfirst($appointment->payment->payment_method) : '-' }}
-                                </div>
+                                <p class="mb-0 fs--1"><strong>{{ __('Method') }}: </strong> {{ isset($appointment->payment) ? ucfirst($appointment->payment->payment_method) : '-' }}</p>
+                                <p class="mb-0 fs--1"><strong>{{ __('Payment ID') }}: </strong> {{ isset($appointment->payment) ? ucfirst($appointment->payment->payment_id) : '-' }}</p>
+                                <p class="mb-0 fs--1"><strong>{{ __('Paid Amount') }}: </strong> {{ isset($appointment->payment) ? $custom->currency_icon.ucfirst($appointment->payment->amount) : '-' }}</p>
                             </h6>
                         </div>
                     </div>
@@ -67,6 +69,7 @@
                         <thead class="bg-200 text-900">
                             <tr>
                                 <th class="border-0">{{ __('Service') }}</th>
+                                <th class="border-0">{{ __('Addional Information') }}</th>
                                 <th class="border-0 text-center">{{ __('Start Time') }}</th>
                                 <th class="border-0 text-end">{{ __('End Time') }}</th>
                                 <th class="border-0 text-end">{{ __('Appointment Date') }}</th>
@@ -78,6 +81,10 @@
                                     <h6 class="mb-0 text-nowrap">{{ ucfirst($appointment->service_id) }}</h6>
 
                                 </td>
+                                <td class="align-middle">
+                                    <p class="mb-0 text-nowrap">Allowed Weight : {{ ucfirst($appointment->allowed_weight) }}</p>
+                                    <p class="mb-0 text-nowrap">Allowed Persons : {{ ucfirst($appointment->no_of_person_allowed) }}</p>
+                                </td>                                
                                 <td class="align-middle text-center">
                                     {{ date('h:i a',strtotime($appointment->start_time)) }}</td>
                                 <td class="align-middle text-end">

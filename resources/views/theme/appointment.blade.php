@@ -330,6 +330,18 @@
                                     <input type="hidden" id="appointment_id" value="">
                                     <input type="hidden" name="payment_method" value="" id="payment_method" data-wizard-validate-payment="true">                               
                                     <div class="row flex-center payment-options">
+
+                                        <!-- New -->
+                                        <div class="col-md-3 px-card  payment-card">
+                                            <div class="payment-container">
+                                                <span class="payment-image">
+                                                    <img class="landing-cta-img payment_method payumoney_popup_data" src="{{ asset('rbtheme/img/payumoney.png')}}" alt=""  data-value="payumoney"
+                                                    data-payumoneyPopupKey="">
+                                                </span>
+                                                <span class="payment-label">{{ __('PayUmoney') }}</span>
+                                            </div>  
+                                        </div>
+
                                         @if($custom->is_stripe == 1)   
                                         <div class="col-md-3 px-card  payment-card" id="bootstrap-wizard-stripe">
                                             <div class="payment-container">
@@ -456,6 +468,20 @@
                                                 </div>
                                                 <div class="col-10 col-md-10">
                                                     <span class="text-custom">
+                                                        <p class="p-space"><label class="f-700 label-color">{{ __('Other Information') }}:</label></p>
+                                                        <span><label class="other_information f-700 img-detail "></label></span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>                                        
+
+                                        <div class="col-6 col-md-6">
+                                            <div class="row mt-3">
+                                                <div class="col-2 col-md-2">
+                                                    <span><img class="detail-img " src="{{ asset('rbtheme/img/date.jpg')}}" alt="" height="50px" width="50px"></span>
+                                                </div>
+                                                <div class="col-10 col-md-10">
+                                                    <span class="text-custom">
                                                         <p class="p-space"><label class="f-700 label-color">{{ __('Appointment Date') }}:</label></p>
                                                         <span><label class="booking_date f-700 img-detail "></label></span>
                                                     </span>
@@ -498,6 +524,9 @@
                                                 <span class="fas fa-chevron-right ms-2"
                                                     data-fa-transform="shrink-3"></span>
                                             </button>
+
+                                            <button class="pay-payumoney d-none">Pay with PayUMoney</button> <!-- New -->
+
                                             <button class="btn btn-info px-5 px-sm-6 pay-razorpay d-none" type="button"
                                                 >
                                                 {{ __('Pay With RazorPay') }}
@@ -583,4 +612,11 @@
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script src="{{ asset('rbtheme/js/rozarpay.js')}}"></script>
 @endif
+
+<!--payumoney--> <!-- New -->
+<!-- <script id="bolt" src="https://checkout-static.citruspay.com/bolt/run/bolt.min.js" bolt-color="e34524" bolt-logo="https://example.com/logo.png"></script> -->
+<script src="https://jssdk.payu.in/bolt/bolt.min.js"></script>
+<script src="{{ asset('rbtheme/js/payumoney.js')}}"></script>
+
 @endsection
+

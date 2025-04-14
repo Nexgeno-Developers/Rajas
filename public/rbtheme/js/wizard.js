@@ -7,7 +7,8 @@ var minutes = 1 * 60;
 var seconds;
 var stopTimer = false;
 function countdown() {
-  var minutes = 1 * 60;
+  //var minutes = 1 * 60;
+  var minutes = 15 * 60;
   time = parseInt(localStorage.time);
   if (isNaN(time) || time > (minutes)) {
     localStorage.time = minutes;
@@ -221,6 +222,12 @@ var wizardInit = function wizardInit() {
                     $(".booking_price").html(selectService.options[selectService.options.selectedIndex].getAttribute('data-price'));
 
                     //new 
+                    $(".other_information").html(`
+                        <p class="mt-0 mb-0"><strong>Number of Person:</strong> ${allowedPerson.value}</p>
+                        <p class="mt-0 mb-0"><strong>Total Weight:</strong> ${allowedWeight.value} Kg</p>
+                    `);
+
+
                     $('#bootstrap-wizard-allowed-person').attr('max', selectService.options[selectService.options.selectedIndex].getAttribute('data-allowed-person'));
                     $('#bootstrap-wizard-allowed-weight').attr('max', selectService.options[selectService.options.selectedIndex].getAttribute('data-allowed-weight'));
                     allowedPerson.nextElementSibling.innerHTML = "Maximum number of persons allowed is " + allowedPerson.getAttribute('max');
@@ -380,6 +387,10 @@ var wizardInit = function wizardInit() {
                     if (inputpayment.value == 'razorpay') {
                         $(".next-button").html(translate.book_appointment);
                     }
+                    if (inputpayment.value == 'payumoney') { //new
+                        //alert("payumoney");
+                        $(".next-button").html(translate.book_appointment);
+                    }                    
                 } else {
                     document.querySelector("#stripe-msg").innerHTML = translate.please_select_payment_method;
                     document.querySelector("#stripe-msg").style.color = 'red';
@@ -432,6 +443,14 @@ var wizardInit = function wizardInit() {
                                 nextButton.style.display = 'none';
                                 $(".pay-razorpay").trigger('click');
                             }
+                            if (inputpayment.value == 'payumoney') { //new
+                                //alert("payumoney payumoney");
+                                countdown();
+                                $(".countdown").removeClass('d-none');
+                                nextButton.innerHTML = translate.book_another_appointment;
+                                nextButton.style.display = 'none';
+                                $(".pay-payumoney").trigger('click');
+                            }                            
                             if (inputpayment.value == 'offline') {
                                 configMSg.innerHTML = response.data;
                                 configMSg.style.color = '#00d27a';
@@ -496,6 +515,11 @@ var wizardInit = function wizardInit() {
                             $(".booking_price").html(selectService.options[selectService.options.selectedIndex].getAttribute('data-price'));
 
                             //new 
+                            $(".other_information").html(`
+                                <p class="mt-0 mb-0"><strong>Number of Person:</strong> ${allowedPerson.value}</p>
+                                <p class="mt-0 mb-0"><strong>Total Weight:</strong> ${allowedWeight.value} Kg</p>
+                            `);
+
                             $('#bootstrap-wizard-allowed-person').attr('max', selectService.options[selectService.options.selectedIndex].getAttribute('data-allowed-person'));
                             $('#bootstrap-wizard-allowed-weight').attr('max', selectService.options[selectService.options.selectedIndex].getAttribute('data-allowed-weight'));
                             allowedPerson.nextElementSibling.innerHTML = "Maximum number of persons allowed is " + allowedPerson.getAttribute('max');

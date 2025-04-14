@@ -268,4 +268,94 @@ class PaymentController extends Controller
     {
         //
     }
+
+    public function generatePayuHash(Request $request) {
+        //dd($request->all());
+        $MERCHANT_KEY = env("PAYUMONEY_KEY");
+        $SALT = env("PAYUMONEY_SALT");
+        $txnid = substr(hash('sha256', mt_rand() . microtime()), 0, 20);
+    
+        $posted = [
+            'key' => $MERCHANT_KEY,
+            'txnid' => $txnid,
+            'amount' => $request->amount,
+            'productinfo' => $request->productinfo,
+            'firstname' => $request->firstname,
+            'email' => $request->email,
+        ];
+    
+        $hashString = "{$posted['key']}|{$posted['txnid']}|{$posted['amount']}|{$posted['productinfo']}|{$posted['firstname']}|{$posted['email']}|||||||||||{$SALT}";
+        $hash = strtolower(hash('sha512', $hashString));
+    
+        return response()->json([
+            'key' => $MERCHANT_KEY,
+            'txnid' => $txnid,
+            'surl' => url('/payumoney/success'),
+            'furl' => url('/payumoney/fail'),
+            'hash' => $hash
+        ]);
+    }    
+
+    public function payumoney_failure(Request $request)
+    {
+        $this->payumoney_error($request);
+
+        session()->flash('error', trans('Your booking has been failed'));
+        return view('theme.failure', compact('request'));        
+    }    
+
+    public function payumoney_success(Request $request)
+    {
+        //return $request->mode;
+        //return $request->all();
+        
+        $paymentStatus = $request->status;
+        if($paymentStatus == 'success') {
+
+            $custom = Setting::first();
+
+            $appointment_id = $request->productinfo;
+    
+            $payment = Payment::where('appointment_id',$appointment_id)->first();
+            if(!$payment) {
+                return response()->json(['error' => trans('Payment Time is over. Please Select Another Booking')]);
+            } else {
+                $payment->id = $payment->id;
+                $payment->payment_method = 'payumoney';
+                $payment->payment_id = $request->mihpayid;
+                $payment->amount = $request->amount;
+                $payment->currency = $custom->currency;
+                $payment->status = 'succeeded';
+                $payment->update();
+                if($custom->smtp_mail == 1) {
+                    $appointment = Appointment::find($appointment_id);
+                    $site = DB::table('site_configs')->first();
+                    $user = User::where('id', $appointment->user_id)->first();
+                    $admin = User::where('id', $appointment->admin_id)->first();
+                    $employee = User::where('id', $appointment->employee_id)->first();
+                    $template = 'mail.customer_appointment';
+                    $this->sendEmail($user, $employee, $appointment, $site, $template, $user->email);
+                    $template = 'mail.admin_email';
+                    $this->sendEmail($user, $employee, $appointment, $site, $template, '', $admin);
+                }
+                // $redirectUrl = route('success');
+                // return response()->json(['data' => trans('Thank you! Your Booking is Successfully Booked'),'redirect' => $redirectUrl]);
+                return redirect()->to('/customer/appointment/' . $appointment_id)
+                ->with('success', 'Thank you! Your Booking is Successfully Booked');             
+            }
+        }else{
+            //failure
+            $this->payumoney_error($request);
+
+            session()->flash('error', trans('Your booking has been failed'));
+            return view('theme.failure', compact('request'));               
+        }        
+    }  
+
+    public function payumoney_error($post)
+    {
+        // echo 1; 
+        // return $post;      
+    }
+    
 }

@@ -250,3 +250,7 @@ Route::any('/page/unauthorized',function() {
 Route::get('/calendar', 'GoogleCalendarController@googleCalendarEventSync')->name('GoogleCalendarEventSync');
 
 Route::get('/states','Front\ServiceController@getStates')->name('get-state');
+
+Route::post('/payumoney/hash-generate','Front\PaymentController@generatePayuHash')->name('payumoney.hash-generate');
+Route::post('/payumoney/success','Front\PaymentController@payumoney_success')->name('payumoney.success');
+Route::post('/payumoney/fail','Front\PaymentController@payumoney_failure')->name('payumoney.fail');

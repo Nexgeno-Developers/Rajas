@@ -178,7 +178,8 @@ class AppointmentController extends Controller
                     $data["parent_user_id"] = 1;
                     $data["first_name"] = $first_name;
                     $data["last_name"] = $last_name;
-                    $data["password"] = 123456789;
+                    //$data["password"] = 123456789;
+                    $data["password"] = rand(100000000, 999999999);
                     $data["confirmed"] = 1;
                     $data["role_id"] = 2;
                     $data['country_name'] = $request->country_name;
