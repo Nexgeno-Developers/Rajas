@@ -282,10 +282,10 @@ var wizardInit = function wizardInit() {
                     // form.classList.add('was-validated');
                     document.querySelector(".phone-error").style.display = 'block';
                     document.querySelector(".phone-error").innerHTML = translate.phone_should_be_digits;
-                }  else if(allowedPerson.value && (parseFloat(allowedPerson.value) > parseFloat(allowedPerson.getAttribute('max'))) ){
+                }  else if(parseFloat(allowedPerson.value) == 0 || (parseFloat(allowedPerson.value) > parseFloat(allowedPerson.getAttribute('max'))) ){
                     allowedPerson.nextElementSibling.innerHTML = "Maximum number of persons allowed is " + allowedPerson.getAttribute('max');
                     allowedPerson.nextElementSibling.style.display = 'block';
-                }  else if(allowedWeight.value && (parseFloat(allowedWeight.value) > parseFloat(allowedWeight.getAttribute('max'))) ){
+                }  else if(parseFloat(allowedWeight.value) == 0 || (parseFloat(allowedWeight.value) > parseFloat(allowedWeight.getAttribute('max'))) ){
                     //alert(allowedWeight.value + ' - ' + allowedWeight.getAttribute('max'));
                     allowedWeight.nextElementSibling.innerHTML = "Maximum weight allowed is " + allowedWeight.getAttribute('max') + " kg";
                     allowedWeight.nextElementSibling.style.display = 'block';
@@ -675,11 +675,11 @@ var wizardInit = function wizardInit() {
                             // document.querySelector(".phone-error").innerHTML = translate.phone_should_be_digits;
                             e.preventDefault();
                             return null;
-                        } else if(allowedPerson.value && (parseFloat(allowedPerson.value) > parseFloat(allowedPerson.getAttribute('max'))) ){
+                        } else if(parseFloat(allowedPerson.value) == 0 || (parseFloat(allowedPerson.value) > parseFloat(allowedPerson.getAttribute('max'))) ){
                             //alert("max person allowed : " + allowedPerson.getAttribute('max'));
                             e.preventDefault();
                             return null;
-                        } else if(allowedWeight.value && (parseFloat(allowedWeight.value) > parseFloat(allowedWeight.getAttribute('max'))) ){
+                        } else if(parseFloat(allowedWeight.value) == 0 || (parseFloat(allowedWeight.value) > parseFloat(allowedWeight.getAttribute('max'))) ){
                             //alert("max person allowed : " + allowedWeight.getAttribute('max'));
                             e.preventDefault();
                             return null;

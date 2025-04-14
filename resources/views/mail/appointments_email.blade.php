@@ -170,6 +170,36 @@
                                 <tbody><tr>
                                     <td style="padding:0">
                                         <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:16px;font-weight:bold;color:#007aff;line-height:20px;margin-bottom:5px">
+                                            {{ __('Allowed Persons') }}:
+                                        <span style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:14px;font-weight:normal;color:#73788b;line-height:20px">
+                                            {{ $appointment->no_of_person_allowed }}
+                                        </span></p>
+                                    </td>
+                                </tr>
+                            </tbody></table>
+                        </td>
+                    </tr>    
+                    <tr>
+                        <td style="padding:15px 20px 0 20px">
+                            <table style="width:100%;margin:auto;border-bottom:1px solid #ebecf2;padding-bottom:15px">
+                                <tbody><tr>
+                                    <td style="padding:0">
+                                        <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:16px;font-weight:bold;color:#007aff;line-height:20px;margin-bottom:5px">
+                                            {{ __('Allowed Weight') }}:
+                                        <span style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:14px;font-weight:normal;color:#73788b;line-height:20px">
+                                            {{ $appointment->allowed_weight }}
+                                        </span></p>
+                                    </td>
+                                </tr>
+                            </tbody></table>
+                        </td>
+                    </tr>                                     
+                    <tr>
+                        <td style="padding:15px 20px 0 20px">
+                            <table style="width:100%;margin:auto;border-bottom:1px solid #ebecf2;padding-bottom:15px">
+                                <tbody><tr>
+                                    <td style="padding:0">
+                                        <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:16px;font-weight:bold;color:#007aff;line-height:20px;margin-bottom:5px">
                                             {{ __('Appointment Detail') }}:
                                         <span style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:14px;font-weight:normal;color:#73788b;line-height:20px">
                                             {{ $appointment->comments }}

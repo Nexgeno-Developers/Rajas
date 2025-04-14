@@ -226,7 +226,7 @@
                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6" @auth @if(auth()->user()->country) style="pointer-events:none;" @endif @endauth>
                                             <div class="mb-3">
                                                 <label class="form-label" for="bootstrap-wizard-wizard-email">{{ __('Country') }}<span class="text-danger">*</span></label>
-                                                <select class="form-control rounded-0 selectpicker" data-wizard-validate-country="true" data-live-search="true" data-placeholder="{{ __('Select your country') }}" name="country" placeholder="Select Country" required="required" >
+                                                <select autocomplete="off" class="form-control rounded-0 selectpicker" data-wizard-validate-country="true" data-live-search="true" data-placeholder="{{ __('Select your country') }}" name="country" placeholder="Select Country" required="required" >
                                                     <option value="">{{ __('Select your country') }}</option>
                                                     @foreach (Helper::get_active_countries() as $key => $country)
                                                     {{--<option value="{{ $country->id }}" @auth @if(auth()->user()->country == $country->id) selected @elseif($country->id == 101) selected @endif @endauth>{{ $country->name }}</option>--}}
@@ -249,7 +249,7 @@
                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6" @auth @if(auth()->user()->state) style="pointer-events:none;" @endif @endauth>
                                             <div class="mb-3">
                                                 <label class="form-label" for="bootstrap-wizard-wizard-email">{{ __('State') }}<span class="text-danger">*</span></label>
-                                                <select class="form-control rounded-0 selectpicker" data-wizard-validate-state="true" data-live-search="true" name="state" required="required" placeholder="Select State">
+                                                <select autocomplete="off" class="form-control rounded-0 selectpicker" data-wizard-validate-state="true" data-live-search="true" name="state" required="required" placeholder="Select State">
 
                                                 </select>  
                                                 <div class="invalid-feedback">{{ __('Please select the state') }}</div>                                              
@@ -269,7 +269,7 @@
 
                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
                                             <div class="mb-3">
-                                                <label class="form-label" for="bootstrap-wizard-wizard-email">{{ __('Allowed Weight') }}<span class="text-danger">*</span></label>                                            
+                                                <label class="form-label" for="bootstrap-wizard-wizard-email">{{ __('Total Weight') }}<span class="text-danger">*</span></label>                                            
                                                 <input step="1" min="1" max="" class="form-control" type="number" name="allowed_weight" placeholder="{{ __('Enter Weight') }}"
                                                     data-wizard-validate-allowed-weight="true" id="bootstrap-wizard-allowed-weight" required />
                                                 <div class="invalid-feedback">{{ __('Please enter the weight') }}</div>                                             
@@ -462,7 +462,7 @@
                                                 </div>
                                             </div>
                                         </div>
-
+                                        
                                         <div class="col-6 col-md-6  @if($custom->categories != 1) mr-auto @endif">
                                             <div class="row mt-3">
                                                 <div class="col-2 col-md-2">
