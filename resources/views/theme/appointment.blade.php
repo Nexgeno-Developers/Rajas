@@ -169,7 +169,7 @@
                                                     value="{{auth()->user()->first_name}}"
                                                     disabled @endauth placeholder="{{ __('Enter First Name') }}"
                                                     data-wizard-validate-first-name="true" id="bootstrap-wizard-first-name"
-                                                    required="required" />
+                                                    required="required" autocomplete="off" />
                                                 <div class="invalid-feedback">{{ __('Please enter the first name') }}</div>
                                             </div>
                                         </div>
@@ -181,7 +181,7 @@
                                                     value="{{auth()->user()->last_name}}"
                                                     disabled @endauth placeholder="{{ __('Enter Last Name') }}"
                                                     data-wizard-validate-last-name="true" id="bootstrap-wizard-last-name"
-                                                    required="required" />
+                                                    required="required" autocomplete="off" />
                                                 <div class="invalid-feedback">{{ __('Please enter the last name') }}</div>
                                             </div>
                                         </div>
@@ -198,7 +198,7 @@
                                             <div class="mb-3">
                                                 <label class="form-label" for="bootstrap-wizard-wizard-email">{{ __('Phone') }}<span
                                                         class="text-danger">*</span></label>
-                                                <input class="form-control intlTelInput country-phone-validation" type="tel" name="phone" 
+                                                <input autocomplete="off" class="form-control intlTelInput country-phone-validation" type="tel" name="phone" 
                                                 @auth value="{{ Auth::user()->phone }}" disabled @endauth @guest value="" @endguest
                                                     placeholder="{{ __('Enter Phone') }}" required="required"
                                                     id="bootstrap-wizard-phone" data-wizard-validate-phone="true" data-name="{{ Auth::user()->country_name ?? $site->country_name }}"/>
@@ -212,7 +212,7 @@
                                             <div class="mb-3">
                                                 <label class="form-label" for="bootstrap-wizard-email">{{ __('Email') }}<span
                                                         class="text-danger">*</span></label>
-                                                <input class="form-control" type="email" name="email" id="email"
+                                                <input autocomplete="off" class="form-control" type="email" name="email" id="email"
                                                     placeholder="{{ __('Email address') }}" @auth value="{{auth()->user()->email}}"
                                                     readonly @endauth
                                                     required="required" id="bootstrap-wizard-wizard-email"
@@ -249,7 +249,7 @@
                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6" @auth @if(auth()->user()->state) style="pointer-events:none;" @endif @endauth>
                                             <div class="mb-3">
                                                 <label class="form-label" for="bootstrap-wizard-wizard-email">{{ __('State') }}<span class="text-danger">*</span></label>
-                                                <select autocomplete="off" class="form-control rounded-0 selectpicker" data-wizard-validate-state="true" data-live-search="true" name="state" required="required" placeholder="Select State">
+                                                <select autocomplete="off" class="form-control rounded-0 @if(auth()->check() && !auth()->user()->state) selectpicker @endif" data-wizard-validate-state="true" data-live-search="true" name="state" required="required" placeholder="Select State">
 
                                                 </select>  
                                                 <div class="invalid-feedback">{{ __('Please select the state') }}</div>                                              
@@ -261,7 +261,7 @@
                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
                                             <div class="mb-3">
                                                 <label class="form-label" for="bootstrap-wizard-wizard-email">{{ __('Number of Person') }}<span class="text-danger">*</span></label>
-                                                <input step="1" min="1" max="" class="form-control" type="number" name="no_of_person_allowed" placeholder="{{ __('Enter Number of Person') }}"
+                                                <input autocomplete="off" step="1" min="1" max="" class="form-control" type="number" name="no_of_person_allowed" placeholder="{{ __('Enter Number of Person') }}"
                                                     data-wizard-validate-allowed-person="true" id="bootstrap-wizard-allowed-person" required />
                                                 <div class="invalid-feedback">{{ __('Please enter the number of person') }}</div>                                    
                                             </div>
@@ -270,7 +270,7 @@
                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
                                             <div class="mb-3">
                                                 <label class="form-label" for="bootstrap-wizard-wizard-email">{{ __('Total Weight') }}<span class="text-danger">*</span></label>                                            
-                                                <input step="1" min="1" max="" class="form-control" type="number" name="allowed_weight" placeholder="{{ __('Enter Weight') }}"
+                                                <input autocomplete="off" step="1" min="1" max="" class="form-control" type="number" name="allowed_weight" placeholder="{{ __('Enter Weight') }}"
                                                     data-wizard-validate-allowed-weight="true" id="bootstrap-wizard-allowed-weight" required />
                                                 <div class="invalid-feedback">{{ __('Please enter the weight') }}</div>                                             
                                             </div>
