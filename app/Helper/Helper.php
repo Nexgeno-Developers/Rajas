@@ -203,6 +203,15 @@ class Helper
 
         $basePrice = $amount / (1 + ($taxRate / 100));
         return round($basePrice, $precision);
+        //return ceil($basePrice); 
     }
+
+    public static function getTaxAmount($finalPrice, $taxRate, $precision = 0)
+    {
+        if ($taxRate <= 0) return 0;
+    
+        $taxAmount = $finalPrice - ($finalPrice / (1 + ($taxRate / 100)));
+        return round($taxAmount, $precision);
+    }  
 
 }

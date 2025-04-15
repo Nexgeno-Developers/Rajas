@@ -43,40 +43,41 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
-                            <h4 class="mb-3 fs-0">{{ __('Customer') }}</h4>
-                            <h5 class="mb-2">
+                            <h4 class="mb-3 fs-0">{{ __('Customer') }} Details</h4>
+                            <div class="mb-2">
                                 {{ !empty($appointment->user) ? ucfirst($appointment->user->first_name).' '.ucfirst($appointment->user->last_name) : 'User Not Available' }}
-                            </h5>
+                            </div>
                             <div class="mb-0 fs--1">
                                 <strong>{{ __('Email') }}:</strong> <span
-                                    class="appointment_detail">{{ $appointment->user->email }}</span>
+                                    class="">{{ $appointment->user->email }}</span>
                             </div>
                             <div class="mb-0 fs--1">
                                 <strong>{{ __('Phone') }}: </strong> <span
-                                    class="appointment_detail">{{ $appointment->user->country_code.$appointment->user->phone }}</span>
+                                    class="">{{ $appointment->user->country_code.$appointment->user->phone }}</span>
                             </div>
                         </div>
 
                         @if($custom->employees == 1)
                             @if(Auth::user()->role_id == 1)
                             <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
-                                <h4 class="mb-3 fs-0">{{ __('Employee') }}</h4>
-                                <h5 class="mb-2">
+                                <h4 class="mb-3 fs-0">{{ __('Employee') }} Details</h4>
+                                <div class="mb-2">
                                     {{ !empty($appointment->employee) ? ucfirst($appointment->employee->first_name).' '.ucfirst($appointment->employee->last_name) : 'Employee Not Available' }}
-                                </h5>
+                                </div>
                             </div>
                             @endif
                         @endif
                         
                         <div class="col-md-6 col-lg-4">
-                            <h4 class="mb-3 fs-0">{{ __('Payment Method') }}</h4>
+                            <h4 class="mb-3 fs-0">{{ __('Payment Information') }}</h4>
                             <div class="flex-1">
-                                <h5 class="mb-0">
-                                    <div class="bg-secondary badge fs--2">
-                                        {{ isset($appointment->payment) ? ucfirst($appointment->payment->payment_method)  : '-'}}
-                                    </div>
-                                </h5>
+                            <div class="mb-0">
+                                <p class="mb-0 fs--1"><strong>{{ __('Method') }}: </strong> {{ isset($appointment->payment) ? ucfirst($appointment->payment->payment_method) : '-' }}</p>
+                                <p class="mb-0 fs--1"><strong>{{ __('Payment ID') }}: </strong> {{ isset($appointment->payment) ? ucfirst($appointment->payment->payment_id) : '-' }}</p>
+                                <p class="mb-0 fs--1"><strong>{{ __('Amount') }}: </strong> {{ isset($appointment->payment) ? $custom->currency_icon.ucfirst($appointment->payment->amount) : '-' }}</p>
+                                <p class="mb-0 fs--1"><strong>{{ __('Payment Status') }}: </strong> {{ isset($appointment->payment) ? ucfirst($appointment->payment->status) : '-' }}</span></p>
                             </div>
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -87,7 +88,9 @@
                         <table class="table table-striped border-bottom">
                             <thead class="bg-200 text-900">
                                 <tr>
+                                    <th class="border-0">{{ __('Category') }}</th>
                                     <th class="border-0">{{ __('Service') }}</th>
+                                    <th class="border-0">{{ __('Addional Information') }}</th>
                                     <th class="border-0 text-center">{{ __('Booking Created Date') }}</th>
                                     <th class="border-0 text-center">{{ __('Appointment Date') }}</th>
                                     <th class="border-0 text-center">{{ __('Start Time') }}</th>
@@ -97,21 +100,26 @@
                             <tbody>
                                 <tr class="border-200">
                                     <td class="align-middle">
-                                        <h4 class="mb-0 text-nowrap previous-serviceid" data-previous-serviceid="{{ old('employee_id') }}">{{ ucfirst($appointment->service_id) }}</h4>
+                                        <p class="mb-0 text-nowrap previous-serviceid" data-previous-serviceid="{{ old('employee_id') }}">{{ ucfirst($appointment->category_id) }}</p>
+                                    </td>                                    
+                                    <td class="align-middle">
+                                        <p class="mb-0 text-nowrap previous-serviceid" data-previous-serviceid="{{ old('employee_id') }}">{{ ucfirst($appointment->service_id) }}</p>
                                     </td>
                                     <td class="align-middle">
-                                        <h4 class="text-center">{{ date($custom->date_format,strtotime($appointment->created_at)) }}</h4>
+                                        <p class="mb-0 text-nowrap">Allowed Weight : {{ ucfirst($appointment->allowed_weight) }}</p>
+                                        <p class="mb-0 text-nowrap">Allowed Persons : {{ ucfirst($appointment->no_of_person_allowed) }}</p>
+                                    </td>                                     
+                                    <td class="align-middle">
+                                        <p class="text-center">{{ date($custom->date_format,strtotime($appointment->created_at)) }}</p>
                                     </td>
                                     <td class="align-middle">
-                                        <h4 class="text-center">{{ date($custom->date_format,strtotime($appointment->date)) }}</h4>
+                                        <p class="text-center">{{ date($custom->date_format,strtotime($appointment->date)) }}</p>
                                     </td>
                                     <td class="align-middle">
-                                        <h4 class="text-center">{{ date('h:i a',strtotime($appointment->start_time)) }}
-                                        </h4>
+                                        <p class="text-center">{{ date('h:i a',strtotime($appointment->start_time)) }}</p>
                                     </td>
                                     <td class="align-middle">
-                                        <h4 class="text-center">{{ date('h:i a',strtotime($appointment->finish_time)) }}
-                                        </h4>
+                                        <p class="text-center">{{ date('h:i a',strtotime($appointment->finish_time)) }}</p>
                                     </td>
                                 </tr>
                             </tbody>

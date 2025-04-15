@@ -38,9 +38,9 @@
                <small>{{ __('Payment Date')}}</small>
                @if($payment_detail->status == 'success' || $payment_detail->status =='succeeded')
                   @if(!empty($payment_detail->payment_date))
-                  <div class="date text-inverse m-t-5">{{ date('M d Y', strtotime($payment_detail->payment_date)) }}</div>
+                  <div class="date text-inverse m-t-5">{{ date('M d, Y', strtotime($payment_detail->payment_date)) }}</div>
                   @else
-                  <div class="date text-inverse m-t-5">{{ date('M d Y', strtotime($payment_detail->created_at)) }}</div>
+                  <div class="date text-inverse m-t-5">{{ date('M d, Y', strtotime($payment_detail->created_at)) }}</div>
                   @endif
                @else
                   <div class="date text-inverse m-t-5"> {{ __('Not Paid')}} </div>
@@ -54,6 +54,7 @@
                <table class="table table-invoice">
                   <thead>
                      <tr>
+                        <th class="text-center" width="10%">{{ __('Category')}}</th>
                         <th class="text-center" width="10%">{{ __('Service')}}</th>
                         <th class="text-center" width="10%">{{ __('Start Time')}}</th>
                         <th class="text-center" width="10%">{{ __('End Time')}}</th>
@@ -63,13 +64,17 @@
                   </thead>
                   <tbody>
                      <tr>
+                     <td class="text-center">
+                           <span class="text-inverse">{{ (ucfirst($payment_detail->appointments->category_id)) }}</span><br>
+                        </td>                        
                         <td class="text-center">
                            <span class="text-inverse">{{ (ucfirst($payment_detail->appointments->service_id)) }}</span><br>
                         </td>
                         <td class="text-center">{{ date('H:i a',strtotime(trim($payment_detail->appointments->start_time))) }}</td>
                         <td class="text-center">{{ date('H:i a',strtotime(trim($payment_detail->appointments->finish_time))) }}</td>
                         <td class="text-center">{{ date($custom->date_format, strtotime($payment_detail->appointments->date)) }}</td>
-                        <td class="text-center">{{ $custom->currency_icon}}{{ $payment_detail->amount }}</td>
+                        <!-- <td class="text-center">{{ $custom->currency_icon}}{{ $payment_detail->amount }}</td> -->
+                        <td class="text-center">{{ $custom->currency_icon}}{{ Helper::removeTax( $payment_detail->amount, $payment_detail->tax) }}</td>
                      </tr>
                   </tbody>
                </table>
@@ -79,10 +84,51 @@
                </div>
                <div class="invoice-price-right">
                   <div class="invoice-subtotal">
-                  {{ __('Subtotal') }}: {{$custom->currency_icon}}{{ $payment_detail->amount }}<br>
+                  <!-- {{ __('Subtotal') }}: {{$custom->currency_icon}}{{ $payment_detail->amount }}<br> -->
+                  {{ __('Subtotal') }}: {{$custom->currency_icon}}{{ Helper::removeTax( $payment_detail->amount, $payment_detail->tax) }}<br>
                   </div>
                </div>
-            </div>
+            </div>   
+            
+            
+            @php
+               $employeeState = $payment_detail->appointments->employee->state;
+               $customerState = $payment_detail->appointments->user->state;
+               $amount = $payment_detail->amount;
+               $taxRate = $payment_detail->tax;
+               $taxAmount = Helper::getTaxAmount($amount, $taxRate);
+            @endphp
+
+            <div class="invoice-price">
+               <div class="invoice-price-left">
+                  {{-- Left section, add if needed --}}
+               </div>
+               <div class="invoice-price-right">
+                  <div class="invoice-subtotal">
+                        @if($employeeState == $customerState)
+                           @php
+                              $halfTax = round($taxAmount / 2, 2);
+                              $halfTaxRate = round($taxRate / 2, 2);
+                           @endphp
+                           CGST {{$halfTaxRate}}%: {{ $custom->currency_icon }}{{ $halfTax }}<br>
+                           SGST {{$halfTaxRate}}%: {{ $custom->currency_icon }}{{ $halfTax }}<br>
+                        @else
+                           GST {{$taxRate}}%: {{ $custom->currency_icon }}{{ $taxAmount }}<br>
+                        @endif
+                  </div>
+               </div>
+            </div>           
+            <!-- <div class="invoice-price">
+               <div class="invoice-price-left">
+               </div>
+               <div class="invoice-price-right">
+                  Employee - {{$payment_detail->appointments->employee->state}}
+                  Customer - {{$payment_detail->appointments->user->state}}
+                  <div class="invoice-subtotal">
+                  {{ __('GST') }}: {{$custom->currency_icon}}{{ Helper::getTaxAmount( $payment_detail->amount, $payment_detail->tax) }}<br>
+                  </div>
+               </div>
+            </div> -->
             <div class="invoice-price">
                <div class="invoice-price-left">
                   <div class="invoice-price-row">

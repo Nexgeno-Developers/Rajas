@@ -353,7 +353,7 @@ class PaymentController extends Controller
         }        
     }  
 
-    public function payumoney_error($post)
+    public function payumoney_error($request)
     {
         $appointment_id = $request->productinfo;
     

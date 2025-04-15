@@ -163,10 +163,21 @@
                 var html = '<option value="">'+translate.select+' '+service_text+'</option>';
                
                 if (response.length > 0) {
+                    // $.each(response, function (key, value) {
+                    //     html += '<option value="' + value.name + '" data-id="'+value.id+'" data-price="'+ value.price +'">' + value.name +
+                    //         '</option>';
+                    // });
                     $.each(response, function (key, value) {
-                        html += '<option value="' + value.name + '" data-id="'+value.id+'" data-price="'+ value.price +'">' + value.name +
-                            '</option>';
-                    });
+                        html += '<option value="' + value.name + '" ' +
+                                'data-id="' + value.id + '" ' +
+                                'data-price="' + value.price + '" ' +
+                                'data-tax="' + value.tax + '" ' +
+                                'data-price-excluded-tax="' + value.price_excluded_tax + '" ' +
+                                'data-allowed-weight="' + value.allowed_weight + '" ' +
+                                'data-allowed-person="' + value.no_of_person_allowed + '">' + 
+                                value.name + 
+                                '</option>';
+                    });                    
                     $("#bootstrap-wizard-service").html(html);
                 }else {
                     $("#bootstrap-wizard-service").html(html);

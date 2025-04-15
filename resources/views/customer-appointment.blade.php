@@ -55,7 +55,8 @@
                             <h6 class="mb-0">
                                 <p class="mb-0 fs--1"><strong>{{ __('Method') }}: </strong> {{ isset($appointment->payment) ? ucfirst($appointment->payment->payment_method) : '-' }}</p>
                                 <p class="mb-0 fs--1"><strong>{{ __('Payment ID') }}: </strong> {{ isset($appointment->payment) ? ucfirst($appointment->payment->payment_id) : '-' }}</p>
-                                <p class="mb-0 fs--1"><strong>{{ __('Paid Amount') }}: </strong> {{ isset($appointment->payment) ? $custom->currency_icon.ucfirst($appointment->payment->amount) : '-' }}</p>
+                                <p class="mb-0 fs--1"><strong>{{ __('Amount') }}: </strong> {{ isset($appointment->payment) ? $custom->currency_icon.ucfirst($appointment->payment->amount) : '-' }}</p>
+                                <p class="mb-0 fs--1"><strong>{{ __('Payment Status') }}: </strong> {{ isset($appointment->payment) ? ucfirst($appointment->payment->status) : '-' }}</span></p>
                             </h6>
                         </div>
                     </div>
@@ -68,6 +69,7 @@
                     <table class="table table-striped border-bottom">
                         <thead class="bg-200 text-900">
                             <tr>
+                                <th class="border-0">{{ __('Category') }}</th>
                                 <th class="border-0">{{ __('Service') }}</th>
                                 <th class="border-0">{{ __('Addional Information') }}</th>
                                 <th class="border-0 text-center">{{ __('Start Time') }}</th>
@@ -78,8 +80,10 @@
                         <tbody>
                             <tr class="border-200">
                                 <td class="align-middle">
-                                    <h6 class="mb-0 text-nowrap">{{ ucfirst($appointment->service_id) }}</h6>
-
+                                    <p class="mb-0 text-nowrap">{{ ucfirst($appointment->category_id) }}</p>
+                                </td>                                
+                                <td class="align-middle">
+                                    <p class="mb-0 text-nowrap">{{ ucfirst($appointment->service_id) }}</p>
                                 </td>
                                 <td class="align-middle">
                                     <p class="mb-0 text-nowrap">Allowed Weight : {{ ucfirst($appointment->allowed_weight) }}</p>

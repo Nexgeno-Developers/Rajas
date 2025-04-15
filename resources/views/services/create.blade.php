@@ -239,7 +239,7 @@ $(function () {
         let taxAmount = excluded * (taxRate / 100);
         let price = excluded + taxAmount;
 
-        $('#price').val(price); // Final price including tax
+        $('#price').val(Math.ceil(price)); // Final price including tax
     }
 
     // Only trigger from excluded_tax_price and tax

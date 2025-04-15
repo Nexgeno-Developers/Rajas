@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\URL;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -18,13 +17,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+
+        if ($this->app->environment('production')) {
+            \URL::forceScheme('https');
+        }          
         
         try {
-
-            if ($this->app->environment('production')) {
-                URL::forceScheme('https');
-            }
-
             if(env('APP_KEY') != "") {
                 if(DB::table('site_configs')->exists()) {
                     $site = DB::table('site_configs')->first();

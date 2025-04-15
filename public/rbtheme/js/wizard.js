@@ -290,12 +290,13 @@ var wizardInit = function wizardInit() {
                     document.querySelector(".phone-error").style.display = 'block';
                     document.querySelector(".phone-error").innerHTML = translate.phone_should_be_digits;
                 }  else if(parseFloat(allowedPerson.value) == 0 || (parseFloat(allowedPerson.value) > parseFloat(allowedPerson.getAttribute('max'))) ){
+                    form.classList.add('was-validated');
                     allowedPerson.nextElementSibling.innerHTML = "Maximum number of persons allowed is " + allowedPerson.getAttribute('max');
-                    allowedPerson.nextElementSibling.style.display = 'block';
+                    //allowedPerson.nextElementSibling.style.display = 'block';
                 }  else if(parseFloat(allowedWeight.value) == 0 || (parseFloat(allowedWeight.value) > parseFloat(allowedWeight.getAttribute('max'))) ){
-                    //alert(allowedWeight.value + ' - ' + allowedWeight.getAttribute('max'));
+                    form.classList.add('was-validated');
                     allowedWeight.nextElementSibling.innerHTML = "Maximum weight allowed is " + allowedWeight.getAttribute('max') + " kg";
-                    allowedWeight.nextElementSibling.style.display = 'block';
+                    //allowedWeight.nextElementSibling.style.display = 'block';
                 }  else {
                     document.querySelector(".phone-error").style.display = '';
                     document.querySelector(".email-error").style.display = '';

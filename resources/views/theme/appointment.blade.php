@@ -157,7 +157,8 @@
                                     <p>{{ __("You've selected") }} <b class="service_name">{{ __('Service Name') }}</b> {{ __('service from') }} <b
                                             class="booking_time">{{ __('Booking') }}
                                             {{ __('Time') }}</b> {{ __('on') }} <b class="booking_date">{{ __('Booking Date') }}</b>. {{ __("you'll be charged by") }}
-                                        <b class="custom-currency" data-custom-currency="{{strtoupper($custom->currency)}}">{{$custom->currency_icon}}</b><b class="booking_price">{{ __('1.00') }}</b>.
+                                        <b class="custom-currency" data-custom-currency="{{strtoupper($custom->currency)}}">{{$custom->currency_icon}}</b><b class="booking_price">{{ __('1.00') }}</b>
+                                        <b>(Inclusive of all GST)</b>.
                                     </p>
                                     <p>{{ __('Please provide your details in the form below to proceed with booking.') }}</p>
                                     <div class="row g-2">
@@ -482,14 +483,15 @@
                                                 </div>
                                                 <div class="col-10 col-md-10">
                                                     <span class="text-custom">
-                                                        <p class="p-space"><label class="f-700 label-color">{{ __('Appointment Date') }}:</label></p>
-                                                        <span><label class="booking_date f-700 img-detail "></label></span>
+                                                        <p class="p-space"><label class="f-700 label-color">{{ __('Appointment Date & Time') }}:</label></p>
+                                                        <span><label class="booking_date f-700 mb-0 img-detail "></label></span>
+                                                        <div style="margin-top: -5px;"><label class="booking_time f-700 img-detail"></label></div>
                                                     </span>
                                                 </div>
                                             </div>
                                         </div>
                                         
-                                        <div class="col-6 col-md-6  @if($custom->categories != 1) mr-auto @endif">
+                                        <!-- <div class="col-6 col-md-6  @if($custom->categories != 1) mr-auto @endif">
                                             <div class="row mt-3">
                                                 <div class="col-2 col-md-2">
                                                     <span><img class="detail-img " src="{{ asset('rbtheme/img/time-appointment.jpg')}}" alt="" height="50px" width="50px"></span>
@@ -500,7 +502,7 @@
                                                         <span><label class="booking_time f-700 img-detail"></label></span>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> -->
                                         <div class="col-12 col-md-12">
                                             <div id="paypal-button-container" class="d-none"></div>
                                         </div>
@@ -614,8 +616,9 @@
 @endif
 
 <!--payumoney--> <!-- New -->
-<script id="bolt" src="https://checkout-static.citruspay.com/bolt/run/bolt.min.js" bolt-color="e34524" bolt-logo="https://example.com/logo.png"></script>
+<!-- <script id="bolt" src="https://checkout-static.citruspay.com/bolt/run/bolt.min.js" bolt-color="e34524" bolt-logo="https://example.com/logo.png"></script> -->
 <!-- <script src="https://jssdk.payu.in/bolt/bolt.min.js"></script> -->
+<script src="https://jssdk-uat.payu.in/bolt/bolt.min.js"></script>
 <script src="{{ asset('rbtheme/js/payumoney.js')}}"></script>
 
 @endsection
