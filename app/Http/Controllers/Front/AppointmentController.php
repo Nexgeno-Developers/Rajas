@@ -223,15 +223,30 @@ class AppointmentController extends Controller
                         return response()->json(['error' => trans('Email already exist in system. Please login and book a new appointment')]);
                     }
 
-                    DB::table('users')
-                    ->where('id', $user_id)
-                    ->update([
-                        //'country' => $request->country,
-                        //'state' => $request->state,
-                        'city' => $request->city,
-                        'zipcode' => $request->zipcode,
-                        'goverment_id' => $request->goverment_id,
-                    ]);                   
+                    $updateData = [];
+
+                    if (!empty($request->country)) {
+                        $updateData['country'] = $request->country;
+                    }
+                    if (!empty($request->state)) {
+                        $updateData['state'] = $request->state;
+                    }
+                    if (!empty($request->city)) {
+                        $updateData['city'] = $request->city;
+                    }
+                    if (!empty($request->zipcode)) {
+                        $updateData['zipcode'] = $request->zipcode;
+                    }
+                    if (!empty($request->goverment_id)) {
+                        $updateData['goverment_id'] = $request->goverment_id;
+                    }
+                    
+                    if (!empty($updateData)) {
+                        $updated = DB::table('users')
+                            ->where('id', $user_id)
+                            ->update($updateData);
+                    }                  
+
                 }
                 $post = $request->except(['_token','slots','number','email','name']);
                 $post["start_time"] = $start_time;
@@ -288,6 +303,7 @@ class AppointmentController extends Controller
                 $post['currency'] = 'inr';
                 $post['amount'] = $service->price;
                 $post['status'] = 'pending';
+                $post['tax'] = $service->tax;
                 $this->payment->insert(new Payment($post));
 
                 $notificationMsg = 'Hey '.$user->first_name.' '.$user->last_name.', Your Appointment successfully created!';

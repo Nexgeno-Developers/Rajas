@@ -15,7 +15,7 @@ class Payment extends Model
      * @var array
      */
     protected $fillable = [
-        'payment_id','appointment_id','payment_method','currency','amount','payment_type','payment_detail_id','payment_gateway_response','upi_id','payment_date','status'
+        'payment_id','appointment_id','payment_method','currency','amount','tax','payment_type','payment_detail_id','payment_gateway_response','upi_id','payment_date','status'
     ];
 
     public function employeeServices()

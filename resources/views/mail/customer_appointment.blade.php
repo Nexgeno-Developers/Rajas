@@ -49,6 +49,21 @@
         </td>
         @endif
       </tr>
+
+      <tr>
+        @if($appointment->payment->status == 'succeeded')
+        <td colspan="2" style="border: solid 1px #ddd; padding:10px 20px;">
+          <p style="font-size:14px;margin:0 0 6px 0;"><span style="font-weight:bold;display:inline-block;min-width:150px">{{ __('Payment status')}}</span>
+          <b style="color:green;font-weight:normal;margin:0">{{ __('Paid')}}</b></p>
+        </td>
+        @else
+        <td colspan="2" style="border: solid 1px #ddd; padding:10px 20px;">
+          <p style="font-size:14px;margin:0 0 6px 0;"><span style="font-weight:bold;display:inline-block;min-width:150px">{{ __('Payment status')}}</span>
+          <b style="color:red;font-weight:normal;margin:0">{{ __('Pending')}}</b></p>
+        </td>
+        @endif
+      </tr>
+
       <tr>
         <td style="height:10px;"></td>
       </tr>
@@ -62,7 +77,7 @@
           <p style="margin:0 0 10px 0;padding:0;font-size:14px;"><span style="display:block;font-weight:bold;font-size:13px">{{ __('Employee Name') }}</span>{{ $employee->first_name.' '.$employee->last_name}}</p>
         </td>
         <td style="width:50%;padding:5px;vertical-align:top">
-          <p style="margin:0 0 10px 0;padding:0;font-size:14px;"><span style="display:block;font-weight:bold;font-size:13px">{{ __('Service Name') }}</span>{{ $appointment->service_id}}</p>
+          <p style="margin:0 0 10px 0;padding:0;font-size:14px;"><span style="display:block;font-weight:bold;font-size:13px">{{ __('Service Name') }}</span><b>{{ $appointment->category_id}}</b> - {{ $appointment->service_id}}</p>
         </td>
       </tr>
       <tr>
