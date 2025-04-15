@@ -128,6 +128,7 @@
                         udf1: "",
                         surl: String(data.surl),
                         furl: String(data.furl),
+                        postUrl: String(data.furl),
                         mode: 'dropout',
                         pg: "ALL"
                     }, {
