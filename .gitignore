@@ -26,7 +26,6 @@ shop.sql
 updates/
 composer.lock
 *.lock
-resources/lang/en.json
 .env
 updates.zip
 ecommerce.zip
