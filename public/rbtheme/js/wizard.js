@@ -222,11 +222,11 @@ var wizardInit = function wizardInit() {
                     $(".booking_price").html(selectService.options[selectService.options.selectedIndex].getAttribute('data-price'));
 
                     //new 
-                    $(".other_information").html(`
-                        <p class="mt-0 mb-0"><strong>Number of Person:</strong> ${allowedPerson.value}</p>
-                        <p class="mt-0 mb-0"><strong>Total Weight:</strong> ${allowedWeight.value} Kg</p>
-                    `);
-
+                    // $(".other_information").html(`
+                    //     <p class="mt-0 mb-0"><strong>Number of Person:</strong> ${allowedPerson.value}</p>
+                    //     <p class="mt-0 mb-0"><strong>Total Weight:</strong> ${allowedWeight.value} Kg</p>
+                    // `);
+                    // alert(2);
 
                     $('#bootstrap-wizard-allowed-person').attr('max', selectService.options[selectService.options.selectedIndex].getAttribute('data-allowed-person'));
                     $('#bootstrap-wizard-allowed-weight').attr('max', selectService.options[selectService.options.selectedIndex].getAttribute('data-allowed-weight'));
@@ -343,6 +343,12 @@ var wizardInit = function wizardInit() {
                         form.classList.remove('was-validated');
                         tab.show();
                     }
+
+                    $(".other_information").html(`
+                        <p class="mt-0 mb-0"><strong>Number of Person:</strong> ${allowedPerson.value}</p>
+                        <p class="mt-0 mb-0"><strong>Total Weight:</strong> ${allowedWeight.value} Kg</p>
+                    `);
+                    //alert(1);                    
 
                     //validation start - new
                     // form.classList.add('was-validated');
@@ -515,10 +521,11 @@ var wizardInit = function wizardInit() {
                             $(".booking_price").html(selectService.options[selectService.options.selectedIndex].getAttribute('data-price'));
 
                             //new 
-                            $(".other_information").html(`
-                                <p class="mt-0 mb-0"><strong>Number of Person:</strong> ${allowedPerson.value}</p>
-                                <p class="mt-0 mb-0"><strong>Total Weight:</strong> ${allowedWeight.value} Kg</p>
-                            `);
+                            // $(".other_information").html(`
+                            //     <p class="mt-0 mb-0"><strong>Number of Person:</strong> ${allowedPerson.value}</p>
+                            //     <p class="mt-0 mb-0"><strong>Total Weight:</strong> ${allowedWeight.value} Kg</p>
+                            // `);
+                            // alert(1);
 
                             $('#bootstrap-wizard-allowed-person').attr('max', selectService.options[selectService.options.selectedIndex].getAttribute('data-allowed-person'));
                             $('#bootstrap-wizard-allowed-weight').attr('max', selectService.options[selectService.options.selectedIndex].getAttribute('data-allowed-weight'));

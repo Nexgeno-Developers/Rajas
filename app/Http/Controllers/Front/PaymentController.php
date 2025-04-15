@@ -326,6 +326,7 @@ class PaymentController extends Controller
                 $payment->amount = $request->amount;
                 $payment->currency = $custom->currency;
                 $payment->status = 'succeeded';
+                $payment->payment_gateway_response = json_encode($request->all());
                 $payment->update();
                 if($custom->smtp_mail == 1) {
                     $appointment = Appointment::find($appointment_id);
@@ -354,8 +355,16 @@ class PaymentController extends Controller
 
     public function payumoney_error($post)
     {
-        // echo 1; 
-        // return $post;      
+        $appointment_id = $request->productinfo;
+    
+        $payment = Payment::where('appointment_id',$appointment_id)->first();
+        if(!$payment) {
+            return response()->json(['error' => trans('Payment Time is over. Please Select Another Booking')]);
+        } else {
+            $payment->payment_id = $request->mihpayid ?? '';
+            $payment->payment_gateway_response = json_encode($request->all());
+            $payment->update();           
+        }      
     }
     
 }

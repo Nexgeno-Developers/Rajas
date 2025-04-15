@@ -464,7 +464,7 @@
                                         <div class="col-6 col-md-6">
                                             <div class="row mt-3">
                                                 <div class="col-2 col-md-2">
-                                                    <span><img class="detail-img " src="{{ asset('rbtheme/img/date.jpg')}}" alt="" height="50px" width="50px"></span>
+                                                    <span><img class="detail-img " src="{{ asset('rbtheme/img/info.png')}}" alt="" height="50px" width="50px"></span>
                                                 </div>
                                                 <div class="col-10 col-md-10">
                                                     <span class="text-custom">
@@ -614,8 +614,8 @@
 @endif
 
 <!--payumoney--> <!-- New -->
-<!-- <script id="bolt" src="https://checkout-static.citruspay.com/bolt/run/bolt.min.js" bolt-color="e34524" bolt-logo="https://example.com/logo.png"></script> -->
-<script src="https://jssdk.payu.in/bolt/bolt.min.js"></script>
+<script id="bolt" src="https://checkout-static.citruspay.com/bolt/run/bolt.min.js" bolt-color="e34524" bolt-logo="https://example.com/logo.png"></script>
+<!-- <script src="https://jssdk.payu.in/bolt/bolt.min.js"></script> -->
 <script src="{{ asset('rbtheme/js/payumoney.js')}}"></script>
 
 @endsection
