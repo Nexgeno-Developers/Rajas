@@ -3,17 +3,32 @@
 use Illuminate\Support\Facades\DB;
 // $timezone = \DB::table('settings')->get();
 
-// Check if the request is using HTTPS
-$isHttps = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on';
-// Construct the protocol
-$protocol = $isHttps ? 'https://' : 'http://';
-// Get the host (domain)
-$host = $_SERVER['HTTP_HOST'];
-// Combine protocol and host to get the full URL
-$asset_url = $protocol . $host;
+// // Check if the request is using HTTPS
+// $isHttps = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on';
+// // Construct the protocol
+// $protocol = $isHttps ? 'https://' : 'http://';
+// // Get the host (domain)
+// $host = $_SERVER['HTTP_HOST'];
+// // Combine protocol and host to get the full URL
+// $asset_url = $protocol . $host;
 
-if (str_contains($host, 'localhost')) {
-    $asset_url = $asset_url.'/'.env('LOCAL_DIR', 'readybook');
+// if (str_contains($host, 'localhost')) {
+//     $asset_url = $asset_url.'/'.env('LOCAL_DIR', 'readybook');
+// }
+
+$asset_url = env('APP_URL', 'http://localhost');
+
+// Only override if HTTP_HOST is available (i.e., not in CLI)
+if (isset($_SERVER['HTTP_HOST'])) {
+    $isHttps = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on';
+    $protocol = $isHttps ? 'https://' : 'http://';
+    //$protocol = $isHttps ? 'https://' : 'https://';
+    $host = $_SERVER['HTTP_HOST'];
+    $asset_url = $protocol . $host;
+
+    if (str_contains($host, 'localhost')) {
+        $asset_url .= '/' . env('LOCAL_DIR', 'readybook');
+    }
 }
 
 return [

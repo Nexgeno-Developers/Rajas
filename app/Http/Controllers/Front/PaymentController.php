@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Http\Services\Interfaces\IPaymentService;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\Log;
 
 
 class PaymentController extends Controller
@@ -271,7 +271,7 @@ class PaymentController extends Controller
     }
 
     public function generatePayuHash(Request $request) {
-        //dd($request->all());
+
         $MERCHANT_KEY = env("PAYUMONEY_KEY");
         $SALT = env("PAYUMONEY_SALT");
         $txnid = substr(hash('sha256', mt_rand() . microtime()), 0, 20);
@@ -309,9 +309,11 @@ class PaymentController extends Controller
     {
         //return $request->mode;
         //return $request->all();
+
+        //return $this->validatePayUResponseHash($request->all(), env("PAYUMONEY_SALT"));
         
         $paymentStatus = $request->status;
-        if($paymentStatus == 'success') {
+        if( $paymentStatus == 'success' && $this->validatePayUResponseHash($request->all(), env("PAYUMONEY_SALT")) ) {
 
             $custom = Setting::first();
 
@@ -348,7 +350,7 @@ class PaymentController extends Controller
                 // $redirectUrl = route('success');
                 // return response()->json(['data' => trans('Thank you! Your Booking is Successfully Booked'),'redirect' => $redirectUrl]);
                 return redirect()->to('/customer/appointment/' . $appointment_id)
-                ->with('success', 'Thank you! Your Booking is Successfully Booked');             
+                ->with('message', 'Thank you! Service Booked Successfully!');             
             }
         }else{
             //failure
@@ -357,7 +359,81 @@ class PaymentController extends Controller
             session()->flash('error', trans('Your booking has been failed'));
             return view('theme.failure', compact('request'));               
         }        
-    }  
+    } 
+    
+    public function payumoney_webhook(Request $request)
+    {
+        sleep(5);
+
+        Log::info('🚀 PayU Webhook Triggered');
+        Log::info('🔍 Webhook Payload:', $request->all());
+
+        $paymentStatus = $request->status;
+        $custom = Setting::first();
+        $appointment_id = $request->productinfo;
+        $payment = Payment::where('appointment_id',$appointment_id)->first();        
+    
+        if( $paymentStatus == 'success' && $this->validatePayUResponseHash($request->all(), env("PAYUMONEY_SALT")) ) {
+    
+            if($payment->status != 'succeeded') {
+                $payment->payment_id = $request->mihpayid;
+                $payment->status = 'succeeded';
+                $payment->payment_gateway_response = json_encode($request->all());
+                $payment->update();
+                if($custom->smtp_mail == 1) {
+                    $appointment = Appointment::find($appointment_id);
+                    $site = DB::table('site_configs')->first();
+                    $user = User::where('id', $appointment->user_id)->first();
+                    $admin = User::where('id', $appointment->admin_id)->first();
+                    $employee = User::where('id', $appointment->employee_id)->first();
+                    $template = 'mail.customer_appointment';
+                    $this->sendEmail($user, $employee, $appointment, $site, $template, $user->email);
+                    $template = 'mail.admin_email';
+                    $this->sendEmail($user, $employee, $appointment, $site, $template, '', $admin);
+                }
+                
+                Log::info('🚀 PayU Webhook Updated The Appointment - PAID : '. $appointment_id);
+            }else{
+                Log::info('🚀 PayU Webhook Updated The Appointment - ALREADY PAID : '. $appointment_id);
+            }
+        } else {
+                
+            $payment->payment_id = $request->mihpayid;
+            $payment->status = 'pending';
+            $payment->payment_gateway_response = json_encode($request->all());
+            $payment->update();
+
+            Log::info('🚀 PayU Webhook Updated The Appointment - FAILED : '. $appointment_id);
+        }       
+    }     
+
+    function validatePayUResponseHash($responseData, $SALT)
+    {
+        // Required fields from response (must exist)
+        $requiredKeys = ['status', 'email', 'firstname', 'productinfo', 'amount', 'txnid', 'key', 'hash'];
+    
+        foreach ($requiredKeys as $key) {
+            if (!isset($responseData[$key])) {
+                return false;
+            }
+        }
+    
+        // Extract the response hash to compare later
+        $receivedHash = strtolower($responseData['hash']);
+    
+        // Construct hash sequence as per PayU reverse hash formula
+        $hashSequence = "{$SALT}|{$responseData['status']}|||||||||||{$responseData['email']}|{$responseData['firstname']}|{$responseData['productinfo']}|{$responseData['amount']}|{$responseData['txnid']}|{$responseData['key']}";
+    
+        // Calculate hash
+        $generatedHash = strtolower(hash('sha512', $hashSequence));
+
+        // var_dump($responseData);
+        // var_dump($generatedHash);
+        // var_dump($receivedHash);
+    
+        // Compare generated hash with received hash
+        return $generatedHash === $receivedHash;
+    }    
 
     public function payumoney_error($request)
     {
@@ -378,5 +454,6 @@ class PaymentController extends Controller
             $payment->update();           
         }      
     }
+    
     
 }

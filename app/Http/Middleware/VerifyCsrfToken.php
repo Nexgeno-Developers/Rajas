@@ -15,5 +15,6 @@ class VerifyCsrfToken extends Middleware
         'payumoney/hash-generate',
         'payumoney/success',
         'payumoney/fail',
+        'payumoney/webhook',
     ];
 }

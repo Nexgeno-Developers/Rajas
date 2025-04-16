@@ -15,13 +15,13 @@ Customer
   2. Add new details in final checkout like number of persons & allowed weight - Complete
   3. Labeling change - Complete
   4. Payment gateway Integration - Complete
-  5. webbook Integration - Pending
+  5. webbook Integration - Complete
   6. Success & Failure Failure page making with required information - Complete
-  7. Hash Validation - Pending
+  7. Hash Validation - Complete
   8. Country , State, Government ID, Number of person, Allowed Weight - Complete
   9. email template modification with new data (Number of person, Weight, Government ID) - Complete
   10. Display New information in receipt form (Number of person, Weight, Government ID, Payment Information, Location) - Complete
-  11. login user again if session out - Pending
+  11. login user again if session out - Complete
   12. Remove Pay later & other payment gateway expects Payumoney - Complete
   13. Editable customer info expect email ID - Pending
 - Basic Flow testing of the exiting feature in frontend panel - Pending
