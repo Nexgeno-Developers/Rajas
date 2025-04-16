@@ -22,6 +22,7 @@
                   <strong class="text-inverse">{{ (ucfirst($payment_detail->appointments->user->first_name)).' '.(ucfirst($payment_detail->appointments->user->last_name)) }}</strong><br>
                   {{ __('Email')}}: {{ $payment_detail->appointments->user->email }}<br>
                   {{ __('Phone')}}: {{ $payment_detail->appointments->user->country_code.$payment_detail->appointments->user->phone }}<br>
+                  {{ __('Goverment ID')}}: {{ $payment_detail->appointments->user->goverment_id }}<br>
                </address>
             </div>
            
@@ -46,6 +47,11 @@
                   <div class="date text-inverse m-t-5"> {{ __('Not Paid')}} </div>
                @endif
                <div class="invoice-detail">
+                  <p class="mb-0 fs--1"><strong>{{ __('Method') }}: </strong> {{ isset($payment_detail) ? ucfirst($payment_detail->payment_method) : '-' }}</p>
+                  @if($payment_detail->payment_id)
+                  <p class="mb-0 fs--1"><strong>{{ __('Payment ID') }}: </strong> {{ isset($payment_detail) ? ucfirst($payment_detail->payment_id) : '-' }}</p>
+                  @endif
+                  <p class="mb-0 fs--1"><strong>{{ __('Payment Status') }}: </strong> {{ isset($payment_detail) ? ucfirst($payment_detail->status) : '-' }}</span></p>
                </div>
             </div>
          </div>
@@ -54,27 +60,32 @@
                <table class="table table-invoice">
                   <thead>
                      <tr>
-                        <th class="text-center" width="10%">{{ __('Category')}}</th>
-                        <th class="text-center" width="10%">{{ __('Service')}}</th>
-                        <th class="text-center" width="10%">{{ __('Start Time')}}</th>
-                        <th class="text-center" width="10%">{{ __('End Time')}}</th>
-                        <th class="text-center" width="10%">{{ __('Appointment Date')}}</th> 
-                        <th class="text-center" width="10%">{{ __('Amount')}}</th>
+                        <th class="text-left" width="10%">{{ __('Category')}}</th>
+                        <th class="text-left" width="20%">{{ __('Service')}}</th>
+                        <th class="text-left" width="20%">{{ __('Addional Information') }}</th>
+                        <th class="text-left" width="10%">{{ __('Start Time')}}</th>
+                        <th class="text-left" width="10%">{{ __('End Time')}}</th>
+                        <th class="text-left" width="20%">{{ __('Appointment Date')}}</th> 
+                        <th class="text-left" width="10%">{{ __('Amount')}}</th>
                      </tr>
                   </thead>
                   <tbody>
                      <tr>
-                     <td class="text-center">
+                     <td class="text-left">
                            <span class="text-inverse">{{ (ucfirst($payment_detail->appointments->category_id)) }}</span><br>
                         </td>                        
-                        <td class="text-center">
+                        <td class="text-left">
                            <span class="text-inverse">{{ (ucfirst($payment_detail->appointments->service_id)) }}</span><br>
                         </td>
-                        <td class="text-center">{{ date('H:i a',strtotime(trim($payment_detail->appointments->start_time))) }}</td>
+                        <td class="text-left">
+                           <p class="mb-0">Allowed Weight : {{ ucfirst($payment_detail->appointments->allowed_weight) }} {{__("Kg")}}</p>
+                           <p class="mb-0">Allowed Persons : {{ ucfirst($payment_detail->appointments->no_of_person_allowed) }}</p>
+                        </td>                          
+                        <td class="text-left">{{ date('H:i a',strtotime(trim($payment_detail->appointments->start_time))) }}</td>
                         <td class="text-center">{{ date('H:i a',strtotime(trim($payment_detail->appointments->finish_time))) }}</td>
-                        <td class="text-center">{{ date($custom->date_format, strtotime($payment_detail->appointments->date)) }}</td>
+                        <td class="text-left">{{ date($custom->date_format, strtotime($payment_detail->appointments->date)) }}</td>
                         <!-- <td class="text-center">{{ $custom->currency_icon}}{{ $payment_detail->amount }}</td> -->
-                        <td class="text-center">{{ $custom->currency_icon}}{{ Helper::removeTax( $payment_detail->amount, $payment_detail->tax) }}</td>
+                        <td class="text-left">{{ $custom->currency_icon}}{{ Helper::removeTax( $payment_detail->amount, $payment_detail->tax) }}</td>
                      </tr>
                   </tbody>
                </table>

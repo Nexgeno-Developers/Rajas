@@ -123,8 +123,10 @@
                                         <td><span class="badge bg-info">{{ ucfirst($appointment->status) }}</span></td>
                                     @endif
                                     <td>{{ $appointment->comments }}</td>
-                                    <td><a class="btn btn-default btn-lg mt-0" href="{{ route('appointments.show',$appointment->id) }}">
-                                            <span class="glyphicon glyphicon-eye-open"></span></a></td>
+                                    <td>
+                                        <a class="btn btn-default btn-lg mt-0" href="{{ route('appointments.show',$appointment->id) }}"><span class="glyphicon glyphicon-eye-open"></span></a>
+                                        <a class="btn btn-default btn-lg mt-0" href="{{ route('paymentview',$appointment->payment->id) }}"><span class="fa fa-inr"></span></a>
+                                    </td>
                                 </tr>
                             @endforeach
                             </tbody>

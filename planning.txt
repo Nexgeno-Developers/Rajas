@@ -24,30 +24,31 @@ Customer
   11. login user again if session out - Complete
   12. Remove Pay later & other payment gateway expects Payumoney - Complete
   13. Editable customer info expect email ID - Pending
+  14. Understant Time Slots - Pending
 - Basic Flow testing of the exiting feature in frontend panel - Pending
 
 
 Super admin
 - Customer manage
     1. Flash Message in Customer manage in admin Not working - Complete
-    2. Country , State, Government ID fields in show & edit forms - Complete
+    2. Country, State, Government ID fields in show & edit forms - Complete
 
 - Employee manage
     1. Country , State fields in create & edit forms - Complete
-    2. Map Appointment & Payment via button 
+    2. Map Appointment & Payment via button - Complete
 
 - Services 
-    1. Added GST & Excluded Price fields with segregated calculation in edit, view & add form
-    2. Added text editor in Description
-    3. added number of person & weight fields
+    1. Added GST & Excluded Price fields with segregated calculation in edit, view & add form - Complete
+    2. Added text editor in Description - Complete
+    3. added number of person & weight fields - Complete 
 
 - Appointments 
-    1. Display New information in receipt form (Number of person, Weight, Government ID)
-    2. Payment map via button
+    1. Display New information in receipt form (Number of person, Weight, Government ID) - Complete
+    2. Payment map via button - Complete
 
 - Payments 
-    1. Display New information in receipt form (Number of person, Weight, Government ID, Payment Information, GST Calculations)
-    2. Payment map via button
+    1. Display New information in receipt form (Number of person, Weight, Government ID, Payment Information, GST Calculations) - Complete
+    2. Payment map via button - Complete
 
 - Settings 
     1. Make PUM block for modification of credentials
@@ -59,10 +60,10 @@ Common
 - Remove Number Validation from fields where not required - Complete
 - Make Email ID read-only everywhere in customer as well as admin panel - Complete
 - Email SMTP Configuration - Complete
-- Form Protect middleware
-- Hide Unwanted Things which is not necessary
 - Contact Form Email Fixed - Complete
-- Module issue Fix in Registration
+- Form Protect middleware - Pending
+- Hide Unwanted Things which is not necessary - Pending
+- Module issue Fix in Registration - Pending
 
 
 

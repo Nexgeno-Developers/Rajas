@@ -55,6 +55,10 @@
                                 <strong>{{ __('Phone') }}: </strong> <span
                                     class="">{{ $appointment->user->country_code.$appointment->user->phone }}</span>
                             </div>
+                            <div class="mb-0 fs--1">
+                                <strong>{{ __('Goverment ID') }}: </strong> <span
+                                    class="">{{ $appointment->user->goverment_id }}</span>
+                            </div>                            
                         </div>
 
                         @if($custom->employees == 1)
@@ -64,6 +68,8 @@
                                 <div class="mb-2">
                                     {{ !empty($appointment->employee) ? ucfirst($appointment->employee->first_name).' '.ucfirst($appointment->employee->last_name) : 'Employee Not Available' }}
                                 </div>
+                                <p class="mb-0 fs--1"> <strong>{{ __('Email') }}: </strong>{{ $appointment->employee->email }}</p>
+                                <p class="mb-0 fs--1"> <strong>{{ __('Phone') }}: </strong>{{ $appointment->employee->country_code.$appointment->employee->phone }}</p>                                 
                             </div>
                             @endif
                         @endif
@@ -73,7 +79,9 @@
                             <div class="flex-1">
                             <div class="mb-0">
                                 <p class="mb-0 fs--1"><strong>{{ __('Method') }}: </strong> {{ isset($appointment->payment) ? ucfirst($appointment->payment->payment_method) : '-' }}</p>
+                                @if($appointment->payment->payment_id)
                                 <p class="mb-0 fs--1"><strong>{{ __('Payment ID') }}: </strong> {{ isset($appointment->payment) ? ucfirst($appointment->payment->payment_id) : '-' }}</p>
+                                @endif
                                 <p class="mb-0 fs--1"><strong>{{ __('Amount') }}: </strong> {{ isset($appointment->payment) ? $custom->currency_icon.ucfirst($appointment->payment->amount) : '-' }}</p>
                                 <p class="mb-0 fs--1"><strong>{{ __('Payment Status') }}: </strong> {{ isset($appointment->payment) ? ucfirst($appointment->payment->status) : '-' }}</span></p>
                             </div>
@@ -106,7 +114,7 @@
                                         <p class="mb-0 text-nowrap previous-serviceid" data-previous-serviceid="{{ old('employee_id') }}">{{ ucfirst($appointment->service_id) }}</p>
                                     </td>
                                     <td class="align-middle">
-                                        <p class="mb-0 text-nowrap">Allowed Weight : {{ ucfirst($appointment->allowed_weight) }}</p>
+                                        <p class="mb-0 text-nowrap">Allowed Weight : {{ ucfirst($appointment->allowed_weight) }} {{__("Kg")}}</p>
                                         <p class="mb-0 text-nowrap">Allowed Persons : {{ ucfirst($appointment->no_of_person_allowed) }}</p>
                                     </td>                                     
                                     <td class="align-middle">

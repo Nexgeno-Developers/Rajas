@@ -88,6 +88,7 @@
                                     <td>{{ $custom->currency_icon}}{{ $payment->amount }} </td>
                                     
                                     <td><span class="bg-{{ (in_array($payment->status,['approved','completed'])) ? (in_array($payment->status,['completed'])) ? 'info' : 'success' : 'danger'}} badge">{{ ucfirst($payment->status) }}</span></td>
+
                                     @if($payment->pstatus == 'success' || $payment->pstatus == 'succeeded')
                                     <td><span class="bg-success badge">{{ __('Succeeded')}}</span></td>
                                     @endif
@@ -99,9 +100,14 @@
                                             <a class="btn btn-success" href="{{ route('pay',$payment->id) }}">{{ __('Add Payment')}}</a>
                                         @endif
                                         
-                                        <a class="btn btn-default btn-lg" href="{{ route('paymentview',$payment->id) }}">
+                                        <!-- <a class="btn btn-default btn-lg" href="{{ route('paymentview',$payment->id) }}">
                                             <span class="glyphicon glyphicon-eye-open"></span>
-                                        </a>
+                                        </a> -->
+                                        @php
+                                            $appointmentId = optional(DB::table('payments')->where('id', $payment->id)->first())->appointment_id;
+                                        @endphp                                        
+                                        <a class="btn btn-default btn-lg mt-0" href="{{ route('appointments.show', $appointmentId) }}"><span class="glyphicon glyphicon-eye-open"></span></a>
+                                        <a class="btn btn-default btn-lg mt-0" href="{{ route('paymentview',$payment->id) }}"><span class="fa fa-inr"></span></a>
                                     </td>
                                 </tr>
                             @endforeach

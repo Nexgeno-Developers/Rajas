@@ -33,6 +33,8 @@
     "notification_appointment_complete": ":name Your appointment of :date has been Completed. Your time is :start To :end",
     "Employee": "Company",
     "Employee Name": "Company Name",
+    "Employee Detail": "Company Details",
+    "Customer Detail": "Customer Details",
     "Appointment Date": "Booking Date",
     "Appointment Date & Time": "Booking Date & Time",
     "Appointment Details": "Booking Details",
