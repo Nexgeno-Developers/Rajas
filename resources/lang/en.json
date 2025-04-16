@@ -41,5 +41,9 @@
     "Appointment Time": "Booking Time",
     "Appointment Status": "Booking Status",
     "Appointment Detail": "Booking Detail",
-    "Category": "Location"
+    "Category": "Location",
+    "List of all Categories": "List of all Locations",
+    "Create New Categories": "Create New Locations",
+    "Edit Category": "Edit Location",
+    "Categories": "Locations"
 }
