@@ -32,9 +32,12 @@
     "notification_cancel_text": "Your appointment has been Canceled on :title. The appointment canceled details are as below",
     "notification_appointment_complete": ":name Your appointment of :date has been Completed. Your time is :start To :end",
     "Employee": "Company",
+    "Employee Name": "Company Name",
     "Appointment Date": "Booking Date",
     "Appointment Date & Time": "Booking Date & Time",
     "Appointment Details": "Booking Details",
     "Appointment Time": "Booking Time",
+    "Appointment Status": "Booking Status",
+    "Appointment Detail": "Booking Detail",
     "Category": "Location"
 }

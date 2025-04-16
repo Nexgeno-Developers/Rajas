@@ -1,26 +1,93 @@
-Customer Information Modification - 7 Hours
-    - Remove stecial character validation in wherever workin in customer module - 1 Hour -- Complete
-    - Make Email ID Readonly everywhere - 15 Minutes -- Complete
-    - Do auto login after registration - 30 Minutes -- Complete
-    - Add fileds Country, State, City, Zipcode in Customer Profile, 3rd Step of Booking Form, Customer Edit in admin, Customer View in admin - 4 Hour 
-    - In Booking Form, Give Customer Detail Edit Options (Optional) - 1 Hour
-
-Employee Information Modification - 
-    - Remove stecial character validation in wherever workin in customer module
-    - Make Email ID Readonly everywhere
-    - Add fileds Country, State, City, Zipcode, Company Name
-
-Consider For now
-    - Superadmin role as Main Company, Which have all access
-    - Consider Employee as Branch Who can accept only Payments in panel
-
-Improvements
-- flash message not working
-- form protect mddlware add
-
 DB Changes
 - country,city,zipcode, state field added  in users
 - cities, countries & states table import
 - added tax in services table
 - change desc longtext services table
 - appointments added coum weight & person
+
+Improvements
+
+Customer
+- Direct login after registration - Complete
+- Country , State, Government ID fields Add in Customers profile edit - Complete
+- Frontend Booking Form
+  1. Validation of new fields - Complete
+  2. Add new details in final checkout like number of persons & allowed weight - Complete
+  3. Labeling change - Complete
+  4. Payment gateway Integration - Complete
+  5. webbook Integration - Pending
+  6. Success & Failure Failure page making with required information - Complete
+  7. Hash Validation - Pending
+  8. Country , State, Government ID, Number of person, Allowed Weight - Complete
+  9. email template modification with new data (Number of person, Weight, Government ID) - Complete
+  10. Display New information in receipt form (Number of person, Weight, Government ID, Payment Information, Location) - Complete
+  11. login user again if session out - Pending
+  12. Remove Pay later & other payment gateway expects Payumoney - Complete
+  13. Editable customer info expect email ID - Pending
+- Basic Flow testing of the exiting feature in frontend panel - Pending
+
+
+Super admin
+- Customer manage
+    1. Flash Message in Customer manage in admin Not working - Complete
+    2. Country , State, Government ID fields in show & edit forms - Complete
+
+- Employee manage
+    1. Country , State fields in create & edit forms - Complete
+    2. Map Appointment & Payment via button 
+
+- Services 
+    1. Added GST & Excluded Price fields with segregated calculation in edit, view & add form
+    2. Added text editor in Description
+    3. added number of person & weight fields
+
+- Appointments 
+    1. Display New information in receipt form (Number of person, Weight, Government ID)
+    2. Payment map via button
+
+- Payments 
+    1. Display New information in receipt form (Number of person, Weight, Government ID, Payment Information, GST Calculations)
+    2. Payment map via button
+
+- Settings 
+    1. Make PUM block for modification of credentials
+
+
+
+Common
+- Country , State , Cities Tables add in database - Complete
+- Remove Number Validation from fields where not required - Complete
+- Make Email ID read-only everywhere in customer as well as admin panel - Complete
+- Email SMTP Configuration - Complete
+- Form Protect middleware
+- Hide Unwanted Things which is not necessary
+- Contact Form Email Fixed - Complete
+- Module issue Fix in Registration
+
+
+
+faizal.nexgeno@gmail.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+- Labeling
+
+
+
+
+
+
+

@@ -40,6 +40,7 @@
                         </h6>
                         <p class="mb-0 fs--1"> <strong>{{ __('Email') }}: </strong>{{ $appointment->user->email }}</p>
                         <p class="mb-0 fs--1"> <strong>{{ __('Phone') }}: </strong>{{ $appointment->user->country_code.$appointment->user->phone }}</p>
+                        <p class="mb-0 fs--1"> <strong>{{ __('Goverment ID') }}: </strong>{{ $appointment->user->goverment_id }}</p>
                     </div>
                     <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
                         <h5 class="mb-3 fs-0">{{ __('Employee') }} Details</h5>

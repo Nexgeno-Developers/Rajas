@@ -10,6 +10,7 @@ use App\Entities\Appointment;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Http\Services\Interfaces\IPaymentService;
+use Illuminate\Support\Facades\Auth;
 
 
 
@@ -339,6 +340,11 @@ class PaymentController extends Controller
                     $template = 'mail.admin_email';
                     $this->sendEmail($user, $employee, $appointment, $site, $template, '', $admin);
                 }
+
+                if (!Auth::check()) {
+                    Auth::loginUsingId($appointment->user_id);
+                }
+
                 // $redirectUrl = route('success');
                 // return response()->json(['data' => trans('Thank you! Your Booking is Successfully Booked'),'redirect' => $redirectUrl]);
                 return redirect()->to('/customer/appointment/' . $appointment_id)
@@ -358,6 +364,12 @@ class PaymentController extends Controller
         $appointment_id = $request->productinfo;
     
         $payment = Payment::where('appointment_id',$appointment_id)->first();
+        $appointment = Appointment::find($appointment_id);
+
+        if (!Auth::check()) {
+            Auth::loginUsingId($appointment->user_id);
+        }
+
         if(!$payment) {
             return response()->json(['error' => trans('Payment Time is over. Please Select Another Booking')]);
         } else {

@@ -82,6 +82,14 @@
       </tr>
       <tr>
         <td style="width:50%;padding:5px;vertical-align:top">
+          <p style="margin:0 0 10px 0;padding:0;font-size:14px;"><span style="display:block;font-weight:bold;font-size:13px;">{{ __('Number of Persons')}}</span>  {{ $appointment->no_of_person_allowed }}</p>
+        </td>
+        <td style="width:50%;padding:5px;vertical-align:top">
+          <p style="margin:0 0 10px 0;padding:0;font-size:14px;"><span style="display:block;font-weight:bold;font-size:13px;">{{ __('Allowed Weight') }}</span> {{ $appointment->allowed_weight }} {{__('Kg')}} </p>
+        </td>  
+      </tr>      
+      <tr>
+        <td style="width:50%;padding:5px;vertical-align:top">
           <p style="margin:0 0 10px 0;padding:0;font-size:14px;"><span style="display:block;font-weight:bold;font-size:13px;">{{ __('Appointment Date') }}</span>  {{date('d F Y', strtotime($appointment->date))}}</p>
         </td>
         <td style="width:50%;padding:5px;vertical-align:top">
@@ -104,12 +112,13 @@
       <tr>
         <td colspan="2" style="font-size:14px;padding:10px 15px 0 15px;">
           <strong style="display:block;margin:0 0 10px 0;">{{ __('Regards') }}</strong> {{ $site->address }}<br><br>
+          <!-- <strong style="display:block;margin:0 0 10px 0;">{{ __('Regards') }}</strong> {{ $site->company_name }}<br><br> -->
           <b>{{ __('Phone')}}:</b> {{$site->phone}}<br>
         </td>
       </tr>
       <tr>
           <td style="padding:15px 0 0 0;">
-                <table style="width:100%;margin:auto;max-width:250px;margin-left: 140px;">
+                <!-- <table style="width:100%;margin:auto;max-width:250px;margin-left: 140px;">
                 <tbody><tr>
                       <td style="padding:0">
                       <a style="display:block"><img alt="{{ __('google') }}" height="19px" width="auto" title="{{ __('google') }}" style="display:block;margin:auto" src="{{asset('rbtheme/img/google.png')}}" /></a>
@@ -131,10 +140,11 @@
                       </td>
                   </tr>
               </tbody>
-              </table>
+              </table> -->
           </td>
       </tr>
     </tfooter>
   </table>
+  <!-- Sent to customer During Appointmnet book via payment gateway by customer -->
 </body>
 </html>

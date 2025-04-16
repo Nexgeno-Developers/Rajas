@@ -254,5 +254,6 @@
             </table>
         </div>
     </div>
+    <!-- This Email is common for  custome & Employee during pay later feature-->
 </body>
 </html>

@@ -255,11 +255,11 @@ var wizardInit = function wizardInit() {
                 }
             } else if (count == 2) {
                 inputPhone.value = inputPhone.value.replace("+","");
-                console.log("Goverment ID in Count :" + govermentId.value);
-                console.log("Country in Count :" + country.value);
-                console.log("State in Count :" + state.value);
-                console.log("allowedPerson in Count :" + allowedPerson.value);
-                console.log("allowedWeight in Count :" + allowedWeight.value);
+                // console.log("Goverment ID in Count :" + govermentId.value);
+                // console.log("Country in Count :" + country.value);
+                // console.log("State in Count :" + state.value);
+                // console.log("allowedPerson in Count :" + allowedPerson.value);
+                // console.log("allowedWeight in Count :" + allowedWeight.value);
                 if ((!inputEmail.value || !inputFirstName.value || !inputLastName.value || !inputPhone.value || !inputDetail.value || !govermentId.value || !country.value || !state.value || !allowedPerson.value || !allowedWeight.value)) {
                     if (!inputEmail.value) {
                         document.querySelector(".email-error").innerHTML = translate.please_enter_the_email;
@@ -667,11 +667,11 @@ var wizardInit = function wizardInit() {
                         $(".booking_time").html(selectSlot.value);
                     } else if (step == 2) {
                         form.classList.remove('was-validated');
-                        console.log("Goverment ID in Step :" + govermentId.value);
-                        console.log("Country in Step :" + country.value);
-                        console.log("State in Step :" + state.value);
-                        console.log("allowedPerson in Step :" + allowedPerson.value);
-                        console.log("allowedWeight in Step :" + allowedWeight.value);                        
+                        // console.log("Goverment ID in Step :" + govermentId.value);
+                        // console.log("Country in Step :" + country.value);
+                        // console.log("State in Step :" + state.value);
+                        // console.log("allowedPerson in Step :" + allowedPerson.value);
+                        // console.log("allowedWeight in Step :" + allowedWeight.value);                        
                         if ((!(inputEmail.value && validatePattern(emailPattern, inputEmail.value)) || !inputFirstName.value || !inputLastName.value || !inputPhone.value || !inputDetail.value || !govermentId.value || !country.value || !state.value || !allowedPerson.value || !allowedWeight.value)) {
                             if (validatePattern(emailPattern, inputEmail.value)) {
                                 document.querySelector(".email-error").innerHTML = translate.please_enter_valid_email;
@@ -774,6 +774,8 @@ var wizardInit = function wizardInit() {
                         // form.classList.add('was-validated');
                         //form.classList.remove('was-validated');
                         //validation end - new
+
+                        $('.payment_method[data-value="payumoney"]').trigger('click'); //new - default payu select
 
                     } else if (step == 3) {
                         form.classList.remove('was-validated');
