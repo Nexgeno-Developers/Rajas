@@ -29,8 +29,13 @@ class PaymentController extends Controller
         } else {
             $rowIndex = 1;
         }
-        $payment_history = Appointment::select('payments.id','payments.payment_method','payments.amount','payments.status as pstatus','appointments.user_id','appointments.date','appointments.status')
+        // $payment_history = Appointment::select('payments.id','payments.payment_method','payments.amount','payments.status as pstatus','appointments.user_id','appointments.date','appointments.status')
+        //                     ->join('payments', 'payments.appointment_id', '=', 'appointments.id')
+        //                     ->where('admin_id',Auth::user()->id)->orderBy('id','DESC')->get();   
+
+        $payment_history = Appointment::select('payment_details.account_no', 'payment_details.cheque_no', 'payment_details.account_holder_name', 'payment_details.bank_name', 'payment_details.ifsc_code', 'payments.payment_type', 'payments.payment_id', 'payments.upi_id','payments.id','payments.payment_method','payments.amount','payments.status as pstatus','appointments.user_id','appointments.date','appointments.status')
                             ->join('payments', 'payments.appointment_id', '=', 'appointments.id')
+                            ->leftJoin('payment_details', 'payment_details.id', '=', 'payments.payment_detail_id')
                             ->where('admin_id',Auth::user()->id)->orderBy('id','DESC')->get();           
         return view('payments.index',compact('payment_history','custom','site','rowIndex'));
     }
@@ -145,13 +150,18 @@ class PaymentController extends Controller
         $enddate = $request->input('enddate');
         
         if(!empty($status) && !empty($enddate) && !empty($startdate) && !empty($payment_method)) {
-            $payment_history =  Appointment::select('payments.id','payments.payment_method','payments.amount','payments.status as pstatus','appointments.user_id','appointments.date','appointments.status')
+            // $payment_history =  Appointment::select('payments.id','payments.payment_method','payments.amount','payments.status as pstatus','appointments.user_id','appointments.date','appointments.status')
+            //                                 ->join('payments', 'payments.appointment_id', '=', 'appointments.id')
+            //                                 ->where('admin_id',Auth::user()->id)->orderBy('id','DESC')->get(); 
+            $payment_history =  Appointment::select('payment_details.account_no', 'payment_details.cheque_no', 'payment_details.account_holder_name', 'payment_details.bank_name', 'payment_details.ifsc_code', 'payments.payment_type', 'payments.payment_id', 'payments.upi_id','payments.id','payments.payment_method','payments.amount','payments.status as pstatus','appointments.user_id','appointments.date','appointments.status')
                                             ->join('payments', 'payments.appointment_id', '=', 'appointments.id')
+                                            ->leftJoin('payment_details', 'payment_details.id', '=', 'payments.payment_detail_id')
                                             ->where('admin_id',Auth::user()->id)->orderBy('id','DESC')->get(); 
                                         
         }else {
-            $payment_history =  Appointment::select('payments.id','payments.payment_method','payments.amount','payments.status as pstatus','appointments.user_id','appointments.date','appointments.status')
+            $payment_history =  Appointment::select('payment_details.account_no', 'payment_details.cheque_no', 'payment_details.account_holder_name', 'payment_details.bank_name', 'payment_details.ifsc_code', 'payments.payment_type', 'payments.payment_id', 'payments.id','payments.payment_method','payments.amount','payments.status as pstatus','appointments.user_id','appointments.date','appointments.status')
                                             ->join('payments', 'payments.appointment_id', '=', 'appointments.id')
+                                            ->leftJoin('payment_details', 'payment_details.id', '=', 'payments.payment_detail_id')
                                             ->where('admin_id',Auth::user()->id)->orderBy('id','DESC')->where(function($a) use ($request) { 
                                                 if(!empty($request->status)) {  
                                                     $a->where('payments.status', $request->status);

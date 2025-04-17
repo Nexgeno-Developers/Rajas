@@ -54,7 +54,7 @@
                         <h5 class="mb-3 fs-0">{{ __('Payment Information') }}</h5>
                         <div class="flex-1">
                             <h6 class="mb-0">
-                                <p class="mb-0 fs--1"><strong>{{ __('Method') }}: </strong> {{ isset($appointment->payment) ? ucfirst($appointment->payment->payment_method) : '-' }}</p>
+                                <p class="mb-0 fs--1"><strong>{{ __('Method') }}: </strong> {{ isset($appointment->payment) ? ucfirst($appointment->payment->payment_method) : '-' }}</p> {{-- $appointment->payment->payment_type ? ' - '.ucfirst($appointment->payment->payment_type) : null --}}
                                 @if($appointment->payment->payment_id)
                                 <p class="mb-0 fs--1"><strong>{{ __('Payment ID') }}: </strong> {{ isset($appointment->payment) ? ucfirst($appointment->payment->payment_id) : '-' }}</p>
                                 @endif

@@ -46,5 +46,9 @@
     "Create New Categories": "Create New Locations",
     "Edit Category": "Edit Location",
     "Book Appointment": "Booking Form",
-    "Categories": "Locations"
+    "Categories": "Locations",
+    "List of all appointments": "List of all bookings",
+    "Appointments": "Bookings",
+    "Appointment Start Date": "Booking Start Date",
+    "Appointment End Date": "Booking End Date"
 }

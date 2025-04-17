@@ -45,13 +45,15 @@ Super admin
 - Appointments 
     1. Display New information in receipt form (Number of person, Weight, Government ID) - Complete
     2. Payment map via button - Complete
+    3. Create New fileds Number of person & Weight with validation of service - Complete
+    4. Modification in Email Template & Passing New inputs - Complete
 
 - Payments 
     1. Display New information in receipt form (Number of person, Weight, Government ID, Payment Information, GST Calculations) - Complete
     2. Payment map via button - Complete
 
 - Settings 
-    1. Make PUM block for modification of credentials
+    1. Make PUM block for modification of credentials - Pending
 
 
 
@@ -62,12 +64,9 @@ Common
 - Email SMTP Configuration - Complete
 - Contact Form Email Fixed - Complete
 - Form Protect middleware - Pending
+- Recaptcha V3 middleware - Pending
 - Hide Unwanted Things which is not necessary - Pending
-- Module issue Fix in Registration - Pending
-
-
-
-faizal.nexgeno@gmail.com
+- Validation issue Fix in Registration - Pending
 
 
 

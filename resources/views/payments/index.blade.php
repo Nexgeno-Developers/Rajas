@@ -74,6 +74,7 @@
                                     <th>{{ __('Amount') }}</th>
                                     <th>{{ __('Appointment Status')}}</th>
                                     <th>{{ __('Payment Status')}}</th>
+                                    <th>{{ __('Payment Details')}}</th>
                                     <th class="t-right">{{ __('Action')}}</th>
                                 </tr>
                             </thead>
@@ -95,9 +96,27 @@
                                     @if($payment->pstatus == 'pending')
                                     <td><span class="bg-danger badge">{{ ucfirst($payment->pstatus) }}</span></td>
                                     @endif
+
+                                    <td style="font-size: 12px;">
+                                        @if($payment->payment_method == 'payumoney')
+                                            <div>Payment ID: {{$payment->payment_id}}</div>
+                                        @else
+                                            @if($payment->payment_type == 'upi')
+                                                <div>Upi ID : {{$payment->upi_id}}</div>
+                                            @elseif($payment->payment_type == 'cheque')
+                                                <div>A/C No : {{$payment->account_no}}</div>
+                                                <div>Chq. NO : {{$payment->cheque_no}}</div>
+                                                <div>A/C Holder : {{$payment->account_holder_name}}</div>
+                                                <div>Bank : {{$payment->bank_name}}</div>
+                                                <div>IFSC : {{$payment->ifsc_code}}</div>
+                                            @endif  
+                                        @endif
+                                    </td>
+
+
                                     <td class="t-right">
                                         @if($payment->payment_method == 'offline' && $payment->pstatus == 'pending' && $payment->status == 'approved')
-                                            <a class="btn btn-success" href="{{ route('pay',$payment->id) }}">{{ __('Add Payment')}}</a>
+                                            <a class="btn btn-sm btn-success" href="{{ route('pay',$payment->id) }}">{{ __('Add Payment')}}</a>
                                         @endif
                                         
                                         <!-- <a class="btn btn-default btn-lg" href="{{ route('paymentview',$payment->id) }}">
