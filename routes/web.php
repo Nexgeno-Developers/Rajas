@@ -37,7 +37,7 @@ Route::middleware(['auth', 'xss'])->group(function () {
 
     //Route::resource('users','UserController');
     Route::resource('users','UserController')->except(['update']);
-    Route::patch('users/{user}', 'UserController@update')->name('users.update')->middleware(['throttle:5,1', 'recaptcha']);    
+    Route::patch('users/{user}', 'UserController@update')->name('users.update')->middleware(['throttle:5,1', 'recaptcha', 'sql_guard']);    
 
     Route::resource('categories','CategoryController');
 
@@ -115,7 +115,7 @@ Route::middleware(['auth', 'xss'])->group(function () {
     Route::post('employees/categoryservice','EmployeeController@categoryservice')->name('categoryservice');
 
     //Route::patch('users/updatePassword/{id}','UserController@updatePassword')->name('updatePassword');
-    Route::patch('users/updatePassword/{id}','UserController@updatePassword')->middleware(['throttle:5,1', 'recaptcha'])->name('updatePassword');
+    Route::patch('users/updatePassword/{id}','UserController@updatePassword')->middleware(['throttle:5,1', 'recaptcha', 'sql_guard'])->name('updatePassword');
 
     Route::patch('users/social-profile/{id}','UserController@updateSocialProfile')->name('users.social');
 
@@ -170,7 +170,7 @@ Route::prefix('appointment')->middleware('xss')->group(function () {
 
     Route::any('/filter','AppointmentController@filter')->name('appointment-filter');
 
-    Route::post('/create','Front\AppointmentController@create')->name('appointment.create')->middleware(['throttle:3,1', 'recaptcha']);
+    Route::post('/create','Front\AppointmentController@create')->name('appointment.create')->middleware(['throttle:3,1', 'recaptcha', 'sql_guard']);
 
     Route::get('/book','Front\AppointmentController@index')->name('appointment.book');
 
@@ -223,8 +223,8 @@ Route::get('dashboard', 'AppointmentController@dashboard')->name('dashboard')->m
 // Route::post('register','Auth\RegisterController@store')->name('register')->middleware('xss');
 // Route::post('/login','Auth\LoginController@login')->name('login')->middleware('xss');
 
-Route::post('register', 'Auth\RegisterController@store')->name('register')->middleware(['xss', 'recaptcha', 'throttle:5,1']);
-Route::post('/login', 'Auth\LoginController@login')->name('login')->middleware(['xss', 'recaptcha', 'throttle:5,1']);
+Route::post('register', 'Auth\RegisterController@store')->name('register')->middleware(['xss', 'recaptcha', 'throttle:5,1', 'sql_guard']);
+Route::post('/login', 'Auth\LoginController@login')->name('login')->middleware(['xss', 'recaptcha', 'throttle:5,1', 'sql_guard']);
 
 Route::get('/signup','Auth\RegisterController@signup')->name('signup')->middleware('xss');
 
@@ -234,7 +234,7 @@ Route::get('/{id}/appointment/payment/success','Front\PaymentController@stripeSu
 
 Route::post('payment','Front\PaymentController@afterPayment')->name('payment')->middleware('xss');
 
-Route::post('/forgot/password/mail', 'Auth\ForgotPasswordController@forgotPasswordMail')->name('password.forgot.mail')->middleware(['xss', 'recaptcha', 'throttle:3,1']);
+Route::post('/forgot/password/mail', 'Auth\ForgotPasswordController@forgotPasswordMail')->name('password.forgot.mail')->middleware(['xss', 'recaptcha', 'throttle:3,1', 'sql_guard']);
 
 Route::post('/reset/password/form', 'Auth\ResetPasswordController@UserResetPassword')->name('password.reset.form');
 

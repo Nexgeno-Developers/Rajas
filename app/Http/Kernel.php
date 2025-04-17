@@ -62,5 +62,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'xss' => \MasterRO\LaravelXSSFilter\FilterXSS::class,
         'recaptcha' => \App\Http\Middleware\VerifyRecaptcha::class,
+        'sql_guard' => \App\Http\Middleware\SQLInjectionGuard::class,
     ];
 }
