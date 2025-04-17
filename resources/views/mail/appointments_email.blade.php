@@ -187,7 +187,7 @@
                                         <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:16px;font-weight:bold;color:#007aff;line-height:20px;margin-bottom:5px">
                                             {{ __('Allowed Weight') }}:
                                         <span style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:14px;font-weight:normal;color:#73788b;line-height:20px">
-                                            {{ $appointment->allowed_weight }}
+                                            {{ $appointment->allowed_weight }} {{__("Kg")}}
                                         </span></p>
                                     </td>
                                 </tr>

@@ -217,6 +217,7 @@ class AppointmentController extends Controller
                             $post['payment_method'] = 'offline';
                             $post['currency'] = 'inr';
                             $post['amount'] = $service->price;
+                            $post['tax'] = $service->tax;
                             $post['status'] = 'pending';
                             $this->payment->insert(new Payment($post));
                             $user = User::where('id', $appointment->user_id)->first();

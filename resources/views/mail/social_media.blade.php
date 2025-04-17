@@ -3,10 +3,10 @@
         <a href="{{ route('appointments.show',$appointment->id) }}"
             style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;background:#007aff;padding:12px 30px;color:#ffffff;font-size:14px;font-weight:700;letter-spacing:0.5px;line-height:16px;border-radius:3px;text-decoration:none;display:inline-block"
             target="_blank"
-            data-saferedirecturl="https://www.google.com/url?q=https://hrms.ubsapp.com/L4mqbi0wHu/leave/view/624e707388889f627463d7a6/62fc8fd3cc91ba267575e861&amp;source=gmail&amp;ust=1661063257263000&amp;usg=AOvVaw135T0_ceGFD3IWv9TPZQim">{{ __('View Details')}}</a>
+            data-saferedirecturl="https://www.google.com/url?q=https://hrms.ubsapp.com/L4mqbi0wHu/leave/view/624e707388889f627463d7a6/62fc8fd3cc91ba267575e861&amp;source=gmail&amp;ust=1661063257263000&amp;usg=AOvVaw135T0_ceGFD3IWv9TPZQim">{{ __('Go to Website')}}</a>
     </td>
 </tr>
-<tr>
+<!-- <tr>
     <td style="padding:15px 20px 0 20px">
         <table style="width:100%;margin:auto;border-bottom:1px solid #ebecf2;padding-bottom:15px">
             <tbody>
@@ -24,12 +24,12 @@
             </tbody>
         </table>
     </td>
-</tr>
+</tr> -->
 <tr>
     <td style="padding:15px 20px 10px 20px">
         <table style="width:100%;margin:auto;padding-bottom:15px">
             <tbody>
-                <tr>
+                <!-- <tr>
                     <td style="padding:0;text-align:center">
                         <p
                             style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;font-style:italic;font-weight:normal;font-size:14px;line-height:18px;color:#1e2538;margin:0">
@@ -38,7 +38,7 @@
                                 style="margin:0;color:#007aff;font-size:14px;font-weight:500;line-height:16px;display:inline-block;font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif"
                                 target="_blank">{{ $site_name }}</a>.</p>
                     </td>
-                </tr>
+                </tr> -->
                 <tr>
                     <td style="padding:15px 0 0 0">
                         <p
@@ -48,7 +48,7 @@
                                 target="_blank">{{ $company_name }}</a>.{{ __(' All rights reserved')}}.</p>
                     </td>
                 </tr>
-                <tr>
+                <!-- <tr>
                     <td style="padding:15px 0 0 0">
                         <table style="width:100%;margin:auto;max-width:250px">
                             <tbody>
@@ -92,7 +92,7 @@
                             </tbody>
                         </table>
                     </td>
-                </tr>
+                </tr> -->
             </tbody>
         </table>
     </td>

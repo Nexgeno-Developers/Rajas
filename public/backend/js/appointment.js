@@ -170,11 +170,23 @@
 
     $("#service_id").on('change',function(){
 
+        //alert(1);
+
         var check = $(this).data('check');
 
         if(check === undefined) {
 
             var selectedservice = $("#service_id option:selected").data('id');
+
+            // var allowedWeight = $("#service_id option:selected").data('max-weight');
+            // var allowedPerson = $("#service_id option:selected").data('max-person');
+
+            // // Set the max attributes dynamically
+            // $('#bootstrap-wizard-allowed-person').attr('max', allowedPerson);
+            // $('#bootstrap-wizard-allowed-weight').attr('max', allowedWeight);
+
+            // alert(allowedPerson + ' - '+ allowedWeight);            
+
             $.ajax({
 
                 url: route('emp'),
@@ -217,6 +229,7 @@
                 });
 
                 $("#employee_id").html(html);
+
 
             });
 
@@ -292,7 +305,16 @@
            
             jQuery.each(response, function(i, val) {
 
-                $("#service_id").append("<option value='" + val.name + "' data-id='"+ val.id +"'>" + val.name + "</option>");
+               // $("#service_id").append("<option value='" + val.name + "' data-id='"+ val.id +"'>" + val.name + "</option>");
+
+               $("#service_id").append(
+                    "<option value='" + val.name + "' " +
+                    "data-id='" + val.id + "' " +
+                    "data-max-weight='" + val.allowed_weight + "' " +
+                    "data-max-person='" + val.no_of_person_allowed + "'>" +
+                    val.name +
+                    "</option>"
+                );               
 
             });
 
@@ -465,6 +487,15 @@
         if(check == 'service') {
 
             var selectedservice = $("#service_id option:selected").data('id');
+
+            var allowedWeight = $("#service_id option:selected").data('max-weight');
+            var allowedPerson = $("#service_id option:selected").data('max-person');
+
+            // Set the max attributes dynamically
+            $('#bootstrap-wizard-allowed-person').attr('max', allowedPerson);
+            $('#bootstrap-wizard-allowed-weight').attr('max', allowedWeight);
+
+            //alert(allowedPerson + ' - '+ allowedWeight);              
 
             $.ajax({
 

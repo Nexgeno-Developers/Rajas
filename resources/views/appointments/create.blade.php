@@ -53,7 +53,7 @@
                                                     <option value="">{{ __('Select') }} {{ucfirst($custom->custom_field_service)}}</option>
                                                    
                                                         @foreach($services as $service)
-                                                            <option value="{{ $service->name }}" data-id="{{$service->id}}" {{ ($service->id == old('service_id')) ? 'selected' : '' }}>
+                                                            <option value="{{ $service->name }}" data-id="{{$service->id}}" data-max-weight="{{$service->allowed_weight}}" data-max-person="{{$service->no_of_person_allowed}}" {{ ($service->id == old('service_id')) ? 'selected' : '' }}>
                                                                 {{$service->name}}
                                                                 {{!empty($service->categories) ? '('.$service->categories->name.')' : ''}}
                                                             </option>
@@ -124,6 +124,27 @@
                                             <input type="hidden" class="form-control custom-control" name="user_id" id="customer_id" value="{{Auth::user()->id}}">
                                                 
                                         @endif
+
+                                        <!-- New fileds -->
+                                        <div class="row g-2">
+                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                            <div class="mb-3">
+                                                <label class="form-label" for="bootstrap-wizard-wizard-email">{{ __('Number of Person') }}<span class="text-danger">*</span></label>
+                                                <input autocomplete="off" step="1" min="1" max="20" class="form-control" type="number" name="no_of_person_allowed" placeholder="{{ __('Enter Number of Person') }}"
+                                                    data-wizard-validate-allowed-person="true" id="bootstrap-wizard-allowed-person" required />
+                                                <div class="invalid-feedback">{{ __('Please enter the number of person') }}</div>                                    
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                            <div class="mb-3">
+                                                <label class="form-label" for="bootstrap-wizard-wizard-email">{{ __('Total Weight') }}<span class="text-danger">*</span></label>                                            
+                                                <input autocomplete="off" step="1" min="1" max="10" class="form-control" type="number" name="allowed_weight" placeholder="{{ __('Enter Weight') }}"
+                                                    data-wizard-validate-allowed-weight="true" id="bootstrap-wizard-allowed-weight" required />
+                                                <div class="invalid-feedback">{{ __('Please enter the weight') }}</div>                                             
+                                            </div>
+                                        </div>
+                                    </div>                                        
         
                                         <div class="row">
                                             <div class="col-lg-12">
