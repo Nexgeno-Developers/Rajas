@@ -11,7 +11,7 @@
         <nav class="nav-menu d-none d-lg-block">
             <ul>
                 <li class="@if(Request::segment(2) == '' && Request::segment(1) == '') active @endif"><a href="{{ route('welcome')}}">{{ __('Home') }}</a></li>
-                <li class=""><a @if(!empty(request()->route()) && request()->route()->getName() != 'welcome') 
+                <!-- <li class=""><a @if(!empty(request()->route()) && request()->route()->getName() != 'welcome') 
                   href="{{ route('welcome')}}#features" 
                   @elseif(empty(request()->route())) href="{{ route('welcome')}}#features" 
                   @else href="#features" @endif>{{ __('Feature') }}</a></li>
@@ -31,16 +31,16 @@
                 <li class=""><a @if(!empty(request()->route()) && request()->route()->getName() != 'welcome') 
                   href="{{ route('welcome')}}#contact" 
                   @elseif(empty(request()->route())) href="{{ route('welcome')}}#contact" 
-                  @else href="#contact" @endif>{{ __('Contact') }}</a></li>
+                  @else href="#contact" @endif>{{ __('Contact') }}</a></li> -->
                 <li class="@if(Request::segment(2) == 'book') active @endif"><a href="{{ route('appointment.book')}}">{{ __('Book Now') }}</a></li>
-                <li class="drop-down">
+                <!-- <li class="drop-down">
                   <a href="javascript:;">{{ Config::get('languages')[app()->getLocale()] }}</a>
                   <ul>
                     @foreach (Config::get('languages') as $key => $item)
                     <li class="@if(app()->getLocale() == $key) active @endif"><a href="{{ route('chang.locale', $key) }}">{{ __($item) }}</a></li>
                     @endforeach
                   </ul>
-                </li>
+                </li> -->
                 @auth
                 @php
                     $notificationcount = DB::table('notification')->where('is_read',0)->where('user_id',Auth::user()->id)->count();
