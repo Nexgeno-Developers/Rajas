@@ -17,7 +17,7 @@
                 
                 <div class="card theme-wizard mb-5" id="wizard">
                     <form class="needs-validation" novalidate="novalidate" id="formdata" method="POST"
-                        id="appointment-form" action="{{ route('appointment.create') }}" autocomplete="off">
+                        id="appointment-form" action="{{ route('appointment.create') }}" autocomplete="off" data-recaptcha>
                         @csrf
                         <div class="card-header bg-light pt-3 pb-2 p-0">
                             <ul class="nav justify-content-between nav-wizard">

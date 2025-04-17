@@ -885,4 +885,36 @@ var typedTextInit = function typedTextInit() {
 
 docReady(wizardInit);
 docReady(typedTextInit);
+
+
+//recaptcha v3
+    let recaptchaToken = null; // Global variable to hold the token
+
+    function refreshRecaptcha() {
+        grecaptcha.ready(function () {
+            grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'submit' }).then(function (token) {
+                recaptchaToken = token;
+
+                // Clean up any existing token
+                $("#formdata input[name='recaptcha_token']").remove();
+
+                // Append the new token
+                if (token) {
+                    $("#formdata").append(`<input type="hidden" name="recaptcha_token" value="${token}">`);
+                }
+            });
+        });
+    }
+
+    // Delay the first call by 3 seconds
+    setTimeout(function() {
+        refreshRecaptcha(); // initial call after 3 seconds
+    }, 3000); // 3000ms = 3 seconds
+
+    // Refresh token every 1 minutes (60000ms)
+    setInterval(refreshRecaptcha, 60000);
+//recaptcha v3
+
+
+
 })(jQuery);

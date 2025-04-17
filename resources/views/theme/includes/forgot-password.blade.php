@@ -12,7 +12,7 @@
             </div>
 
             <div class="modal-body py-4 px-5">
-                <form action="{{ route('password.forgot.mail') }}" method="post" id="forgot-password-form" autocomplete="off">
+                <form action="{{ route('password.forgot.mail') }}" method="post" id="forgot-password-form" autocomplete="off" data-recaptcha>
 
                     {{ csrf_field() }}
                     <div class="row gx-2">

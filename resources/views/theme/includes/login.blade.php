@@ -10,7 +10,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('login') }}" method="post" id="login" autocomplete="off">
+                <form action="{{ route('login') }}" method="post" id="login" autocomplete="off" data-recaptcha> 
 
                     {{ csrf_field() }}
 

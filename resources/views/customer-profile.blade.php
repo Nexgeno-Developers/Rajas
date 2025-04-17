@@ -63,7 +63,7 @@
                   <h5 class="mb-0">{{ __('Profile Settings') }}</h5>
                 </div>
                 <div class="card-body bg-light">
-                  <form class="row g-3" method="POST" action="{{ route('users.update',Auth::user()->id) }}" id="profile-detail-form" autocomplete="off">
+                  <form class="row g-3" method="POST" action="{{ route('users.update',Auth::user()->id) }}" id="profile-detail-form" autocomplete="off" data-recaptcha>
                   @method('PATCH')
                     @csrf
                     <div class="col-lg-6"> <label class="form-label" for="first-name">{{ __('First Name') }}</label><input class="form-control" id="first-name" name="first_name" type="text" value="{{ $user->first_name}}" /></div>
@@ -140,7 +140,7 @@
                     <h5 class="mb-0">{{ __('Change Password') }}</h5>
                   </div>
                   <div class="card-body bg-light">
-                    <form method="POST" action="{{ route('updatePassword',['id' => Auth::user()->id]) }}" id="changePassword-form" autocomplete="off">
+                    <form method="POST" action="{{ route('updatePassword',['id' => Auth::user()->id]) }}" id="changePassword-form" autocomplete="off" data-recaptcha>
                     @method('PATCH')
                     @csrf
                       

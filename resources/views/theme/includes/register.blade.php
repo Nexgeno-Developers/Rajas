@@ -13,7 +13,7 @@
 
         <div class="modal-body py-4 px-5">
 
-          <form action="{{ route('register') }}" method="post" id="sign-up-form" autocomplete="off">
+          <form action="{{ route('register') }}" method="post" id="sign-up-form" autocomplete="off" data-recaptcha>
 
             {{ csrf_field() }}
 
