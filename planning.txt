@@ -63,8 +63,8 @@ Common
 - Make Email ID read-only everywhere in customer as well as admin panel - Complete
 - Email SMTP Configuration - Complete
 - Contact Form Email Fixed - Complete
-- Form Protect middleware - Pending
-- Recaptcha V3 middleware - Pending
+- Form Protect middleware - Complete
+- Recaptcha V3 middleware - Complete
 - Hide Unwanted Things which is not necessary - Pending
 - Validation issue Fix in Registration - Pending
 
@@ -77,7 +77,7 @@ Common
 
 
 
-
+data-recaptcha
 
 
 
