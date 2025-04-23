@@ -160,7 +160,7 @@
                             input.name = 'recaptcha_token';
                             input.value = token;
                             f.appendChild(input);
-                            alert(token);
+                            //alert(token);
                             HTMLFormElement.prototype.submit.call(f);
                         });
                     });

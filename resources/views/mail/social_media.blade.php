@@ -1,7 +1,7 @@
 <tr>
     <td style="text-align:center;padding:20px 20px 0 20px">
         <a href="{{ route('appointments.show',$appointment->id) }}"
-            style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;background:#007aff;padding:12px 30px;color:#ffffff;font-size:14px;font-weight:700;letter-spacing:0.5px;line-height:16px;border-radius:3px;text-decoration:none;display:inline-block"
+            style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;background:#006161;padding:12px 30px;color:#ffffff;font-size:14px;font-weight:700;letter-spacing:0.5px;line-height:16px;border-radius:3px;text-decoration:none;display:inline-block"
             target="_blank"
             data-saferedirecturl="https://www.google.com/url?q=https://hrms.ubsapp.com/L4mqbi0wHu/leave/view/624e707388889f627463d7a6/62fc8fd3cc91ba267575e861&amp;source=gmail&amp;ust=1661063257263000&amp;usg=AOvVaw135T0_ceGFD3IWv9TPZQim">{{ __('Go to Website')}}</a>
     </td>

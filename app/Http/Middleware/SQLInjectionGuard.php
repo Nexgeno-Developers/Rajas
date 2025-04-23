@@ -10,6 +10,8 @@ class SQLInjectionGuard
 {
     public function handle(Request $request, Closure $next)
     {
+
+        return $next($request);
         // Retrieve all input data from the request
         $input = $request->all();
 

@@ -9,15 +9,48 @@
 <body>
     <div style="font-family:'Roboto,RobotoDraft,Helvetica,Arial,sans-serif',Arial,sans-serif;background:#e5e5e5;margin:0">
         <div style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;background:#e5e5e5;margin:0;padding:50px 15px">
-            <table style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;max-width:700px;width:100%;margin:auto;border-top:4px solid #ffa700;border-spacing:0;background:#fff">
-                <tbody>
+            <table style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;max-width:700px;width:100%;margin:auto;border-top:4px solid #006161;border-spacing:0;background:#fff;     padding: 25px;">
+                 <thead>
+      <tr>
+        @env('local')
+          @if(empty($site->logo))
+          <th style="text-align:left;"><img style="max-width: 150px;" src="https://i.ibb.co/Fkn5XXqp/logo.png" alt="{{ __('logo')}}"></th>
+          @else
+          <th style="text-align:left;"><img style="max-width: 150px;" src="https://i.ibb.co/Fkn5XXqp/logo.png" alt="{{ __('logo')}}"></th>
+          @endif
+        @else
+          @if(empty($site->logo))
+          <th style="text-align:left;"><img style="max-width: 150px;" src="https://i.ibb.co/Fkn5XXqp/logo.png" alt="{{ __('logo')}}"></th>
+          @else
+          <th style="text-align:left;"><img style="max-width: 150px;" src="https://i.ibb.co/Fkn5XXqp/logo.png" alt="{{ __('logo')}}"></th>
+          @endif
+        @endenv
+        
+      </tr>
+    </thead>
+    <tbody>
+
+     <tr>
+                        <td style="padding:15px 0px 0">
+                            <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-weight:600;font-size:14px;line-height:18px;color:#1e2538;margin-bottom:15px">{{ __('Hi')}} {{ $admin->first_name.' '.$admin->last_name}},</p>
+                            <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-weight:500;font-size:14px;line-height:18px;color:#73788b"> {{ $customer->first_name.' '.$customer->last_name}} {{ __('Appointment is') }} 
+                            @if( $title == 'Appointment Cancellation')
+                                <span style="color:#ff0303">{{ __('Canceled') }}</span>
+                            @else
+                                <span style="color:#60b158">{{ __('Approved')}}</span>
+                            @endif
+                            {{ __('for')}} {{date('d F Y', strtotime($appointment->date))}}.</p>
+                        </td>
+                    </tr>
+
+
                     <tr>
-                        <td style="padding:15px 20px 0 20px;background:#fff">
-                            <table style="width:100%;margin:auto;border-bottom:1px solid #ebecf2;padding-bottom:15px">
+                        <td style="padding:10px 0px 0 0px;background:#fff">
+                            <table style="width:100%;margin:auto;border-bottom:1px solid #ebecf2;padding-bottom:3px">
                                 <tbody>
                                     <tr>
                                         <td>
-                                            <h2 style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:5px 0;font-size:16px;font-weight:bold;color:#1e2538;line-height:22px">{{ $title }}</h2>
+                                            <h2 style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:5px 0;font-size:14px;font-weight:bold;color:#1e2538;line-height:22px">{{ $title }}</h2>
                                         </td>
                                         <td>
                                             @if( $title == 'Appointment Cancellation')
@@ -32,8 +65,8 @@
                         </td>
                     </tr>
                     <tr>
-                        <td style="padding:10px 20px">
-                            <table style="width:100%;margin:auto;border-bottom:1px solid #ebecf2;padding-bottom:10px">
+                        <td>
+                            <table style="width:100%;margin:auto;border-bottom:1px solid #ebecf2;padding-bottom:7px; padding-top:10px;">
                                 <tbody><tr>
                                     <td>
                                         <h2 style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:14px;font-weight:bold;color:#1e2538;line-height:22px">
@@ -53,24 +86,13 @@
                             </tbody></table>
                         </td>
                     </tr>
+                   
                     <tr>
-                        <td style="padding:5px 20px 0">
-                            <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-weight:600;font-size:14px;line-height:18px;color:#1e2538;margin-bottom:15px">{{ __('Hi')}} {{ $admin->first_name.' '.$admin->last_name}},</p>
-                            <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-weight:500;font-size:14px;line-height:18px;color:#73788b"> {{ $customer->first_name.' '.$customer->last_name}} {{ __('Appointment is') }} 
-                            @if( $title == 'Appointment Cancellation')
-                                <span style="color:#ff0303">{{ __('Canceled') }}</span>
-                            @else
-                                <span style="color:#60b158">{{ __('Approved')}}</span>
-                            @endif
-                            {{ __('for')}} {{date('d F Y', strtotime($appointment->date))}}.</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="padding:15px 20px 0 20px">
-                            <table style="width:100%;margin:auto;border-bottom:1px solid #ebecf2;padding-bottom:15px">
+                        <td style="padding:10px 0px 0 0px">
+                            <table style="width:100%;margin:auto;border-bottom:1px solid #ebecf2;padding-bottom:3px">
                                 <tbody><tr>
                                     <td style="padding:0">
-                                        <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:16px;font-weight:bold;color:#007aff;line-height:20px;margin-bottom:5px">
+                                        <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:14px;font-weight:bold;color:#1e2538;line-height:20px;margin-bottom:5px">
                                             {{ __('Employee Name') }}:
                                         <span style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:14px;font-weight:normal;color:#73788b;line-height:20px">
                                             {{ $employee->first_name.' '.$employee->last_name}}
@@ -81,11 +103,11 @@
                         </td>
                     </tr>
                     <tr>
-                        <td style="padding:15px 20px 0 20px">
-                            <table style="width:100%;margin:auto;border-bottom:1px solid #ebecf2;padding-bottom:15px">
+                        <td style="padding:10px 0px 0 0px">
+                            <table style="width:100%;margin:auto;border-bottom:1px solid #ebecf2;padding-bottom:3px">
                                 <tbody><tr>
                                     <td style="padding:0">
-                                        <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:16px;font-weight:bold;color:#007aff;line-height:20px;margin-bottom:5px">
+                                        <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:14px;font-weight:bold;color:#1e2538;line-height:20px;margin-bottom:5px">
                                             {{ __('Customer Name') }}:
                                         <span style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:14px;font-weight:normal;color:#73788b;line-height:20px">
                                             {{ $customer->first_name.' '.$customer->last_name}}
@@ -96,11 +118,11 @@
                         </td>
                     </tr>
                     <tr>
-                        <td style="padding:15px 20px 0 20px">
-                            <table style="width:100%;margin:auto;border-bottom:1px solid #ebecf2;padding-bottom:15px">
+                        <td style="padding:10px 0px 0 0px">
+                            <table style="width:100%;margin:auto;border-bottom:1px solid #ebecf2;padding-bottom:3px">
                                 <tbody><tr>
                                     <td style="padding:0">
-                                        <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:16px;font-weight:bold;color:#007aff;line-height:20px;margin-bottom:5px">
+                                        <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:14px;font-weight:bold;color:#1e2538;line-height:20px;margin-bottom:5px">
                                             {{ __('Goverment ID') }}:
                                         <span style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:14px;font-weight:normal;color:#73788b;line-height:20px">
                                             {{ $customer->goverment_id}}
@@ -112,11 +134,11 @@
                     </tr>  
                     
                     <tr>
-                        <td style="padding:15px 20px 0 20px">
-                            <table style="width:100%;margin:auto;border-bottom:1px solid #ebecf2;padding-bottom:15px">
+                        <td style="padding:10px 0px 0 0px">
+                            <table style="width:100%;margin:auto;border-bottom:1px solid #ebecf2;padding-bottom:3px">
                                 <tbody><tr>
                                     <td style="padding:0">
-                                        <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:16px;font-weight:bold;color:#007aff;line-height:20px;margin-bottom:5px">
+                                        <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:14px;font-weight:bold;color:#1e2538;line-height:20px;margin-bottom:5px">
                                             {{ __('Service')}}:
                                         <span style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:14px;font-weight:normal;color:#73788b;line-height:20px">
                                             {{$appointment->category_id.' - '.$appointment->service_id}}
@@ -129,11 +151,11 @@
 
 
                     <tr>
-                        <td style="padding:15px 20px 0 20px">
-                            <table style="width:100%;margin:auto;border-bottom:1px solid #ebecf2;padding-bottom:15px">
+                        <td style="padding:10px 0px 0 0px">
+                            <table style="width:100%;margin:auto;border-bottom:1px solid #ebecf2;padding-bottom:3px">
                                 <tbody><tr>
                                     <td style="padding:0">
-                                        <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:16px;font-weight:bold;color:#007aff;line-height:20px;margin-bottom:5px">
+                                        <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:14px;font-weight:bold;color:#1e2538;line-height:20px;margin-bottom:5px">
                                             {{ __('Appointment Date')}}:
                                         <span style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:14px;font-weight:normal;color:#73788b;line-height:20px">
                                             {{date('d F Y', strtotime($appointment->date))}}
@@ -144,11 +166,11 @@
                         </td>
                     </tr>
                     <tr>
-                        <td style="padding:15px 20px 0 20px">
-                            <table style="width:100%;margin:auto;border-bottom:1px solid #ebecf2;padding-bottom:15px">
+                        <td style="padding:10px 0px 0 0px">
+                            <table style="width:100%;margin:auto;border-bottom:1px solid #ebecf2;padding-bottom:3px">
                                 <tbody><tr>
                                     <td style="padding:0">
-                                        <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:16px;font-weight:bold;color:#007aff;line-height:20px;margin-bottom:5px">
+                                        <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:14px;font-weight:bold;color:#1e2538;line-height:20px;margin-bottom:5px">
                                            {{ __('Appointment Time')}}:
                                         <span style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:14px;font-weight:normal;color:#73788b;line-height:20px">
                                             {{ date('h:i:s A',strtotime($appointment->start_time)).' - '.date('h:i:s A',strtotime($appointment->finish_time))}}
@@ -159,11 +181,11 @@
                         </td>
                     </tr>
                     <tr>
-                        <td style="padding:15px 20px 0 20px">
-                            <table style="width:100%;margin:auto;border-bottom:1px solid #ebecf2;padding-bottom:15px">
+                        <td style="padding:10px 0px 0 0px">
+                            <table style="width:100%;margin:auto;border-bottom:1px solid #ebecf2;padding-bottom:3px">
                                 <tbody><tr>
                                     <td style="padding:0">
-                                        <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:16px;font-weight:bold;color:#007aff;line-height:20px;margin-bottom:5px">
+                                        <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:14px;font-weight:bold;color:#1e2538;line-height:20px;margin-bottom:5px">
                                            {{ __('Number of Persons')}}:
                                         <span style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:14px;font-weight:normal;color:#73788b;line-height:20px">
                                             {{ $appointment->no_of_person_allowed }}
@@ -174,11 +196,11 @@
                         </td>
                     </tr>    
                     <tr>
-                        <td style="padding:15px 20px 0 20px">
-                            <table style="width:100%;margin:auto;border-bottom:1px solid #ebecf2;padding-bottom:15px">
+                        <td style="padding:10px 0px 0 0px">
+                            <table style="width:100%;margin:auto;border-bottom:1px solid #ebecf2;padding-bottom:3px">
                                 <tbody><tr>
                                     <td style="padding:0">
-                                        <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:16px;font-weight:bold;color:#007aff;line-height:20px;margin-bottom:5px">
+                                        <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:14px;font-weight:bold;color:#1e2538;line-height:20px;margin-bottom:5px">
                                            {{ __('Allowed Weight')}}:
                                         <span style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:14px;font-weight:normal;color:#73788b;line-height:20px">
                                             {{ $appointment->allowed_weight }} {{__('Kg')}}
@@ -189,11 +211,11 @@
                         </td>
                     </tr>                                    
                     <tr>
-                        <td style="padding:15px 20px 0 20px">
-                            <table style="width:100%;margin:auto;border-bottom:1px solid #ebecf2;padding-bottom:15px">
+                        <td style="padding:10px 0px 0 0px">
+                            <table style="width:100%;margin:auto;border-bottom:1px solid #ebecf2;padding-bottom:3px">
                                 <tbody><tr>
                                     <td style="padding:0">
-                                        <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:16px;font-weight:bold;color:#007aff;line-height:20px;margin-bottom:5px">
+                                        <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:14px;font-weight:bold;color:#1e2538;line-height:20px;margin-bottom:5px">
                                             {{ __('Appointment Detail')}}:
                                         <span style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:14px;font-weight:normal;color:#73788b;line-height:20px">
                                             {{ $appointment->comments }}
@@ -204,11 +226,11 @@
                         </td>
                     </tr>
                     <tr>
-                        <td style="padding:15px 20px 0 20px">
-                            <table style="width:100%;margin:auto;border-bottom:1px solid #ebecf2;padding-bottom:15px">
+                        <td style="padding:10px 0px 0 0px">
+                            <table style="width:100%;margin:auto;border-bottom:1px solid #ebecf2;padding-bottom:3px">
                                 <tbody><tr>
                                     <td style="padding:0">
-                                        <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:16px;font-weight:bold;color:#007aff;line-height:20px;margin-bottom:5px">
+                                        <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:14px;font-weight:bold;color:#1e2538;line-height:20px;margin-bottom:5px">
                                             {{ __('Appointment Status') }}:
                                         <span style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:14px;font-weight:bold;color:#73788b;line-height:20px">
                                         @if($appointment->status == 'pending')
@@ -228,11 +250,11 @@
                     </tr>
                     @if($title == 'Appointment Cancellation')
                     <tr>
-                        <td style="padding:15px 20px 0 20px">
-                            <table style="width:100%;margin:auto;border-bottom:1px solid #ebecf2;padding-bottom:15px">
+                        <td style="padding:10px 0px 0 0px">
+                            <table style="width:100%;margin:auto;border-bottom:1px solid #ebecf2;padding-bottom:3px">
                                 <tbody><tr>
                                     <td style="padding:0">
-                                        <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:16px;font-weight:bold;color:#ff0000;line-height:20px;margin-bottom:5px">
+                                        <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:14px;font-weight:bold;color:#ff0000;line-height:20px;margin-bottom:5px">
                                             {{ __('Cancel Reason')}}:
                                         <span style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:14px;font-weight:normal;color:#4162e8;line-height:20px">
                                             {{ $appointment->cancel_reason }}
@@ -245,11 +267,11 @@
                     @endif
 
                     <tr>
-                        <td style="padding:15px 20px 0 20px">
-                            <table style="width:100%;margin:auto;border-bottom:1px solid #ebecf2;padding-bottom:15px">
+                        <td style="padding:10px 0px 0 0px">
+                            <table style="width:100%;margin:auto;border-bottom:1px solid #ebecf2;padding-bottom:3px">
                                 <tbody><tr>
                                     <td style="padding:0">
-                                        <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:16px;font-weight:bold;color:#007aff;line-height:20px;margin-bottom:5px">
+                                        <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:14px;font-weight:bold;color:#1e2538;line-height:20px;margin-bottom:5px">
                                             {{ __('Payment Status')}}:
                                         <span style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:14px;font-weight:normal;color:#73788b;line-height:20px">
                                             <b>{{ ucfirst($appointment->payment->status) }}</b>
@@ -262,16 +284,16 @@
 
                     <tr>
                         <td style="text-align:center;padding:20px 20px 0 20px">
-                            <a href="{{ route('appointments.show',$appointment->id) }}" style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;background:#007aff;padding:12px 30px;color:#ffffff;font-size:14px;font-weight:700;letter-spacing:0.5px;line-height:16px;border-radius:3px;text-decoration:none;display:inline-block" target="_blank">{{ __('Go to Website') }}</a>
+                            <a href="{{ route('appointments.show',$appointment->id) }}" style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;background:#006161;padding:12px 30px;color:#ffffff;font-size:14px;font-weight:700;letter-spacing:0.5px;line-height:16px;border-radius:3px;text-decoration:none;display:inline-block" target="_blank">{{ __('Go to Website') }}</a>
                         </td>
                     </tr>
                     <!-- <tr>
-                        <td style="padding:15px 20px 0 20px">
-                            <table style="width:100%;margin:auto;border-bottom:1px solid #ebecf2;padding-bottom:15px">
+                        <td style="padding:10px 0px 0 0px">
+                            <table style="width:100%;margin:auto;border-bottom:1px solid #ebecf2;padding-bottom:3px">
                                 <tbody><tr>
                                     <td>
                                         <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:14px;font-weight:500;color:#73788b;line-height:16px;text-align:center">
-                                            {{ __('if button is not working') }} <a href="{{ route('appointments.show',$appointment->id) }}" style="margin:0;color:#007aff;font-size:14px;font-weight:500;line-height:16px;display:inline-block" target="_blank">{{ __('click here') }}</a>
+                                            {{ __('if button is not working') }} <a href="{{ route('appointments.show',$appointment->id) }}" style="margin:0;color:#1e2538;font-size:14px;font-weight:500;line-height:16px;display:inline-block" target="_blank">{{ __('click here') }}</a>
                                         </p>
                                     </td>
                                 </tr>
@@ -280,11 +302,11 @@
                     </tr> -->
                     <tr>
                         <td style="padding:15px 20px 10px 20px">
-                            <table style="width:100%;margin:auto;padding-bottom:15px">
+                            <table style="width:100%;margin:auto;padding-bottom:3px">
                                 <tbody>
                                 <!-- <tr>
                                     <td style="padding:0;text-align:center">
-                                        <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;font-style:italic;font-weight:normal;font-size:14px;line-height:18px;color:#1e2538;margin:0">{{ __('Please do not reply to this email. You are receiving this email because') }}<br>{{ __('you have created an account at')}} <a href="{{ route('welcome') }}" style="margin:0;color:#007aff;font-size:14px;font-weight:500;line-height:16px;display:inline-block;font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif" target="_blank">{{ $site->site_title }}</a>.</p>
+                                        <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;font-style:italic;font-weight:normal;font-size:14px;line-height:18px;color:#1e2538;margin:0">{{ __('Please do not reply to this email. You are receiving this email because') }}<br>{{ __('you have created an account at')}} <a href="{{ route('welcome') }}" style="margin:0;color:#1e2538;font-size:14px;font-weight:500;line-height:16px;display:inline-block;font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif" target="_blank">{{ $site->site_title }}</a>.</p>
                                     </td>
                                 </tr> -->
                                 <tr>

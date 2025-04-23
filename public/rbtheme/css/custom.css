@@ -14,7 +14,7 @@ nav.fixed-nav-header {
 }
 
 #wizard-controller .tab-content {
-  min-height: 35vh;
+  min-height: auto;
 }
 
 .payment-options img.landing-cta-img {
