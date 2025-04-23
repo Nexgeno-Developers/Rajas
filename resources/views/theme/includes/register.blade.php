@@ -53,9 +53,10 @@
             <div class="row gx-2">
 
                 <div class="mb-3 col-sm-6"><input class="form-control" type="email" name="email" autocomplete="off" placeholder="{{ __('Email Address') }}" /></div>
-
+ 
                 <div class="mb-3 col-sm-6">
-                  <input class="form-control mobile reg country-phone-validation" type="tel" name="mobile" autocomplete="off" placeholder="{{ __('Phone Number') }}" />
+                  <input class="form-control mobile reg country-phone-validation" type="tel" name="mobile" autocomplete="off" placeholder="{{ __('Phone Number') }}" id="bootstrap-wizard-phone" data-wizard-validate-phone="true" data-name="{{ Auth::user()->country_name ?? $site->country_name }}"/>
+                 
                   <label id="valid-msg" style="color: green;" class="d-none phone-valid-msg">✓ {{__('Phone Number Valid')}}</label>
                   <label id="error-msg" style="color: #bd5252;" class="d-none phone-error-msg"></label>
                 </div>

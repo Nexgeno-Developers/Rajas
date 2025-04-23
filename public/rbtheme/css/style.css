@@ -157,13 +157,13 @@ textarea {
 }
 
 .next_buttons {
-  background: transparent !important;
+  background: #006161 !important;
   border: 1px solid #006161;
   border-radius: 50px;
   padding: 8px 30px 6px;
   font-size: 16px !important;
   margin-top: 10px;
-  color: #006161;
+  color: #fff;
 }
 
 .previews_buttons {
@@ -196,14 +196,20 @@ textarea {
 
 }
 
+.appointment_buttons {
+  position: relative;
+  left: -100%;
+  margin-top: 30px;
+}
+
 .btn-primary {
   background-color: #006161 !important;
   border-color: #006161 !important;
 }
 
 .next_buttons:hover {
-  background: #006161 !important;
-  border: 1px solid #006161 !important;
+  background: #014343 !important;
+  border: 1px solid #014343 !important;
   color: #fff;
 }
 

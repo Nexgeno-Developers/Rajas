@@ -499,7 +499,9 @@ localStorage.time = "";
             if (inputpayment.value == "payumoney") {
               //new
               //alert("payumoney");
-              $(".next-button").html(translate.book_appointment);
+              $(".next-button")
+                .html(translate.book_appointment)
+                .addClass("appointment_buttons");
             }
           } else {
             document.querySelector("#stripe-msg").innerHTML =
