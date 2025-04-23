@@ -449,8 +449,8 @@ localStorage.time = "";
             }
 
             $(".other_information").html(`
-                        <p class="mt-0 mb-0"><strong>Number of Person:</strong> ${allowedPerson.value}</p>
-                        <p class="mt-0 mb-0"><strong>Total Weight:</strong> ${allowedWeight.value} Kg</p>
+                        <p class="mt-0 mb-0">Number of Person: ${allowedPerson.value}</p>
+                        <p class="mt-0 mb-0">Total Weight: ${allowedWeight.value} Kg</p>
                     `);
             //alert(1);
 
@@ -971,12 +971,10 @@ localStorage.time = "";
                       }
                       document.getElementById("email-check").innerHTML =
                         response.msg;
-                      document
-                        .querySelector("#email-check")
-                        .scrollIntoView({
-                          behavior: "smooth",
-                          block: "center",
-                        }); // New
+                      document.querySelector("#email-check").scrollIntoView({
+                        behavior: "smooth",
+                        block: "center",
+                      }); // New
                     }
                   },
                 });
