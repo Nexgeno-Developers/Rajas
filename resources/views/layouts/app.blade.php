@@ -53,6 +53,7 @@
 <script src="{{ asset('backend/js/custom.js')}}" type="text/javascript"></script>
 @yield('scripts')
 <script class="iti-load-utils" async src="{{ asset('backend/js/utils.js') }}"></script>
+
 </body>
 </html>
 

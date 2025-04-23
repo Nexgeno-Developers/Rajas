@@ -24,7 +24,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="{{ $fIconUrl }}">
     <meta name="msapplication-TileImage" content="{{ $fIconUrl }}">
     @routes()
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="{{ asset('rbtheme/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{ asset('rbtheme/css/icofont.min.css')}}" rel="stylesheet">
     <link href="{{ asset('rbtheme/css/boxicons.min.css')}}" rel="stylesheet">
@@ -63,7 +63,7 @@
     @yield('footer-top')
     @include('front.include.home-footer')
     <a href="#" class="back-to-top"><i class="ri-arrow-up-line"></i></a>
-    <div id="preloader"></div>
+    <!-- <div id="preloader"></div> -->
     <script src="{{ asset('rbtheme/js/popper.min.js') }}"></script>
     <script src="{{ asset('rbtheme/js/jquery.min.js')}}"></script>
     <script src="{{ asset('rbtheme/js/bootstrap.min.js') }}"></script>

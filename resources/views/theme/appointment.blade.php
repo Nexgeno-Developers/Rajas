@@ -9,13 +9,13 @@
 <section class="zluck-container" id="banner">
     <div class="container justify-content-center" data-layout="container">
         <div class="row justify-content-center">
-            <div class="col-sm-10 col-lg-9 col-xxl-7 mb-5">
+            <div class="col-sm-10 col-lg-9 col-xxl-7 pt-5">
             
-                <div class="d-flex flex-center mb-5">
+                <div class="d-flex flex-center mb-3 pt-3">
                     <span class="font-sans-serif fw-bolder fs-4 d-inline-block">{{ __('Book Appointment') }}</span>
                 </div>
                 
-                <div class="card theme-wizard mb-5" id="wizard">
+                <div class="card theme-wizard" id="wizard">
                     <form class="needs-validation" novalidate="novalidate" id="formdata" method="POST"
                         id="appointment-form" action="{{ route('appointment.create') }}" autocomplete="off" data-recaptcha>
                         @csrf
@@ -56,11 +56,15 @@
                             <div class="tab-content">
                                 <div class="tab-pane active px-sm-3 px-md-5" role="tabpanel"
                                     aria-labelledby="bootstrap-wizard-tab1" id="bootstrap-wizard-tab1">
-                                    <div class="mb-1 h-20">
+                                    <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="mb-1 h-20">
                                         <span id="employee_msg" class="employee_book-msg"></span>
                                     </div>
+                                    </div>
                                     @if($custom->categories == 1)
-                                    <div class="mb-3">
+                                    <div class="col-md-6">
+                                         <div class="mb-3">
                                         <label class="form-label custom-category"
                                             for="bootstrap-wizard-category" data-custom-category="{{ucfirst($custom->custom_field_category)}}">{{ucfirst($custom->custom_field_category)}}<span
                                                 class="text-danger">*</span></label>
@@ -76,8 +80,10 @@
                                         <div class="invalid-feedback">{{ __('Please Select') }}
                                             {{ucfirst($custom->custom_field_category)}}</div>
                                     </div>
+                                    </div>
+                                   
                                     @endif
-
+                                  <div class="col-md-6">
                                     <div class="mb-3">
                                         <label class="form-label custom-service"
                                             for="bootstrap-wizard-service" data-custom-service="{{ucfirst($custom->custom_field_service)}}">{{ucfirst($custom->custom_field_service)}}<span
@@ -96,8 +102,10 @@
                                         <div class="invalid-feedback">{{ __('Please Select') }}
                                             {{ucfirst($custom->custom_field_service)}}</div>
                                     </div>
-
+                                    </div>
+                               
                                 @if($custom->employees == 1)
+                                <div class="col-md-6">
                                     <div class="mb-3"><label class="form-label custom-employee"
                                             for="bootstrap-wizard-employee" data-custom-employee="{{ucfirst($custom->custom_field_text)}}">{{ucfirst($custom->custom_field_text)}}<span
                                                 class="text-danger">*</span></label>
@@ -109,11 +117,13 @@
                                         <div class="invalid-feedback">{{ __('Please Select') }}
                                             {{ucfirst($custom->custom_field_text)}}</div>
                                     </div>
+                                    </div>
                                 @elseif($custom->employees == 0)
                                     <input type="hidden" class="input-field employee_name" id="bootstrap-wizard-employee" data-wizard-validate-employee="true" name="employee_id" 
                                     data-employee="{{ $admin->first_name.' '.$admin->last_name }}" value="{{ $admin->id }}">
-                                @endif
                                     
+                                @endif
+                                    <div class="col-md-6">
                                     <div class="mb-3"><label class="form-label" for="bootstrap-wizard-date">{{ __('Date') }}<span
                                                 class="text-danger">*</span></label>
                                         <input class="form-control custom-format" type="text" name="date" value="{{date('Y-m-d')}}" required="required" autocomplete="off"
@@ -121,6 +131,8 @@
                                             data-wizard-validate-date="true" />
                                         <div class="invalid-feedback">{{ __('Please Select Date') }}</div>
                                     </div>
+                                    </div>
+</div>
                                 </div> 
                                 <div class="tab-pane px-sm-3 px-md-5" role="tabpanel"
                                     aria-labelledby="bootstrap-wizard-tab2" id="bootstrap-wizard-tab2">
@@ -204,8 +216,8 @@
                                                     placeholder="{{ __('Enter Phone') }}" required="required"
                                                     id="bootstrap-wizard-phone" data-wizard-validate-phone="true" data-name="{{ Auth::user()->country_name ?? $site->country_name }}"/>
                                                 <div class="invalid-feedback phone-error">{{ __('Please enter the phone number') }}</div>
-                                                <span id="valid-msg" style="color: green;" class="d-none">✓ {{ __('Phone Number Valid') }}</span>
-                                                <span id="error-msg" style="color: #bd5252;" class="d-none"></span>
+                                                <span id="valid-msg" style="color: green;" class="d-none font-size14">✓ {{ __('Phone Number Valid') }}</span>
+                                                <span id="error-msg" style="color: #bd5252;" class="d-none font-size14"></span>
                                             </div>
                                         </div>
 
@@ -227,7 +239,7 @@
                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6" @auth @if(auth()->user()->country) style="pointer-events:none;" @endif @endauth>
                                             <div class="mb-3">
                                                 <label class="form-label" for="bootstrap-wizard-wizard-email">{{ __('Country') }}<span class="text-danger">*</span></label>
-                                                <select autocomplete="off" class="form-control rounded-0 selectpicker" data-wizard-validate-country="true" data-live-search="true" data-placeholder="{{ __('Select your country') }}" name="country" placeholder="Select Country" required="required" >
+                                                <select autocomplete="off" class="form-control rounded-0 selectpicker country_select" data-wizard-validate-country="true" data-live-search="true" data-placeholder="{{ __('Select your country') }}" name="country" placeholder="Select Country" required="required" >
                                                     <option value="">{{ __('Select your country') }}</option>
                                                     @foreach (Helper::get_active_countries() as $key => $country)
                                                     {{--<option value="{{ $country->id }}" @auth @if(auth()->user()->country == $country->id) selected @elseif($country->id == 101) selected @endif @endauth>{{ $country->name }}</option>--}}
@@ -250,7 +262,7 @@
                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6" @auth @if(auth()->user()->state) style="pointer-events:none;" @endif @endauth>
                                             <div class="mb-3">
                                                 <label class="form-label" for="bootstrap-wizard-wizard-email">{{ __('State') }}<span class="text-danger">*</span></label>
-                                                <select autocomplete="off" class="form-control rounded-0 @if(auth()->check() && !auth()->user()->state) selectpicker @endif" data-wizard-validate-state="true" data-live-search="true" name="state" required="required" placeholder="Select State">
+                                                <select autocomplete="off" class="country_select form-control rounded-0 @if(auth()->check() && !auth()->user()->state) selectpicker @endif" data-wizard-validate-state="true" data-live-search="true" name="state" required="required" placeholder="Select State">
 
                                                 </select>  
                                                 <div class="invalid-feedback">{{ __('Please select the state') }}</div>                                              
@@ -509,25 +521,25 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="card-footer bg-light mt-3">
-                                <div class="px-sm-3">
+                            <div class="px-sm-3 px-md-5 pb-md-4">
+                                <div class="border_top_1">
                                     <ul class="pager wizard list-inline mb-0">
                                         <li class="previous">
-                                            <button class="btn btn-link ps-0" type="button">
-                                                <span class="fas fa-chevron-left me-2 prev-button"
+                                            <button class="btn btn-link ps-0 previews_buttons" type="button">
+                                                <span class="fas fa-chevron-left me-0 prev-button"
                                                     data-fa-transform="shrink-3"></span>
                                                 {{ __('Prev') }}
                                             </button>
                                         </li>
                                         <li class="next">
-                                            <button class="btn btn-primary px-5 px-sm-6 next-button btn-valid" type="button"
+                                            <button class="next-button next_buttons btn-valid" type="button"
                                                 id="book-button">
                                                 {{ __('Next') }}
-                                                <span class="fas fa-chevron-right ms-2"
+                                                <span class="fas fa-chevron-right ms-0"
                                                     data-fa-transform="shrink-3"></span>
                                             </button>
 
-                                            <button class="pay-payumoney d-none">Pay with PayUMoney</button> <!-- New -->
+                                            <button class="pay-payumoney d-none ">Pay with PayUMoney</button> <!-- New -->
 
                                             <button class="btn btn-info px-5 px-sm-6 pay-razorpay d-none" type="button"
                                                 >

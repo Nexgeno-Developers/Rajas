@@ -47,11 +47,11 @@
                   <div class="date text-inverse m-t-5"> {{ __('Not Paid')}} </div>
                @endif
                <div class="invoice-detail">
-                  <p class="mb-0 fs--1"><strong>{{ __('Method') }}: </strong> {{ isset($payment_detail) ? ucfirst($payment_detail->payment_method) : '-' }}</p>
+                  <p class="mb-1 fs--1"><strong>{{ __('Method') }}: </strong> {{ isset($payment_detail) ? ucfirst($payment_detail->payment_method) : '-' }}</p>
                   @if($payment_detail->payment_id)
-                  <p class="mb-0 fs--1"><strong>{{ __('Payment ID') }}: </strong> {{ isset($payment_detail) ? ucfirst($payment_detail->payment_id) : '-' }}</p>
+                  <p class="mb-1 fs--1"><strong>{{ __('Payment ID') }}: </strong> {{ isset($payment_detail) ? ucfirst($payment_detail->payment_id) : '-' }}</p>
                   @endif
-                  <p class="mb-0 fs--1"><strong>{{ __('Payment Status') }}: </strong> {{ isset($payment_detail) ? ucfirst($payment_detail->status) : '-' }}</span></p>
+                  <p class="mb-1 fs--1"><strong>{{ __('Payment Status') }}: </strong> {{ isset($payment_detail) ? ucfirst($payment_detail->status) : '-' }}</span></p>
                </div>
             </div>
          </div>

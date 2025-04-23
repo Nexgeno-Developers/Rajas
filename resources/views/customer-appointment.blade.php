@@ -38,35 +38,35 @@
                         <h6 class="mb-2">
                             {{ ucfirst($appointment->user->first_name).' '.ucfirst($appointment->user->last_name) }}
                         </h6>
-                        <p class="mb-0 fs--1"> <strong>{{ __('Email') }}: </strong>{{ $appointment->user->email }}</p>
-                        <p class="mb-0 fs--1"> <strong>{{ __('Phone') }}: </strong>{{ $appointment->user->country_code.$appointment->user->phone }}</p>
-                        <p class="mb-0 fs--1"> <strong>{{ __('Goverment ID') }}: </strong>{{ $appointment->user->goverment_id }}</p>
+                        <p class="mb-1 fs--1"> <strong>{{ __('Email') }}: </strong>{{ $appointment->user->email }}</p>
+                        <p class="mb-1 fs--1"> <strong>{{ __('Phone') }}: </strong>{{ $appointment->user->country_code.$appointment->user->phone }}</p>
+                        <p class="mb-1 fs--1"> <strong>{{ __('Goverment ID') }}: </strong>{{ $appointment->user->goverment_id }}</p>
                     </div>
                     <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
                         <h5 class="mb-3 fs-0">{{ __('Employee') }} Details</h5>
                         <h6 class="mb-2">
                             {{ ucfirst($appointment->employee->first_name).' '.ucfirst($appointment->employee->last_name) }}
                         </h6>
-                        <p class="mb-0 fs--1"> <strong>{{ __('Email') }}: </strong>{{ $appointment->employee->email }}</p>
-                        <p class="mb-0 fs--1"> <strong>{{ __('Phone') }}: </strong>{{ $appointment->employee->country_code.$appointment->employee->phone }}</p>                        
+                        <p class="mb-1 fs--1"> <strong>{{ __('Email') }}: </strong>{{ $appointment->employee->email }}</p>
+                        <p class="mb-1 fs--1"> <strong>{{ __('Phone') }}: </strong>{{ $appointment->employee->country_code.$appointment->employee->phone }}</p>                        
                     </div>
                     <div class="col-md-6 col-lg-4">
                         <h5 class="mb-3 fs-0">{{ __('Payment Information') }}</h5>
                         <div class="flex-1">
                             <h6 class="mb-0">
-                                <p class="mb-0 fs--1"><strong>{{ __('Method') }}: </strong> {{ isset($appointment->payment) ? ucfirst($appointment->payment->payment_method) : '-' }}</p> {{-- $appointment->payment->payment_type ? ' - '.ucfirst($appointment->payment->payment_type) : null --}}
+                                <p class="mb-1 fs--1"><strong>{{ __('Method') }}: </strong> {{ isset($appointment->payment) ? ucfirst($appointment->payment->payment_method) : '-' }}</p> {{-- $appointment->payment->payment_type ? ' - '.ucfirst($appointment->payment->payment_type) : null --}}
                                 @if($appointment->payment->payment_id)
-                                <p class="mb-0 fs--1"><strong>{{ __('Payment ID') }}: </strong> {{ isset($appointment->payment) ? ucfirst($appointment->payment->payment_id) : '-' }}</p>
+                                <p class="mb-1 fs--1"><strong>{{ __('Payment ID') }}: </strong> {{ isset($appointment->payment) ? ucfirst($appointment->payment->payment_id) : '-' }}</p>
                                 @endif
-                                <p class="mb-0 fs--1"><strong>{{ __('Amount') }}: </strong> {{ isset($appointment->payment) ? $custom->currency_icon.ucfirst($appointment->payment->amount) : '-' }}</p>
-                                <p class="mb-0 fs--1"><strong>{{ __('Payment Status') }}: </strong> {{ isset($appointment->payment) ? ucfirst($appointment->payment->status) : '-' }}</span></p>
+                                <p class="mb-1 fs--1"><strong>{{ __('Amount') }}: </strong> {{ isset($appointment->payment) ? $custom->currency_icon.ucfirst($appointment->payment->amount) : '-' }}</p>
+                                <p class="mb-1 fs--1"><strong>{{ __('Payment Status') }}: </strong> {{ isset($appointment->payment) ? ucfirst($appointment->payment->status) : '-' }}</span></p>
                             </h6>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="card mb-8 mb-set">
+        <div class="card mb-set">
             <div class="card-body">
                 <div class="table-responsive fs--1">
                     <table class="table table-striped border-bottom">
@@ -102,7 +102,7 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="row justify-content-center mt-5">
+                <div class="row justify-content-center mt-3 mb-3">
                     <div class="col-sm-12 text-center appCancelBtnBlock">
                         @if($appointment->status != 'completed')
                         @if($appointment->status != 'cancel')

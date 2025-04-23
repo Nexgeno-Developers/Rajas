@@ -5,18 +5,22 @@
     margin-left: auto;
     margin-right: auto;
 }
+
 .bookly-columnizer-wrap {
     position: relative;
 }
+
 .bookly-columnizer {
     min-height: .01%;
     white-space: nowrap;
     position: relative;
 }
+
 .bookly-columnizer .bookly-time-screen {
     display: inline-block;
     min-height: .01%;
 }
+
 .bookly-columnizer .bookly-column {
     /* padding: 0 5px; */
     display: inline-block;
@@ -24,25 +28,35 @@
     vertical-align: top;
     float: none !important;
 }
-.bookly-form .bookly-columnizer .bookly-day, .bookly-form .bookly-schedule-date {
-    background: #f4662f !important;
-    border: 1px solid #f4662f !important;
+
+.bookly-form .bookly-columnizer .bookly-day,
+.bookly-form .bookly-schedule-date {
+    background: #006161 !important;
+    border: 1px solid #006161 !important;
 }
-.bookly-pagination > li.active, .bookly-columnizer .bookly-day, .bookly-schedule-date {
-    background: #f4662f!important;
-    border: 1px solid #f4662f!important;
+
+.bookly-pagination>li.active,
+.bookly-columnizer .bookly-day,
+.bookly-schedule-date {
+    background: #006161 !important;
+    border: 1px solid #006161 !important;
 }
-.bookly-schedule-date, .bookly-columnizer .bookly-day {
-    background: #f4662f;
+
+.bookly-schedule-date,
+.bookly-columnizer .bookly-day {
+    background: #006161;
     color: white !important;
     font-weight: bold !important;
-    border: 1px solid #f4662f;
+    border: 1px solid #006161;
 }
+
 .bookly-columnizer .bookly-day {
     cursor: default !important;
     text-decoration: none;
 }
-.bookly-columnizer .bookly-day, .bookly-columnizer .bookly-hour {
+
+.bookly-columnizer .bookly-day,
+.bookly-columnizer .bookly-hour {
     display: block !important;
     min-width: 0;
     width: 100%;
@@ -59,29 +73,36 @@
     border: 1px solid #cccccc !important;
     border-radius: 4px;
 }
+
 .bookly-columnizer .bookly-hour {
     background: white !important;
     cursor: pointer;
 }
+
 .bookly-columnizer .bookly-hour .ladda-label {
     display: inline-block;
 }
+
 .bookly-columnizer .bookly-hour span {
     font-weight: normal;
     color: #333 !important;
 }
+
 .bookly-form * {
     box-sizing: border-box;
     font-family: inherit;
     font-size: 14px;
     line-height: inherit;
 }
+
 .bookly-bold {
     font-weight: bold !important;
 }
+
 .bookly-normal {
-    font-weight:500 !important;
+    font-weight: 500 !important;
 }
+
 .bookly-columnizer .bookly-hour .bookly-hour-icon {
     display: block;
     float: left;
@@ -91,32 +112,39 @@
     margin-right: 5px;
     background: url(../img/icons/success.png) 0 0 no-repeat;
 }
+
 .bookly-columnizer .bookly-hour span {
     font-weight: normal;
     color: #333 !important;
 }
+
 .bookly-form .bookly-columnizer .bookly-hour:hover {
-    border: 2px solid #f4662f !important;
-    color: #f4662f !important;
+    border: 1px solid #006161 !important;
+    color: #006161 !important;
 }
+
 .bookly-columnizer .bookly-hour:not(.not-allowed):hover .bookly-hour-icon {
     background: none;
-    border: 2px solid #f4662f!important;
-    color: #f4662f!important;
+    border: 1px solid #006161 !important;
+    color: #006161 !important;
 }
+
 .bookly-columnizer .bookly-hour>.not-allowed:hover .bookly-hour-icon {
     background: none;
-    border: 2px solid #f4662f!important;
-    color: #f4662f!important;
+    border: 1px solid #006161 !important;
+    color: #006161 !important;
 }
+
 .bookly-form .bookly-columnizer .bookly-hour:hover .bookly-hour-icon {
     background: none;
-    border: 2px solid #f4662f !important;
-    color: #f4662f !important;
+    border: 1px solid #006161 !important;
+    color: #006161 !important;
 }
-.bookly-columnizer .bookly-hour.not-allowed:hover .bookly-hour-icon,.bookly-columnizer .bookly-hour.not-allowed .bookly-hour-icon {
+
+.bookly-columnizer .bookly-hour.not-allowed:hover .bookly-hour-icon,
+.bookly-columnizer .bookly-hour.not-allowed .bookly-hour-icon {
     background: none;
-    border: 2px solid #848383;
+    border: 1px solid #848383;
     color: #848383;
     width: auto;
     height: auto;
@@ -124,60 +152,100 @@
     border-radius: 25px;
     margin-right: 3px;
 }
-.bookly-columnizer .bookly-hour:not(.not-allowed):hover .bookly-hour-icon,.bookly-columnizer .bookly-hour-active .bookly-hour-icon {
+
+.bookly-columnizer .bookly-hour:not(.not-allowed):hover .bookly-hour-icon,
+.bookly-columnizer .bookly-hour-active .bookly-hour-icon {
     background: none;
-    border: 2px solid #f4662f;
-    color: #f4662f;
+    border: 1px solid #006161;
+    color: #006161;
     width: auto;
     height: auto;
     padding: 3px;
     border-radius: 25px;
     margin-right: 3px;
 }
+
 .bookly-form .bookly-columnizer .bookly-hour:hover .bookly-hour-icon span {
-    background-color: #f4662f !important;
+    background-color: #006161 !important;
 }
-.bookly-progress-tracker > .active .step, .bookly-form .picker__frame, .bookly-service-step .bookly-week-days label, .bookly-repeat-step .bookly-week-days label, .bookly-columnizer .bookly-hour:not(.not-allowed):hover .bookly-hour-icon span, .bookly-btn, .bookly-btn:active, .bookly-btn:focus, .bookly-btn:hover, .bookly-btn-submit, .bookly-round, .bookly-square {
-    background-color: #f4662f!important;
+
+.bookly-progress-tracker>.active .step,
+.bookly-form .picker__frame,
+.bookly-service-step .bookly-week-days label,
+.bookly-repeat-step .bookly-week-days label,
+.bookly-columnizer .bookly-hour:not(.not-allowed):hover .bookly-hour-icon span,
+.bookly-btn,
+.bookly-btn:active,
+.bookly-btn:focus,
+.bookly-btn:hover,
+.bookly-btn-submit,
+.bookly-round,
+.bookly-square {
+    background-color: #006161 !important;
 }
-.bookly-progress-tracker > .active .step, .bookly-form .picker__frame, .bookly-service-step .bookly-week-days label, .bookly-repeat-step .bookly-week-days label,.bookly-columnizer .not-allowed .bookly-hour-icon span, .bookly-columnizer .bookly-hour.not-allowed:hover .bookly-hour-icon span, .bookly-btn, .bookly-btn:active, .bookly-btn:focus, .bookly-btn:hover, .bookly-btn-submit, .bookly-round, .bookly-square {
-    background-color: #848383!important;
+
+.bookly-progress-tracker>.active .step,
+.bookly-form .picker__frame,
+.bookly-service-step .bookly-week-days label,
+.bookly-repeat-step .bookly-week-days label,
+.bookly-columnizer .not-allowed .bookly-hour-icon span,
+.bookly-columnizer .bookly-hour.not-allowed:hover .bookly-hour-icon span,
+.bookly-btn,
+.bookly-btn:active,
+.bookly-btn:focus,
+.bookly-btn:hover,
+.bookly-btn-submit,
+.bookly-round,
+.bookly-square {
+    background-color: #848383 !important;
 }
-.bookly-columnizer .bookly-hour:hover .bookly-hour-icon span,.bookly-columnizer .bookly-hour.not-allowed .bookly-hour-icon span {
+
+.bookly-columnizer .bookly-hour:hover .bookly-hour-icon span,
+.bookly-columnizer .bookly-hour.not-allowed .bookly-hour-icon span {
     background: #848383;
     width: 8px;
     height: 8px;
     border-radius: 10px;
     display: block;
 }
-.bookly-columnizer .bookly-hour:not(.not-allowed):hover .bookly-hour-icon span,.bookly-columnizer .bookly-hour-active .bookly-hour-icon span {
-    background: #f4662f;
+
+.bookly-columnizer .bookly-hour:not(.not-allowed):hover .bookly-hour-icon span,
+.bookly-columnizer .bookly-hour-active .bookly-hour-icon span {
+    background: #006161;
     width: 8px;
     height: 8px;
     border-radius: 10px;
     display: block;
 }
+
 .bookly-columnizer .bookly-hour span {
     font-weight: normal;
     color: #333 !important;
 }
+
 .bookly-form .bookly-columnizer .bookly-hour:hover .bookly-hour-icon span {
-    background-color: #f4662f !important;
+    background-color: #006161 !important;
 }
+
 .bookly-columnizer .bookly-hour {
-    border: 2px solid #cccccc !important;
+    border: 1px solid #cccccc !important;
 }
+
 .bookly-columnizer .bookly-hour:not(.not-allowed):hover {
-    border: 2px solid #f4662f!important;
-    color: #f4662f!important;
+    border: 1px solid #006161 !important;
+    color: #006161 !important;
 }
-.bookly-columnizer .bookly-hour:not(.not-allowed):hover, .bookly-columnizer .bookly-hour-active {
-    border: 2px solid #f4662f!important;
-    color: #f4662f!important;
+
+.bookly-columnizer .bookly-hour:not(.not-allowed):hover,
+.bookly-columnizer .bookly-hour-active {
+    border: 1px solid #006161 !important;
+    color: #006161 !important;
 }
+
 .not-allowed {
     cursor: not-allowed !important;
 }
+
 .bookly-columnizer .bookly-hour.not-allowed span {
     text-decoration: line-through;
     text-decoration-color: #848383;
