@@ -1,7 +1,12 @@
 @extends('layouts.home',['title' => trans('Home'), 'pagename' => trans('landing')])
 @section('slider')
 <!-- ======= Hero Section ======= -->
-<section id="hero" class="d-flex align-items-center">
+
+
+<section >
+    <div class="container text-center coming_soon">Coming Soon...</div>
+</section>
+<section id="hero" class=" align-items-center d-none">
     
     <div class="container">
         <div class="row">
@@ -24,7 +29,7 @@
     
 @section('content')
     <!-- ======= Features Section ======= -->
-    <section id="features" class="services section-bg">
+    <section id="features" class="services section-bg d-none">
         <div class="container" data-aos="fade-up">
 
             <div class="section-title">
@@ -74,7 +79,7 @@
     </section><!-- End Features Section -->
 
     <!-- ======= Skills Section ======= -->
-    <section id="features" class="skills">
+    <section id="features" class="skills d-none">
         <div class="container" data-aos="fade-up">
 
             <div class="row">
@@ -132,7 +137,7 @@
     </section><!-- End Skills Section -->
 
     <!-- ======= Cta Section ======= -->
-    <section id="features" class="cta">
+    <section id="features" class="cta d-none">
         <div class="container" data-aos="zoom-in">
 
             <div class="row">
@@ -149,7 +154,7 @@
     </section><!-- End Cta Section -->
     @if(isset($services) && count($services) > 0)
     <!-- ======= Service Section ======= -->
-    <section id="services" class="portfolio">
+    <section id="services" class="portfolio d-none">
         <div class="container" data-aos="fade-up">
 
             <div class="section-title">
@@ -192,7 +197,7 @@
 
     <!-- ======= Employee Section ======= -->
     @if($custom->employees == 1)
-    <section id="employees" class="team section-bg">
+    <section id="employees" class="team section-bg d-none">
         <div class="container" data-aos="fade-up">
 
             <div class="section-title">
@@ -276,7 +281,7 @@
     @endif
 
     <!-- ======= About Us Section ======= -->
-    <section id="about" class="about">
+    <section id="about" class="about d-none">
         <div class="container" data-aos="fade-up">
 
             <div class="section-title">
@@ -302,7 +307,7 @@
     </section><!-- End About Us Section -->
 
     <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact section-bg">
+    <section id="contact" class="contact section-bg d-none">
         <div class="container" data-aos="fade-up">
 
             <div class="section-title">

@@ -12,9 +12,9 @@
       <tr>
         @env('local')
           @if(empty($site->logo))
-          <th style="text-align:left;"><img style="max-width: 150px;" src="https://readybook.zluck.in/rbtheme/img/default-logo.png" alt="{{ __('logo')}}"></th>
+          <th style="text-align:left;"><img style="max-width: 150px;" src="{{ asset('rbtheme/img/logo.png' )}}" alt="{{ __('logo')}}"></th>
           @else
-          <th style="text-align:left;"><img style="max-width: 150px;" src="https://readybook.zluck.in/rbtheme/img/default-logo.png" alt="{{ __('logo')}}"></th>
+          <th style="text-align:left;"><img style="max-width: 150px;" src="{{ asset('rbtheme/img/logo.png' )}}" alt="{{ __('logo')}}"></th>
           @endif
         @else
           @if(empty($site->logo))
