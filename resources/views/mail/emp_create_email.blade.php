@@ -14,15 +14,15 @@
       <tr>
         @env('local')
           @if(empty($site->logo))
-          <th style="text-align:left;"><img style="max-width: 150px;" src="https://i.ibb.co/Fkn5XXqp/logo.png" alt="{{ __('logo')}}"></th>
+          <th style="text-align:left;"><img style="max-width: 150px;" src="https://i.ibb.co/6R6f0Gc9/logo.png" alt="{{ __('logo')}}"></th>
           @else
-          <th style="text-align:left;"><img style="max-width: 150px;" src="https://i.ibb.co/Fkn5XXqp/logo.png" alt="{{ __('logo')}}"></th>
+          <th style="text-align:left;"><img style="max-width: 150px;" src="https://i.ibb.co/6R6f0Gc9/logo.png" alt="{{ __('logo')}}"></th>
           @endif
         @else
           @if(empty($site->logo))
-          <th style="text-align:left;"><img style="max-width: 150px;" src="https://i.ibb.co/Fkn5XXqp/logo.png" alt="{{ __('logo')}}"></th>
+          <th style="text-align:left;"><img style="max-width: 150px;" src="https://i.ibb.co/6R6f0Gc9/logo.png" alt="{{ __('logo')}}"></th>
           @else
-          <th style="text-align:left;"><img style="max-width: 150px;" src="https://i.ibb.co/Fkn5XXqp/logo.png" alt="{{ __('logo')}}"></th>
+          <th style="text-align:left;"><img style="max-width: 150px;" src="https://i.ibb.co/6R6f0Gc9/logo.png" alt="{{ __('logo')}}"></th>
           @endif
         @endenv
         
