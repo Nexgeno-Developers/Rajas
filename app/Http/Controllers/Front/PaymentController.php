@@ -349,7 +349,7 @@ class PaymentController extends Controller
 
                 // $redirectUrl = route('success');
                 // return response()->json(['data' => trans('Thank you! Your Booking is Successfully Booked'),'redirect' => $redirectUrl]);
-                return true;
+                //return true;
                 return redirect()->to('/customer/appointment/' . $appointment_id)
                 ->with('message', 'Thank you! Service Booked Successfully!');             
             }
