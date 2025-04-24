@@ -142,12 +142,12 @@
                             @endif
 
                             @if($appointment->status != 'cancel')
-                            <button type="button" class="btn btn-danger btn-design" data-bs-toggle="modal"
+                            <button type="button" class="cancel_apppointment" data-bs-toggle="modal"
                                 data-bs-target="#exampleModalCenter">{{ __('Cancel Appointment') }}</button>
                             @endif
 
                             @if($appointment->status == 'cancel')
-                            <button type="button" class="btn btn-info btn-design back-btn-click">{{ __('Back') }}</button>
+                            <button type="button" class="btn btn-info btn-design back-btn-click back_buttons">{{ __('Back') }}</button>
                             @endif
                             @endif
 

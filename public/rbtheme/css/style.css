@@ -1829,7 +1829,6 @@ section {
 #footer {
   font-size: 14px;
   background: #006161;
-  position: fixed;
   bottom: 0;
   width: 100%;
 }
@@ -2018,8 +2017,27 @@ textarea:focus-visible {
   font-size: 13px;
 }
 
+
 #footer .credits a {
   transition: 0.3s;
+}
+
+.cancel_apppointment {
+  background: transparent !important;
+  color: red !important;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid red;
+  border-radius: 0px;
+  font-size: 13px;
+}
+
+.back_buttons {
+  background: #006161 !important;
+  color: #ffffff !important;
+  padding: 5px 13px;
+  font-size: 14px;
+  border: 0;
 }
 
 @media (max-width: 768px) {

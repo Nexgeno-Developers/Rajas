@@ -102,17 +102,15 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="row justify-content-center mt-3 mb-3">
-                    <div class="col-sm-12 text-center appCancelBtnBlock">
+                    <div class="row justify-content-between mt-3 mb-3 pl-3 pr-3">
                         @if($appointment->status != 'completed')
                         @if($appointment->status != 'cancel')
-                        <button type="button" class="btn btn-danger btn-design" data-bs-toggle="modal"
+                        <button type="button" class="cancel_apppointment" data-bs-toggle="modal"
                             data-bs-target="#exampleModalCenter">{{ __('Cancel Appointment') }}</button>
                         @endif
-                        <button type="button" class="btn btn-info back-btn-click">{{ __('Back') }}</button>
+                        <button type="button" class="btn btn-info back-btn-click back_buttons">{{ __('Back') }}</button>
                         @endif
                     </div>
-                </div>
 
                 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
                     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
