@@ -9,7 +9,7 @@
 <section class="zluck-container" id="banner">
     <div class="container justify-content-center" data-layout="container">
         <div class="row justify-content-center">
-            <div class="col-sm-10 col-lg-9 col-xxl-7 pt-5">
+            <div class="col-sm-10 col-lg-10 col-xxl-7 pt-5">
             
                 <div class="d-flex flex-center mb-3 pt-3">
                     <span class="font-sans-serif fw-bolder fs-4 d-inline-block">{{ __('Book Appointment') }}</span>
@@ -401,105 +401,93 @@
                                     </div>
                                 </div>
 
-                                <div class="tab-pane px-sm-3 px-md-5" role="tabpanel"
+                                <div class="tab-pane px-sm-3 px-md-3 booking_from_step4" role="tabpanel"
                                     aria-labelledby="bootstrap-wizard-tab5" id="bootstrap-wizard-tab5">
                                     <div class="row text-center">
+
+                                    <div class="col-md-12">
+                                            <div class="text-center "> 
+                                               
+                                                    <span class="text-custom">
+                                                        <p class="p-space"><label class="f-700 label-color"></label></p>
+                                                        <span class="f-700 img-price">{{ucfirst($custom->custom_field_service)}} {{ __('Fees') }} : </span>
+                                                        <span class="booking_prices">{{ $custom->currency_icon }}</span>
+                                                        <span class="booking_price f-700 img-price booking_prices"></span></label>
+                                                    </span>
+                                                </div>
+                                        </div>
+
+
                                         <div class="col-12 col-md-12">
                                             <span class="countdown d-none">{{ __('Complete your payment process within') }} : <span class="timeleft"></span></span>                  
                                             <p id="confirm-msg"></p>
-                                            <p id="confirm-detail"> {{ __('Please confirm your appointment booking details once before proceed') }}.</p>
+                                            <p id="confirm-detail" class="mb-0 pb-md-0 pb-3"> {{ __('Please confirm your appointment booking details once before proceed') }}.</p>
                                             @if($custom->smtp_mail == 1)
-                                            <p>{{ __("We'll send booking details via an email to you at") }}  <span class="user_email f-700"></span></p>
+                                            <p class="mb-0 pb-md-5 pb-3">{{ __("We'll send booking details via an email to you at") }}  <span class="user_email f-700"></span></p>
                                             @endif
                                         </div>
                                     </div>
                                     <div class="row justify-content-center">
                                         @if($custom->categories == 1)
-                                        <div class="col-6 col-md-6">
-                                            <div class="row">
-                                                <div class="col-2 col-md-2">
-                                                    <span><img class="detail-img " src="{{ asset('rbtheme/img/category.jpg')}}" alt="" height="50px" width="50px"></span>
-                                                </div>
-                                                <div class="col-10 col-md-10">
+                                        <div class="col-md-3">
+                                                <div class="text-center">
+                                                    <div class="app_images text-center"><img class="" src="{{ asset('rbtheme/img/location_icons.png')}}" alt=""></div>
                                                     <span class="text-custom">
                                                         <p class="p-space"><label class="f-700 label-color">{{ucfirst($custom->custom_field_category)}}</label></p> 
                                                         <span><label class="category_name f-700 img-detail"></label></span>
                                                     </span>
                                                 </div>
-                                            </div>
                                         </div>
                                         @endif
-                                        <div class="col-6 col-md-6">
-                                            <div class="row">
-                                                <div class="col-2 col-md-2">
-                                                    <span><img class="detail-img " src="{{ asset('rbtheme/img/service.jpg')}}" alt="" height="50px" width="50px"></span>
-                                                </div>
-                                                <div class="col-10 col-md-10">
+                                        <div class="col-md-3">
+                                                <div class="text-center">
+                                                    <div class="app_images"><img class="" src="{{ asset('rbtheme/img/setting_icons.png')}}" alt=""></div>
                                                     <span class="text-custom">
                                                         <p class="p-space"><label class="f-700 label-color">{{ucfirst($custom->custom_field_service)}}</label></p>
                                                         <span><label class="service_name f-700 img-detail"></label></span>
                                                     </span>
                                                 </div>
-                                            </div>
                                         </div>
 
-                                        <div class="col-6 col-md-6">
-                                            <div class="row mt-3">
-                                                <div class="col-2 col-md-2"> 
-                                                    <span><img class="detail-img " src="{{ asset('rbtheme/img/price.jpg')}}" alt="" height="50px" width="50px"></span>
-                                                </div>
-                                                <div class="col-10 col-md-10">
-                                                    <span class="text-custom">
-                                                        <p class="p-space"><label class="f-700 label-color">{{ucfirst($custom->custom_field_service)}} {{ __('Fees') }}</label></p>
-                                                        <span class="f-700 img-price">{{ $custom->currency_icon }}</span>
-                                                        <span class="booking_price f-700 img-price"></span></label>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        
 
                                         @if($custom->employees == 1)
-                                        <div class="col-6 col-md-6">
-                                            <div class="row mt-3">
-                                                <div class="col-2 col-md-2">
-                                                    <span><img class="detail-img " src="{{ asset('rbtheme/img/employee.jpg')}}" alt="" height="50px" width="50px"></span>
+                                        <div class="col-md-3">
+                                            <div class="text-center">
+                                                <div class="app_images">
+                                                    <img class="" src="{{ asset('rbtheme/img/people_icons.png')}}" alt="">
                                                 </div>
-                                                <div class="col-10 col-md-10">
                                                     <span class="text-custom">
                                                         <p class="p-space"><label class="f-700 label-color">{{ucfirst($custom->custom_field_text)}}</span></label></p>
                                                         <span><label class="employee_name f-700 img-detail"></label></span>
-                                                    </span>   
-                                                </div>
+                                                    </span>  
                                             </div>
                                         </div>
                                         @endif
 
-                                        <div class="col-6 col-md-6">
-                                            <div class="row mt-3">
-                                                <div class="col-2 col-md-2">
-                                                    <span><img class="detail-img " src="{{ asset('rbtheme/img/info.png')}}" alt="" height="50px" width="50px"></span>
+                                        <div class="col-md-3">
+                                            <div class="text-center">
+                                                <div class="app_images">
+                                                    <img class="" src="{{ asset('rbtheme/img/brief_icons.png')}}" alt="">
                                                 </div>
-                                                <div class="col-10 col-md-10">
-                                                    <span class="text-custom">
+                                                 <span class="text-custom">
                                                         <p class="p-space"><label class="f-700 label-color">{{ __('Other Information') }}:</label></p>
                                                         <span><label class="other_information f-700 img-detail "></label></span>
                                                     </span>
-                                                </div>
                                             </div>
                                         </div>                                        
 
-                                        <div class="col-6 col-md-6">
-                                            <div class="row mt-3">
-                                                <div class="col-2 col-md-2">
-                                                    <span><img class="detail-img " src="{{ asset('rbtheme/img/date.jpg')}}" alt="" height="50px" width="50px"></span>
+                                        <div class="col-md-3">
+                                            <div class="text-center">
+                                                <div class="app_images">
+                                                    <img class="" src="{{ asset('rbtheme/img/clock_icons.png')}}" alt="">
                                                 </div>
-                                                <div class="col-10 col-md-10">
+                                               
                                                     <span class="text-custom">
                                                         <p class="p-space"><label class="f-700 label-color">{{ __('Appointment Date & Time') }}:</label></p>
                                                         <span><label class="booking_date f-700 mb-0 img-detail "></label></span>
                                                         <div style="margin-top: -5px;"><label class="booking_time f-700 img-detail"></label></div>
                                                     </span>
-                                                </div>
                                             </div>
                                         </div>
                                         

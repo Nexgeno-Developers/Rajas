@@ -430,7 +430,7 @@ textarea {
   left: 15px;
   z-index: 9999;
   overflow-y: auto;
-  background: rgba(40, 58, 90, 0.9);
+  background: #006161cc;
   transition: ease-in-out 0.2s;
   opacity: 0;
   visibility: hidden;
@@ -2020,6 +2020,7 @@ textarea:focus-visible {
 
 #footer .credits a {
   transition: 0.3s;
+  color: #fff;
 }
 
 .cancel_apppointment {
@@ -2040,6 +2041,41 @@ textarea:focus-visible {
   border: 0;
 }
 
+div#bootstrap-wizard-tab5 .col-md-3 {
+  flex: 0 0 20%;
+  max-width: 20%;
+  padding-left: 10px;
+  padding-right: 0px;
+}
+
+.booking_prices {
+  font-size: 40px;
+  font-weight: bold !important;
+  color: #006161;
+}
+
+section#banner {
+  background-image: url(/rbtheme/img/booking_form_bg.webp);
+  box-shadow: 1000px 1000px 1000px 1000px #ffffffeb inset;
+}
+
+.app_images img {
+  width: 44px;
+}
+
+.app_images {
+  height: auto;
+  border-radius: 50%;
+  background: #DBE1E8;
+  width: 90px;
+  height: 90px;
+  line-height: 90px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+}
+
 @media (max-width: 768px) {
   #footer .footer-bottom {
     padding-top: 20px;
@@ -2054,5 +2090,73 @@ textarea:focus-visible {
 
   #footer .credits {
     padding-top: 4px;
+  }
+}
+
+
+@media(max-width:767px) {
+  div#bootstrap-wizard-tab5 .col-md-3 {
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .app_images {
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    margin-bottom: 7px;
+  }
+
+  .app_images img {
+    width: 30px;
+  }
+
+  .booking_prices {
+    font-size: 28px;
+  }
+
+  .appointment_buttons {
+    position: relative;
+    left: -44%;
+    margin-top: 10px;
+    margin-bottom: 14px;
+  }
+
+  .img-detail {
+    font-size: 12px;
+  }
+
+  .next_buttons {
+    background: #006161 !important;
+    border: 1px solid #006161;
+    border-radius: 50px;
+    padding: 6px 20px 5px;
+    font-size: 12px !important;
+    margin-top: 0px;
+    color: #fff;
+  }
+
+  .previews_buttons {
+    background: transparent !important;
+    border: 1px solid #006161;
+    border-radius: 50px;
+    padding: 6px 20px 5px;
+    font-size: 12px !important;
+    margin-top: 0px;
+    color: #006161;
+    text-decoration: none !important;
+  }
+
+  .mobile-nav-toggle i {
+    color: #006161;
+  }
+
+  .mobile-nav a:hover,
+  .mobile-nav .active>a,
+  .mobile-nav li:hover>a {
+    color: #fff;
+    text-decoration: none;
   }
 }

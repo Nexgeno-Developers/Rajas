@@ -1,6 +1,6 @@
 <header id="header" class="fixed-top header-scrolled">
     <div class="container d-flex align-items-center">
-        <a href="{{ route('welcome')}}" class="logo mr-auto">
+        <a href="{{ route('welcome')}}" class="logo mr-md-auto">
             @if(!empty($site->logo) && $site->logo != 'default-logo.png')
             <img src="{{ asset('img/logo/'.$site->logo )}}" alt="logo" class="img-fluid">
             @else

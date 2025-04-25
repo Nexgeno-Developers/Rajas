@@ -75,7 +75,7 @@ span.payment-label {
 
 
 .img-price {
-  font-size: 20px;
+  font-size: 13px;
   text-transform: capitalize;
 }
 
@@ -83,23 +83,26 @@ span.payment-label {
   .img-price {
     font-size: 13px;
     text-transform: capitalize;
-    margin-right: -26px;
-    margin-left: 24px;
+    margin-right: 0px;
+    margin-left: 0px;
   }
 }
 
 .label-color {
-  color: rgb(75, 224, 75);
+  color: #006161;
   margin: 0;
+  font-size: 13px;
+  font-weight: 500;
+
 }
 
 @media only screen and (min-width: 424px) and (max-width: 1556px) {
   .label-color {
-    margin-left: 26px;
+    margin-left: 0px;
   }
 
   .img-detail {
-    margin-left: 25px;
+    margin-left: 0px;
     font-size: 13px;
   }
 }
