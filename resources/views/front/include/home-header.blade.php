@@ -129,7 +129,7 @@
                     @if(!empty(Auth::user()->profile))
                     <a href="javascript:;"><img src="{{ asset('img/profile/'.Auth::user()->profile) }}" alt="customer-logo" class="rounded" width="25" height="25"></a>
                     @else
-                    <a href="javascript:;"><img src="{{ asset('rbtheme/img/image.png')}}" alt="default-logo" class="rounded" width="25" height="25"></a>
+                    <a href="javascript:;"><img src="{{ asset('rbtheme/img/image.png')}}" alt="default-logo" class="rounded" width="18" height="18"></a>
                     @endif
                     <ul @if(Request::segment(2) == 'profile' || Request::segment(1) == 'dashboard') class="d-block" @endif>
                         <li class="@if(Request::segment(1) == 'dashboard') active @endif">
