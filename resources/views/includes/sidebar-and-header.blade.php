@@ -1,7 +1,7 @@
 <aside class="aside">
     <div class="aside-content">
         <div class="logo">
-            <a href="{{ route('welcome') }}" class="">
+            <a href="/dashboard" class="">
             @if(!empty($site->logo))
             <img src="{{asset('img/logo/'.$site->logo)}}" alt="{{ __('Site Logo') }}" class="img-responsive">
             @else
@@ -16,42 +16,11 @@
                     <a href="{{ route('dashboard') }}"><i class="fa fa-tachometer" aria-hidden="true"></i> {{ __('Dashboard') }}</a>
                 </li>
             </ul>
-            @can('categories',\Illuminate\Support\Facades\Auth::user())
-            @if($custom->categories == 1)
-            <ul>
-                <li>
-                    <a href="{{ route('categories.index') }}" class="">
-                        <i class="fa fa-list-alt" aria-hidden="true"></i>
-                        <span>{{ __('Categories') }}</span>
-                    </a>
-                </li>
-            </ul>
-            @endif
-            @endcan
 
-            @can('employees',\Illuminate\Support\Facades\Auth::user())
-            <ul>
-                <li>
-                    <a href="{{ route('services.index') }}" class="">
-                        <i class="fa fa-wrench" aria-hidden="true"></i>
-                        <span>{{ __('Services') }}</span>
-                    </a>
-                </li>
-            </ul>
-            @endcan
+          
+           
 
-            @can('employees',\Illuminate\Support\Facades\Auth::user())
-            @if($custom->employees == 1)
-            <ul>
-                <li>
-                    <a href="{{ route('employees.index') }}" class="">
-                        <i class="fa fa-user-circle" aria-hidden="true"></i>
-                        <span>{{ __('Employees') }}</span>
-                    </a>
-                </li>
-            </ul>
-            @endif
-            @endcan
+           
 
             @can('customers',\Illuminate\Support\Facades\Auth::user())
             <ul>
@@ -73,6 +42,19 @@
                     </a>
                 </li>
             </ul>
+            @endcan
+
+             @can('employees',\Illuminate\Support\Facades\Auth::user())
+            @if($custom->employees == 1)
+            <ul>
+                <li>
+                    <a href="{{ route('employees.index') }}" class="">
+                        <i class="fa fa-user-circle" aria-hidden="true"></i>
+                        <span>{{ __('Employees') }}</span>
+                    </a>
+                </li>
+            </ul>
+            @endif
             @endcan
 
             @can('payments',\Illuminate\Support\Facades\Auth::user())
@@ -101,6 +83,31 @@
             </ul>
             @endcan
 
+              @can('categories',\Illuminate\Support\Facades\Auth::user())
+            @if($custom->categories == 1)
+            <ul>
+                <li>
+                    <a href="{{ route('categories.index') }}" class="">
+                        <i class="fa fa-list-alt" aria-hidden="true"></i>
+                        <span>{{ __('Categories') }}</span>
+                    </a>
+                </li>
+            </ul>
+            @endif
+            @endcan
+
+
+             @can('employees',\Illuminate\Support\Facades\Auth::user())
+            <ul>
+                <li>
+                    <a href="{{ route('services.index') }}" class="">
+                        <i class="fa fa-wrench" aria-hidden="true"></i>
+                        <span>{{ __('Services') }}</span>
+                    </a>
+                </li>
+            </ul>
+            @endcan
+
             @can('settings', \Illuminate\Support\Facades\Auth::user())
             <ul>
                 <li>
@@ -110,18 +117,18 @@
                         <div class="icon"><i class="fa fa-arrow-left" aria-hidden="true"></i></div>
                     </a>
                     <ul class="nested-menu">
-                        <li>
+                        <!-- <li>
                             <a href="{{ route('setting') }}">{{ __('General Setting') }}</a>
                         </li>
                         <li>
                             <a href="{{ route('setting.payment') }}">{{ __('Payment Setting') }}</a>
-                        </li>
+                        </li> -->
                         <li>
                             <a href="{{ route('setting.site') }}">{{ __('Site Setting') }}</a>
                         </li>
-                        <li>
+                        <!-- <li>
                             <a href="{{ route('notificationSetting') }}">{{ __('Notification Setting') }}</a>
-                        </li>
+                        </li> -->
                     </ul>
                 </li>
             </ul>

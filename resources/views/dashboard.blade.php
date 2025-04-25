@@ -31,7 +31,7 @@
                     <a href="{{ route('employees.index') }}">
                         <div class="monitor-box relative">
                             <div class="icon">
-                                <i class="fa fa-user-secret" aria-hidden="true"></i>
+                                <i class="fa fa-user" aria-hidden="true"></i>
                             </div>
                             <h4>{{ __('Employees') }}</h4>
 

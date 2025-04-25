@@ -6,14 +6,18 @@
 {{-- <link href="{{ asset('backend/css/custom.css') }}" rel="stylesheet"></script> --}}
 @endsection
 @section('content')
-<div class="row p-2">
+<div class="row p-md-4 p-2">
     @include('includes.message-block')
     <div class="col-sm-12 col-mobile">
         <div class="board-box">
             <div class="board-title">
-                <h2>{{ __('List of all employees') }} <a href="{{ route('employees.create') }}" class="add-new-employee"><span
-                            class="fa fa-plus pull-c-right"></span></a></h2>
-                    
+               
+                            <div class="row">
+	<div class="col-md-6"><h2>{{ __('List of all employees') }} </h2></div>
+	<div class="col-md-6"><a href="{{ route('employees.create') }}" class="add-new-employee btn btn-secondary pull-c-right"> <span class="fa fa-plus"></span> Create Employees</a></div>
+</div>
+
+
             </div>
     
             <div class="table-style">

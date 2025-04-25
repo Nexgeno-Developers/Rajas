@@ -3,7 +3,7 @@
     @include('includes.head',['title'=> trans('Customers')])
 @endsection
 @section('content')
-    <div class="row p-2">
+    <div class="row p-md-4 p-2">
         @include('includes.message-block')
         <div class="col-sm-12 col-mobile">
             <div class="board-box">

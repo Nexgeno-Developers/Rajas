@@ -7,7 +7,7 @@
 @endsection
 @section('content')
     @include('includes.message-block')
-    <div class="row p-2">
+    <div class="row p-md-4 p-2">
         <div class="col-sm-12 col-mobile">
             <div class="board-box">
             <div class="board-title">

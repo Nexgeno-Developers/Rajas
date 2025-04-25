@@ -39,10 +39,13 @@
     <link rel="stylesheet" href="{{ url('rbtheme/css/custom.css?v='.time())}}">
     <link href="{{ asset('rbtheme/css/OverlayScrollbars.min.css') }}" rel="stylesheet">
     <link href="{{ asset('rbtheme/css/style.css?v='.time())}}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
     <!-- Bootstrap Select CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/css/bootstrap-select.min.css">    
     @yield('css')
+
+   
 </head>
 
 <body>

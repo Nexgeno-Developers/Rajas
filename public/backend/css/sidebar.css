@@ -1,24 +1,28 @@
 .bg-vibrant .aside {
-    background-image: -o-linear-gradient(135deg, rgba(0, 160, 255, 0.86), #0048a2),url(../theme/img/generic/bg-navbar.png);
-    background-image: linear-gradient(-45deg, rgba(0, 160, 255, 0.86), #0048a2),url(../theme/img/generic/bg-navbar.png);
+    background-image: -o-linear-gradient(135deg, rgba(0, 160, 255, 0.86), #0048a2), url(../theme/img/generic/bg-navbar.png);
+    background-image: linear-gradient(-45deg, rgba(0, 160, 255, 0.86), #0048a2), url(../theme/img/generic/bg-navbar.png);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
 }
+
 .navbar-glass {
     background-color: rgba(237, 242, 249, 0.96);
 }
-.navbar-card .aside{
+
+.navbar-card .aside {
     --box-shadow: 0 7px 14px 0 rgba(65, 69, 88, 0.1), 0 3px 6px 0 rgba(0, 0, 0, 0.07);
     background-color: #fff;
     -webkit-box-shadow: --box-shadow !important;
     box-shadow: --box-shadow !important;
 }
+
 .navbar-inverted .aside {
-    background-color: #232e3c;
+    background-color: #006161;
 }
+
 .aside {
     position: fixed;
     top: 0;
@@ -30,9 +34,11 @@
     overflow-y: auto;
     transition: .5s all ease-out;
 }
+
 .aside {
-    background-color: #232e3c!important;
+    background-color: #006161 !important;
 }
+
 .aside .aside-content .logo {
     padding: 15px 0px;
 }
@@ -41,6 +47,7 @@
     max-height: 50px;
     margin: 0 auto;
     margin-inline-start: 20px;
+    filter: brightness(0) invert(1);
 }
 
 .aside .aside-content .aside-menu ul {
@@ -62,9 +69,9 @@
     width: 17px;
     padding: 2px;
     font-size: 11px;
-  }
+}
 
-.notification .fa-bell{
+.notification .fa-bell {
     font-size: 20px;
 }
 
@@ -76,13 +83,13 @@
     position: relative;
 }
 
-.aside .aside-content .aside-menu li > a {
+.aside .aside-content .aside-menu li>a {
     color: inherit;
     display: block;
     padding: 12px 0px;
 }
 
-.aside .aside-content .aside-menu li > a i {
+.aside .aside-content .aside-menu li>a i {
     margin-right: 10px;
 }
 
@@ -97,8 +104,9 @@
     padding-left: 35px;
     position: inherit;
 }
+
 .aside .aside-content .aside-menu li .nested-menu {
-    background-color: #232e3c!important;
+    background-color: #232e3c !important;
     padding-left: 35px;
     position: inherit;
 }
@@ -106,6 +114,7 @@
 .aside .aside-content .aside-menu li .nested-menu li a {
     padding: 12px 14px;
 }
+
 .aside .aside-content .aside-menu li .nested-menu li:before {
     content: "";
     position: absolute;

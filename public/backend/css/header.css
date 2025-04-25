@@ -1,41 +1,51 @@
+body {
+    font-family: "Montserrat", sans-serif !important;
+}
+
 .header {
     margin-top: -42px;
 }
+
 .header .header-top {
     background-color: #404040;
     border-bottom: 1px solid #3e4140;
 }
+
 .header .header-inverted {
-    background-color: #232e3c;
-    border-bottom: 1px solid #232e3c;
+    background-color: #006161;
+    border-bottom: 1px solid #006161;
 }
+
 .header .header-glass {
-    background-color: rgba(237, 242, 249, 0.96);;
+    background-color: rgba(237, 242, 249, 0.96);
+    ;
     border-bottom: 1px solid rgba(237, 242, 249, 0.96);
 }
+
 .header .header-vibrant {
     background-color: #404040;
     border-bottom: 1px solid #3e4140;
 }
+
 .header .header-top .settings {
     text-align: right;
     margin-bottom: 3px;
     margin-top: 3px;
 }
 
-.header .header-top .settings > li {
+.header .header-top .settings>li {
     display: inline-block;
     line-height: 75px;
     transition: .5s all ease-out;
     margin-top: 12px;
 }
 
-.header .header-top .settings > li:first-child > a {
+.header .header-top .settings>li:first-child>a {
     width: 60px;
     text-align: center;
 }
 
-.header .header-top .settings > li > a {
+.header .header-top .settings>li>a {
     color: #fff;
     display: block;
     padding: 0 5px;
@@ -58,33 +68,35 @@
 }
 
 .btn.filter {
-    margin-top:25px;
+    margin-top: 25px;
     margin-bottom: 10px;
 }
 
 
-.header .header-top .settings > li > a:hover {
+.header .header-top .settings>li>a:hover {
     background-color: #232e3c;
 }
 
-.header .header-top .settings > li > li.dropdown.open {
+.header .header-top .settings>li>li.dropdown.open {
     background-color: #949d9b;
 }
 
-.header .header-top .settings > li .dropdown-menu {
+.header .header-top .settings>li .dropdown-menu {
     left: auto;
     right: 0;
 }
 
-.header .header-top .settings > li .dropdown-menu li a:hover {
+.header .header-top .settings>li .dropdown-menu li a:hover {
     background-color: #949d9b;
     color: #fff;
 }
-.header .header-top .settings > li .dropdown-menu li a:hover {
-    background-color: #232e3c!important;
+
+.header .header-top .settings>li .dropdown-menu li a:hover {
+    background-color: #232e3c !important;
     color: #fff;
 }
-.header .header-top .settings > li .dropdown-menu li a i {
+
+.header .header-top .settings>li .dropdown-menu li a i {
     margin-right: 10px;
 }
 
@@ -123,11 +135,11 @@
 }
 
 .bootstrap-datetimepicker-widget table tr.customText td {
-  height: 24px;
-  line-height: 24px;
+    height: 24px;
+    line-height: 24px;
 }
 
-.dropdown-menu-notification{
+.dropdown-menu-notification {
     min-width: 0px !important;
 }
 
@@ -136,33 +148,36 @@
     margin-top: 40px;
 }
 
-.btn-design{
+.btn-design {
     margin: 5px;
 }
 
-.appointment_detail{
+.appointment_detail {
     font-size: 16px;
     font-weight: bold;
 }
-   
+
 .appointment-detail-design {
-    background-color:white;
-    margin-top:40px;
-    padding:10px;
+    background-color: white;
+    margin-top: 40px;
+    padding: 10px;
 }
 
 .page-padding {
     padding: 20px;
 }
+
 .currency-link {
     padding: 10px 0px !important;
 }
-.currency-icon{
+
+.currency-icon {
     margin-right: 12px;
     font-size: 18px;
     font-weight: 600;
 }
-@media screen  and (max-width: 380px) {
+
+@media screen and (max-width: 380px) {
     .btn-design {
         font-size: 9px;
     }
