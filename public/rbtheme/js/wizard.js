@@ -452,6 +452,10 @@ localStorage.time = "";
                         <p class="mt-0 mb-0">Number of Person: ${allowedPerson.value}</p>
                         <p class="mt-0 mb-0">Total Weight: ${allowedWeight.value} Kg</p>
                     `);
+
+             
+             $("#book-button").click();    
+              
             //alert(1);
 
             //validation start - new
@@ -499,8 +503,11 @@ localStorage.time = "";
             if (inputpayment.value == "payumoney") {
               //new
               //alert("payumoney");
+              // $(".next-button")
+              //   .html(translate.book_appointment)
+              //   .addClass("appointment_buttons");
               $(".next-button")
-                .html(translate.book_appointment)
+                .html('Proceed to Pay')
                 .addClass("appointment_buttons");
             }
           } else {
