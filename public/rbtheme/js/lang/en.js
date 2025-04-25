@@ -53,7 +53,7 @@ let translate = {
     "razorpay_pay_and_confirm": "Please Pay then Appointment confirmed.",
     "please_select_appointment_slot": "Please Select Appointment Time Slots",
     "please_select_payment_method": "Please Select any Payment Method",
-    "book_appointment": "Book Appointment",
+    "book_appointment": "Proceed to Pay",
     "next": "Next",
     "book_another_appointment": "Book Another Appointment",
     "please_pay_create_appointment": "Please Pay and Create Appointment",

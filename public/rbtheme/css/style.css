@@ -196,12 +196,6 @@ textarea {
 
 }
 
-.appointment_buttons {
-  position: relative;
-  left: -140%;
-  margin-top: 30px;
-}
-
 .btn-primary {
   background-color: #006161 !important;
   border-color: #006161 !important;
@@ -2063,6 +2057,10 @@ section#banner {
   width: 44px;
 }
 
+.booking_from_step4 {
+  padding-bottom: 25px;
+}
+
 .app_images {
   height: auto;
   border-radius: 50%;
@@ -2117,12 +2115,7 @@ section#banner {
     font-size: 28px;
   }
 
-  .appointment_buttons {
-    position: relative;
-    left: -44%;
-    margin-top: 10px;
-    margin-bottom: 14px;
-  }
+
 
   .img-detail {
     font-size: 12px;
