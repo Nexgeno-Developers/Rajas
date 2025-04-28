@@ -40,7 +40,7 @@
         $('.current-page').show();
     });
     jQuery.validator.addMethod("letterOnly", function(value, element){
-        return this.optional(element) || /^[a-zA-Z][a-zA-Z0-9\s]*$/gi.test(value);
+        return this.optional(element) || /^[a-zA-Z][a-zA-Z0-9\s"?,\-_|\/\.\(\)]*$/gi.test(value);
     }, translate.please_enter_character_with_optional_digits);
 
     jQuery.validator.addMethod('regex', function(value, element) {
