@@ -10,7 +10,7 @@
                 <div class="board-title">
                     <div class="row">
                         <div class="col-md-6"><h2>{{ __('List of all appointments') }} </h2></div>
-                        <div class="col-md-6"><a href="{{ route('appointments.create') }}" class="add-new-employee btn btn-secondary pull-c-right"> <span class="fa fa-plus"></span> Create appointments</a></div>
+                        <div class="col-md-6"><a href="{{ route('appointments.create') }}" class="add-new-employee btn btn-secondary pull-c-right"> <span class="fa fa-plus"></span> Create Booking</a></div>
                     </div>
                        
                 </div>

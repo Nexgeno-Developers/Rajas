@@ -180,9 +180,9 @@
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="mb-3">
-                                                <label for="name" class="form-label">{{ __('Cancel Appointment Duration')}}:</label>
+                                                <label for="name" class="form-label">{{ __('Cancel Booking Duration')}}:</label>
                                                 <div class='input-group' id="datetimepickerRest1">
-                                                    <input type='text' class="form-control time @error('cancel_before') is-invalid @enderror timeDuration" placeholder="{{ __('Cancel Appointment') }}" value="{{old('cancel_before')}}" name="cancel_before" id="cancel-before"/>
+                                                    <input type='text' class="form-control time @error('cancel_before') is-invalid @enderror timeDuration" placeholder="{{ __('Cancel Booking') }}" value="{{old('cancel_before')}}" name="cancel_before" id="cancel-before"/>
                                                     <span class="input-group-text">
                                                         <span class="glyphicon glyphicon-time"></span>
                                                     </span>

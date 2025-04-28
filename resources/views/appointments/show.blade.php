@@ -138,12 +138,12 @@
                             @if($appointment->status != 'completed')
                             @if($appointment->status != 'approved' && Auth::user()->role_id != 2 && $appointment->status
                             != 'cancel')
-                            <button type="submit" id="approved" class="btn btn-success btn-design">{{ __('Approve Appointment') }}</button>
+                            <button type="submit" id="approved" class="btn btn-success btn-design">{{ __('Approve Booking') }}</button>
                             @endif
 
                             @if($appointment->status != 'cancel')
                             <button type="button" class="cancel_apppointment" data-bs-toggle="modal"
-                                data-bs-target="#exampleModalCenter">{{ __('Cancel Appointment') }}</button>
+                                data-bs-target="#exampleModalCenter">{{ __('Cancel Booking') }}</button>
                             @endif
 
                             @if($appointment->status == 'cancel')
@@ -154,7 +154,7 @@
                             @if($appointment->status == 'approved' && isset($appointment->payment->status) &&
                             $appointment->payment->status == 'success')
                             <button type="button" class="btn btn-primary btn-design" id="complete" data-bs-toggle="modal"
-                                data-bs-target="#exampleModalComplete">{{ __('Complete Appointment') }}</button>
+                                data-bs-target="#exampleModalComplete">{{ __('Complete Booking') }}</button>
                             @endif
                         </div>
                     </div>
@@ -170,7 +170,7 @@
                     {{ csrf_field() }}
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">{{ __('Cancel Appointment') }}</h5>
+                        <h5 class="modal-title" id="exampleModalLongTitle">{{ __('Cancel Booking') }}</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                         </button>
                     </div>

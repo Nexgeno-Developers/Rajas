@@ -1,4 +1,4 @@
-@extends('layouts.home',['title' => trans('Appointment')])
+@extends('layouts.home',['title' => __('Book Appointment')])
 @section('css')
 <link rel="stylesheet" href="{{ asset('rbtheme/css/booking-slots.css')}}">
 <link href="{{ asset('rbtheme/css/flatpickr.min.css') }}" rel="stylesheet" id="style-default">
@@ -332,8 +332,8 @@
                                                 class="text-danger">*</span></label>
                                         <textarea class="form-control" rows="4" name="comments"
                                             id="bootstrap-wizard-detail" data-wizard-validate-detail="true"
-                                            placeholder="{{ __('Appointment booking detail') }}" required="required"></textarea>
-                                        <div class="invalid-feedback">{{ __('Please enter the appointment booking detail') }}</div>
+                                            placeholder="{{ __('Booking detail') }}" required="required"></textarea>
+                                        <div class="invalid-feedback">{{ __('Please enter the booking detail') }}</div>
                                     </div>
                                 </div>
                                 <div class="tab-pane  px-sm-3 px-md-5" role="tabpanel"
@@ -421,7 +421,7 @@
                                         <div class="col-12 col-md-12">
                                             <span class="countdown d-none">{{ __('Complete your payment process within') }} : <span class="timeleft"></span></span>                  
                                             <p id="confirm-msg"></p>
-                                            <p id="confirm-detail" class="mb-0 pb-md-0 pb-3"> {{ __('Please confirm your appointment booking details once before proceed') }}.</p>
+                                            <p id="confirm-detail" class="mb-0 pb-md-0 pb-3"> {{ __('Please confirm your booking details once before proceed') }}.</p>
                                             @if($custom->smtp_mail == 1)
                                             <p class="mb-0 pb-md-5 pb-3">{{ __("We'll send booking details via an email to you at") }}  <span class="user_email f-700"></span></p>
                                             @endif

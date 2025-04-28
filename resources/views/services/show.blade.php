@@ -144,7 +144,7 @@
                                     <div class="row">
                                         <div class="col-lg-12">
                                         <div class="mb-3">
-                                            <label for="name">{{ __('Cancel Appointment')}}:</label>
+                                            <label for="name">{{ __('Cancel Booking')}}:</label>
                                             <div class='input-group datetimepickerRest'>
                                                 <input type='text' class="form-control custom-control" name="cancel_before" value="{{  date('H:i', strtotime($service->cancel_before)) }}" readonly/>
                                                 <span class="input-group-text">

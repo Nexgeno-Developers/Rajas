@@ -181,7 +181,7 @@
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="mb-3">
-                                                <label for="name">{{ __('Cancel Appointment') }}:</label>
+                                                <label for="name">{{ __('Cancel Booking') }}:</label>
                                                 <div class='input-group' id="datetimepickerRest1">
                                                     <input type='text' class="form-control custom-control time @error('cancel_before') is-invalid @enderror timeDuration" id="cancel-before" name="cancel_before" value="{{ date('Y-m-d H:i', strtotime($service->cancel_before)) }}"  autocomplete="off">
                                                     

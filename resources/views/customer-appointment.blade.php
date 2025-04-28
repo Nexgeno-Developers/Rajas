@@ -106,7 +106,7 @@
                         @if($appointment->status != 'completed')
                         @if($appointment->status != 'cancel')
                         <button type="button" class="cancel_apppointment" data-bs-toggle="modal"
-                            data-bs-target="#exampleModalCenter">{{ __('Cancel Appointment') }}</button>
+                            data-bs-target="#exampleModalCenter">{{ __('Cancel Booking') }}</button>
                         @endif
                         <button type="button" class="btn btn-info back-btn-click back_buttons">{{ __('Back') }}</button>
                         @endif
@@ -119,7 +119,7 @@
                             <form action="{{route('cancel',$appointment->id)}}" method="POST" id="cancel" autocomplete="off">
                                 {{ csrf_field() }}
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLongTitle">{{ __('Cancel Appointment') }}</h5>
+                                    <h5 class="modal-title" id="exampleModalLongTitle">{{ __('Cancel Booking') }}</h5>
                                     <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
