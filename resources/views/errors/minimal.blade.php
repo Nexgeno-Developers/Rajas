@@ -33,9 +33,12 @@
     <link href="{{ asset('rbtheme/css/owl.carousel.min.css')}}" rel="stylesheet">
     <link href="{{ asset('rbtheme/css/aos.css')}}" rel="stylesheet">
     <link href="{{ asset('rbtheme/css/toastr.min.css') }}" rel="stylesheet" id="style-default">
-    <link rel="stylesheet" href="{{ url('rbtheme/css/wizard.css')}}">
-    <link rel="stylesheet" href="{{ url('rbtheme/css/custom.css?v=1.1')}}">
-    <link href="{{ asset('rbtheme/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('rbtheme/css/loader.css') }}" rel="stylesheet" id="style-default">
+    <link rel="stylesheet" href="{{ asset('backend/css/intlTelInput.min.css') }}">
+    <link rel="stylesheet" href="{{ url('rbtheme/css/wizard.css?v='.time())}}">
+    <link rel="stylesheet" href="{{ url('rbtheme/css/custom.css?v='.time())}}">
+    <link href="{{ asset('rbtheme/css/OverlayScrollbars.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('rbtheme/css/style.css?v='.time())}}" rel="stylesheet">
       @yield('css')
 </head>
 
@@ -72,38 +75,49 @@
     <script src="{{ asset('rbtheme/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('rbtheme/js/jquery.validate.min.js') }}"></script>
     <script src="{{ asset('rbtheme/js/jquery.easing.min.js')}}"></script>
+    <script src="{{ asset('rbtheme/js/anchor.min.js') }}"></script>
+    <script src="{{ asset('rbtheme/js/typed.js') }}"></script>
     <script src="{{ asset('rbtheme/js/jquery.waypoints.min.js')}}"></script>
     <script src="{{ asset('rbtheme/js/isotope.pkgd.min.js')}}"></script>
     <script src="{{ asset('rbtheme/js/venobox.min.js')}}"></script>
     <script src="{{ asset('rbtheme/js/owl.carousel.min.js')}}"></script>
     <script src="{{ asset('rbtheme/js/aos.js')}}"></script>
+    <script src="{{ asset('rbtheme/js/lodash.min.js') }}"></script>
+    <script src="{{ asset('rbtheme/js/list.min.js') }}"></script>
     <script src="{{ asset('rbtheme/js/toastr.min.js') }}"></script>
     <script src="{{ asset('rbtheme/js/all.min.js') }}"></script>
+    <script src="{{ asset('rbtheme/js/OverlayScrollbars.min.js') }}"></script>
+    <script src="{{ asset('rbtheme/js/moment.min.js')}}"></script>
     <script src="{{ asset('backend/js/intlTelInput.min.js') }}"></script>
     <script src="{{ asset('backend/js/intlTelInput-jquery.min.js') }}"></script>
-    <script class="iti-load-utils" async src="{{ asset('backend/js/utils.js') }}"></script>
     <script type="text/javascript">
-      "use strict";
-      let SITEURL = "{{ url('') }}";
-      let _token = '{{ csrf_token () }}';
-      (function ($) {
         "use strict";
-        @if(Session::has('message'))
-          toastr.success("{{Session::get('message')}}");
-        @endif
+        var custom = "{{ (isset($custom) && isset($custom->categories)) ? $custom->categories : '' }}";
+        let SITEURL = "{{  route('welcome')  }}";
+        let _token = '{{ csrf_token () }}';
+        let LOGGED = "{{  Auth::check()  }}";
+        let langauge = "{{ app()->getLocale() }}";
+        (function($) {
+            "use strict";
+            @if(Session::has('message'))
+            toastr.success("{{Session::get('message')}}");
+            @endif
 
-        @if(Session::has('error-message'))
-          toastr.error("{{Session::get('error-message')}}")
-        @endif
-    })(jQuery);
+            @if(Session::has('error-message'))
+            toastr.error("{{Session::get('error-message')}}")
+            @endif
+        }(jQuery));
     </script>
     <script src="{{ asset('rbtheme/js/lang/'.app()->getLocale().'.js') }}"></script>
     <script src="{{ asset('rbtheme/js/custom.js?ver=1.1') }}"></script>
     @guest
-    <script src="{{ asset('rbtheme/js/login.js') }}"></script>
+    <script src="{{ asset('rbtheme/js/login.js')}}"></script>
     @endguest
+    <script src="{{ asset('rbtheme/js/wizard.js') }}"></script>
     <script src="{{ asset('rbtheme/js/main.js') }}"></script>
+    
     @yield('script')
+    <script class="iti-load-utils" async src="{{ asset('backend/js/utils.js') }}"></script>
 </body>
 
 </html>
