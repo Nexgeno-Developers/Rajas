@@ -387,7 +387,7 @@ class AppointmentController extends Controller
                                     Helper::notification($notificationArr);
                                 }
                             }*/
-                            return response()->json(['status' => true,'data' => trans('Appointment booked successfully'),'url' => route('dashboard')]);
+                            return response()->json(['status' => true,'data' => trans('Booking Confirmed! successfully'),'url' => route('dashboard')]);
                 }else {
                     return response()->json(['status' => false,'data' => trans('These appointments you selected date and time already booked. please select another time and date for this appointment')]);
                 }          

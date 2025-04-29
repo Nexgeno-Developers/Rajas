@@ -50,7 +50,7 @@
                                             <h2 style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0px 0;font-size:14px;font-weight:bold;color:#1e2538;line-height:22px; padding-top:9px;">{{ $title }}</h2>
                                         </td>
                                         <td>
-                                            @if( $title == 'Appointment Cancellation')
+                                            @if( $title == 'Booking Cancellation')
                                             <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;font-weight:500;font-size:14px;line-height:18px;text-align:center;color:#fe0303;margin:0;background:#f1fff0;border:1px solid #fe0303;border-radius:3px;width:100px;padding:5px;margin-left:auto">{{ __('Canceled')}}</p>
                                             @else
                                             <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;font-weight:500;font-size:14px;line-height:18px;text-align:center;color:#60b158;margin:0;background:#f1fff0;border:1px solid #60b158;border-radius:3px;width:100px;padding:5px;margin-left:auto">{{ __('Created')}}</p>
@@ -68,7 +68,7 @@
                                 <tbody><tr>
                                     <td>
                                         <h2 style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:14px;font-weight:bold;color:#1e2538;line-height:22px">
-                                            @if( $title == 'Appointment Cancellation')
+                                            @if( $title == 'Booking Cancellation')
                                                 {{ __('Cancel')}}
                                             @else
                                                 {{ __('Approved')}}

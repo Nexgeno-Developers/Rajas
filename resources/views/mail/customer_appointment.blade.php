@@ -44,13 +44,13 @@
       <tr>
         @if($appointment->status == 'Pending')
         <td >
-          <p style="font-size:14px;margin:0 0 6px 0;"><span style="font-weight:bold;display:block;min-width:150px">{{ __('Appointment status')}}</span>
+          <p style="font-size:14px;margin:0 0 6px 0;"><span style="font-weight:bold;display:block;min-width:150px">{{ __('Booking status')}}</span>
           <b style="color:red;font-weight:normal;margin:0">{{ __('Pending')}}</b></p>
         </td>
         @else
         <td>
-          <p style="font-size:14px;margin:0 0 6px 0;"><span style="font-weight:bold;display:block;min-width:150px">{{ __('Appointment status')}}</span>
-          @if( $title == 'Appointment Cancellation')
+          <p style="font-size:14px;margin:0 0 6px 0;"><span style="font-weight:bold;display:block;min-width:150px">{{ __('Booking status')}}</span>
+          @if( $title == 'Booking Cancellation')
           <b style="color:green;font-weight:normal;margin:0">{{ __('Canceled')}}</b></p>
           @else
           <b style="color:green;font-weight:normal;margin:0">{{ __('Approved')}}</b></p>
@@ -93,16 +93,16 @@
       </tr>      
       <tr>
         <td style="width:50%;vertical-align:top">
-          <p style="margin:0 0 10px 0;padding:0;font-size:14px;"><span style="display:block;font-weight:bold;font-size:13px;">{{ __('Appointment Date') }}</span>  {{date('d F Y', strtotime($appointment->date))}}</p>
+          <p style="margin:0 0 10px 0;padding:0;font-size:14px;"><span style="display:block;font-weight:bold;font-size:13px;">{{ __('Booking Date') }}</span>  {{date('d F Y', strtotime($appointment->date))}}</p>
         </td>
         <td style="width:50%;vertical-align:top">
-          <p style="margin:0 0 10px 0;padding:0;font-size:14px;"><span style="display:block;font-weight:bold;font-size:13px;">{{ __('Appointment Time') }}</span> {{ date('h:i:s A',strtotime($appointment->start_time)).' - '.date('h:i:s A',strtotime($appointment->finish_time))}} </p>
+          <p style="margin:0 0 10px 0;padding:0;font-size:14px;"><span style="display:block;font-weight:bold;font-size:13px;">{{ __('Booking Time') }}</span> {{ date('h:i:s A',strtotime($appointment->start_time)).' - '.date('h:i:s A',strtotime($appointment->finish_time))}} </p>
         </td>  
       </tr> 
       <tr>
         <td colspan="2" style="width:100%;vertical-align:top">
-        <p style="margin:0 0 10px 0;padding:0;font-size:14px;"><span style="display:block;font-weight:bold;font-size:13px;">{{ __('Appointment Details') }}</span> {{ $appointment->comments }}</p>
-          @if($title == 'Appointment Cancellation')
+        <p style="margin:0 0 10px 0;padding:0;font-size:14px;"><span style="display:block;font-weight:bold;font-size:13px;">{{ __('Booking Details') }}</span> {{ $appointment->comments }}</p>
+          @if($title == 'Booking Cancellation')
           <p style="margin:0 0 10px 0;padding:0;font-size:14px;"><span style="display:block;font-weight:bold;font-size:13px;">{{ __('Cancel Reason') }}</span> {{ $appointment->cancel_reason }}</p>
           @endif
         </td>

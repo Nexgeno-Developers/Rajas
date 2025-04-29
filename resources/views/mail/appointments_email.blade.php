@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ __('Appointment') }}</title>
+    <title>{{ __('Booking') }}</title>
 </head>
 <body>
     <div style="font-family:'Roboto,RobotoDraft,Helvetica,Arial,sans-serif',Arial,sans-serif;background:#e5e5e5;margin:0">
@@ -35,18 +35,18 @@
                             {{ __('Hi')}} {{ $name }},</p>
 
                             <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-weight:500;font-size:14px;line-height:18px;color:#73788b">
-                            @if(isset($cancel_text) && $title == 'Appointment Cancellation' )
+                            @if(isset($cancel_text) && $title == 'Booking Cancellation' )
                                 {{ $cancel_text }}
                             @elseif($appointment->status == 'pending')
                                 @if($customer->email == $to)
-                                    {{ __('You have a new appointment request. The appointment details are as below:')}} 
+                                    {{ __('You have a new booking  request. The booking details are as below:')}} 
                                 @elseif(isset($admin) && $admin->email == $to)
-                                    {{ __("There is a new appointment request has been placed on $company_name. The appointment details are as below:") }}
+                                    {{ __("There is a new booking request has been placed on $company_name. The booking details are as below:") }}
                                 @elseif($employee->email == $to)
-                                    {{ __('Your appointment has been generated successfully. The appointment details are as below:') }}
+                                    {{ __('Your booking has been generated successfully. The booking details are as below:') }}
                                 @endif
                             @else 
-                                {{ isset($approved_text) ? $approved_text : __('Your appointment has been approved.') }}
+                                {{ isset($approved_text) ? $approved_text : __('Your booking has been approved.') }}
                             @endif
                             </p>
 
@@ -66,7 +66,7 @@
                                         </td>
                                         @else
                                         <td>
-                                            @if( $title == 'Appointment Cancellation')
+                                            @if( $title == 'Booking Cancellation')
                                             <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;font-weight:500;font-size:14px;line-height:18px;text-align:center;color:#fe0303;margin:0;background:#f1fff0;border:1px solid #fe0303;border-radius:3px;width:100px;padding:5px;margin-left:auto">{{ __('Canceled')}}</p>
                                             @else
                                             <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;font-weight:500;font-size:14px;line-height:18px;text-align:center;color:#60b158;margin:0;background:#f1fff0;border:1px solid #60b158;border-radius:3px;width:100px;padding:5px;margin-left:auto">{{ __('Approved')}}</p>
@@ -85,9 +85,9 @@
                                     <td>
                                         <h2 style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:14px;font-weight:bold;color:#1e2538;line-height:22px">
                                             
-                                            @if($title == 'Appointment Created')
+                                            @if($title == 'Booking Created')
                                             {{ __('Created') }}
-                                            @elseif($title == 'Appointment Cancellation' )
+                                            @elseif($title == 'Booking Cancellation' )
                                             {{ __('Canceled') }}
                                             @else
                                             {{ __('Approved') }}
@@ -159,7 +159,7 @@
                                 <tbody><tr>
                                     <td style="padding:0">
                                         <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:14px;font-weight:bold;color:#1e2538;line-height:20px;margin-bottom:5px">
-                                            {{ __('Appointment Date') }}:
+                                            {{ __('Booking Date') }}:
                                         <span style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:14px;font-weight:normal;color:#73788b;line-height:20px">
                                             {{date('d F Y', strtotime($appointment->date))}}
                                         </span></p>
@@ -174,7 +174,7 @@
                                 <tbody><tr>
                                     <td style="padding:0">
                                         <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:14px;font-weight:bold;color:#1e2538;line-height:20px;margin-bottom:5px">
-                                            {{ __('Appointment Time') }}:
+                                            {{ __('Booking Time') }}:
                                         <span style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:14px;font-weight:normal;color:#73788b;line-height:20px">
                                             {{ date('h:i:s A',strtotime($appointment->start_time)).' - '.date('h:i:s A',strtotime($appointment->finish_time))}}
                                         </span></p>
@@ -219,7 +219,7 @@
                                 <tbody><tr>
                                     <td style="padding:0">
                                         <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:14px;font-weight:bold;color:#1e2538;line-height:20px;margin-bottom:5px">
-                                            {{ __('Appointment Detail') }}:
+                                            {{ __('Booking Detail') }}:
                                         <span style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:14px;font-weight:normal;color:#73788b;line-height:20px">
                                             {{ $appointment->comments }}
                                         </span></p>
@@ -234,12 +234,12 @@
                                 <tbody><tr>
                                     <td style="padding:0">
                                         <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:14px;font-weight:bold;color:#1e2538;line-height:20px;margin-bottom:5px">
-                                            {{ __('Appointment Status') }}:
+                                            {{ __('Booking Status') }}:
                                         <span style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:14px;font-weight:bold;color:#73788b;line-height:20px">
                                         @if($appointment->status == 'pending')
                                         {{ __('Pending') }}
                                         @else
-                                            @if($title == 'Appointment Cancellation')
+                                            @if($title == 'Booking Cancellation')
                                             {{ __('Canceled') }}
                                             @else
                                             {{ __('Approved') }}
@@ -251,7 +251,7 @@
                             </tbody></table>
                         </td>
                     </tr>
-                    @if($title == 'Appointment Cancellation')
+                    @if($title == 'Booking Cancellation')
                     <tr>
                         <td style="padding:10px 0px 0 0px">
                             <table style="width:100%;margin:auto;border-bottom:1px solid #ebecf2;padding-bottom:3px">

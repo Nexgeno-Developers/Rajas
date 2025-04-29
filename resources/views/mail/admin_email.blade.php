@@ -33,8 +33,8 @@
      <tr>
                         <td style="padding:15px 0px 0">
                             <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-weight:600;font-size:14px;line-height:18px;color:#1e2538;margin-bottom:15px">{{ __('Hi')}} {{ $admin->first_name.' '.$admin->last_name}},</p>
-                            <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-weight:500;font-size:14px;line-height:18px;color:#73788b"> {{ $customer->first_name.' '.$customer->last_name}} {{ __('Appointment is') }} 
-                            @if( $title == 'Appointment Cancellation')
+                            <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-weight:500;font-size:14px;line-height:18px;color:#73788b"> {{ $customer->first_name.' '.$customer->last_name}} {{ __('Booking is') }} 
+                            @if( $title == 'Booking Cancellation')
                                 <span style="color:#ff0303">{{ __('Canceled') }}</span>
                             @else
                                 <span style="color:#60b158">{{ __('Approved')}}</span>
@@ -53,7 +53,7 @@
                                             <h2 style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:5px 0;font-size:14px;font-weight:bold;color:#1e2538;line-height:22px">{{ $title }}</h2>
                                         </td>
                                         <td>
-                                            @if( $title == 'Appointment Cancellation')
+                                            @if( $title == 'Booking Cancellation')
                                             <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;font-weight:500;font-size:14px;line-height:18px;text-align:center;color:#fe0303;margin:0;background:#f1fff0;border:1px solid #fe0303;border-radius:3px;width:100px;padding:5px;margin-left:auto">{{ __('Canceled') }}</p>
                                             @else
                                             <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;font-weight:500;font-size:14px;line-height:18px;text-align:center;color:#60b158;margin:0;background:#f1fff0;border:1px solid #60b158;border-radius:3px;width:100px;padding:5px;margin-left:auto">{{ __('Approved') }}</p>
@@ -70,7 +70,7 @@
                                 <tbody><tr>
                                     <td>
                                         <h2 style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:14px;font-weight:bold;color:#1e2538;line-height:22px">
-                                            @if( $title == 'Appointment Cancellation')
+                                            @if( $title == 'Booking Cancellation')
                                                 {{ __('Canceled') }}
                                             @else
                                                 {{ __('Approved') }}
@@ -156,7 +156,7 @@
                                 <tbody><tr>
                                     <td style="padding:0">
                                         <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:14px;font-weight:bold;color:#1e2538;line-height:20px;margin-bottom:5px">
-                                            {{ __('Appointment Date')}}:
+                                            {{ __('Booking Date')}}:
                                         <span style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:14px;font-weight:normal;color:#73788b;line-height:20px">
                                             {{date('d F Y', strtotime($appointment->date))}}
                                         </span></p>
@@ -171,7 +171,7 @@
                                 <tbody><tr>
                                     <td style="padding:0">
                                         <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:14px;font-weight:bold;color:#1e2538;line-height:20px;margin-bottom:5px">
-                                           {{ __('Appointment Time')}}:
+                                           {{ __('Booking Time')}}:
                                         <span style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:14px;font-weight:normal;color:#73788b;line-height:20px">
                                             {{ date('h:i:s A',strtotime($appointment->start_time)).' - '.date('h:i:s A',strtotime($appointment->finish_time))}}
                                         </span></p>
@@ -216,7 +216,7 @@
                                 <tbody><tr>
                                     <td style="padding:0">
                                         <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:14px;font-weight:bold;color:#1e2538;line-height:20px;margin-bottom:5px">
-                                            {{ __('Appointment Detail')}}:
+                                            {{ __('Booking Detail')}}:
                                         <span style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:14px;font-weight:normal;color:#73788b;line-height:20px">
                                             {{ $appointment->comments }}
                                         </span></p>
@@ -231,12 +231,12 @@
                                 <tbody><tr>
                                     <td style="padding:0">
                                         <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:14px;font-weight:bold;color:#1e2538;line-height:20px;margin-bottom:5px">
-                                            {{ __('Appointment Status') }}:
+                                            {{ __('Booking Status') }}:
                                         <span style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:14px;font-weight:bold;color:#73788b;line-height:20px">
                                         @if($appointment->status == 'pending')
                                             {{ __('Pending') }}
                                         @else
-                                            @if($title == 'Appointment Cancellation')
+                                            @if($title == 'Booking Cancellation')
                                                 {{ __('Canceled') }}
                                             @else
                                                 {{ __('Approved') }}
@@ -248,7 +248,7 @@
                             </tbody></table>
                         </td>
                     </tr>
-                    @if($title == 'Appointment Cancellation')
+                    @if($title == 'Booking Cancellation')
                     <tr>
                         <td style="padding:10px 0px 0 0px">
                             <table style="width:100%;margin:auto;border-bottom:1px solid #ebecf2;padding-bottom:3px">

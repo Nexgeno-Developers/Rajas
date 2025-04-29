@@ -20,7 +20,7 @@
                                             <h2 style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:5px 0;font-size:16px;font-weight:bold;color:#1e2538;line-height:22px">{{ $title }}</h2>
                                         </td>
                                         <td>
-                                            @if( $title == 'Appointment Reminder')
+                                            @if( $title == 'Booking Reminder')
                                             <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;font-weight:500;font-size:14px;line-height:18px;text-align:center;color:#fe0303;margin:0;background:#f1fff0;border:1px solid #fe0303;border-radius:3px;width:100px;padding:5px;margin-left:auto">{{ __('Reminder') }}</p>
                                             @endif
                                         </td>
@@ -35,11 +35,11 @@
                                 <tbody><tr>
                                     <td>
                                         <h2 style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:14px;font-weight:bold;color:#1e2538;line-height:22px">
-                                            @if( $title == 'Appointment Reminder')
+                                            @if( $title == 'Booking Reminder')
                                                  {{ __('Reminder') }}
                                             @endif
                                             
-                                        {{ __('by:') }} <u></u>{{ __('Booking Appointment System') }}<u></u></h2>
+                                        {{ __('by:') }} <u></u>{{ __('Booking System') }}<u></u></h2>
                                     </td>
                                     <td style="text-align:right">
                                         <span style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:14px;font-weight:500;color:#73788b;line-height:16px;max-width:160px">{{ date('D, d m Y h:i A')}}</span>
@@ -52,8 +52,8 @@
                     <tr>
                         <td style="padding:5px 20px 0">
                             <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-weight:600;font-size:14px;line-height:18px;color:#1e2538;margin-bottom:15px">Hi {{ $customer->first_name.' '.$customer->last_name}},</p>
-                            <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-weight:500;font-size:14px;line-height:18px;color:#73788b">{{ __('Your Appointment is') }} 
-                            @if( $title == 'Appointment Reminder')
+                            <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-weight:500;font-size:14px;line-height:18px;color:#73788b">{{ __('Your Booking is') }} 
+                            @if( $title == 'Booking Reminder')
                                 <span style="color:#60b158">{{ __('Reminder') }}</span>
                             @endif
                             
@@ -81,7 +81,7 @@
                                 <tbody><tr>
                                     <td style="padding:0">
                                         <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:16px;font-weight:bold;color:#007aff;line-height:20px;margin-bottom:5px">
-                                            {{ __('Appointment Date') }}:
+                                            {{ __('Booking Date') }}:
                                         <span style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:14px;font-weight:normal;color:#73788b;line-height:20px">
                                             {{date('d F Y', strtotime($date))}}
                                         </span></p>
@@ -96,7 +96,7 @@
                                 <tbody><tr>
                                     <td style="padding:0">
                                         <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:16px;font-weight:bold;color:#007aff;line-height:20px;margin-bottom:5px">
-                                            {{ __('Appointment Time') }}:
+                                            {{ __('Booking Time') }}:
                                         <span style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:14px;font-weight:normal;color:#73788b;line-height:20px">
                                             {{$appointment}}
                                         </span></p>
@@ -111,7 +111,7 @@
                                 <tbody><tr>
                                     <td style="padding:0">
                                         <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:16px;font-weight:bold;color:#007aff;line-height:20px;margin-bottom:5px">
-                                            {{ __('Appointment Detail') }}:
+                                            {{ __('Booking Detail') }}:
                                         <span style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:14px;font-weight:normal;color:#73788b;line-height:20px">
                                             {{ $comments }}
                                         </span></p>
@@ -138,7 +138,7 @@
                     </tr>
                     @endif
 
-                    <p> {{ __('Dear') }} {{ $customer->first_name.' '.$customer->last_name}}, {{ __('I hope you are well. Just a friendly reminder about your appointment on') }}
+                    <p> {{ __('Dear') }} {{ $customer->first_name.' '.$customer->last_name}}, {{ __('I hope you are well. Just a friendly reminder about your booking on') }}
                          {{date('d F Y', strtotime($date))}}, {{$appointment}}.</p>
                     <p>{{ __('I look forward to talking soon!') }}</p>
                     <tr>

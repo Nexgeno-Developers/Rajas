@@ -185,8 +185,8 @@ class PaymentController extends Controller
         $data = array(
             'name' => $user->first_name.' '.$user->last_name,
             'to' => $to,
-            'title' => trans('Appointment Received'),
-            'subject' => trans('Appointment Booked'),
+            'title' => trans('Booking Received'),
+            'subject' => trans('Booking Confirmed!'),
             'template' => $template,
             'customer' => $user,
             'employee' => $employee,

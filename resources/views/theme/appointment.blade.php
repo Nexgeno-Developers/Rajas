@@ -509,7 +509,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="px-sm-3 px-md-5 pb-md-4">
+                            <div class="px-sm-0 px-md-0 pb-md-4">
                                 <div class="border_top_1">
                                     <ul class="pager wizard list-inline mb-0">
                                         <li class="previous">
