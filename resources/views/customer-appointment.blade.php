@@ -1,5 +1,12 @@
 @extends('layouts.home',['title' => trans('Customer Appointment')])
 @section('content')
+<style>
+    @media print {
+        #printButton {
+            display: none;
+        }
+    }
+</style>
 <section class=" overflow-hidden light" id="banner">
     <div class="bg-holder overlay">
     </div>
@@ -109,6 +116,7 @@
                             data-bs-target="#exampleModalCenter">{{ __('Cancel Booking') }}</button>
                         @endif
                         <button type="button" class="btn btn-info back-btn-click back_buttons">{{ __('Back') }}</button>
+                        <button id="printButton" class="btn btn-success ml-2">Print</button>
                         @endif
                     </div>
 
@@ -145,4 +153,9 @@
             </div>
         </div>
 </section>
+<script>
+    document.getElementById('printButton').addEventListener('click', function () {
+        window.print(); // Triggers the print dialog
+    });
+</script>
 @endsection
