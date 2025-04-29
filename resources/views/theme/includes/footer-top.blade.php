@@ -3,7 +3,13 @@
         <div class="row">
 
             <div class="col-lg-3 col-md-6 footer-contact">
-                <h3>{{ $site->site_title }}</h3>
+                <a href="{{ route('welcome')}}" class="logo mr-md-auto">
+            @if(!empty($site->logo) && $site->logo != 'default-logo.png')
+            <img src="{{ asset('img/logo/'.$site->logo )}}" alt="logo" class="img-fluid" style="max-height: 45px;">
+            @else
+            <img src="{{asset('rbtheme/img/logo.png')}}" alt="" class="img-fluid" style="max-height: 45px;">
+            @endif
+        </a>
                 <p>
                     {{ (!empty($site->address)) ? ucfirst($site->address) : '-' }} <br><br>
                     <strong>{{ __('Phone') }}:</strong> <a href="{{ (!empty($site->phone)) ? 'tel:'.$site->phone : 'javascript:;' }}" class="text-black" target="_blank">{{ (!empty($site->phone)) ? $site->country_code.$site->phone : '-' }}</a><br>
@@ -43,17 +49,19 @@
                 <h4>{{ __('Our Social Networks') }}</h4>
                 <p>{{ __('Follow the social media to getting latest updates') }}</p>
                 <div class="social-links mt-3">
-                    @if(isset($site) && !empty($site->twitter))
-                    <a href="{{ $site->twitter }}" class="twitter" target="_blank"><i class="bx bxl-twitter"></i></a>
+                      @if(isset($site) && !empty($site->instagram))
+                    <a href="{{ $site->instagram }}" class="instagram" target="_blank"><i class="bx bxl-instagram"></i></a>
                     @endif
+                  
                     @if(isset($site) && !empty($site->facebook))
                     <a href="{{ $site->facebook }}" class="facebook" target="_blank"><i class="bx bxl-facebook"></i></a>
                     @endif
-                    @if(isset($site) && !empty($site->instagram))
-                    <a href="{{ $site->instagram }}" class="instagram" target="_blank"><i class="bx bxl-instagram"></i></a>
-                    @endif
+                  
                     @if(isset($site) && !empty($site->linkedin))
                     <a href="{{ $site->linkedin }}" class="linkedin" target="_blank"><i class="bx bxl-linkedin"></i></a>
+                    @endif
+                    @if(isset($site) && !empty($site->twitter))
+                    <a href="{{ $site->twitter }}" class="youtube" target="_blank"><i class="bx bxl-youtube"></i></a>
                     @endif
                 </div>
             </div>
