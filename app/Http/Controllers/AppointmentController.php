@@ -387,9 +387,9 @@ class AppointmentController extends Controller
                                     Helper::notification($notificationArr);
                                 }
                             }*/
-                            return response()->json(['status' => true,'data' => trans('Booking Confirmed! successfully'),'url' => route('dashboard')]);
+                            return response()->json(['status' => true,'data' => trans('Booking successfully'),'url' => route('appointments.index')]);
                 }else {
-                    return response()->json(['status' => false,'data' => trans('These appointments you selected date and time already booked. please select another time and date for this appointment')]);
+                    return response()->json(['status' => false,'data' => trans('These booking you selected date and time already booked. please select another time and date for this appointment')]);
                 }          
         }
        
@@ -968,7 +968,7 @@ class AppointmentController extends Controller
         }
        
         session()->flash('message', trans('Appointment cancelled successfully'));
-        return redirect()->route('dashboard');
+        return redirect()->route('appointments.index');
     }
 
     public function complete($id,Request $request) 
