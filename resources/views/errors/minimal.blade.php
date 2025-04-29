@@ -116,8 +116,49 @@
     <script src="{{ asset('rbtheme/js/wizard.js') }}"></script>
     <script src="{{ asset('rbtheme/js/main.js') }}"></script>
     
+    <!-- Bootstrap Select JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/js/bootstrap-select.min.js">
+    </script>
+
     @yield('script')
     <script class="iti-load-utils" async src="{{ asset('backend/js/utils.js') }}"></script>
+
+    <script src="{{ asset('rbtheme/js/nexgeno.js') }}"></script>
+
+    <script src="https://www.google.com/recaptcha/api.js?render={{ env('RECAPTCHA_SITE_KEY') }}"></script>
+    <script>
+        var RECAPTCHA_SITE_KEY = "{{ env('RECAPTCHA_SITE_KEY') }}";
+    </script>   
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const forms = document.querySelectorAll('form[data-recaptcha]');
+
+            forms.forEach(f => {
+                f.addEventListener("submit", function (e) {
+
+                    if ($(f).data('validator')) {
+                        if (!$(f).valid()) {
+                            // If validation fails, don't proceed
+                            return;
+                        }
+                    }
+
+                    e.preventDefault();
+                    grecaptcha.ready(function () {
+                        grecaptcha.execute('{{ env("RECAPTCHA_SITE_KEY") }}', {action: 'submit'}).then(function (token) {
+                            const input = document.createElement('input');
+                            input.type = 'hidden';
+                            input.name = 'recaptcha_token';
+                            input.value = token;
+                            f.appendChild(input);
+                            //alert(token);
+                            HTMLFormElement.prototype.submit.call(f);
+                        });
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
