@@ -33,7 +33,7 @@ class PaymentController extends Controller
      */
     public function index(Request $request)
     {
-        session()->flash('success', trans('Your appointment has been booked successfully'));
+        session()->flash('success', trans('Your booking has been booked successfully'));
         return view('theme.thank-you');
     } 
 

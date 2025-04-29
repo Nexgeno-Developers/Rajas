@@ -12,7 +12,7 @@
         <div class="row">
             <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1"
             data-aos="fade-up" data-aos-delay="200">
-            <h1>{{ __('Choose') }} <span class="typed-text fw-bold" data-typed-text='["{{ __('Category') }}","{{ __('Service')}}", "@if($custom->employees == 1){{ __('Employee')}}@endif","{{ __('Time')}}"]'></span><br> {{ __('For Your Appointment') }}</h1>
+            <h1>{{ __('Choose') }} <span class="typed-text fw-bold" data-typed-text='["{{ __('Category') }}","{{ __('Service')}}", "@if($custom->employees == 1){{ __('Employee')}}@endif","{{ __('Time')}}"]'></span><br> {{ __('For Your Booking') }}</h1>
             <h2>{{ __("your_appointment") }}</h2>
             <div class="d-lg-flex">
                 <a href="{{ route('appointment.book')}}" class="btn-get-started scrollto">{{ __('Click to Book Appointment') }}</a>
@@ -87,7 +87,7 @@
                     <img src="{{ asset('rbtheme/img/skills.png')}}" class="img-fluid" alt="">
                 </div>
                 <div class="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left" data-aos-delay="100">
-                    <h3>{{ __("Why your appointment with us?") }}</h3>
+                    <h3>{{ __("Why your booking with us?") }}</h3>
                     <p class="font-italic">
                         {{ __("Appointment_Us") }} 
                     </p>
@@ -202,7 +202,7 @@
 
             <div class="section-title">
                 <h2>{{ __('Service Providers') }}</h2>
-                <p>{{ __("Schedule your appointment with us, We'll serve you better. We've a experienced staff for various services.") }}</p>
+                <p>{{ __("Schedule your booking with us, We'll serve you better. We've a experienced staff for various services.") }}</p>
             </div>
 
             <div class="row">

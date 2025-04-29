@@ -137,7 +137,7 @@
                             <a href="{{ route('dashboard')}}">{{ __('Dashboard') }}</a>
                             @endif
                             @if(!empty(Auth::user()->role_id == 2))
-                            <a href="{{ route('dashboard')}}">{{ __('My Appointments') }}</a>
+                            <a href="{{ route('dashboard')}}">{{ __('My Bookings') }}</a>
                             @endif
                         </li>
                         <li class="@if(Request::segment(2) == 'profile') active @endif"><a href="{{ route('customer-profile',Auth::user()->id) }}">{{ __('Profile') }}</a></li>

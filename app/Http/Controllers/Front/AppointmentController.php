@@ -306,7 +306,7 @@ class AppointmentController extends Controller
                 $post['tax'] = $service->tax;
                 $this->payment->insert(new Payment($post));
 
-                $notificationMsg = 'Hey '.$user->first_name.' '.$user->last_name.', Your Appointment successfully created!';
+                $notificationMsg = 'Hey '.$user->first_name.' '.$user->last_name.', Your Booking successfully created!';
                 $notificationArray = [
                     'user_id'=> $user_id,
                     'employee_id'=> $appointment->employee_id,

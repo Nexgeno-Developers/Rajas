@@ -2035,12 +2035,13 @@ textarea:focus-visible {
   border: 0;
 }
 
+/* 
 div#bootstrap-wizard-tab5 .col-md-3 {
   flex: 0 0 20%;
   max-width: 20%;
   padding-left: 10px;
   padding-right: 0px;
-}
+} */
 
 .booking_prices {
   font-size: 40px;

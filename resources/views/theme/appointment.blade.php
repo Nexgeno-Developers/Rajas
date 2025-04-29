@@ -451,7 +451,7 @@
 
                                         
 
-                                        @if($custom->employees == 1)
+                                        <!-- @if($custom->employees == 1)
                                         <div class="col-md-3">
                                             <div class="text-center">
                                                 <div class="app_images">
@@ -463,7 +463,7 @@
                                                     </span>  
                                             </div>
                                         </div>
-                                        @endif
+                                        @endif -->
 
                                         <div class="col-md-3">
                                             <div class="text-center">
