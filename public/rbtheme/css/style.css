@@ -2282,3 +2282,10 @@ i.font-size-20 {
   background: #006161;
   color: #fff;
 }
+
+.banner_overlay {
+  background: hsl(0deg 0% 0% / 20%);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}

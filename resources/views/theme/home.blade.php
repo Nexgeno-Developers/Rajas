@@ -4,6 +4,7 @@
 
 
 <div class="banner_section">
+    <div class="banner_overlay"></div>
     <video autoplay="" loop="" muted="" playsinline="" class="w-100">
             <source src="{{asset('rbtheme/img/banner_video.mp4')}}" type="video/mp4">
     </video>
