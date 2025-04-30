@@ -3,9 +3,18 @@
 <!-- ======= Hero Section ======= -->
 
 
-<section >
-    <div class="container text-center coming_soon">Coming Soon...</div>
-</section>
+<div class="banner_section">
+    <video autoplay="" loop="" muted="" playsinline="" class="w-100">
+            <source src="{{asset('rbtheme/img/banner_video.mp4')}}" type="video/mp4">
+    </video>
+    <div class="banner_content">
+        <h3>Soar Above the City with Rajas Helicopter Rides! </h3>
+        <p>Unmatched adventure, stunning views—book your helicopter ride today!</p>
+        <div class="button_design">
+            <a href="">Book Your Ride Now <i class="bx bx-right-arrow-alt"></i></a>
+        </div>
+    </div>
+</div>
 <section id="hero" class=" align-items-center d-none">
     
     <div class="container">
