@@ -1,14 +1,13 @@
-<div class="footer-top">
+ <div class="footer-top2">
+    <div class="footer-bg-image"></div>
     <div class="container">
         <div class="row">
-
-
-         <div class="col-lg-4">
+              <div class="col-lg-4">
              <a href="{{ route('welcome')}}" class="logo mr-md-auto">
             @if(!empty($site->logo) && $site->logo != 'default-logo.png')
-            <img src="{{ asset('img/logo/'.$site->logo )}}" alt="logo" class="img-fluid" style="max-height: 45px;">
+            <img src="{{ asset('img/logo/'.$site->logo )}}" alt="logo" class="img-fluid footer_logo">
             @else
-            <img src="{{asset('rbtheme/img/logo.png')}}" alt="" class="img-fluid" style="max-height: 45px;">
+            <img src="{{asset('rbtheme/img/logo.png')}}" alt="" class="img-fluid footer_logo">
             @endif
         </a>
          </div>
@@ -18,7 +17,7 @@
           <div class="col-lg-8 col-md-8 footer-links">
                 <!-- <h4>{{ __('Our Social Networks') }}</h4> -->
                 <!-- <p>{{ __('Follow the social media to getting latest updates') }}</p> -->
-                <div class="social-links-footer">
+                <div class="social-links-footer mt-5">
                       @if(isset($site) && !empty($site->instagram))
                     <a href="{{ $site->instagram }}" class="" target="_blank"><i class="bx bxl-instagram"></i> <span>airsafari_india</span></a>
                     @endif
@@ -35,7 +34,17 @@
                     @endif
                 </div>
             </div>
+            </div>
+            </div>
+            </div>
 
+
+            <div class="footer-top">
+    <div class="container">
+        <div class="row">
+
+
+       
             <div class="col-lg-4 col-md-6 footer-contact">
                  <h4 class="text-white">{{ __('About Us') }}</h4>
                <p class="text-white pr-lg-5">Adventure is in Our Blood. As India’s first company to introduce aero tourism and hobby flying, Rajas Aerosports and Adventures is redefining the possibilities of exploration from above.</p>
