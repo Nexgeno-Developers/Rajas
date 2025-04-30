@@ -184,6 +184,38 @@ span.payment-label {
   font-size: 4rem !important;
 }
 
+ul.list_top {
+  display: flex;
+  gap: 12px;
+  justify-content: end;
+  margin-bottom: 0;
+}
+
+.top_bar {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 7px;
+  padding-top: 7px;
+}
+
+ul.list_top li {
+  list-style: none;
+  padding-left: 10px;
+}
+
+ul.list_top li i {
+  font-size: 18px;
+  position: relative;
+  top: 3px;
+}
+
+img.footer_icons {
+  margin-right: 9px;
+}
+
+ul.list_top li a {
+  font-size: 14px;
+}
+
 @media (max-width: 760px) {
   .thank-size {
     font-size: 2rem !important;

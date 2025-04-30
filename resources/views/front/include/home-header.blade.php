@@ -1,4 +1,38 @@
-<header id="header" class="fixed-top header-scrolled">
+<div class="top_bar bg-white">
+  <div class="container">
+    <div class="row">
+       <div class="col-md-6">
+           <div class="social-links">
+                      @if(isset($site) && !empty($site->instagram))
+                    <a href="{{ $site->instagram }}" class="instagram" target="_blank"><i class="font-size-20 bx bxl-instagram"></i></a>
+                    @endif
+                  
+                    @if(isset($site) && !empty($site->facebook))
+                    <a href="{{ $site->facebook }}" class="facebook" target="_blank"><i class="font-size-20 bx bxl-facebook"></i></a>
+                    @endif
+                  
+                    @if(isset($site) && !empty($site->linkedin))
+                    <a href="{{ $site->linkedin }}" class="linkedin" target="_blank"><i class="font-size-20 bx bxl-linkedin"></i></a>
+                    @endif
+                    @if(isset($site) && !empty($site->twitter))
+                    <a href="{{ $site->twitter }}" class="youtube" target="_blank"><i class="font-size-20 bx bxl-youtube"></i></a>
+                    @endif
+                </div>
+       </div>
+       <div class="col-md-6">
+         <div class="">
+          <ul class="list_top">
+            <li class=""><a href="{{ (!empty($site->phone)) ? 'tel:'.$site->phone : 'javascript:;' }}" class="text-black" target="_blank"><i class="bx bx-phone"></i> {{ (!empty($site->phone)) ? $site->country_code.$site->phone : '-' }}</a></li>
+            <li class=""><a href="{{ (!empty($site->email)) ? 'mailto:'.$site->email : 'javascript:;' }}" class="text-black" target="_blank"><i class="bx bx-envelope"></i> {{ (!empty($site->email)) ? $site->email : '-' }}</a></li>
+          </ul>
+           
+         </div>
+       </div>
+    </div>
+  </div>
+</div>
+
+<header id="header" class="header-scrolled">
     <div class="container d-flex align-items-center">
         <a href="{{ route('welcome')}}" class="logo mr-md-auto">
             @if(!empty($site->logo) && $site->logo != 'default-logo.png')
@@ -11,6 +45,10 @@
         <nav class="nav-menu d-none d-lg-block">
             <ul>
                 <li class="@if(Request::segment(2) == '' && Request::segment(1) == '') active @endif"><a href="{{ route('welcome')}}">{{ __('Home') }}</a></li>
+                <li class=""><a href="{{ route('welcome')}}">{{ __('Air Safari Services') }}</a></li>
+                <li class=""><a href="{{ route('welcome')}}">{{ __('Adi Kailash') }}</a></li>
+                <li class=""><a href="{{ route('welcome')}}">{{ __('About') }}</a></li>
+                <li class=""><a href="{{ route('welcome')}}">{{ __('Contact us') }}</a></li>
                 <!-- <li class=""><a @if(!empty(request()->route()) && request()->route()->getName() != 'welcome') 
                   href="{{ route('welcome')}}#features" 
                   @elseif(empty(request()->route())) href="{{ route('welcome')}}#features" 

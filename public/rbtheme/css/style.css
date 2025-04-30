@@ -1891,7 +1891,7 @@ textarea:focus-visible {
 
 #footer .footer-top {
   padding: 60px 0 30px 0;
-  background: #fff;
+  background: #006161;
 }
 
 #footer .footer-top .footer-contact {
@@ -1916,11 +1916,21 @@ textarea:focus-visible {
 }
 
 #footer .footer-top h4 {
-  font-size: 16px;
-  font-weight: bold;
+  font-size: 20px;
+  font-weight: 600;
   color: #006161;
   position: relative;
   padding-bottom: 12px;
+}
+
+img.social_icons {
+  width: 30px;
+  margin-right: 10px;
+}
+
+.social_flex {
+  display: flex;
+  align-items: center;
 }
 
 .coming_soon {
@@ -1941,7 +1951,7 @@ textarea:focus-visible {
 
 #footer .footer-top .footer-links ul i {
   padding-right: 2px;
-  color: #006161;
+  color: #fff;
   font-size: 18px;
   line-height: 1;
 }
@@ -1990,6 +2000,12 @@ textarea:focus-visible {
   transition: 0.3s;
 }
 
+.copyright {
+  border-top: 1px solid rgb(255 255 255 / 50%);
+  padding-top: 20px;
+  padding-bottom: 15px;
+}
+
 #footer .footer-top .social-links a:hover {
   background: #209dd8;
   color: #fff;
@@ -1997,13 +2013,36 @@ textarea:focus-visible {
 }
 
 #footer .footer-bottom {
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 0px;
+  padding-bottom: 0px;
   color: #fff;
 }
 
-#footer .copyright {
-  float: left;
+.social-links-footer a {
+  background: rgb(255 255 255 / 10%);
+  border-radius: 20px;
+  padding: 15px 20px;
+  margin-right: 20px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.social-links-footer a:hover {
+  background: #ffffff3b;
+}
+
+.social-links-footer a i {
+  font-size: 22px;
+  position: relative;
+}
+
+.social-links-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
 }
 
 #footer .credits {
@@ -2077,8 +2116,8 @@ section#banner {
 
 @media (max-width: 768px) {
   #footer .footer-bottom {
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
 
   #footer .copyright,
@@ -2153,4 +2192,16 @@ section#banner {
     color: #fff;
     text-decoration: none;
   }
+}
+
+i.font-size-20 {
+  font-size: 18px;
+  position: relative;
+  top: 2px;
+}
+
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
