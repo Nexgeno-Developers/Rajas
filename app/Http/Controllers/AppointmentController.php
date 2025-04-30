@@ -424,13 +424,13 @@ class AppointmentController extends Controller
         $custom = Setting::first();
         if(in_array(auth()->user()->role_id, ['2'])) {
             $appointment = Appointment::where('id',$id)->first();
-           
+            $service_img = Service::where('name',$appointment->service_id)->value('image') ?? null;
         }
         if(empty($appointment)) {
             return redirect()->route('unauthorized');
         }
         
-        return view('customer-appointment',compact('appointment','custom','latestNotifications','custom'));
+        return view('customer-appointment',compact('appointment','custom','latestNotifications','custom', 'service_img'));
     }
 
     /**

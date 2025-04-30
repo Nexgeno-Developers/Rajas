@@ -309,6 +309,10 @@ table.dataTable thead>tr>th.sorting_asc:after {
   visibility: visible;
 }
 
+.width140{
+  width: 140px;
+}
+
 @media screen and (max-width: 991px) {
   .desktop-view {
     display: none;

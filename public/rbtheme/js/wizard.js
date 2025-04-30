@@ -423,6 +423,9 @@ localStorage.time = "";
                     }
                     document.getElementById("email-check").innerHTML =
                       response.msg;
+                    if (response.msg.includes("Email already exist")) {
+                      document.getElementById('login_model_btn').click();
+                    }
                     document
                       .querySelector("#email-check")
                       .scrollIntoView({ behavior: "smooth", block: "center" }); // New

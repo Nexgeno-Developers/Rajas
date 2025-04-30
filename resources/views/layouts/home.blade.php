@@ -170,7 +170,16 @@
                 });
             });
         });
-    </script>    
+    </script>  
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const bgHolder = document.querySelector('.bg-holder.overlay');
+            if (bgHolder && bgHolder.innerHTML.trim() === '') {
+                bgHolder.remove();
+            }
+        });
+    </script>
 </body>
 
 </html>

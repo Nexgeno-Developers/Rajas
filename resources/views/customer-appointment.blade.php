@@ -2,8 +2,12 @@
 @section('content')
 <style>
     @media print {
+        #header,
+        #footer,
+        .top_bar,
+        .mobile-nav-toggle,
         #printButton {
-            display: none;
+            display: none !important;
         }
     }
 </style>
@@ -14,28 +18,45 @@
         {{ csrf_field() }}
         <div class="card mb-3">
             <div class="bg-holder d-none d-lg-block bg-card customer-card-appointment"></div>
-            <div class="card-body position-relative">
-                <h5>{{ __('Appointment Details') }}</h5>
-                <p class="fs--1">{{ date($custom->date_format, strtotime($appointment->date)) }}</p>
-                <div><strong class="me-2">{{ __('Status') }}: </strong>
-                    @if($appointment->status == 'cancel')
-                    <div class="badge rounded-pill badge-soft-danger fs--2">{{ ucfirst($appointment->status) }}<span
-                            class="fas fa-check ms-1" data-fa-transform="shrink-2"></span></div>
-                    @endif
-                    @if($appointment->status == 'pending')
-                    <div class="badge rounded-pill badge-soft-danger fs--2">{{ ucfirst($appointment->status) }}<span
-                            class="fas fa-check ms-1" data-fa-transform="shrink-2"></span></div>
-                    @endif
-                    @if($appointment->status == 'approved')
-                    <div class="badge rounded-pill badge-soft-success fs--2">{{ ucfirst($appointment->status) }}<span
-                            class="fas fa-check ms-1" data-fa-transform="shrink-2"></span></div>
-                    @endif
-                    @if($appointment->status == 'completed')
-                    <div class="badge rounded-pill badge-soft-success fs--2">{{ ucfirst($appointment->status) }}<span
-                            class="fas fa-check ms-1" data-fa-transform="shrink-2"></span></div>
-                    @endif
+
+            <div class="row align-items-center" >
+                <div class="col-md-8">
+
+                    <div class="card-body position-relative">
+                        <h5>{{ __('Appointment Details') }}</h5>
+                        <p class="fs--1">{{ date($custom->date_format, strtotime($appointment->date)) }}</p>
+                        <div><strong class="me-2">{{ __('Status') }}: </strong>
+                            @if($appointment->status == 'cancel')
+                            <div class="badge rounded-pill badge-soft-danger fs--2">{{ ucfirst($appointment->status) }}<span
+                                    class="fas fa-check ms-1" data-fa-transform="shrink-2"></span></div>
+                            @endif
+                            @if($appointment->status == 'pending')
+                            <div class="badge rounded-pill badge-soft-danger fs--2">{{ ucfirst($appointment->status) }}<span
+                                    class="fas fa-check ms-1" data-fa-transform="shrink-2"></span></div>
+                            @endif
+                            @if($appointment->status == 'approved')
+                            <div class="badge rounded-pill badge-soft-success fs--2">{{ ucfirst($appointment->status) }}<span
+                                    class="fas fa-check ms-1" data-fa-transform="shrink-2"></span></div>
+                            @endif
+                            @if($appointment->status == 'completed')
+                            <div class="badge rounded-pill badge-soft-success fs--2">{{ ucfirst($appointment->status) }}<span
+                                    class="fas fa-check ms-1" data-fa-transform="shrink-2"></span></div>
+                            @endif
+    
+        
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-4 pr-5">
+
+                        <button id="printButton" class="float-right btn btn-success ml-2">Print</button>
+
                 </div>
             </div>
+
+
+
         </div>
         <div class="card mb-3">
             <div class="card-body">
@@ -93,6 +114,9 @@
                                     <p class="mb-0 text-nowrap">{{ ucfirst($appointment->category_id) }}</p>
                                 </td>                                
                                 <td class="align-middle">
+                                    @if($service_img)
+                                        <img src="{{ asset('img/services/' . $service_img) }}" class=" mb-2 width140">
+                                    @endif
                                     <p class="mb-0 text-nowrap">{{ ucfirst($appointment->service_id) }}</p>
                                 </td>
                                 <td class="align-middle">
@@ -116,7 +140,6 @@
                             data-bs-target="#exampleModalCenter">{{ __('Cancel Booking') }}</button>
                         @endif
                         <button type="button" class="btn btn-info back-btn-click back_buttons">{{ __('Back') }}</button>
-                        <button id="printButton" class="btn btn-success ml-2">Print</button>
                         @endif
                     </div>
 

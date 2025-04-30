@@ -54,6 +54,16 @@
 @yield('scripts')
 <script class="iti-load-utils" async src="{{ asset('backend/js/utils.js') }}"></script>
 
+
+<script>
+      document.addEventListener('DOMContentLoaded', function () {
+          const bgHolder = document.querySelector('.bg-holder.overlay');
+          if (bgHolder && bgHolder.innerHTML.trim() === '') {
+              bgHolder.remove();
+          }
+      });
+</script>
+
 </body>
 </html>
 

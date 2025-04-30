@@ -188,7 +188,7 @@
         @auth
             <a href="javascript:;" class="get-started-btn scrollto btn-logout-click">{{ __('Logout') }}</a>
         @else
-            <a href="javascript:;" class="get-started-btn scrollto" data-bs-toggle="modal" data-bs-target="#loginModel">{{ __('Login / Register') }}</a>
+            <a href="javascript:;" id="login_model_btn" class="get-started-btn scrollto" data-bs-toggle="modal" data-bs-target="#loginModel">{{ __('Login / Register') }}</a>
         @endauth
     </div>
 </header>
