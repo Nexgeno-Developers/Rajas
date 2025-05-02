@@ -54,7 +54,7 @@
                         </div>
                         <div class="card-body py-3" id="wizard-controller">
                             <div class="tab-content">
-                                <div class="tab-pane active px-sm-3 px-md-5" role="tabpanel"
+                                <div class="tab-pane active px-sm-3 px-md-0" role="tabpanel"
                                     aria-labelledby="bootstrap-wizard-tab1" id="bootstrap-wizard-tab1">
                                     <div class="row">
                                     <div class="col-md-12">
