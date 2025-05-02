@@ -2,7 +2,12 @@
 @section('slider')
 <!-- ======= Hero Section ======= -->
 
-
+<style>
+    header#header {
+    position: absolute;
+    width: 100%;
+}
+</style>
 <div class="banner_section">
     <div class="banner_overlay"></div>
     <video autoplay="" loop="" muted="" playsinline="" class="w-100">
