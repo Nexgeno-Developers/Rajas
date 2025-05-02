@@ -214,7 +214,7 @@
                                                 <input autocomplete="off" class="form-control intlTelInput country-phone-validation" type="tel" name="phone" 
                                                 @auth value="{{ Auth::user()->phone }}" disabled @endauth @guest value="" @endguest
                                                     placeholder="{{ __('Enter Phone') }}" required="required"
-                                                    id="bootstrap-wizard-phone" data-wizard-validate-phone="true" data-name="{{ Auth::user()->country_name ?? $site->country_name }}"/>
+                                                    id="bootstrap-wizard-phone" data-wizard-validate-phone="true" data-name="{{ Auth::user()->country_name ?? 'in' }}"/>
                                                 <div class="invalid-feedback phone-error">{{ __('Please enter the phone number') }}</div>
                                                 <span id="valid-msg" style="color: green;" class="d-none font-size14">✓ {{ __('Phone Number Valid') }}</span>
                                                 <span id="error-msg" style="color: #bd5252;" class="d-none font-size14"></span>
