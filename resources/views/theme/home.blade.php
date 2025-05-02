@@ -17,7 +17,7 @@
         <h3>Soar Above the City with Rajas Helicopter Rides! </h3>
         <p>Unmatched adventure, stunning views—book your helicopter ride today!</p>
         <div class="button_design">
-            <a href="">Book Your Ride Now <i class="bx bx-right-arrow-alt"></i></a>
+            <a href="/appointment/book">Book Your Ride Now <i class="bx bx-right-arrow-alt"></i></a>
         </div>
     </div>
 </div>
