@@ -23,7 +23,7 @@
                     <div class="row no-gutters row-bordered row-border-light">
                         
                         <div class="col-md-3 pt-0">
-                            <form method="POST" id="profile-form" action="{{ route('users.update',Auth::user()->id) }}" enctype="multipart/form-data" autocomplete="off">
+                            <form method="POST" id="profile-form" action="{{ route('users.update',Auth::user()->id) }}" enctype="multipart/form-data" autocomplete="off" data-recaptcha>
                                 @method('PATCH')
                                 @csrf
                                 <div class="card-body media align-items-center">

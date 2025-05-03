@@ -510,7 +510,20 @@
             toastr.error(error_messges);
             return false;
         } else {
-            $('#profile-form').submit();
+
+            // Wait for grecaptcha token and THEN submit
+            grecaptcha.ready(function () {
+                grecaptcha.execute(RECAPTCHA_SITE_KEY, {action: 'submit'}).then(function (token) {
+                    const input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = 'recaptcha_token';
+                    input.value = token;
+                    document.getElementById('profile-form').appendChild(input);
+
+                    // Submit the form after token is added
+                    document.getElementById('profile-form').submit();
+                });
+            });
         }
     })
 

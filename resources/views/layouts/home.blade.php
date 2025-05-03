@@ -121,6 +121,13 @@
         })(jQuery);
         </script>
     @endif    
+
+    <script src="https://www.google.com/recaptcha/api.js?render={{ env('RECAPTCHA_SITE_KEY') }}"></script>
+    <script>
+        var RECAPTCHA_SITE_KEY = "{{ env('RECAPTCHA_SITE_KEY') }}";
+    </script>  
+
+
     <script src="{{ asset('rbtheme/js/lang/'.app()->getLocale().'.js') }}"></script>
     <script src="{{ asset('rbtheme/js/custom.js?ver=1.1') }}"></script>
     @guest
@@ -137,10 +144,7 @@
 
     <script src="{{ asset('rbtheme/js/nexgeno.js') }}"></script>
 
-    <script src="https://www.google.com/recaptcha/api.js?render={{ env('RECAPTCHA_SITE_KEY') }}"></script>
-    <script>
-        var RECAPTCHA_SITE_KEY = "{{ env('RECAPTCHA_SITE_KEY') }}";
-    </script>   
+ 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const forms = document.querySelectorAll('form[data-recaptcha]');

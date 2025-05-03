@@ -20,7 +20,7 @@
                             color = '#ffc107';
                         }
                         eventsdata.push({
-                            title: value.comments,
+                            title: value.service_id + ' / ' + value.comments,
                             start: value.date+' '+value.start_time,
                             end: value.date+' '+value.finish_time,
                             url: route('customer-appointment', value.id), 

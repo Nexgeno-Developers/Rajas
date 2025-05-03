@@ -18,7 +18,7 @@
             <div class="col-12">
               <div class="card mb-3 btn-reveal-trigger">
                 <div class="card-header position-relative min-vh-25 mb-8">
-                 <form method="POST" id="profile-form" action="{{ route('users.update',Auth::user()->id) }}" enctype="multipart/form-data" autocomplete="off">
+                 <form method="POST" id="profile-form" action="{{ route('users.update',Auth::user()->id) }}" enctype="multipart/form-data" autocomplete="off" data-recaptcha>
                  @method('PATCH')
                  @csrf
                   <div class="cover-image">
@@ -101,7 +101,7 @@
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
                         <div class="mb-3 country_select">
                             <label class="form-label" for="bootstrap-wizard-wizard-email">{{ __('State') }}<span class="text-danger">*</span></label>
-                            <select class="form-control rounded-0 selectpicker" data-wizard-validate-state="true" data-live-search="true" name="state" required="required" placeholder="Select State">
+                            <select class="form-control rounded-0 selectpicker" id="state-select" data-wizard-validate-state="true" data-live-search="true" name="state" @if(empty(auth()->user()->state)) required="required" @endif placeholder="Select State">
 
                             </select>                                            
                         </div>
@@ -195,4 +195,11 @@
 @endsection
 @section('script')
 <script src="{{asset('backend/js/phone.js')}}"></script>
+<script>
+  $('#state-select').on('change', function () {
+      if ($(this).val() === '' || $(this).val() === null) {
+          $(this).attr('required', 'required');
+      }
+  });
+</script>
 @endsection

@@ -150,7 +150,7 @@ class UserController extends Controller
                                 'email'=>$request->email,
                                 'position' => $request->position,
                                 'country' => $request->country, //new
-                                'state' => $request->state, //new
+                                'state' => $request->state ?? auth()->user()->state, //new
                                 'city' => $request->city, //new
                                 'zipcode' => $request->zipcode, //new
                                 'goverment_id' => $request->goverment_id, //new
