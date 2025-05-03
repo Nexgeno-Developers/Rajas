@@ -9,9 +9,9 @@
 <section class="zluck-container" id="banner">
     <div class="container justify-content-center" data-layout="container">
         <div class="row justify-content-center">
-            <div class="col-sm-10 col-lg-10 col-xxl-7 pt-5">
+            <div class="col-sm-12 col-lg-10 col-xxl-7">
             
-                <div class="d-flex flex-center mb-3 pt-3">
+                <div class="d-flex flex-center mb-3">
                     <span class="font-sans-serif fw-bolder fs-4 d-inline-block">{{ __('Book Appointment') }}</span>
                 </div>
                 
@@ -134,7 +134,7 @@
                                     </div>
 </div>
                                 </div> 
-                                <div class="tab-pane px-sm-3 px-md-5" role="tabpanel"
+                                <div class="tab-pane px-sm-3 px-md-0" role="tabpanel"
                                     aria-labelledby="bootstrap-wizard-tab2" id="bootstrap-wizard-tab2">
                                     <p>{{ __('Below you can find list of available time slots for') }} <b
                                             class="service_name">{{ __('Service name') }} </b> 
@@ -163,7 +163,7 @@
                                     </div>
                                     <span class="error time-error text-danger"></span>
                                 </div>
-                                <div class="tab-pane px-sm-3 px-md-5" role="tabpanel"
+                                <div class="tab-pane px-sm-3 px-md-0" role="tabpanel"
                                     aria-labelledby="bootstrap-wizard-tab3" id="bootstrap-wizard-tab3">
                                     <span class="text-danger" id="email-check"></span>
                                     <p>{{ __("You've selected") }} <b class="service_name">{{ __('Service Name') }}</b> {{ __('service from') }} <b
@@ -174,7 +174,7 @@
                                     </p>
                                     <p>{{ __('Please provide your details in the form below to proceed with booking.') }}</p>
                                     <div class="row g-2">
-                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
                                             <div class="mb-3">
                                                 <label class="form-label" for="bootstrap-wizard-wizard-first-name">{{ __('First Name') }}<span
                                                         class="text-danger">*</span></label>
@@ -186,7 +186,7 @@
                                                 <div class="invalid-feedback">{{ __('Please enter the first name') }}</div>
                                             </div>
                                         </div>
-                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
                                             <div class="mb-3">
                                                 <label class="form-label" for="bootstrap-wizard-wizard-last-name">{{ __('Last Name') }}<span
                                                         class="text-danger">*</span></label>
@@ -198,7 +198,6 @@
                                                 <div class="invalid-feedback">{{ __('Please enter the last name') }}</div>
                                             </div>
                                         </div>
-                                    </div>
                                     
                                     
                                     <input type="hidden" name="country_name" id="iso2" class="country-name" value="{{ old('country_name') }}">
@@ -206,8 +205,7 @@
                                     <input type="hidden" name="country_code" id="dialcode" class="country_code" value="{{ old('country_code') }}" data-country="{{ old('country_name') }}" 
                                     @auth data-number="{{ Auth::user()->phone }}" @endauth @guest data-number="{{ old('phone') }}" @endguest>
                             
-                                    <div class="row g-2">
-                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
                                             <div class="mb-3">
                                                 <label class="form-label" for="bootstrap-wizard-wizard-email">{{ __('Phone') }}<span
                                                         class="text-danger">*</span></label>
@@ -221,7 +219,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
                                             <div class="mb-3">
                                                 <label class="form-label" for="bootstrap-wizard-email">{{ __('Email') }}<span
                                                         class="text-danger">*</span></label>
@@ -233,10 +231,8 @@
                                                 <div class="invalid-feedback email-error">{{ __('Please enter the email') }}</div>
                                             </div>
                                         </div>
-                                    </div>
-
-                                    <div class="row g-2">
-                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6" @auth @if(auth()->user()->country) style="pointer-events:none;" @endif @endauth>
+                                    
+                                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4" @auth @if(auth()->user()->country) style="pointer-events:none;" @endif @endauth>
                                             <div class="mb-3">
                                                 <label class="form-label" for="bootstrap-wizard-wizard-email">{{ __('Country') }}<span class="text-danger">*</span></label>
                                                 <select autocomplete="off" class="form-control rounded-0 selectpicker country_select" data-wizard-validate-country="true" data-live-search="true" data-placeholder="{{ __('Select your country') }}" name="country" placeholder="Select Country" required="required" >
@@ -259,7 +255,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6" @auth @if(auth()->user()->state) style="pointer-events:none;" @endif @endauth>
+                                        <div class="col-xl-4 col-lg-4vcol-md-4 col-sm-4" @auth @if(auth()->user()->state) style="pointer-events:none;" @endif @endauth>
                                             <div class="mb-3">
                                                 <label class="form-label" for="bootstrap-wizard-wizard-email">{{ __('State') }}<span class="text-danger">*</span></label>
                                                 <select autocomplete="off" class="country_select form-control rounded-0 @if(auth()->check() && !auth()->user()->state) selectpicker @endif" data-wizard-validate-state="true" data-live-search="true" name="state" required="required" placeholder="Select State">
@@ -268,10 +264,8 @@
                                                 <div class="invalid-feedback">{{ __('Please select the state') }}</div>                                              
                                             </div>
                                         </div>
-                                    </div>
-
-                                    <div class="row g-2">
-                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                   
+                                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
                                             <div class="mb-3">
                                                 <label class="form-label" for="bootstrap-wizard-wizard-email">{{ __('Number of Person') }}<span class="text-danger">*</span></label>
                                                 <input autocomplete="off" step="1" min="1" max="" class="form-control" type="number" name="no_of_person_allowed" placeholder="{{ __('Enter Number of Person') }}"
@@ -280,7 +274,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
                                             <div class="mb-3">
                                                 <label class="form-label" for="bootstrap-wizard-wizard-email">{{ __('Total Weight') }}<span class="text-danger">*</span></label>                                            
                                                 <input autocomplete="off" step="1" min="1" max="" class="form-control" type="number" name="allowed_weight" placeholder="{{ __('Enter Weight') }}"
@@ -288,9 +282,9 @@
                                                 <div class="invalid-feedback">{{ __('Please enter the weight') }}</div>                                             
                                             </div>
                                         </div>
-                                    </div>                                     
+                                                                      
 
-                                    <div class="row g-2">
+                                    <!-- <div class="row g-2">
                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 d-none">
                                             <div class="mb-3">
                                                 <label class="form-label" for="bootstrap-wizard-wizard-email">{{ __('City') }}</label>
@@ -312,10 +306,10 @@
                                                 <div class="invalid-feedback">{{ __('Please enter the zipcode') }}</div>                                             
                                             </div>
                                         </div>
-                                    </div>    
+                                    </div>     -->
                                     
-                                    <div class="row g-2">
-                                        <div class="col-xl-12 col-lg-6 col-md-6 col-sm-6">
+                                    
+                                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
                                             <div class="mb-3">
                                                 <label class="form-label" for="bootstrap-wizard-wizard-email">{{ __('Goverment ID Number') }} <span class="text-danger">*</span></label>
                                                 <input class="form-control" type="text" name="goverment_id" @auth

@@ -70,7 +70,7 @@
                   href="{{ route('welcome')}}#contact" 
                   @elseif(empty(request()->route())) href="{{ route('welcome')}}#contact" 
                   @else href="#contact" @endif>{{ __('Contact') }}</a></li> -->
-                <li class="@if(Request::segment(2) == 'book') active @endif"><a href="{{ route('appointment.book')}}">{{ __('Book Now') }}</a></li>
+                
                 <!-- <li class="drop-down">
                   <a href="javascript:;">{{ Config::get('languages')[app()->getLocale()] }}</a>
                   <ul>
@@ -186,10 +186,12 @@
             </ul>
         </nav>
         @auth
-            <a href="javascript:;" class="get-started-btn scrollto btn-logout-click">{{ __('Logout') }}</a>
+            <a href="javascript:;" class=" scrollto btn-logout-click">{{ __('Logout') }}</a>
         @else
-            <a href="javascript:;" class="get-started-btn scrollto" data-bs-toggle="modal" data-bs-target="#loginModel">{{ __('Login / Register') }}</a>
+            <a href="javascript:;" class="scrollto" data-bs-toggle="modal" data-bs-target="#loginModel"><i class="bx bx-lock lock_icon"></i> {{ __('Login / Register') }}</a>
         @endauth
+
+        <li class="@if(Request::segment(2) == 'book') active @endif book_buttons"><a href="{{ route('appointment.book')}}">{{ __('Book Now') }}</a></li>
     </div>
 </header>
 <form id="logout-form" method="post" action="{{route('logout')}}">

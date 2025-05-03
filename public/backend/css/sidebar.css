@@ -36,7 +36,7 @@
 }
 
 .aside {
-    background-color: #006161 !important;
+    background-color: #F5F5F580 !important;
 }
 
 .aside .aside-content .logo {
@@ -47,11 +47,11 @@
     max-height: 50px;
     margin: 0 auto;
     margin-inline-start: 20px;
-    filter: brightness(0) invert(1);
 }
 
 .aside .aside-content .aside-menu ul {
-    padding-inline-start: 25px;
+    padding-inline-start: 20px;
+    margin-bottom: 5px;
 }
 
 .status-mode {
@@ -81,12 +81,15 @@
 
 .aside .aside-content .aside-menu li {
     position: relative;
+    padding-left: 20px;
 }
 
 .aside .aside-content .aside-menu li>a {
-    color: inherit;
+    color: #333;
     display: block;
     padding: 12px 0px;
+    font-size: 14px !important;
+    font-weight: 600;
 }
 
 .aside .aside-content .aside-menu li>a i {
