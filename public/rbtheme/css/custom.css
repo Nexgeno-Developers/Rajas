@@ -426,6 +426,10 @@ ul.list_top li a {
   cursor: pointer;
 }
 
+.width140{
+  width: 140px;
+}
+
 @media screen and (max-width: 527px) {
   .profile-name-position {
     font-size: 8px;

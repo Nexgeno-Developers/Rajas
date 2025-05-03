@@ -188,7 +188,7 @@
         @auth
             <a href="javascript:;" class=" scrollto btn-logout-click">{{ __('Logout') }}</a>
         @else
-            <a href="javascript:;" class="scrollto" data-bs-toggle="modal" data-bs-target="#loginModel"><i class="bx bx-lock lock_icon"></i> {{ __('Login / Register') }}</a>
+            <a href="javascript:;" class="scrollto" id="login_model_btn" data-bs-toggle="modal" data-bs-target="#loginModel"><i class="bx bx-lock lock_icon"></i> {{ __('Login / Register') }}</a>
         @endauth
 
         <li class="@if(Request::segment(2) == 'book') active @endif book_buttons"><a href="{{ route('appointment.book')}}">{{ __('Book Now') }}</a></li>

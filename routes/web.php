@@ -31,6 +31,14 @@ Route::get('/home', function() {
 
 })->name('theme');
 
+Route::get('/test-otp', function () {
+    $sessionData = Session()->all();
+
+    // Print session data
+    dd($sessionData);
+});
+
+
 /* all module route */
 
 Route::middleware(['auth', 'xss'])->group(function () {
