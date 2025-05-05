@@ -83,86 +83,222 @@
                 @php
                     $notificationcount = DB::table('notification')->where('is_read',0)->where('user_id',Auth::user()->id)->count();
                 @endphp
-                <li class="drop-down @if($notificationcount > 0) notification-indicator @endif notification-indicator-primary fa-icon-wait">
-                    <div class="desktop-view @if(Request::segment(2) == 'notification') active @endif">
-                        <a href="javascript:;" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><span class="fas fa-bell font-c-25" data-fa-transform="shrink-5"></span></a>
-                        <div class="dropdown-menu dropdown-menu-end dropdown-menu-card dropdown-menu-notification" aria-labelledby="navbarDropdownNotification">
-                            <div class="card card-notification shadow-none">
-    
-                                <div class="card-header">
-              
-                                  <div class="row justify-content-between align-items-center">
-              
-                                    <div class="col-auto">
-              
+                <li class="notification-container @if($notificationcount > 0) has-notifications @endif">
+              <div class="desktop-view @if(Request::segment(2) == 'notification') active @endif">
+                  
+                      <!-- <span class="fas fa-bell font-c-25"></span>
+                      @if($notificationcount > 0)
+                          <span class="notification-badge"></span>
+                      @endif -->
+
+                      <div class="notification-icon">
+                          <a href="javascript:;"><span class="fas fa-bell font-c-25" data-fa-transform="shrink-5"></span></a>
+                      </div>
+                
+
+                  <div class="notification-dropdown">
+                      <div class="notification-card">
+                          <div class="card-header">
+                              <div class="row justify-content-between align-items-center">
+                                  <div class="col-auto">
                                       <h6 class="card-header-title mb-0">{{ __('Notifications') }}</h6>
-              
-                                    </div>
-              
-                                    
-                                    @if($notificationcount > 0)
-                                    <div class="col-auto ps-0 ps-sm-3"><a class="card-link fw-normal" href="javascript:;" id="mark">{{ __('Mark all as read') }}</a></div>
-                                    @endif
                                   </div>
-              
-                                </div>
-              
-                                <div class="scrollbar-overlay max-h-25">
-              
-                                  <div class="list-group list-group-flush fw-normal fs--1">
-              
-                                    <div class="list-group-title border-bottom">{{ __('NEW') }}</div>
-              
-                                    <div class="list-group-item">
-              
-                                      @php
-              
-                                        $latestNotifications = DB::table('notification')->where('user_id',Auth::user()->id)->where('is_read', 0)->limit(3)->orderBy('id','desc')->get();
-              
-                                      @endphp
-              
-              
-                                      @foreach ($latestNotifications as $latestNotification) 
-              
-                                      <a class="notification notification-flush" href="{{ route('notification',$latestNotification->id) }}">
-              
-                                        <div class="notification-avatar">
-              
-                                          <div class="avatar avatar-2xl me-4">
-                                            
-                                            
-                                            <img class="rounded-circle" src="{{ asset('rbtheme/img/placeholder.png') }}" alt="" />
-              
-                                          </div>
-              
-                                        </div>
-              
-                                        <div class="notification-body">
-              
-                                          <p class="mb-1 wrap">{{ $latestNotification->message }}</p>
-                                          <span class="notification-time"><span class="me-2" role="img" aria-label="Emoji"><i class="icofont icofont-chat"></i></span>{{ Helper::notificationTime($latestNotification->created_at) }}</span>
-              
-                                        </div>
-              
-                                      </a>
-              
-                                      @endforeach
-              
-                                    </div>
-              
+                                  @if($notificationcount > 0)
+                                  <div class="col-auto ps-0 ps-sm-3">
+                                      <a class="card-link fw-normal mark-as-read" href="javascript:;" id="mark">{{ __('Mark all as read') }}</a>
                                   </div>
-              
-                                </div>
-              
-                                <div class="card-footer text-center border-top"><a class="card-link d-block" href="{{ route('notification') }}">{{ __('View all') }}</a></div>
-              
+                                  @endif
                               </div>
-                        </div>
-                    </div>
-                    <div class="mobile-view @if(Request::segment(2) == 'notification') active @endif">
-                        <a href="{{ route('notification') }}"><span data-fa-transform="shrink-5">{{ __('Notifications') }}</span></a>
-                    </div>
-                </li>
+                          </div>
+
+                          <div class="scrollable-content">
+                              <div class="notification-list">
+                                  <div class="list-title border-bottom">{{ __('NEW') }}</div>
+                                  <div class="list-items">
+                                      @php
+                                          $latestNotifications = DB::table('notification')->where('user_id',Auth::user()->id)->where('is_read', 0)->limit(3)->orderBy('id','desc')->get();
+                                      @endphp
+
+                                      @foreach ($latestNotifications as $latestNotification) 
+                                      <a class="notification-item" href="{{ route('notification',$latestNotification->id) }}">
+                                          <div class="notification-avatar">
+                                              <div class="avatar me-4">
+                                                  <img class="rounded-circle" src="{{ asset('rbtheme/img/placeholder.png') }}" alt="" />
+                                              </div>
+                                          </div>
+                                          <div class="notification-content">
+                                              <p class="mb-1 wrap">{{ $latestNotification->message }}</p>
+                                              <span class="notification-time">
+                                                  <span class="me-2" role="img" aria-label="Emoji">
+                                                      <i class="icofont icofont-chat"></i>
+                                                  </span>
+                                                  {{ Helper::notificationTime($latestNotification->created_at) }}
+                                              </span>
+                                          </div>
+                                      </a>
+                                      @endforeach
+                                  </div>
+                              </div>
+                          </div>
+
+                          <div class="card-footer text-center border-top">
+                              <a class="card-link d-block view-all" href="{{ route('notification') }}">{{ __('View all') }}</a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="mobile-view @if(Request::segment(2) == 'notification') active @endif">
+                  <a href="{{ route('notification') }}"><span>{{ __('Notifications') }}</span></a>
+              </div>
+          </li>
+
+          <style>
+          .notification-container {
+              position: relative;
+              list-style: none;
+          }
+
+          .notification-icon {
+              cursor: pointer;
+              position: relative;
+             
+          }
+
+          .notification-badge {
+              position: absolute;
+              top: 0;
+              right: 0;
+              width: 8px;
+              height: 8px;
+              background-color: #2c7be5;
+              border-radius: 50%;
+              border: 2px solid #fff;
+          }
+
+          .notification-dropdown {
+              position: absolute;
+              top: 100%;
+              right: 0;
+              width: 360px;
+              background: #fff;
+              border-radius: 8px;
+              box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+              opacity: 0;
+              visibility: hidden;
+              transform: translateY(10px);
+              transition: all 0.3s ease;
+              z-index: 1000;
+          }
+
+          .notification-container:hover .notification-dropdown {
+              opacity: 1;
+              visibility: visible;
+              transform: translateY(0);
+          }
+
+          .notification-card {
+              border-radius: 8px;
+              overflow: hidden;
+          }
+
+          .card-header {
+              padding: 12px 16px;
+              background: #f8f9fa;
+              border-bottom: 1px solid #e9ecef;
+          }
+
+          .scrollable-content {
+              max-height: 300px;
+              overflow-y: auto;
+          }
+
+          .notification-list {
+              padding: 0;
+          }
+
+          .list-title {
+              padding: 8px 16px;
+              font-size: 12px;
+              font-weight: bold;
+              color: #6c757d;
+              background: #f8f9fa;
+          }
+
+          .list-items {
+              padding: 0;
+          }
+
+          .notification-item {
+              display: flex;
+              padding: 12px 16px;
+              text-decoration: none;
+              color: #212529;
+              border-bottom: 1px solid #e9ecef;
+              transition: background 0.2s;
+          }
+
+          .notification-item:hover {
+              background: #f8f9fa;
+          }
+
+          .notification-avatar {
+              margin-right: 12px;
+          }
+
+          .notification-content {
+              flex: 1;
+          }
+
+          .notification-time {
+              font-size: 12px;
+              color: #6c757d;
+          }
+
+          .card-footer {
+              padding: 12px 16px;
+              background: #f8f9fa;
+          }
+
+          .view-all {
+              color: #2c7be5;
+              text-decoration: none;
+          }
+
+          .mark-as-read {
+              color: #6c757d;
+              text-decoration: none;
+              font-size: 13px;
+          }
+
+          /* Mobile view styles */
+          .mobile-view {
+              display: none;
+          }
+
+          .notification-icon a::after {
+              content: "\ea99";
+              font-family: IcoFont;
+              padding-left: 5px;
+          }
+          @media (max-width: 768px) {
+              .desktop-view {
+                  display: none;
+              }
+              .mobile-view {
+                  display: block;
+              }
+          }
+          </style>
+
+          <script>
+          document.addEventListener('DOMContentLoaded', function() {
+              // Mark all as read functionality
+              document.getElementById('mark')?.addEventListener('click', function() {
+                  // Add your AJAX call here to mark notifications as read
+                  console.log('Mark all as read clicked');
+              });
+          });
+          </script>
                 <li class="drop-down">
                     @if(!empty(Auth::user()->profile))
                     <a href="javascript:;"><img src="{{ asset('img/profile/'.Auth::user()->profile) }}" alt="customer-logo" class="rounded" width="25" height="25"></a>

@@ -96,8 +96,8 @@
                         <table class="table table-striped border-bottom">
                             <thead class="bg-200 text-900">
                                 <tr>
-                                    <th class="border-0">{{ __('Category') }}</th>
                                     <th class="border-0">{{ __('Service') }}</th>
+                                    <th class="border-0">{{ __('Category') }}</th>
                                     <th class="border-0">{{ __('Addional Information') }}</th>
                                     <th class="border-0 text-center">{{ __('Booking Created Date') }}</th>
                                     <th class="border-0 text-center">{{ __('Appointment Date') }}</th>
@@ -107,11 +107,12 @@
                             </thead>
                             <tbody>
                                 <tr class="border-200">
-                                    <td class="align-middle">
-                                        <p class="mb-0 text-nowrap previous-serviceid" data-previous-serviceid="{{ old('employee_id') }}">{{ ucfirst($appointment->category_id) }}</p>
-                                    </td>                                    
+                                                                        
                                     <td class="align-middle">
                                         <p class="mb-0 text-nowrap previous-serviceid" data-previous-serviceid="{{ old('employee_id') }}">{{ ucfirst($appointment->service_id) }}</p>
+                                    </td>
+                                    <td class="align-middle">
+                                        <p class="mb-0 text-nowrap previous-serviceid" data-previous-serviceid="{{ old('employee_id') }}">{{ ucfirst($appointment->category_id) }}</p>
                                     </td>
                                     <td class="align-middle">
                                         <p class="mb-0 text-nowrap">Allowed Weight : {{ ucfirst($appointment->allowed_weight) }} {{__("Kg")}}</p>

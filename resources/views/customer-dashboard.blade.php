@@ -15,8 +15,8 @@
                     <table class="table table-striped border-bottom">
                         <thead class="bg-200 text-900">
                             <tr>
-                                <th class="border-0">{{ __('Category') }}</th>
                                 <th class="border-0">{{ __('Service') }}</th>
+                                <th class="border-0">{{ __('Category') }}</th>
                                 <th class="border-0">{{ __('Addional Information') }}</th>
                                 <th class="border-0 text-center">{{ __('Start Time') }}</th>
                                 <th class="border-0 text-end">{{ __('End Time') }}</th>
@@ -27,9 +27,7 @@
                         <tbody>
                             @foreach ($appointments as $appointment)
                                 <tr class="border-200">
-                                    <td class="align-middle">
-                                        <p class="mb-0 text-nowrap">{{ ucfirst($appointment->category_id) }}</p>
-                                    </td>
+                                   
                                     <td class="align-middle">
                                         @php 
                                             $service_img =  DB::table('services')->where('name',$appointment->service_id)->value('image') ?? null; 
@@ -38,6 +36,9 @@
                                             <img src="{{ asset('img/services/' . $service_img) }}" class=" mb-2 width140">
                                         @endif
                                         <p class="mb-0 text-nowrap">{{ ucfirst($appointment->service_id) }}</p>
+                                    </td>
+                                     <td class="align-middle">
+                                        <p class="mb-0 text-nowrap">{{ ucfirst($appointment->category_id) }}</p>
                                     </td>
                                     <td class="align-middle">
                                         <p class="mb-0 text-nowrap">Allowed Weight :

@@ -4,27 +4,27 @@
 <section class="py-0 overflow-hidden light" id="banner">
     <div class="bg-holder overlay">
     </div>
-    <div class="container mt-lg-7 mb-5 p-3">
+    <div class="container mt-lg-7 mb-5 pt-3">
     @if(Session::has('message'))
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-md-12">
                     <div class="alert alert-success">
                         {{Session::get('message')}}
                     </div>
                 </div>
-            </div>
+            </div> -->
             @endif
-    <div class="row">
-            <div class="col-12">
-              <div class="card mb-3 btn-reveal-trigger">
-                <div class="card-header position-relative min-vh-25 mb-8">
+  
+          <div class="row g-0 mb-2">
+            <div class="col-lg-6 pe-lg-2">
+              <div class="card mb-md-0 mb-3">
+                <div class="card-header text-center mb-0 pb-0">
+
                  <form method="POST" id="profile-form" action="{{ route('users.update',Auth::user()->id) }}" enctype="multipart/form-data" autocomplete="off" data-recaptcha>
                  @method('PATCH')
                  @csrf
-                  <div class="cover-image">
-                    <div class="bg-holder rounded-3 rounded-bottom-0 customer-profile-cover"></div>
-                  </div>
-                  <div class="avatar avatar-5xl avatar-profile shadow-sm img-thumbnail rounded-circle">
+                 
+                  <div class="avatar avatar-5xl avatar-profile1 shadow-sm img-thumbnail rounded-circle">
                     
                     <div class="h-100 w-100 rounded-circle overflow-hidden position-relative">
                     @if(!empty($user->profile))
@@ -48,21 +48,15 @@
                     </div>
                    
                   </div>
-                  <div class="profile-name-position">
-                     <h3>{{ $user->first_name.' '.$user->last_name }}</h3>
-                  </div>
+                  <!-- <div class="profile_names">
+                     <h4>{{ $user->first_name.' '.$user->last_name }}</h4>
+                  </div> -->
                  </form>
+
+
+                  <!-- <h5 class="mb-0">{{ __('Profile Settings') }}</h5> -->
                 </div>
-              </div>
-            </div>
-          </div>
-          <div class="row g-0 mb-2">
-            <div class="col-lg-6 pe-lg-2">
-              <div class="card mb-3 ">
-                <div class="card-header">
-                  <h5 class="mb-0">{{ __('Profile Settings') }}</h5>
-                </div>
-                <div class="card-body bg-light">
+                <div class="card-body">
                   <form class="row g-3" method="POST" action="{{ route('users.update',Auth::user()->id) }}" id="profile-detail-form" autocomplete="off" data-recaptcha>
                   @method('PATCH')
                     @csrf
@@ -144,7 +138,7 @@
                   <div class="card-header">
                     <h5 class="mb-0">{{ __('Change Password') }}</h5>
                   </div>
-                  <div class="card-body bg-light">
+                  <div class="card-body">
                     <form method="POST" action="{{ route('updatePassword',['id' => Auth::user()->id]) }}" id="changePassword-form" autocomplete="off" data-recaptcha>
                     @method('PATCH')
                     @csrf

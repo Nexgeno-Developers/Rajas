@@ -14,7 +14,7 @@
 <section class=" overflow-hidden light" id="banner">
     <div class="bg-holder overlay">
     </div>
-    <div class="container mt-lg-6">
+    <div class="container">
         {{ csrf_field() }}
         <div class="card mb-3">
             <div class="bg-holder d-none d-lg-block bg-card customer-card-appointment"></div>
@@ -60,8 +60,8 @@
         </div>
         <div class="card mb-3">
             <div class="card-body">
-                <div class="row">
-                    <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
+                <div class="">
+                    <div class="width33">
                         <h5 class="mb-3 fs-0">{{ __("Customer") }} Details</h5>
                         <h6 class="mb-2">
                             {{ ucfirst($appointment->user->first_name).' '.ucfirst($appointment->user->last_name) }}
@@ -70,7 +70,7 @@
                         <p class="mb-1 fs--1"> <strong>{{ __('Phone') }}: </strong>{{ $appointment->user->country_code.$appointment->user->phone }}</p>
                         <p class="mb-1 fs--1"> <strong>{{ __('Goverment ID') }}: </strong>{{ $appointment->user->goverment_id }}</p>
                     </div>
-                    <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
+                    <div class="width33">
                         <h5 class="mb-3 fs-0">{{ __('Employee') }} Details</h5>
                         <h6 class="mb-2">
                             {{ ucfirst($appointment->employee->first_name).' '.ucfirst($appointment->employee->last_name) }}
@@ -78,7 +78,7 @@
                         <p class="mb-1 fs--1"> <strong>{{ __('Email') }}: </strong>{{ $appointment->employee->email }}</p>
                         <p class="mb-1 fs--1"> <strong>{{ __('Phone') }}: </strong>{{ $appointment->employee->country_code.$appointment->employee->phone }}</p>                        
                     </div>
-                    <div class="col-md-6 col-lg-4">
+                    <div class="width33">
                         <h5 class="mb-3 fs-0">{{ __('Payment Information') }}</h5>
                         <div class="flex-1">
                             <h6 class="mb-0">
@@ -100,8 +100,8 @@
                     <table class="table table-striped border-bottom">
                         <thead class="bg-200 text-900">
                             <tr>
+                                 <th class="border-0">{{ __('Service') }}</th>
                                 <th class="border-0">{{ __('Category') }}</th>
-                                <th class="border-0">{{ __('Service') }}</th>
                                 <th class="border-0">{{ __('Addional Information') }}</th>
                                 <th class="border-0 text-center">{{ __('Start Time') }}</th>
                                 <th class="border-0 text-end">{{ __('End Time') }}</th>
@@ -110,15 +110,16 @@
                         </thead>
                         <tbody>
                             <tr class="border-200">
-                                <td class="align-middle">
-                                    <p class="mb-0 text-nowrap">{{ ucfirst($appointment->category_id) }}</p>
-                                </td>                                
+                                                             
                                 <td class="align-middle">
                                     @if($service_img)
                                         <img src="{{ asset('img/services/' . $service_img) }}" class=" mb-2 width140">
                                     @endif
                                     <p class="mb-0 text-nowrap">{{ ucfirst($appointment->service_id) }}</p>
                                 </td>
+                                 <td class="align-middle">
+                                    <p class="mb-0 text-nowrap">{{ ucfirst($appointment->category_id) }}</p>
+                                </td>  
                                 <td class="align-middle">
                                     <p class="mb-0 text-nowrap">Allowed Weight : {{ ucfirst($appointment->allowed_weight) }}</p>
                                     <p class="mb-0 text-nowrap">Allowed Persons : {{ ucfirst($appointment->no_of_person_allowed) }}</p>
