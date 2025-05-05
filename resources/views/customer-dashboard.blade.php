@@ -54,7 +54,7 @@
                                         {{ date($custom->date_format, strtotime($appointment->date)) }}
                                     </td>
                                     <td>
-                                        <a class="fc-daygrid-event ..." href="{{ route('customer-appointment', $appointment->id) }}">View</a>
+                                        <a class="fc-daygrid-event ... back_buttons" href="{{ route('customer-appointment', $appointment->id) }}">View</a>
                                     </td>
                                 </tr>
                             @endforeach

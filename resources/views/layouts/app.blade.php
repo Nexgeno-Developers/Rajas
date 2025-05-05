@@ -64,6 +64,16 @@
       });
 </script>
 
+<script>
+          document.addEventListener('DOMContentLoaded', function() {
+              // Mark all as read functionality
+              document.getElementById('mark')?.addEventListener('click', function() {
+                  // Add your AJAX call here to mark notifications as read
+                  console.log('Mark all as read clicked');
+              });
+          });
+          </script>
+
 </body>
 </html>
 
