@@ -2468,6 +2468,11 @@ i.font-size-20 {
   position: relative;
 }
 
+.notification-card .avatar img {
+  width: 40px;
+  height: 40px;
+}
+
 li.notification-container a.card-link.d-block.view-all {
   font-size: 13px;
   color: #333 !important;
