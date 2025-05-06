@@ -103,21 +103,22 @@
                                   <div class="col-auto">
                                       <h6 class="card-header-title mb-0">{{ __('Notifications') }}</h6>
                                   </div>
-                                  @if($notificationcount > 0)
+                                  <!-- @if($notificationcount > 0)
                                   <div class="col-auto ps-0 ps-sm-3">
                                       <a class="card-link fw-normal mark-as-read" href="javascript:;" id="mark">{{ __('Mark all as read') }}</a>
                                   </div>
-                                  @endif
+                                  @endif -->
                               </div>
                           </div>
 
                           <div class="scrollable-content">
                               <div class="notification-list">
-                                  <div class="list-title border-bottom">{{ __('NEW') }}</div>
+                                    @php
+                                        $latestNotifications = DB::table('notification')->where('user_id',Auth::user()->id)->where('is_read', 0)->limit(3)->orderBy('id','desc')->get();
+                                    @endphp                                
+                                  <div class="list-title border-bottom">{{ $latestNotifications->isEmpty() ? __("No New Notification") : __('NEW') }}</div>
                                   <div class="list-items">
-                                      @php
-                                          $latestNotifications = DB::table('notification')->where('user_id',Auth::user()->id)->where('is_read', 0)->limit(3)->orderBy('id','desc')->get();
-                                      @endphp
+
 
                                       @foreach ($latestNotifications as $latestNotification) 
                                       <a class="notification-item" href="{{ route('notification',$latestNotification->id) }}">
@@ -140,10 +141,9 @@
                                   </div>
                               </div>
                           </div>
-
-                          <div class="card-footer text-center border-top">
-                              <a class="card-link d-block view-all" href="{{ route('notification') }}">{{ __('View all') }}</a>
-                          </div>
+                            <div class="card-footer text-center border-top">
+                                <a class="card-link d-block view-all" href="{{ route('notification') }}">{{ __('View all') }}</a>
+                            </div>
                       </div>
                   </div>
               </div>

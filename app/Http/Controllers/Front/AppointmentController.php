@@ -190,7 +190,7 @@ class AppointmentController extends Controller
                     $data['zipcode'] = $request->zipcode; //new
                     $data['goverment_id'] = $request->goverment_id; //new                    
                     $user = $this->userRepository->insert(new User($data));
-                    $notificationMsg = 'Hey '.$user->first_name.' '.$user->last_name.', Thanks for registration. Enjoy unlimited appointment of different services!';
+                    $notificationMsg = 'Hey '.$user->first_name.' '.$user->last_name.', Thanks for registration.';
                     $notification = DB::table('notification')->insert([
                         'user_id'=> $user->id,
                         'employee_id'=> '',
@@ -322,8 +322,8 @@ class AppointmentController extends Controller
                 $admin = User::where('id', $appointment->admin_id)->first();
                 $employee = User::where('id', $appointment->employee_id)->first();
                 DB::table('notification')->insert($notificationArray);
-                $adminMessage = 'Hey '.$admin->first_name.' '.$admin->last_name.',Appointment Created'.' '.date('d-m-Y',strtotime($appointment->date)).' '.'at'.' '.date('h:i A',strtotime($appointment->start_time)).' To '.date('h:i A',strtotime($appointment->finish_time)); 
-                $employeeMessage = 'Hey '.$employee->first_name.' '.$employee->last_name.',Appointment Created'.' '.date('d-m-Y',strtotime($appointment->date)).' '.'at'.' '.date('h:i A',strtotime($appointment->start_time)).' To '.date('h:i A',strtotime($appointment->finish_time)); 
+                $adminMessage = 'Hey '.$admin->first_name.' '.$admin->last_name.',Booking Created'.' '.date('d-m-Y',strtotime($appointment->date)).' '.'at'.' '.date('h:i A',strtotime($appointment->start_time)).' To '.date('h:i A',strtotime($appointment->finish_time)); 
+                $employeeMessage = 'Hey '.$employee->first_name.' '.$employee->last_name.',Booking Created'.' '.date('d-m-Y',strtotime($appointment->date)).' '.'at'.' '.date('h:i A',strtotime($appointment->start_time)).' To '.date('h:i A',strtotime($appointment->finish_time)); 
                 
                 $notificationArray["message"] = $adminMessage;
                 $notificationArray["user_id"] = 1;
