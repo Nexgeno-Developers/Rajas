@@ -1,3 +1,7 @@
+@php
+$user = Auth::user();
+@endphp
+
 <div class="top_bar bg-white">
   <div class="container">
     <div class="row">
@@ -83,6 +87,8 @@
                 @php
                     $notificationcount = DB::table('notification')->where('is_read',0)->where('user_id',Auth::user()->id)->count();
                 @endphp
+
+                @if(($user && $user->role_id == 2))
                 <li class="notification-container @if($notificationcount > 0) has-notifications @endif">
               <div class="desktop-view @if(Request::segment(2) == 'notification') active @endif">
                   
@@ -151,9 +157,9 @@
                   <a href="{{ route('notification') }}"><span>{{ __('Notifications') }}</span></a>
               </div>
           </li>
+          @endif
 
-
-          
+                @if(($user && $user->role_id == 2))
                 <li class="drop-down">
                     @if(!empty(Auth::user()->profile))
                     <a href="javascript:;"><img src="{{ asset('img/profile/'.Auth::user()->profile) }}" alt="customer-logo" class="rounded" width="25" height="25"></a>
@@ -173,16 +179,28 @@
                         <li><a href="javascript:;" class="btn-logout-click">{{ __('Logout') }}</a></li>
                     </ul>
                 </li>
+                @endif
+
                 @endauth
             </ul>
         </nav>
         @auth
+        @if(($user && $user->role_id == 2))
             <a href="javascript:;" class=" scrollto btn-logout-click">{{ __('Logout') }}</a>
+        @else
+             <a href="{{url('/dashboard')}}" class=" scrollto btn-logout-click text-primary">{{ __('Go to Dashboard') }}</a>
+        @endif
         @else
             <a href="javascript:;" class="scrollto" id="login_model_btn" data-bs-toggle="modal" data-bs-target="#loginModel"><i class="bx bx-lock lock_icon"></i> {{ __('Login / Register') }}</a>
         @endauth
 
-        <li class="@if(Request::segment(2) == 'book') active @endif book_buttons"><a href="{{ route('appointment.book')}}">{{ __('Book Now') }}</a></li>
+        <!-- <li class="@if(Request::segment(2) == 'book') active @endif book_buttons"><a href="{{ route('appointment.book')}}">{{ __('Book Now') }}</a></li> -->
+
+        @if(Auth::guest() || ($user && $user->role_id == 2))
+            <li class="@if(Request::segment(2) == 'book') active @endif book_buttons">
+                <a href="{{ route('appointment.book') }}">{{ __('Book Now') }}</a>
+            </li>
+        @endif         
     </div>
 </header>
 <form id="logout-form" method="post" action="{{route('logout')}}">
