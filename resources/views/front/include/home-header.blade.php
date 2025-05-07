@@ -176,7 +176,7 @@ $user = Auth::user();
                             @endif
                         </li>
                         <li class="@if(Request::segment(2) == 'profile') active @endif"><a href="{{ route('customer-profile',Auth::user()->id) }}">{{ __('Profile') }}</a></li>
-                        <li><a href="javascript:;" class="btn-logout-click">{{ __('Logout') }} <img src="{{ asset('rbtheme/img/logout_icons.png')}}" alt="default-logo" class="rounded" width="18" height="18"></a></li>
+                        <li><a href="javascript:;" class="btn-logout-click"><img src="{{ asset('rbtheme/img/logout_icons.png')}}" alt="default-logo" class="rounded" width="18" height="18"> {{ __('Logout') }}</a></li>
                     </ul>
                 </li>
                 @endif
