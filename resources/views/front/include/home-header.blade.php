@@ -130,7 +130,7 @@ $user = Auth::user();
                                       <a class="notification-item" href="{{ route('notification',$latestNotification->id) }}">
                                           <div class="notification-avatar">
                                               <div class="avatar me-4">
-                                                  <img class="rounded-circle" src="{{ asset('rbtheme/img/placeholder.png') }}" alt="" />
+                                                  <!-- <img class="rounded-circle" src="{{ asset('rbtheme/img/placeholder.png') }}" alt="" /> -->
                                               </div>
                                           </div>
                                           <div class="notification-content">
