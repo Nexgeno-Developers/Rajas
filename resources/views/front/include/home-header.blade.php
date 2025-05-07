@@ -160,7 +160,7 @@ $user = Auth::user();
           @endif
 
                 @if(($user && $user->role_id == 2))
-                <li class="drop-down">
+                <li class="drop-down padding_Right_0">
                     @if(!empty(Auth::user()->profile))
                     <a href="javascript:;"><img src="{{ asset('img/profile/'.Auth::user()->profile) }}" alt="customer-logo" class="rounded" width="25" height="25"></a>
                     @else
