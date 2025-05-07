@@ -5,19 +5,18 @@
 }
 
 .dashboard-content .monitor .monitor-box {
-    border-radius: 4px;
-    padding: 15px 15px 30px;
-    background-color: #7d95ae !important;
-    color: #fff;
+    padding: 20px 15px 30px;
+    border: 1px solid #00616199;
+    color: #006161;
     margin-bottom: 15px;
     cursor: pointer;
     transition: .5s all ease-out;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    box-shadow: none;
+    border-radius: 15px;
+    background: #0061611A;
+    text-align: center;
 }
 
-.dashboard-content .monitor .monitor-box:hover {
-    background-color: #566c82 !important;
-}
 
 .dashboard-content .monitor .monitor-box .icon {
     font-size: 36px;
@@ -25,14 +24,27 @@
 
 .dashboard-content .monitor .monitor-box h4 {
     margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.count-number p {
+    margin-bottom: 5px;
+}
+
+.dashbaod_title {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
 }
 
 .dashboard-content .monitor .monitor-box .count-number {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    font-size: 13px;
-    font-weight: 300;
+    position: relative;
+    top: 0;
+    right: 0;
+    font-size: 44px;
+    font-weight: 700;
 }
 
 .dashboard-content .board .board-box {
@@ -56,18 +68,18 @@
 }
 
 .table-hover .custom-column {
-    width: 1px!important;
+    width: 1px !important;
 }
 
-.dashboard-content .board .board-box .table-style .table-hover > tbody > tr {
+.dashboard-content .board .board-box .table-style .table-hover>tbody>tr {
     transition: .5s all ease;
 }
 
-.dashboard-content .board .board-box .table-style .table-hover > tbody > tr:hover {
+.dashboard-content .board .board-box .table-style .table-hover>tbody>tr:hover {
     background-color: #c4e3f3;
 }
 
-.dashboard-content .board .board-box .table-style .table-hover > tbody > tr.active td {
+.dashboard-content .board .board-box .table-style .table-hover>tbody>tr.active td {
     background-color: #c4e3f3;
 }
 
@@ -85,13 +97,14 @@
     border-radius: 0px;
 }
 
-table.dataTable thead > tr > th.sorting::before,
-table.dataTable thead > tr > th.sorting::after {
-  font-size: 2em;
+table.dataTable thead>tr>th.sorting::before,
+table.dataTable thead>tr>th.sorting::after {
+    font-size: 2em;
 }
 
-table.dataTable thead>tr>th.sorting:after, table.dataTable thead>tr>th.sorting_asc:after{
-  top : 55%;
+table.dataTable thead>tr>th.sorting:after,
+table.dataTable thead>tr>th.sorting_asc:after {
+    top: 55%;
 }
 
 

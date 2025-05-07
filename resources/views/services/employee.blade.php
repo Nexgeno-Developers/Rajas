@@ -8,7 +8,7 @@
     @include('includes.message-block')
     <div class="row p-md-4 p-2">
         <div class="col-sm-12 col-mobile">
-            <div class="board-box">
+            <div class="board-box main_section_bg">
                 <div class="board-title">
                     <h2>{{ $service->name}} {{ __('Service Of Employee') }} <a href="{{ route('employees.create') }}" class="add-new-employee"><span
                                     class="fa fa-plus pull-c-right"></span></a></h2>
@@ -52,7 +52,7 @@
                                         <span class="bg-{{$btnClass}} badge">{{ $text }}</span>
                                     </td>
                                     <td>
-                                        <a class="btn btn-default btn-lg mt-0" href="{{ route('employees.show',$row->employee->id) }}">
+                                        <a class="btn btn-default btn-lg mt-0 eye_class" href="{{ route('employees.show',$row->employee->id) }}">
                                             <span class="glyphicon glyphicon-eye-open"></span>
                                         </a>
                                     </td>

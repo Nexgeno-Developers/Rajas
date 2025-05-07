@@ -9,7 +9,7 @@
     @include('includes.message-block')
     <div class="row p-md-4 p-2">
         <div class="col-sm-12 col-mobile">
-            <div class="board-box">
+            <div class="board-box main_section_bg">
             <div class="board-title">
                     <h2>{{ __('List of all Payments')}}</h2>
                 <form method="post" id="filter-form" action="{{ route('payment-filter') }}" autocomplete="off">
@@ -125,8 +125,8 @@
                                         @php
                                             $appointmentId = optional(DB::table('payments')->where('id', $payment->id)->first())->appointment_id;
                                         @endphp                                        
-                                        <a class="btn btn-default btn-lg mt-0" href="{{ route('appointments.show', $appointmentId) }}"><span class="glyphicon glyphicon-eye-open"></span></a>
-                                        <a class="btn btn-default btn-lg mt-0" href="{{ route('paymentview',$payment->id) }}"><span class="fa fa-inr"></span></a>
+                                        <a class="btn btn-default btn-lg mt-0 eye_class" href="{{ route('appointments.show', $appointmentId) }}"><span class="glyphicon glyphicon-eye-open"></span></a>
+                                        <a class="btn btn-default btn-lg mt-0 inr_class" href="{{ route('paymentview',$payment->id) }}"><span class="fa fa-inr"></span></a>
                                     </td>
                                 </tr>
                             @endforeach

@@ -9,7 +9,7 @@
 <div class="row p-md-4 p-2">
     @include('includes.message-block')
     <div class="col-sm-12 col-mobile">
-        <div class="board-box">
+        <div class="board-box main_section_bg">
             <div class="board-title">
                
                             <div class="row">
@@ -71,13 +71,13 @@
                                     </button> --}}
                                 </td>
                                 <td>
-                                    <a class="btn btn-default btn-lg" href="{{ route('employees.show',$employee->id) }}">
+                                    <a class="btn btn-default btn-lg eye_class" href="{{ route('employees.show',$employee->id) }}">
                                         <span class="glyphicon glyphicon-eye-open"></span>
                                     </a>
-                                    <a class="btn btn-default btn-lg" href="{{ route('employees.edit',$employee->id) }}">
+                                    <a class="btn btn-default btn-lg edit_class" href="{{ route('employees.edit',$employee->id) }}">
                                         <span class="glyphicon glyphicon-edit"></span>
                                     </a>
-                                    <a class="btn btn-default btn-lg" title="{{ __('appointment') }}" href="{{ route('employees.appointment',$employee->id) }}">
+                                    <a class="btn btn-default btn-lg calendar_class" title="{{ __('appointment') }}" href="{{ route('employees.appointment',$employee->id) }}">
                                         <span class="glyphicon glyphicon-calendar"></span>
                                     </a> 
                                 </td>

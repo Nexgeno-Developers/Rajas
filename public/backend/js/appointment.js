@@ -127,7 +127,7 @@
 
                             } else {
 
-                            html += '<div class="col-md-6">';
+                            html += '<div class="col-md-4">';
 
                             }
 

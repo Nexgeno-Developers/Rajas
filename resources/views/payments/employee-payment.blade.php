@@ -8,7 +8,7 @@
 <div class="row p-md-4 p-2">
     <div class="col-sm-12 col-mobile">
             <a href="{{ \Illuminate\Support\Facades\URL::previous() }}"><h4><i class="fa fa-arrow-left" aria-hidden="true"></i> {{ __('Back') }}</h4></a>
-            <div class="board-box">
+            <div class="board-box main_section_bg">
                 <div class="table-style">
                     <div class="table-responsive">
                         <table class="table table-hover data-table" id="employee-payment-table">
@@ -52,7 +52,7 @@
                                             <a class="btn btn-success" href="{{ route('pay',$appointment->payment_id) }}">{{ __('Add Payment')}}</a>
                                         @endif
                                     @endempty
-                                        <a class="btn btn-default btn-lg" href="{{ route('paymentview',$appointment->id) }}">
+                                        <a class="btn btn-default btn-lg eye_class" href="{{ route('paymentview',$appointment->id) }}">
                                             <span class="glyphicon glyphicon-eye-open"></span>
                                         </a>
                                     </td>

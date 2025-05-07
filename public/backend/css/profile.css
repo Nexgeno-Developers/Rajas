@@ -1,8 +1,6 @@
-
-
-body{
-    background: #f5f5f5;
-    margin-top:20px;
+body {
+    background: #fff;
+    margin-top: 20px;
 }
 
 .text-right {
@@ -30,9 +28,10 @@ body{
 .save {
     margin-bottom: 10px;
 }
+
 .btn-default {
-    border-color:  #4E5155;
-    background: rgba(0,0,0,0);
+    border-color: #4E5155;
+    background: rgba(0, 0, 0, 0);
     color: #4E5155;
     font-size: 13px;
     padding: 3px 6px;
@@ -43,7 +42,8 @@ label.btn {
 }
 
 .btn-color {
-    border-color: indianred !important;;
+    border-color: indianred !important;
+    ;
 }
 
 .btn-outline-primary {
@@ -51,10 +51,13 @@ label.btn {
     background: transparent;
     color: #337ab7;
 }
-.btn-outline-primary:hover,.btn-outline-primary:active {
+
+.btn-outline-primary:hover,
+.btn-outline-primary:active {
     border-color: #286090;
     background-color: #286090;
 }
+
 .btn-delete-color {
     font-size: 13px;
     color: indianred;
@@ -80,13 +83,13 @@ label.btn {
 }
 
 .btn-facebook {
-    border-color: rgba(0,0,0,0);
+    border-color: rgba(0, 0, 0, 0);
     background: #3B5998;
     color: #fff;
 }
 
 .btn-instagram {
-    border-color: rgba(0,0,0,0);
+    border-color: rgba(0, 0, 0, 0);
     background: #000;
     color: #fff;
 }
@@ -98,54 +101,68 @@ label.btn {
     margin-right: 10px;
     margin-bottom: -28px;
     margin-top: 45px;
-  }
+}
 
-  .curser-set{
+.curser-set {
     cursor: pointer;
-  }
+}
 
-  .toggle-password i,.toggle-password i:hover, .toggle-password i:focus, .toggle-password i:active {
-    color: #000!important;
-   
-  }
+.toggle-password i,
+.toggle-password i:hover,
+.toggle-password i:focus,
+.toggle-password i:active {
+    color: #000 !important;
+
+}
+
 .d-none {
-    display: none!important;
+    display: none !important;
 }
 
 .error {
     color: #bd5252;
 }
+
 .d-resize {
     resize: none;
 }
+
 .pull-c-right {
     float: right;
     padding-right: 20px;
 }
+
 .opacity-7 {
     opacity: 0.7;
 }
+
 .t-right {
- text-align: right !important;
+    text-align: right !important;
 }
+
 .t-center {
     text-align: center !important;
 }
+
 .float-right-c {
     float: right !important;
 }
+
 .font-33 {
     font-size: 33px;
 }
+
 .h-19 {
     max-height: 19rem;
 }
+
 .ml-c-30 {
-    margin-left:30px;
+    margin-left: 30px;
 }
+
 .card {
     background-clip: padding-box;
-    box-shadow: 0 1px 4px rgba(24,28,33,0.012);
+    box-shadow: 0 1px 4px rgba(24, 28, 33, 0.012);
 }
 
 .row-bordered {
@@ -160,52 +177,64 @@ label.btn {
     height: 1px;
     opacity: 0;
 }
+
 .account-settings-links .list-group-item.active {
     font-weight: bold !important;
 }
+
 html:not(.dark-style) .account-settings-links .list-group-item.active {
     background: transparent !important;
 }
-.account-settings-multiselect ~ .select2-container {
+
+.account-settings-multiselect~.select2-container {
     width: 100% !important;
 }
+
 .light-style .account-settings-links .list-group-item {
     padding: 0.85rem 1.5rem;
     border-color: rgba(24, 28, 33, 0.03) !important;
 }
+
 .light-style .account-settings-links .list-group-item.active {
     color: #4e5155 !important;
 }
+
 .material-style .account-settings-links .list-group-item {
     padding: 0.85rem 1.5rem;
     border-color: rgba(24, 28, 33, 0.03) !important;
 }
+
 .material-style .account-settings-links .list-group-item.active {
     color: #4e5155 !important;
 }
+
 .dark-style .account-settings-links .list-group-item {
     padding: 0.85rem 1.5rem;
     border-color: rgba(255, 255, 255, 0.03) !important;
 }
+
 .dark-style .account-settings-links .list-group-item.active {
     color: #fff !important;
 }
+
 .light-style .account-settings-links .list-group-item.active {
     color: #4E5155 !important;
 }
+
 .light-style .account-settings-links .list-group-item {
     padding: 0.85rem 1.5rem;
-    border-color: rgba(24,28,33,0.03) !important;
+    border-color: rgba(24, 28, 33, 0.03) !important;
 }
+
 .d-inline {
-    display: inline!important;
+    display: inline !important;
 }
 
 .not-allowed {
     cursor: not-allowed !important;
     border-color: grey !important;
     color: gray !important;
-  }
+}
 
 .card-setting {
     padding: 10px;
@@ -230,7 +259,7 @@ html:not(.dark-style) .account-settings-links .list-group-item.active {
 }
 
 .back-button {
-    float: right;   
+    float: right;
 }
 
 .mt {
@@ -245,12 +274,12 @@ html:not(.dark-style) .account-settings-links .list-group-item.active {
     padding: 15px;
 }
 
-.label{
+.label {
     border-radius: 1em;
- }
+}
 
 .mt-0 {
-    margin-top: 0!important;
+    margin-top: 0 !important;
 }
 
 .btn-delete {
@@ -279,25 +308,26 @@ html:not(.dark-style) .account-settings-links .list-group-item.active {
     margin-right: 0px;
     margin-left: 0px;
 }
+
 .input-group-addon {
     background-color: #fbfbfb;
     border: 1px solid #ddd;
 }
+
 @media screen and (min-width: 768px) and (max-width:1440px) {
     .card-width {
         width: 70%;
     }
-  }
+}
 
-  @media screen and (min-width: 1024px) {
+@media screen and (min-width: 1024px) {
     .card-width {
         width: 55%;
     }
-  }
+}
 
-  @media screen and (min-width: 1440px) {
+@media screen and (min-width: 1440px) {
     .card-size {
         width: 135%;
     }
-  }
-
+}

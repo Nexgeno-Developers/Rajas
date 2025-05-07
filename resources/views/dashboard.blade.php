@@ -14,14 +14,16 @@
                 <div class="col-md-3 col-sm-6 col-xs-6 col-mobile">
                     <a href="{{route('customers.index')}}">
                         <div class="monitor-box relative">
-                            <div class="icon">
-                                <i class="fa fa-user-plus" aria-hidden="true"></i>
+                         <div class="count-number">
+                                <p>{{ $user }}</p>
                             </div>
+                        <div class="dashbaod_title">
                             <h4>{{ __('Customers') }}</h4>
+                            <img src="{{asset('rbtheme/img/customer_icons.svg')}}" class="img-fluid animated" alt="">
+                        </div>
+                            
 
-                            <div class="count-number">
-                                <p>{{ $user }} <i class="fa fa-long-arrow-up" aria-hidden="true"></i></p>
-                            </div>
+                           
                         </div>
                     </a>
                 </div>
@@ -30,14 +32,15 @@
                 <div class="col-md-3 col-sm-6 col-xs-6 col-mobile">
                     <a href="{{ route('employees.index') }}">
                         <div class="monitor-box relative">
-                            <div class="icon">
-                                <i class="fa fa-user" aria-hidden="true"></i>
+                          
+                         <div class="count-number">
+                                <p>{{ $employee }} </p>
                             </div>
-                            <h4>{{ __('Employees') }}</h4>
 
-                            <div class="count-number">
-                                <p>{{ $employee }} <i class="fa fa-long-arrow-up" aria-hidden="true"></i></p>
-                            </div>
+                         <div class="dashbaod_title">
+                           <h4>{{ __('Employees') }}</h4>
+                            <img src="{{asset('rbtheme/img/employee_icons.svg')}}" class="img-fluid animated" alt="">
+                        </div>
                         </div>
                     </a>
                 </div>
@@ -46,14 +49,14 @@
                 <div class="col-md-3 col-sm-6 col-xs-6 col-mobile">
                     <a href="{{ route('paymentlist') }}">
                         <div class="monitor-box relative">
-                            <div class="icon">
-                                <i class="fa fa-money" aria-hidden="true"></i>
+                             <div class="count-number">
+                                <p>{{ $payment }} </p>
                             </div>
-                            <h4>{{ __('Total Payments') }}</h4>
-
-                            <div class="count-number">
-                                <p>{{ $payment }} <i class="fa fa-long-arrow-up" aria-hidden="true"></i></p>
-                            </div>
+                         <div class="dashbaod_title">
+                           <h4>{{ __('Total Payments') }}</h4>
+                            <img src="{{asset('rbtheme/img/payment_icons.svg')}}" class="img-fluid animated" alt="">
+                        </div>
+                           
                         </div>
                     </a>
                 </div>
@@ -61,15 +64,16 @@
                 <div class="col-md-3 col-sm-6 col-xs-6 col-mobile">
                     <a href="{{ route('appointments.index').'?search=today' }}">
                         <div class="monitor-box relative">
-                            <div class="icon">
-                                <i class="fa fa-files-o" aria-hidden="true"></i>
-                            </div>
-                            <h4>{{ __('Bookings for today') }}</h4>
-
-                            <div class="count-number">
-                                <p>{{ $todayAppointment }} <i class="fa fa-long-arrow-up" aria-hidden="true"></i></p>
+                           
+                           <div class="count-number">
+                                <p>{{ $todayAppointment }}</p>
                             
                             </div>
+                         <div class="dashbaod_title">
+                           <h4>{{ __('Bookings for today') }}</h4>
+                            <img src="{{asset('rbtheme/img/date_icons.svg')}}" class="img-fluid animated" alt="">
+                        </div>
+                            
                         </div>
                     </a>
                 </div>
