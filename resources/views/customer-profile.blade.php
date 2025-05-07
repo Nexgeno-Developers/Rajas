@@ -16,9 +16,9 @@
             @endif
   
           <div class="row g-0 mb-2">
-            <div class="col-lg-6 pe-lg-2">
+            <div class="col-lg-12 pe-lg-2 mb-md-4 mb-0">
               <div class="card mb-md-0 mb-3">
-                <div class="card-header text-center mb-0 pb-0">
+                <div class="card-header text-center">
 
                  <form method="POST" id="profile-form" action="{{ route('users.update',Auth::user()->id) }}" enctype="multipart/form-data" autocomplete="off" data-recaptcha>
                  @method('PATCH')
@@ -60,17 +60,17 @@
                   <form class="row g-3" method="POST" action="{{ route('users.update',Auth::user()->id) }}" id="profile-detail-form" autocomplete="off" data-recaptcha>
                   @method('PATCH')
                     @csrf
-                    <div class="col-lg-6"> 
+                    <div class="col-lg-4"> 
                       <div class="mb-3"><label class="form-label" for="first-name">{{ __('First Name') }}</label><input class="form-control" id="first-name" name="first_name" type="text" value="{{ $user->first_name}}" /></div></div>
-                    <div class="col-lg-6">  <div class="mb-3"><label class="form-label" for="last-name">{{ __('Last Name') }}</label><input class="form-control" id="last-name" name="last_name" type="text" value="{{ $user->last_name}}" /></div></div>
-                    <div class="col-lg-6">  <div class="mb-3">
+                    <div class="col-lg-4">  <div class="mb-3"><label class="form-label" for="last-name">{{ __('Last Name') }}</label><input class="form-control" id="last-name" name="last_name" type="text" value="{{ $user->last_name}}" /></div></div>
+                    <div class="col-lg-4">  <div class="mb-3">
                       <label class="form-label" for="email1">{{ __('Email') }}</label><input readonly class="form-control" id="email1" type="text" name="email" value="{{ $user->email}}" /></div></div>
                     
                     <input type="hidden" name="country_name" id="iso2" class="country-name" value="{{ $user->country_name }}">
 
                                     <input type="hidden" name="country_code" class="country_code" id="dialcode" value="{{ $user->country_code }}" data-country="{{ $user->country_name }}"  data-number="{{ $user->phone}}">
                     
-                    <div class="col-lg-6">
+                    <div class="col-lg-3">
                        <div class="mb-3">
                          <label class="form-label" for="email2">{{ __('Phone') }}</label>
                           <input class="form-control intlTelInput country-phone-validation" id="email2" type="text" name="phone" value="" data-name="{{ $user->country_name }}"/>
@@ -80,7 +80,7 @@
                     </div>
 
                     
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
                         <div class="mb-3 country_select">
                             <label class="form-label" for="bootstrap-wizard-wizard-email">{{ __('Country') }}<span class="text-danger">*</span></label>
                             <select class="form-control rounded-0 selectpicker" data-wizard-validate-country="true" data-live-search="true" data-placeholder="{{ __('Select your country') }}" name="country" placeholder="Select Country" required="required" >
@@ -92,7 +92,7 @@
                         </div>
                     </div>
 
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
                         <div class="mb-3 country_select">
                             <label class="form-label" for="bootstrap-wizard-wizard-email">{{ __('State') }}<span class="text-danger">*</span></label>
                             <select class="form-control rounded-0 selectpicker" id="state-select" data-wizard-validate-state="true" data-live-search="true" name="state" @if(empty(auth()->user()->state)) required="required" @endif placeholder="Select State">
@@ -101,7 +101,7 @@
                         </div>
                     </div>
 
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 d-none">
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 d-none">
                         <div class="mb-3">
                             <label class="form-label" for="bootstrap-wizard-wizard-email">{{ __('City') }}</label>
                             <input class="form-control" type="text" name="city"  value="{{auth()->user()->city}}" placeholder="{{ __('Enter City') }}" data-wizard-validate-city="true" id="bootstrap-wizard-city" />
@@ -109,7 +109,7 @@
                         </div>
                     </div>
 
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 d-none">
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 d-none">
                         <div class="mb-3">
                             <label class="form-label" for="bootstrap-wizard-wizard-email">{{ __('Zipcode') }}</label>                                            
                             <input class="form-control" type="text" name="zipcode" value="{{auth()->user()->zipcode}}" placeholder="{{ __('Enter Zipcode') }}" data-wizard-validate-zipcode="true" id="bootstrap-zipcode" />
@@ -117,7 +117,7 @@
                         </div>
                     </div>     
                     
-                    <div class="col-xl-12 col-lg-6 col-md-6 col-sm-6">
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
                         <div class="mb-3">
                             <label class="form-label" for="bootstrap-wizard-wizard-email">{{ __('Goverment ID Number') }} <span class="text-danger">*</span></label>
                             <input class="form-control" type="text" name="goverment_id" value="{{auth()->user()->goverment_id}}" placeholder="{{ __('Enter Goverment ID Number') }}"
@@ -132,7 +132,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-6 ps-lg-2">
+            <div class="col-lg-12 ps-lg-2">
               <div class="sticky-sidebar">
                 <div class="card mb-3">
                   <div class="card-header">
@@ -143,8 +143,9 @@
                     @method('PATCH')
                     @csrf
                       
+                     
                       <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-4">
                            <div class="mb-3">
                           <label class="form-label" for="old-password">{{ __('Current Password') }}</label>
                           <span toggle="old-passworda" class="toggle-password open"><i class="fa fa-eye-slash"></i></span>
@@ -155,16 +156,16 @@
                           @endif
                         </div>
                         </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-6">
+
+
+                        <div class="col-md-4">
                            <div class="mb-3">
                             <label class="form-label" for="new-password">{{ __('New Password') }}</label>
                             <span toggle="new-passworda" class="toggle-password open"><i class="fa fa-eye-slash"></i></span>
                             <span toggle="new-passworda" class="toggle-password close d-none"><i class="fa fa-eye"></i></span>
                             <input class="form-control" placeholder="{{ __('New Password') }}" name="new_password" id="new-passworda" type="password" />
                         </div></div>
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                            <div class="mb-3">
                             <label class="form-label" for="confirm-password">{{ __('Confirm Password') }}</label>
                             <span toggle="confirm-passworda" class="toggle-password open"><i class="fa fa-eye-slash"></i></span>
@@ -172,7 +173,7 @@
                             <input class="form-control" placeholder="{{ __('Confirm Password') }}" name="confirm_password" id="confirm-passworda" type="password" />
                         </div>
                         </div>
-                        <div class="col-12 d-flex justify-content-end mt-3">
+                        <div class="col-md-12 d-flex justify-content-end mt-3">
                           <button class="btn btn-primary" type="submit">{{ __('Update Password') }} </button>
                       </div>
                       </div>

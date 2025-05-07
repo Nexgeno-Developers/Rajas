@@ -6,7 +6,7 @@
 <a href="{{ \Illuminate\Support\Facades\URL::previous() }}"><h4><i class="fa fa-arrow-left" aria-hidden="true"></i> {{ __('Back') }}</h4></a>
     <div class="row p-md-4 p-2">
         <div class="col-sm-12 col-mobile">
-            <div class="board-box">
+            <div class="board-box main_section_bg">
                 <div class="board-title">
                     <h2>{{ __('List of Appointment') }}</h2>
                 </div>
@@ -116,7 +116,7 @@
                                         <td><span class="bg-info badge">{{ ucfirst($row->status) }}</span></td>
                                     @endif
                                     <td>{{ $row->comments }}</td>
-                                    <td><a class="btn btn-default btn-lg" href="{{ route('appointments.show',$row->id) }}">
+                                    <td><a class="btn btn-default btn-lg eye_class" href="{{ route('appointments.show',$row->id) }}">
                                             <span class="glyphicon glyphicon-eye-open"></span></a> 
                                 </tr>
                             @endforeach

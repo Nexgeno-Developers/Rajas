@@ -40,13 +40,15 @@
 }
 
 .aside .aside-content .logo {
-    padding: 15px 0px;
+    padding: 6px 0px;
+    background: #006161;
 }
 
 .aside .aside-content .logo img {
     max-height: 50px;
     margin: 0 auto;
     margin-inline-start: 20px;
+    filter: invert(100%) brightness(200%);
 }
 
 .aside .aside-content .aside-menu ul {

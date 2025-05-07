@@ -11,129 +11,115 @@
         </div>
 
         <nav class="aside-menu">
-            <ul>
-                <li>
-                    <a href="{{ route('dashboard') }}"><i class="fa fa-tachometer" aria-hidden="true"></i> {{ __('Dashboard') }}</a>
+    <ul>
+        <li class="{{ request()->routeIs('dashboard') ? 'active' : '' }}">
+            <a href="{{ route('dashboard') }}"><i class="fa fa-tachometer" aria-hidden="true"></i> {{ __('Dashboard') }}</a>
+        </li>
+    </ul>
+
+    @can('customers', Auth::user())
+    <ul>
+        <li class="{{ request()->routeIs('customers*') ? 'active' : '' }}">
+            <a href="{{ route('customers.index') }}">
+                <i class="fa fa-users" aria-hidden="true"></i>
+                <span>{{ __('Customers') }}</span>
+            </a>
+        </li>
+    </ul>
+    @endcan
+
+    @can('appointments', Auth::user())
+    <ul>
+        <li class="{{ request()->routeIs('appointments*') ? 'active' : '' }}">
+            <a href="{{ route('appointments.index') }}">
+                <i class="glyphicon glyphicon-calendar" aria-hidden="true"></i>
+                <span>{{ __('Appointments') }}</span>
+            </a>
+        </li>
+    </ul>
+    @endcan
+
+    @can('employees', Auth::user())
+    @if($custom->employees == 1)
+    <ul>
+        <li class="{{ request()->routeIs('employees*') ? 'active' : '' }}">
+            <a href="{{ route('employees.index') }}">
+                <i class="fa fa-user-circle" aria-hidden="true"></i>
+                <span>{{ __('Employees') }}</span>
+            </a>
+        </li>
+    </ul>
+    @endif
+    @endcan
+
+    @can('payments', Auth::user())
+    <ul>
+        <li class="{{ request()->routeIs('paymentlist') ? 'active' : '' }}">
+            <a href="{{ route('paymentlist') }}" @if(isset($custom) && $custom->currency_icon != "") class="currency-link" @endif>
+                @if(isset($custom) && $custom->currency_icon != "")
+                <span class="currency-icon">{{$custom->currency_icon}}</span>
+                @else
+                <i class="fa fa-inr" aria-hidden="true"></i>
+                @endif
+                <span>{{ __('Payments') }}</span>
+            </a>
+        </li>
+    </ul>
+    @endcan
+
+    @can('employeepayment', Auth::user())
+    <ul>
+        <li class="{{ request()->routeIs('employee-paymentlist*') ? 'active' : '' }}">
+            <a href="{{ route('employee-paymentlist') }}">
+                <i class="fa fa-inr" aria-hidden="true"></i>
+                <span>{{ __('Payments') }}</span>
+            </a>
+        </li>
+    </ul>
+    @endcan
+
+    @can('categories', Auth::user())
+    @if($custom->categories == 1)
+    <ul>
+        <li class="{{ request()->routeIs('categories*') ? 'active' : '' }}">
+            <a href="{{ route('categories.index') }}">
+                <i class="fa fa-list-alt" aria-hidden="true"></i>
+                <span>{{ __('Categories') }}</span>
+            </a>
+        </li>
+    </ul>
+    @endif
+    @endcan
+
+    @can('employees', Auth::user())
+    <ul>
+        <li class="{{ request()->routeIs('services*') ? 'active' : '' }}">
+            <a href="{{ route('services.index') }}">
+                <i class="fa fa-wrench" aria-hidden="true"></i>
+                <span>{{ __('Services') }}</span>
+            </a>
+        </li>
+    </ul>
+    @endcan
+
+    @can('settings', Auth::user())
+    <ul>
+        <li class="{{ request()->routeIs('setting.*') ? 'active' : '' }}">
+            <a href="/site/setting">
+                <i class="fa fa-cog" aria-hidden="true"></i>
+                <span>{{ __('Settings') }}</span>
+                <!-- <div class="icon"><i class="fa fa-arrow-left" aria-hidden="true"></i></div> -->
+            </a>
+            <!-- <ul class="nested-menu">
+                <li class="{{ request()->routeIs('setting.site') ? 'active' : '' }}">
+                    <a href="{{ route('setting.site') }}">{{ __('Site Setting') }}</a>
                 </li>
-            </ul>
+            </ul> -->
+        </li>
+    </ul>
+    @endcan
+</nav>
 
-          
-           
-
-           
-
-            @can('customers',\Illuminate\Support\Facades\Auth::user())
-            <ul>
-                <li>
-                    <a href="{{ route('customers.index') }}" class="">
-                        <i class="fa fa-users" aria-hidden="true"></i>
-                        <span>{{ __('Customers') }}</span>
-                    </a>
-                </li>
-            </ul>
-            @endcan
-
-            @can('appointments',\Illuminate\Support\Facades\Auth::user())
-            <ul>
-                <li>
-                    <a href="{{ route('appointments.index') }}" class="">
-                        <i class="glyphicon glyphicon-calendar" aria-hidden="true"></i>
-                        <span>{{ __('Appointments') }}</span>
-                    </a>
-                </li>
-            </ul>
-            @endcan
-
-             @can('employees',\Illuminate\Support\Facades\Auth::user())
-            @if($custom->employees == 1)
-            <ul>
-                <li>
-                    <a href="{{ route('employees.index') }}" class="">
-                        <i class="fa fa-user-circle" aria-hidden="true"></i>
-                        <span>{{ __('Employees') }}</span>
-                    </a>
-                </li>
-            </ul>
-            @endif
-            @endcan
-
-            @can('payments',\Illuminate\Support\Facades\Auth::user())
-            <ul>
-                <li>
-                    <a href="{{ route('paymentlist') }}" @if(isset($custom) && $custom->currency_icon != "") class="currency-link" @endif>
-                        @if(isset($custom) && $custom->currency_icon != "")
-                        <span class="currency-icon">{{$custom->currency_icon}}</span>
-                        @else
-                        <i class="fa fa-inr" aria-hidden="true"></i>
-                        @endif
-                        <span>{{ __('Payments') }}</span>
-                    </a>
-                </li>
-            </ul>
-            @endcan
-
-            @can('employeepayment',\Illuminate\Support\Facades\Auth::user())
-            <ul>
-                <li>
-                    <a href="{{ route('employee-paymentlist') }}" class="">
-                        <i class="fa fa-inr" aria-hidden="true"></i>
-                        <span>{{ __('Payments') }}</span>
-                    </a>
-                </li>
-            </ul>
-            @endcan
-
-              @can('categories',\Illuminate\Support\Facades\Auth::user())
-            @if($custom->categories == 1)
-            <ul>
-                <li>
-                    <a href="{{ route('categories.index') }}" class="">
-                        <i class="fa fa-list-alt" aria-hidden="true"></i>
-                        <span>{{ __('Categories') }}</span>
-                    </a>
-                </li>
-            </ul>
-            @endif
-            @endcan
-
-
-             @can('employees',\Illuminate\Support\Facades\Auth::user())
-            <ul>
-                <li>
-                    <a href="{{ route('services.index') }}" class="">
-                        <i class="fa fa-wrench" aria-hidden="true"></i>
-                        <span>{{ __('Services') }}</span>
-                    </a>
-                </li>
-            </ul>
-            @endcan
-
-            @can('settings', \Illuminate\Support\Facades\Auth::user())
-            <ul>
-                <li>
-                    <a href="#" class="toggle-menu">
-                        <i class="fa fa-cog" aria-hidden="true"></i>
-                        <span>{{ __('Settings') }}</span>
-                        <div class="icon"><i class="fa fa-arrow-left" aria-hidden="true"></i></div>
-                    </a>
-                    <ul class="nested-menu">
-                        <!-- <li>
-                            <a href="{{ route('setting') }}">{{ __('General Setting') }}</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('setting.payment') }}">{{ __('Payment Setting') }}</a>
-                        </li> -->
-                        <li>
-                            <a href="{{ route('setting.site') }}">{{ __('Site Setting') }}</a>
-                        </li>
-                        <!-- <li>
-                            <a href="{{ route('notificationSetting') }}">{{ __('Notification Setting') }}</a>
-                        </li> -->
-                    </ul>
-                </li>
-            </ul>
-            @endcan
-        </nav>
     </div>
 </aside>
 <header class="header">
@@ -148,7 +134,7 @@
                 <div class="col-10">
                     <ul class="settings">
                         
-                        <li class="dropdown">
+                        <li class="dropdown d-none">
                             <a class="dropdown-toggle" data-bs-toggle="dropdown" id="langaugeDropDown" aria-expanded="false">
                                 {{ Config::get('languages')[app()->getLocale()] }}
                             </a>

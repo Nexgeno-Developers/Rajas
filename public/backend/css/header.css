@@ -74,7 +74,7 @@ body {
 
 
 .header .header-top .settings>li>a:hover {
-    background-color: #232e3c;
+    background-color: transparent;
 }
 
 .header .header-top .settings>li>li.dropdown.open {

@@ -1,6 +1,6 @@
 @extends('layouts.home',['title' => trans('Notification')])
 @section('content')
-    <div class="container py-4 min-vh-90 mt-lg-7">
+    <div class="container py-4 min-vh-90 mt-lg-4">
     <div class="card overflow-hidden mb-3">
             <div class="card-header bg-light">
               <div class="row flex-between-center">

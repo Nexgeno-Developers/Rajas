@@ -320,9 +320,9 @@
                                                 </div>
                                             </div>
                                         </div> --}}
-                                        <hr>
+                                        
                                         <div class="row">
-                                            <div class="offset-sm-4 col-sm-4 col-xs-offset-2 col-xs-8">
+                                            <div class="offset-sm-6 col-sm-2 col-xs-offset-2 col-xs-8">
                                                 <button type="submit" class="btn btn-default custom-btn btn-block btn-valid">{{ __('Submit') }}</button>
                                             </div>
                                         </div>

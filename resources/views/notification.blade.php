@@ -5,7 +5,7 @@
 
 @section('content')
     <div class="col-sm-12 col-mobile p-3">
-        <div class="board-box">
+        <div class="board-box main_section_bg">
             <div class="board-title">
                 <h2>{{ __('Notifications') }}</h2>
             </div>

@@ -426,7 +426,7 @@ ul.list_top li a {
   cursor: pointer;
 }
 
-.width140{
+.width140 {
   width: 140px;
 }
 
@@ -454,4 +454,8 @@ ul.list_top li a {
   .mobile-view {
     display: block;
   }
+}
+
+.padding_Right_0 {
+  padding-right: 0 !important;
 }

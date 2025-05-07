@@ -138,9 +138,9 @@
                         @if($appointment->status != 'completed')
                         @if($appointment->status != 'cancel')
                         <button type="button" class="cancel_apppointment" data-bs-toggle="modal"
-                            data-bs-target="#exampleModalCenter">{{ __('Cancel Booking') }}</button>
+                            data-bs-target="#exampleModalCenter"> <i class='bx bx-x'></i> {{ __('Cancel Booking') }}</button>
                         @endif
-                        <button type="button" class="btn btn-info back-btn-click back_buttons">{{ __('Back') }}</button>
+                        <button type="button" class="btn btn-info back-btn-click back_buttons"><i class='bx bx-arrow-back'></i> {{ __('Back') }}</button>
                         @endif
                     </div>
 

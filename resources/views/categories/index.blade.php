@@ -6,7 +6,7 @@
     @include('includes.message-block')
     <div class="row p-md-4 p-2">
         <div class="col-sm-12 col-mobile">
-            <div class="board-box">
+            <div class="board-box main_section_bg">
                 <div class="board-title">
                    
                         <div class="row">
@@ -16,7 +16,7 @@
 
 
                     </div>
-                </div>
+                
     
                 <div class="table-style">
                     <div class="table-responsive">
@@ -35,8 +35,8 @@
                                     <td>{{ ucfirst($category->name) }}</td>
                                     <td class="t-right">
                                         <a class="btn btn-default btn-lg" href="{{ route('categories.show',$category->id) }}">
-                                        <span class="glyphicon glyphicon-eye-open"></span></a>
-                                        <a class="btn btn-default btn-lg" href="{{ route('categories.edit',$category->id) }}">
+                                        <span class="glyphicon glyphicon-eye-open eye_class"></span></a>
+                                        <a class="btn btn-default btn-lg edit_class" href="{{ route('categories.edit',$category->id) }}">
                                         <span class="glyphicon glyphicon-edit"></span></a>
                                     </td>
                                 </tr>
@@ -46,6 +46,7 @@
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </div>
 
