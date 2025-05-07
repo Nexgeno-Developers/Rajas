@@ -186,7 +186,7 @@ $user = Auth::user();
         </nav>
         @auth
         @if(($user && $user->role_id == 2))
-            <a href="javascript:;" class=" scrollto btn-logout-click">{{ __('Logout') }}</a>
+            <!-- <a href="javascript:;" class=" scrollto btn-logout-click">{{ __('Logout') }}</a> -->
         @else
              <a href="{{url('/dashboard')}}" class=" scrollto btn-logout-click text-primary">{{ __('Go to Dashboard') }}</a>
         @endif
