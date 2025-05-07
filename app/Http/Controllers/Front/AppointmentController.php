@@ -71,6 +71,11 @@ class AppointmentController extends Controller
 
     public function index()
     {
+
+        if (Auth::check() && Auth::user()->role_id != 2) {
+            return redirect()->route('unauthorized');
+        }
+
         $site = DB::table('site_configs')->first();
         $custom = Setting::first();
         $admin = User::where('role_id',1)->first();
