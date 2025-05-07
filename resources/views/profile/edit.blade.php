@@ -80,7 +80,7 @@
                                         <span class="list-group-item remove-google-access btn-disconnect" style="background-color: #dc3545;color:#fff;font-size: 17px;">{{__('Disconnect Google Calendar')}}</span>
                                     {{ Form::close() }}
                                     @else
-                                    <a href="{{ route('SendEmailGoogleCalenderLink',$user->id) }}" class="list-group-item btn-primary">{{ __('Connect With Google Calendar') }}</a>
+                                    <a href="{{ route('SendEmailGoogleCalenderLink',$user->id) }}" class="d-none list-group-item btn-primary">{{ __('Connect With Google Calendar') }}</a>
                                     @endif
                                     {{-- <a href="{{ route('SendEmailGoogleCalenderLink',$user->id) }}" class="nav-link list-group-item" ><img alt="Google Calendar" title="Connect With Google Calendar"class="" height="25" width="25" src="{{ asset('img/employee/calendar.png')}}"/> </a> --}}
                                 </li>

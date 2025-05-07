@@ -154,7 +154,7 @@
 
 
           
-                <li class="drop-down">
+                <li class="drop-down padding_Right_0">
                     @if(!empty(Auth::user()->profile))
                     <a href="javascript:;"><img src="{{ asset('img/profile/'.Auth::user()->profile) }}" alt="customer-logo" class="rounded" width="25" height="25"></a>
                     @else
@@ -170,14 +170,14 @@
                             @endif
                         </li>
                         <li class="@if(Request::segment(2) == 'profile') active @endif"><a href="{{ route('customer-profile',Auth::user()->id) }}">{{ __('Profile') }}</a></li>
-                        <li><a href="javascript:;" class="btn-logout-click">{{ __('Logout') }}</a></li>
+                        <li><a href="javascript:;" class="btn-logout-click">{{ __('Logout') }} <img src="{{ asset('rbtheme/img/logout_icons.png')}}" alt="default-logo" class="rounded" width="18" height="18"></a></li>
                     </ul>
                 </li>
                 @endauth
             </ul>
         </nav>
         @auth
-            <a href="javascript:;" class=" scrollto btn-logout-click">{{ __('Logout') }}</a>
+            <!-- <a href="javascript:;" class=" scrollto btn-logout-click">{{ __('Logout') }}</a> -->
         @else
             <a href="javascript:;" class="scrollto" id="login_model_btn" data-bs-toggle="modal" data-bs-target="#loginModel"><i class="bx bx-lock lock_icon"></i> {{ __('Login / Register') }}</a>
         @endauth

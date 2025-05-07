@@ -64,7 +64,7 @@
                                             <span class="employee-badge"><i class="fa fa-check d-flex btn-disconnect"></i></span>
                                         {{ Form::close() }}
                                         @endif
-                                        <img alt="Connect With Google Calendar" title="Connect With Google Calendar" class="google-calendar mt-3" height="25" width="25" src="{{ asset('img/employee/calendar.png')}}">
+                                        <img alt="Connect With Google Calendar" title="Connect With Google Calendar" class="d-none google-calendar mt-3" height="25" width="25" src="{{ asset('img/employee/calendar.png')}}">
                                     </a>
                                     {{-- <button type="submit" id="gcalendar" class="btn shadow-none mt-1" name="submit" value="">
                                         <img alt="Google Calendar" title="Connect With Google Calendar" class="" height="30" width="30" src="{{ asset('img/employee/calendar.png')}}"/>

@@ -2430,6 +2430,11 @@ i.font-size-20 {
   margin-right: 12px;
 }
 
+.notification-content p {
+  font-size: 13px;
+  font-weight: 400;
+}
+
 .notification-content {
   flex: 1;
 }
@@ -2447,6 +2452,25 @@ i.font-size-20 {
 .view-all {
   color: #2c7be5;
   text-decoration: none;
+}
+
+.grecaptcha-badge {
+  z-index: 1;
+}
+
+.view_buttons {
+  top: 47px !important;
+}
+
+i.bx.bx-x {
+  font-size: 18px;
+  position: relative;
+  top: 4px;
+}
+
+i.bx.bx-arrow-back {
+  position: relative;
+  top: 1px;
 }
 
 .mark-as-read {

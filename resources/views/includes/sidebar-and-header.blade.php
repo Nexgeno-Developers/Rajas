@@ -134,7 +134,7 @@
                 <div class="col-10">
                     <ul class="settings">
                         
-                        <li class="dropdown">
+                        <li class="dropdown d-none">
                             <a class="dropdown-toggle" data-bs-toggle="dropdown" id="langaugeDropDown" aria-expanded="false">
                                 {{ Config::get('languages')[app()->getLocale()] }}
                             </a>

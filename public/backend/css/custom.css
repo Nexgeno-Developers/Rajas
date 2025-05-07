@@ -511,6 +511,8 @@ a#profileDropdown img.img-circle.img {
 .header .header-top .settings li a.notification {
   padding-left: 25px;
   padding-right: 25px;
+  position: relative;
+  top: 5px;
 }
 
 .aside .aside-content .aside-menu {
