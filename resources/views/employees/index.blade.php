@@ -72,13 +72,13 @@
                                 </td>
                                 <td>
                                     <a class="btn btn-default btn-lg eye_class" href="{{ route('employees.show',$employee->id) }}">
-                                        <span class="glyphicon glyphicon-eye-open"></span>
+                                        <img class="eyes_img" src="{{asset('rbtheme/img/eyes_img.svg')}}" alt="" class="img-fluid">
                                     </a>
                                     <a class="btn btn-default btn-lg edit_class" href="{{ route('employees.edit',$employee->id) }}">
-                                        <span class="glyphicon glyphicon-edit"></span>
+                                        <img class="edit_img" src="{{asset('rbtheme/img/edit_img.svg')}}" alt="" class="img-fluid">
                                     </a>
                                     <a class="btn btn-default btn-lg calendar_class" title="{{ __('appointment') }}" href="{{ route('employees.appointment',$employee->id) }}">
-                                        <span class="glyphicon glyphicon-calendar"></span>
+                                        <img class="calnder_img" src="{{asset('rbtheme/img/calendar_img.svg')}}" alt="" class="img-fluid">
                                     </a> 
                                 </td>
                             </tr>

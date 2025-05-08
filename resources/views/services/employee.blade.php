@@ -53,7 +53,7 @@
                                     </td>
                                     <td>
                                         <a class="btn btn-default btn-lg mt-0 eye_class" href="{{ route('employees.show',$row->employee->id) }}">
-                                            <span class="glyphicon glyphicon-eye-open"></span>
+                                            <img class="eyes_img" src="{{asset('rbtheme/img/eyes_img.svg')}}" alt="" class="img-fluid">
                                         </a>
                                     </td>
                                 </tr>

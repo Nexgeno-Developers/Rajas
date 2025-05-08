@@ -60,10 +60,10 @@
     
                                     <td class="t-right">
                                         <a class="btn btn-default btn-lg eye_class" href="{{ route('services.show',$service->id) }}">
-                                            <span class="glyphicon glyphicon-eye-open"></span>
+                                            <img class="eyes_img" src="{{asset('rbtheme/img/eyes_img.svg')}}" alt="" class="img-fluid">
                                         </a>
                                         <a class="btn btn-default btn-lg edit_class" href="{{ route('services.edit',$service->id) }}">
-                                            <span class="glyphicon glyphicon-edit"></span>
+                                            <img class="edit_img" src="{{asset('rbtheme/img/edit_img.svg')}}" alt="" class="img-fluid">
                                         </a>
                                         <a class="btn btn-default btn-lg user_class" title="{{ __('employee') }}" href="{{route('service.employee',$service->id)}}">
                                             <span class="glyphicon glyphicon-user"></span>

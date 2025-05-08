@@ -37,11 +37,11 @@
                                         </td>
                                         <td  class="t-right">
                                             <a class="btn btn-default btn-lg eye_class" href="{{ route('customers.show',$customer->id) }}">
-                                                <span class="glyphicon glyphicon-eye-open"></span></a>
+                                                <img class="eyes_img" src="{{asset('rbtheme/img/eyes_img.svg')}}" alt="" class="img-fluid"></a>
                                             <a class="btn btn-default btn-lg edit_class" href="{{ route('customers.edit',$customer->id) }}">
-                                                <span class="glyphicon glyphicon-edit"></span></a>
+                                                <img class="edit_img" src="{{asset('rbtheme/img/edit_img.svg')}}" alt="" class="img-fluid"></a>
                                             <a class="btn btn-default btn-lg calendar_class" title="{{ __('appointment')}}" href="{{ route('customers.appointment',$customer->id) }}">
-                                                    <span class="glyphicon glyphicon-calendar"></span></a>
+                                                    <img class="calnder_img" src="{{asset('rbtheme/img/calendar_img.svg')}}" alt="" class="img-fluid"></a>
                                         </td>
                                     </tr>
                                 @endforeach

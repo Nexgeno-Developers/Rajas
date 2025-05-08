@@ -117,7 +117,7 @@
                                     @endif
                                     <td>{{ $row->comments }}</td>
                                     <td><a class="btn btn-default btn-lg eye_class" href="{{ route('appointments.show',$row->id) }}">
-                                            <span class="glyphicon glyphicon-eye-open"></span></a> 
+                                            <img class="eyes_img" src="{{asset('rbtheme/img/eyes_img.svg')}}" alt="" class="img-fluid"></a> 
                                 </tr>
                             @endforeach
                             </tbody>

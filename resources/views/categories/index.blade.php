@@ -34,10 +34,10 @@
                                     <th>{{ $rowIndex++ }}</th>
                                     <td>{{ ucfirst($category->name) }}</td>
                                     <td class="t-right">
-                                        <a class="btn btn-default btn-lg" href="{{ route('categories.show',$category->id) }}">
-                                        <span class="glyphicon glyphicon-eye-open eye_class"></span></a>
+                                        <a class="btn btn-default btn-lg eye_class" href="{{ route('categories.show',$category->id) }}">
+                                        <img class="eyes_img" src="{{asset('rbtheme/img/eyes_img.svg')}}" alt="" class="img-fluid"></a>
                                         <a class="btn btn-default btn-lg edit_class" href="{{ route('categories.edit',$category->id) }}">
-                                        <span class="glyphicon glyphicon-edit"></span></a>
+                                        <img class="edit_img" src="{{asset('rbtheme/img/edit_img.svg')}}" alt="" class="img-fluid"></a>
                                     </td>
                                 </tr>
                             @endforeach

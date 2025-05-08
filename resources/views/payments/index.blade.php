@@ -125,7 +125,7 @@
                                         @php
                                             $appointmentId = optional(DB::table('payments')->where('id', $payment->id)->first())->appointment_id;
                                         @endphp                                        
-                                        <a class="btn btn-default btn-lg mt-0 eye_class" href="{{ route('appointments.show', $appointmentId) }}"><span class="glyphicon glyphicon-eye-open"></span></a>
+                                        <a class="btn btn-default btn-lg mt-0 eye_class" href="{{ route('appointments.show', $appointmentId) }}"><img class="eyes_img" src="{{asset('rbtheme/img/eyes_img.svg')}}" alt="" class="img-fluid"></a>
                                         <a class="btn btn-default btn-lg mt-0 inr_class" href="{{ route('paymentview',$payment->id) }}"><span class="fa fa-inr"></span></a>
                                     </td>
                                 </tr>

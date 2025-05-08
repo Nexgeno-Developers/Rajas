@@ -407,7 +407,7 @@ section.board.calendar.padding-space-half {
   border-radius: 7px !important;
 }
 
-/* 
+
 .eye_class {
   border: 0;
 }
@@ -433,7 +433,7 @@ section.board.calendar.padding-space-half {
 .calendar_class span {
   color: #607D8B;
   font-size: 18px;
-} */
+}
 
 .btn-check:focus+.btn,
 .btn:focus {
@@ -517,4 +517,8 @@ a#profileDropdown img.img-circle.img {
 
 .aside .aside-content .aside-menu {
   padding-top: 20px;
+}
+
+.main_section_bg .dataTables_wrapper .dataTables_length select {
+  border-radius: 50px;
 }

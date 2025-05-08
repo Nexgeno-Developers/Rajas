@@ -53,7 +53,7 @@
                                         @endif
                                     @endempty
                                         <a class="btn btn-default btn-lg eye_class" href="{{ route('paymentview',$appointment->id) }}">
-                                            <span class="glyphicon glyphicon-eye-open"></span>
+                                            <img class="eyes_img" src="{{asset('rbtheme/img/eyes_img.svg')}}" alt="" class="img-fluid">
                                         </a>
                                     </td>
                             </tr>
