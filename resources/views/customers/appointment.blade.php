@@ -104,16 +104,16 @@
                                     <td>{{ $row->start_time }}</td>
                                     <td>{{ $row->finish_time }}</td>
                                     @if($row->status == 'approved')
-                                        <td><span class="bg-success badge">{{ ucfirst($row->status) }}</span></td>
+                                        <td><span class="btn btn-success">{{ ucfirst($row->status) }}</span></td>
                                     @endif
                                     @if($row->status == 'pending')
-                                        <td><span class="bg-warning badge">{{ ucfirst($row->status) }}</span></td>
+                                        <td><span class="btn btn-warning">{{ ucfirst($row->status) }}</span></td>
                                     @endif
                                     @if($row->status == 'cancel')
-                                        <td><span class="bg-danger badge">{{ ucfirst($row->status) }}</span></td>
+                                        <td><span class="btn btn-danger">{{ ucfirst($row->status) }}</span></td>
                                     @endif
                                     @if($row->status == 'completed')
-                                        <td><span class="bg-info badge">{{ ucfirst($row->status) }}</span></td>
+                                        <td><span class="btn btn-info">{{ ucfirst($row->status) }}</span></td>
                                     @endif
                                     <td>{{ $row->comments }}</td>
                                     <td><a class="btn btn-default btn-lg eye_class" href="{{ route('appointments.show',$row->id) }}">

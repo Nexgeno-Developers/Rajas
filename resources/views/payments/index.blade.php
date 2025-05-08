@@ -88,13 +88,13 @@
                                     <td>{{ ucfirst($payment->payment_method) }}</td>
                                     <td>{{ $custom->currency_icon}}{{ $payment->amount }} </td>
                                     
-                                    <td><span class="bg-{{ (in_array($payment->status,['approved','completed'])) ? (in_array($payment->status,['completed'])) ? 'info' : 'success' : 'danger'}} badge">{{ ucfirst($payment->status) }}</span></td>
+                                    <td><span class="btn-{{ (in_array($payment->status,['approved','completed'])) ? (in_array($payment->status,['completed'])) ? 'info' : 'success' : 'danger'}} btn">{{ ucfirst($payment->status) }}</span></td>
 
                                     @if($payment->pstatus == 'success' || $payment->pstatus == 'succeeded')
-                                    <td><span class="bg-success badge">{{ __('Succeeded')}}</span></td>
+                                    <td><span class="btn btn-success">{{ __('Succeeded')}}</span></td>
                                     @endif
                                     @if($payment->pstatus == 'pending')
-                                    <td><span class="bg-danger badge">{{ ucfirst($payment->pstatus) }}</span></td>
+                                    <td><span class="btn btn-danger">{{ ucfirst($payment->pstatus) }}</span></td>
                                     @endif
 
                                     <td style="font-size: 12px;">

@@ -115,16 +115,16 @@
                                     <td>{{ date('h:i A',strtotime($appointment->start_time)) }}</td>
                                     <td>{{ date('h:i A',strtotime($appointment->finish_time)) }}</td>
                                     @if($appointment->status == 'approved')
-                                        <td><span class="badge bg-success">{{ ucfirst($appointment->status) }}</span></td>
+                                        <td><span class="btn btn-success">{{ ucfirst($appointment->status) }}</span></td>
                                     @endif
                                     @if($appointment->status == 'pending')
-                                        <td><span class="badge bg-warning">{{ ucfirst($appointment->status) }}</span></td>
+                                        <td><span class="btn btn-warning">{{ ucfirst($appointment->status) }}</span></td>
                                     @endif
                                     @if($appointment->status == 'cancel')
-                                        <td><span class="badge bg-danger">{{ ucfirst($appointment->status) }}</span></td>
+                                        <td><span class="btn btn-danger">{{ ucfirst($appointment->status) }}</span></td>
                                     @endif
                                     @if($appointment->status == 'completed')
-                                        <td><span class="badge bg-info">{{ ucfirst($appointment->status) }}</span></td>
+                                        <td><span class="btn btn-info">{{ ucfirst($appointment->status) }}</span></td>
                                     @endif
                                     <td>{{ $appointment->comments }}</td>
                                     <td>

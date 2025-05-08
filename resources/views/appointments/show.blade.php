@@ -21,19 +21,19 @@
                     <p class="fs--1">{{ date($custom->date_format,strtotime($appointment->date)) }}</p>
                     <div><strong class="me-2">{{ __('Status') }}: </strong>
                         @if($appointment->status == 'cancel')
-                        <div class="badge bg-danger fs--2"><span class="fa fa-close ms-1"
+                        <div class="btn btn-danger fs--2"><span class="fa fa-close ms-1"
                                 data-fa-transform="shrink-2"></span> {{ ucfirst($appointment->status) }}</div>
                         @endif
                         @if($appointment->status == 'pending')
-                        <div class="badge bg-warning fs--2"><span class="fa fa-check ms-1"
+                        <div class="btn btn-warning fs--2"><span class="fa fa-check ms-1"
                                 data-fa-transform="shrink-2"></span> {{ ucfirst($appointment->status) }}</div>
                         @endif
                         @if($appointment->status == 'approved')
-                        <div class="badge bg-success fs--2"><span class="fa fa-check ms-1"
+                        <div class="btn btn-success fs--2"><span class="fa fa-check ms-1"
                                 data-fa-transform="shrink-2"></span> {{ ucfirst($appointment->status) }}</div>
                         @endif
                         @if($appointment->status == 'completed')
-                        <div class="badge bg-info fs--2"><span class="fa fa-check ms-1"
+                        <div class="btn btn-info fs--2"><span class="fa fa-check ms-1"
                                 data-fa-transform="shrink-2"></span> {{ ucfirst($appointment->status) }}</div>
                         @endif
                     </div>

@@ -38,10 +38,10 @@
                                     <td>{{$custom->currency_icon}}{{$appointment->amount}}</td>
                                     @empty(!$appointment->payment)
                                         @if($appointment->pstatus == 'success' || $appointment->pstatus == 'succeeded')
-                                            <td><span class="bg-success badge">{{ ucfirst($appointment->pstatus) }}</span></td>
+                                            <td><span class="btn btn-success">{{ ucfirst($appointment->pstatus) }}</span></td>
                                         @endif
                                         @if($appointment->pstatus == 'pending')
-                                            <td><span class="bg-danger badge">{{ ucfirst($appointment->pstatus) }}</span></td>
+                                            <td><span class="btn btn-danger">{{ ucfirst($appointment->pstatus) }}</span></td>
                                         @endif
                                     @else
                                         <td>-</td>
