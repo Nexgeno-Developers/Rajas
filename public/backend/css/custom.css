@@ -405,6 +405,7 @@ section.board.calendar.padding-space-half {
 
 .btn {
   border-radius: 7px !important;
+  font-size: 12px;
 }
 
 
@@ -420,6 +421,14 @@ section.board.calendar.padding-space-half {
 .edit_class span {
   color: #2563EB;
   font-size: 18px;
+}
+
+img.calnder_img {
+  width: 18px;
+}
+
+body {
+  font-size: 13px !important;
 }
 
 .edit_class {
