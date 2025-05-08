@@ -32,6 +32,18 @@
     "notification_cancel_text": "Your trip booking has been Canceled on :title. The booking canceled details are as below",
     "notification_appointment_complete": ":name Your trip booking of :date has been Completed. Your time is :start To :end",
     "Employee": "Company",
+    "Appointment Created": "Booking Created",
+    "Appointment Cancelled!": "Booking Cancelled!",
+    "Appointment Cancellation": "Booking Cancellation",
+    "Appointment Cancelled": "Booking Cancelled",
+    "Appointment cancelled successfully": "Booking cancelled successfully",
+    "Appointment completed successfully": "Booking completed successfully",
+    "Appointment Confirmation": "Booking Confirmation",
+    "Appointment approved successfully": "Booking approved successfully",
+    "Appointment Booked": "Booked",
+    "Appointment updated successfully": "Booking updated successfully",
+    "Appointment deleted successfully": "Booking delete successfully",
+    "You cannot cancel appointment because appointment cancellation time is over": "You cannot cancel booking because booking cancellation time is over",
     "Employee Name": "Company Name",
     "Employee Detail": "Company Details",
     "Customer Detail": "Customer Details",
@@ -55,5 +67,6 @@
     "Easy to Book Appointment": "Easy to Book Trip",
     "Why your appointment with us?": "Why your trip booking with us?",
     "Unlimited Book Appointments": "Unlimited Book Trip Bookings",
-    "Schedule your appointment with us, We'll serve you better. We've a experienced staff for various services.": "Schedule your trip booking with us, We'll serve you better. We've a experienced staff for various services."
+    "Schedule your appointment with us, We'll serve you better. We've a experienced staff for various services.": "Schedule your trip booking with us, We'll serve you better. We've a experienced staff for various services.",
+    "Customer Appointment": "Customer Booking"
 }

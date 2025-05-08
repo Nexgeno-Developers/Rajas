@@ -49,6 +49,14 @@
 </head>
 
 <body>
+@php     
+    $currentUrl = url()->current();
+
+    // Check if the URL does not end with an image extension
+    if (!preg_match('/\.(jpg|jpeg|png|gif|svg|webp)$/i', $currentUrl)) {
+        session(['redirect_link' => $currentUrl]);
+    }
+@endphp
 <div class="loader">
       <div class="spinner">
         <div class="spinner-area spinner-first"></div>

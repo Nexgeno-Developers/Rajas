@@ -1,3 +1,7 @@
+@php
+$user = Auth::user();
+@endphp
+
 <div class="top_bar bg-white">
   <div class="container">
     <div class="row">
@@ -83,6 +87,8 @@
                 @php
                     $notificationcount = DB::table('notification')->where('is_read',0)->where('user_id',Auth::user()->id)->count();
                 @endphp
+
+                @if(($user && $user->role_id == 2))
                 <li class="notification-container @if($notificationcount > 0) has-notifications @endif">
               <div class="desktop-view @if(Request::segment(2) == 'notification') active @endif">
                   
@@ -103,27 +109,28 @@
                                   <div class="col-auto">
                                       <h6 class="card-header-title mb-0">{{ __('Notifications') }}</h6>
                                   </div>
-                                  @if($notificationcount > 0)
+                                  <!-- @if($notificationcount > 0)
                                   <div class="col-auto ps-0 ps-sm-3">
                                       <a class="card-link fw-normal mark-as-read" href="javascript:;" id="mark">{{ __('Mark all as read') }}</a>
                                   </div>
-                                  @endif
+                                  @endif -->
                               </div>
                           </div>
 
                           <div class="scrollable-content">
                               <div class="notification-list">
-                                  <div class="list-title border-bottom">{{ __('NEW') }}</div>
+                                    @php
+                                        $latestNotifications = DB::table('notification')->where('user_id',Auth::user()->id)->where('is_read', 0)->limit(3)->orderBy('id','desc')->get();
+                                    @endphp                                
+                                  <div class="list-title border-bottom">{{ $latestNotifications->isEmpty() ? __("No New Notification") : __('NEW') }}</div>
                                   <div class="list-items">
-                                      @php
-                                          $latestNotifications = DB::table('notification')->where('user_id',Auth::user()->id)->where('is_read', 0)->limit(3)->orderBy('id','desc')->get();
-                                      @endphp
+
 
                                       @foreach ($latestNotifications as $latestNotification) 
                                       <a class="notification-item" href="{{ route('notification',$latestNotification->id) }}">
                                           <div class="notification-avatar">
                                               <div class="avatar me-4">
-                                                  <img class="rounded-circle" src="{{ asset('rbtheme/img/placeholder.png') }}" alt="" />
+                                                  <!-- <img class="rounded-circle" src="{{ asset('rbtheme/img/placeholder.png') }}" alt="" /> -->
                                               </div>
                                           </div>
                                           <div class="notification-content">
@@ -140,10 +147,9 @@
                                   </div>
                               </div>
                           </div>
-
-                          <div class="card-footer text-center border-top">
-                              <a class="card-link d-block view-all" href="{{ route('notification') }}">{{ __('View all') }}</a>
-                          </div>
+                            <div class="card-footer text-center border-top">
+                                <a class="card-link d-block view-all" href="{{ route('notification') }}">{{ __('View all') }}</a>
+                            </div>
                       </div>
                   </div>
               </div>
@@ -151,9 +157,9 @@
                   <a href="{{ route('notification') }}"><span>{{ __('Notifications') }}</span></a>
               </div>
           </li>
+          @endif
 
-
-          
+                @if(($user && $user->role_id == 2))
                 <li class="drop-down padding_Right_0">
                     @if(!empty(Auth::user()->profile))
                     <a href="javascript:;"><img src="{{ asset('img/profile/'.Auth::user()->profile) }}" alt="customer-logo" class="rounded" width="25" height="25"></a>
@@ -170,19 +176,31 @@
                             @endif
                         </li>
                         <li class="@if(Request::segment(2) == 'profile') active @endif"><a href="{{ route('customer-profile',Auth::user()->id) }}">{{ __('Profile') }}</a></li>
-                        <li><a href="javascript:;" class="btn-logout-click">{{ __('Logout') }} <img src="{{ asset('rbtheme/img/logout_icons.png')}}" alt="default-logo" class="rounded" width="18" height="18"></a></li>
+                        <li><a href="javascript:;" class="btn-logout-click"><img src="{{ asset('rbtheme/img/logout_icons.png')}}" alt="default-logo" class="rounded" width="18" height="18"> {{ __('Logout') }}</a></li>
                     </ul>
                 </li>
+                @endif
+
                 @endauth
             </ul>
         </nav>
         @auth
+        @if(($user && $user->role_id == 2))
             <!-- <a href="javascript:;" class=" scrollto btn-logout-click">{{ __('Logout') }}</a> -->
+        @else
+             <a href="{{url('/dashboard')}}" class=" scrollto btn-logout-click text-primary">{{ __('Go to Dashboard') }}</a>
+        @endif
         @else
             <a href="javascript:;" class="scrollto" id="login_model_btn" data-bs-toggle="modal" data-bs-target="#loginModel"><i class="bx bx-lock lock_icon"></i> {{ __('Login / Register') }}</a>
         @endauth
 
-        <li class="@if(Request::segment(2) == 'book') active @endif book_buttons"><a href="{{ route('appointment.book')}}">{{ __('Book Now') }}</a></li>
+        <!-- <li class="@if(Request::segment(2) == 'book') active @endif book_buttons"><a href="{{ route('appointment.book')}}">{{ __('Book Now') }}</a></li> -->
+
+        @if(Auth::guest() || ($user && $user->role_id == 2))
+            <li class="@if(Request::segment(2) == 'book') active @endif book_buttons">
+                <a href="{{ route('appointment.book') }}">{{ __('Book Now') }}</a>
+            </li>
+        @endif         
     </div>
 </header>
 <form id="logout-form" method="post" action="{{route('logout')}}">

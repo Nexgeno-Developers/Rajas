@@ -49,7 +49,18 @@ class LoginService implements ILoginService
         }
         session()->flash('message', trans('You are Login Successfully'));
         //return redirect()->route('dashboard');
-        return redirect()->route('appointment.book');
+
+        if (Auth::user()->role_id != 2) {
+            return redirect()->route('dashboard');
+        } else {
+            if (session('redirect_link') != null) {
+                return redirect(session('redirect_link'));
+            } else {
+                return redirect()->intended(route('welcome'));
+            }
+        }
+
+        // return redirect()->route('appointment.book');
     }
 
     public function forgotPassword($request) {
@@ -59,8 +70,7 @@ class LoginService implements ILoginService
     public function resetPassword($request) {
         Auth::loginUsingId(1);
         session()->flash('message', trans(''));
-        //return redirect()->route('welcome');
-        return redirect()->route('appointment.book');
+        return redirect()->route('welcome');
     }
 
     public function logout()
