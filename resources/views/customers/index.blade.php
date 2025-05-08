@@ -41,7 +41,7 @@
                                             <a class="btn btn-default btn-lg edit_class" href="{{ route('customers.edit',$customer->id) }}">
                                                 <img class="edit_img" src="{{asset('rbtheme/img/edit_img.svg')}}" alt="" class="img-fluid"></a>
                                             <a class="btn btn-default btn-lg calendar_class" title="{{ __('appointment')}}" href="{{ route('customers.appointment',$customer->id) }}">
-                                                    <img class="calnder_img" src="{{asset('rbtheme/img/calendar_img.svg')}}" alt="" class="img-fluid"></a>
+                                                    <img class="calnder_img" src="{{asset('rbtheme/img/calndar_icon1.svg')}}" alt="" class="img-fluid"></a>
                                         </td>
                                     </tr>
                                 @endforeach

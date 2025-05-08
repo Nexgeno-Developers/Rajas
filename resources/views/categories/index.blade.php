@@ -11,7 +11,7 @@
                    
                         <div class="row">
 	<div class="col-md-6"><h2>{{ __('List of all Categories') }} </h2></div>
-	<div class="col-md-6"><a href="{{ route('categories.create') }}" class="add-new-employee btn btn-secondary pull-c-right"> <span class="fa fa-plus"></span> Create Locations</a></div>
+	<div class="col-md-6"><a href="{{ route('categories.create') }}" class="add-new-employee btn btn-secondary pull-c-right"> <span class="fa fa-plus mr-1"></span> Create Locations</a></div>
 </div>
 
 

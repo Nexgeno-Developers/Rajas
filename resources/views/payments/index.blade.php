@@ -15,7 +15,7 @@
                 <form method="post" id="filter-form" action="{{ route('payment-filter') }}" autocomplete="off">
                 {{ csrf_field() }}
                 <div class="row">
-                    <div class="col-sm-6 col-md-6 col-lg-6 col-xl-2 payments-filter">  
+                    <div class="col-sm-6 col-md-3 col-lg-3 col-xl-3 payments-filter">  
                         <div class="mb-3">
                             <label for="date" class="form-label"> {{ __('Appointment Start Date') }}: </label>
                             <input type="text" class="form-control custom-control date custom-format" id="startdate" min="{{date($custom->date_format)}}" autocomplete="off" 
@@ -23,7 +23,7 @@
                         </div>
                     </div>
                     
-                    <div class="col-sm-6 col-md-6 col-lg-6 col-xl-2 payments-filter">
+                    <div class="col-sm-6 col-md-3 col-lg-3 col-xl-3 payments-filter">
                         <div class="mb-3">
                             <label for="date" class="form-label">{{ __('Appointment End Date') }}: </label>
                             <input type="text" class="form-control custom-control date custom-format" id="enddate" max="{{date($custom->date_format)}}" autocomplete="off" 
@@ -32,7 +32,7 @@
                         </div>
                     </div>
 
-                    <div class="col-sm-6 col-md-6 col-lg-6 col-xl-2 payments-filter">
+                    <div class="col-sm-6 col-md-3 col-lg-3 col-xl-3 payments-filter">
                         <div class="mb-3">
                             <label for="payment_method" class="form-label">{{ __('Payment Method') }}: </label>
                             <select name="payment_method" id="payment_method" class="form-control custom-control">
@@ -45,7 +45,7 @@
                         </div>
                     </div>  
                     
-                    <div class="col-sm-6 col-md-6 col-lg-6 col-xl-2 payments-filter">
+                    <div class="col-sm-6 col-md-3 col-lg-3 col-xl-3 payments-filter">
                         <div class="mb-3">
                             <label for="status" class="form-label">{{ __('Payment Status') }}: </label>
                             <select name="status" id="status" class="form-control custom-control">
@@ -55,7 +55,7 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-sm-6 col-md-6 col-lg-6 col-xl-2 payments-filter mt-1">
+                    <div class="col-sm-6 col-md-6 col-lg-6 col-xl-2 payments-filter mt-4">
                         <input type="submit" class="btn btn-primary filter" name="filter" value="{{ __('Apply Filter') }}" id="filter"></button>
                         <input type="button" class="btn btn-primary filter" name="reset" value="{{ __('Reset') }}" id="reset"></button>
                     </div>
@@ -126,7 +126,7 @@
                                             $appointmentId = optional(DB::table('payments')->where('id', $payment->id)->first())->appointment_id;
                                         @endphp                                        
                                         <a class="btn btn-default btn-lg mt-0 eye_class" href="{{ route('appointments.show', $appointmentId) }}"><img class="eyes_img" src="{{asset('rbtheme/img/eyes_img.svg')}}" alt="" class="img-fluid"></a>
-                                        <a class="btn btn-default btn-lg mt-0 inr_class" href="{{ route('paymentview',$payment->id) }}"><span class="fa fa-inr"></span></a>
+                                        <a class="btn btn-default btn-lg mt-0 inr_class" href="{{ route('paymentview',$payment->id) }}"><img class="calnder_img" src="{{asset('rbtheme/img/rupee_icon1.svg')}}" alt="" class="img-fluid"></a>
                                     </td>
                                 </tr>
                             @endforeach

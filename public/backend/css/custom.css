@@ -323,24 +323,24 @@ table.dataTable thead>tr>th.sorting_asc:after {
   }
 }
 
-@media screen and (min-width: 938px) and (max-width: 1345px) {
-  .appointment-date-filter {
-    flex: 0 0 auto;
-    width: 28% !important;
-  }
-}
+@media screen and (min-width: 938px) and (max-width: 1345px) {}
 
 @media screen and (min-width: 938px) and (max-width: 1538px) {
-  .payments-filter {
-    width: 36% !important;
-    margin-bottom: 10px;
-  }
+
 
   .btn.filter {
     margin-top: 3px;
   }
 }
 
+.form-label {
+  font-size: 12px;
+}
+
+.payments-filter {
+  width: 20% !important;
+  margin-bottom: 10px;
+}
 
 .btn.custom-btn {
   background-color: #2563EB !important;
@@ -408,7 +408,6 @@ section.board.calendar.padding-space-half {
   font-size: 12px;
 }
 
-
 .eye_class {
   border: 0;
 }
@@ -425,6 +424,18 @@ section.board.calendar.padding-space-half {
 
 img.calnder_img {
   width: 18px;
+}
+
+.inr_class {
+  border: 0px !important;
+}
+
+.user_class {
+  border: 0px !important;
+}
+
+.user_class img {
+  width: 17px !important;
 }
 
 body {
@@ -530,4 +541,14 @@ a#profileDropdown img.img-circle.img {
 
 .main_section_bg .dataTables_wrapper .dataTables_length select {
   border-radius: 50px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+img.eyes_img {
+  width: 18px;
+}
+
+img.edit_img {
+  width: 17px !important;
 }

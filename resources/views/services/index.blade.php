@@ -66,7 +66,7 @@
                                             <img class="edit_img" src="{{asset('rbtheme/img/edit_img.svg')}}" alt="" class="img-fluid">
                                         </a>
                                         <a class="btn btn-default btn-lg user_class" title="{{ __('employee') }}" href="{{route('service.employee',$service->id)}}">
-                                            <span class="glyphicon glyphicon-user"></span>
+                                            <img class="edit_img" src="{{asset('rbtheme/img/user_icon1.svg')}}" alt="" class="img-fluid">
                                         </a> 
                                     </td>
                                 </tr>

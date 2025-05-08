@@ -129,7 +129,7 @@
                                     <td>{{ $appointment->comments }}</td>
                                     <td>
                                         <a class="btn btn-default btn-lg mt-0 eye_class" href="{{ route('appointments.show',$appointment->id) }}"><img class="eyes_img" src="{{asset('rbtheme/img/eyes_img.svg')}}" alt="" class="img-fluid"></a>
-                                        <a class="btn btn-default btn-lg mt-0 inr_class" href="{{ route('paymentview',$appointment->payment->id) }}"><span class="fa fa-inr"></span></a>
+                                        <a class="btn btn-default btn-lg mt-0 inr_class" href="{{ route('paymentview',$appointment->payment->id) }}"><img class="calnder_img" src="{{asset('rbtheme/img/rupee_icon1.svg')}}" alt="" class="img-fluid"></a>
                                     </td>
                                 </tr>
                             @endforeach

@@ -78,7 +78,7 @@
                                         <img class="edit_img" src="{{asset('rbtheme/img/edit_img.svg')}}" alt="" class="img-fluid">
                                     </a>
                                     <a class="btn btn-default btn-lg calendar_class" title="{{ __('appointment') }}" href="{{ route('employees.appointment',$employee->id) }}">
-                                        <img class="calnder_img" src="{{asset('rbtheme/img/calendar_img.svg')}}" alt="" class="img-fluid">
+                                        <img class="calnder_img" src="{{asset('rbtheme/img/calndar_icon1.svg')}}" alt="" class="img-fluid">
                                     </a> 
                                 </td>
                             </tr>
