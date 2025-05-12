@@ -25,15 +25,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'Front\AppointmentController@home')->name('welcome');
 
-Route::get('/home', function() {
-
-    return view('theme.home');
-
-})->name('theme');
+// Route::get('/home', function() {
+//     return view('theme.home');
+// })->name('theme');
 
 Route::get('/test-otp', function () {
     $sessionData = Session()->all();
-
     // Print session data
     dd($sessionData);
 });

@@ -36,6 +36,9 @@ class AppointmentController extends Controller
 
     public function home(Request $request)
     {
+
+        return redirect()->route('appointment.book');
+        
         $categories = Category::with('services')->get();
 
         $services = Service::with('categories')->paginate(9);

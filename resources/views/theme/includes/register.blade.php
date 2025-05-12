@@ -4,14 +4,14 @@
 
       <div class="modal-content border-0">
 
-        <div class="modal-header px-5 position-relative modal-shape-header bg-shape">
+        <div class="modal-header position-relative modal-shape-header bg-shape">
             <h5 class="modal-title" id="staticBackdropLabel">{{ __('Register') }}</h5>
             <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
 
-        <div class="modal-body py-4 px-5">
+        <div class="modal-body">
 
           <form action="{{ route('register') }}" method="post" id="sign-up-form" autocomplete="off" data-recaptcha>
 

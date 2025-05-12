@@ -48,11 +48,13 @@ $user = Auth::user();
 
         <nav class="nav-menu d-none d-lg-block">
             <ul>
+                {{--
                 <li class="@if(Request::segment(2) == '' && Request::segment(1) == '') active @endif"><a href="{{ route('welcome')}}">{{ __('Home') }}</a></li>
                 <li class=""><a href="{{ route('welcome')}}">{{ __('Air Safari Services') }}</a></li>
                 <li class=""><a href="{{ route('welcome')}}">{{ __('Adi Kailash') }}</a></li>
                 <li class=""><a href="{{ route('welcome')}}">{{ __('About') }}</a></li>
                 <li class=""><a href="{{ route('welcome')}}">{{ __('Contact us') }}</a></li>
+                --}}
                 <!-- <li class=""><a @if(!empty(request()->route()) && request()->route()->getName() != 'welcome') 
                   href="{{ route('welcome')}}#features" 
                   @elseif(empty(request()->route())) href="{{ route('welcome')}}#features" 
@@ -191,7 +193,9 @@ $user = Auth::user();
              <a href="{{url('/dashboard')}}" class=" scrollto btn-logout-click text-primary">{{ __('Go to Dashboard') }}</a>
         @endif
         @else
-            <a href="javascript:;" class="scrollto" id="login_model_btn" data-bs-toggle="modal" data-bs-target="#loginModel"><i class="bx bx-lock lock_icon"></i> {{ __('Login / Register') }}</a>
+            <a href="javascript:;" class="scrollto" id="login_model_btn" data-bs-toggle="modal" data-bs-target="#loginModel"><i class="bx bx-lock lock_icon"></i> {{ __('Login') }}</a>
+            <span class="pl-2 pr-1"> / </span>
+            <a href="javascript:;" class="scrollto" data-bs-toggle="modal" data-bs-target="#registerModel"><i class="bx bx-user-plus lock_icon"></i> {{ __('Register') }}</a>
         @endauth
 
         <!-- <li class="@if(Request::segment(2) == 'book') active @endif book_buttons"><a href="{{ route('appointment.book')}}">{{ __('Book Now') }}</a></li> -->
