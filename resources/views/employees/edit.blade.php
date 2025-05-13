@@ -311,6 +311,42 @@
         </div>
     </div>
 </div>
+<style>
+     .bookly-hour {
+        display: block;
+        border: 1px solid #edf2f2;
+        border-radius: 6px;
+        padding: 1;
+        text-align: center;
+        margin-bottom: 15px;
+        background-color: #f9f9f9;
+        transition: all 0.3s ease;
+        font-weight: 500;
+    }
+
+    .bookly-hour input[type="checkbox"] {
+        display: none;
+    }
+
+    .bookly-hour .bookly-time-main {
+        display: block;
+        font-size: 12px;
+        color: #333;
+        padding: 5px;
+    }
+
+    .bookly-hour:hover {
+        background-color: #e9f3ff;
+        cursor: pointer;
+    }
+
+    .bookly-hour input[type="checkbox"]:checked + .bookly-time-main {
+        background-color: #d4edda;
+        color: #155724;
+        border-radius: 4px;
+        padding: 5px;
+    }
+</style>
 @endsection
 
 @section('scripts')
