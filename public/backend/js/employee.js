@@ -1,3 +1,263 @@
+/*function get_timeslots(el, category_id, service_id, employee_id) {
+
+    if (!el.checked) {
+        $('.timeslots_' + service_id).html('');
+        return false;
+    }
+
+    var category_id = category_id;
+    var service_id = service_id;
+    var employee_id = employee_id;
+    var selectedDate = new Date(Date.now() + 86400000).toISOString().split('T')[0];
+
+    if(selectedDate != "" && employee_id != "") {
+
+        $.ajax({
+            url: '/timeslots2',
+            type: "POST",
+            data: {
+                _token: _token,
+                employee_id: employee_id,
+                selectedDate: selectedDate,
+                service_id: service_id
+            },
+            dataType: "json",
+        }).done(function(response) {
+            $("#msg").html('');
+            var currentDate = new Date(selectedDate);
+            var weekDays = response.workingDay;
+
+            if(!weekDays.includes(currentDate.getDay().toString())) {
+
+                $("#msg").append('<p class="booked_msg error">'+translate.date_not_available+'</p>');
+
+                $("#time-slots").html('');
+
+            } else {
+                if(response.slots.length > 0) {
+                    var html = '';
+                    var disabled = '';
+
+                    $.each(response.slots, function(key, value) {
+
+                        var hide_slots = '';
+                    
+                        if(response.book_time.length > 0) {
+
+                            $.each(response.book_time, function(k, val) {
+
+                                var start_time = moment(new Date(val.date+' '+val.start_time)).format('hh:mm A');
+                                var end_time = moment(new Date(val.date+' '+val.finish_time)).format('hh:mm A');
+
+                                //google booked slot
+                                var slot_start_time =  new Date(selectedDate+' '+value.start_time);
+                                var slot_end_time =  new Date(selectedDate+' '+value.end_time);
+
+                                var google_start_time =  new Date(val.date+' '+start_time);
+                                var google_end_time = new Date(val.date+' '+end_time);
+
+                                var g_start = google_start_time.getTime();
+                                var g_end = google_end_time.getTime();
+
+                                var s_start = slot_start_time.getTime();
+                                var s_end = slot_end_time.getTime();
+
+                                if(g_end == s_start){
+                                    hide_slots = ''; 
+                                    
+                                }
+                                else if(s_end == g_start){
+                                    hide_slots = '';
+                                    
+                                }else if(s_end >= g_start && g_end >= s_start ){
+                                    hide_slots = 'not-allowed'; 
+                                    disabled = 'disabled' ;
+                                }
+
+                                //end google booked slot 
+                            }); 
+                        }
+
+                        html += `
+                            <div class="col-md-4">
+                                <label class="bookly-hour ${hide_slots}" style="display: block; cursor: pointer;">
+                                    <input type="checkbox" name="timeslot[${service_id}][]" value="${value.start_time}-${value.end_time}">
+                                    <span class="ladda-label bookly-time-main bookly-bold">
+                                        <i class="bookly-hour-icon"><span></span></i>
+                                        ${value.start_time} - ${value.end_time}
+                                    </span>
+                                    <span class="bookly-time-additional"></span>
+                                </label>
+                            </div>`;                        
+                    });
+
+                    if (response.slots.length == response.book_time.length){
+                        $("#msg").append('<p class="booked_msg error">'+translate.selected_date_appointment_booked+'</p>');
+                    }
+
+                    $('.timeslots_' + service_id).html("<div class='row'>"+html+"</div>");
+
+                } else {
+                    $("#msg").append('<p class="booked_msg error">'+translate.booking_not_available+'</p>');
+                    $("#time-slots").html('');
+                }
+            }
+        });
+    }
+}*/
+
+function get_timeslots(el, category_id, service_id, employee_id) {
+    if (!el.checked) {
+        $('.timeslots_' + service_id).html('');
+        return false;
+    }
+
+    var selectedDate = new Date(Date.now() + 86400000).toISOString().split('T')[0];
+
+    if(selectedDate != "" && employee_id != "") {
+        $.ajax({
+            url: '/timeslots2',
+            type: "POST",
+            data: {
+                _token: _token,
+                employee_id: employee_id,
+                selectedDate: selectedDate,
+                service_id: service_id
+            },
+            dataType: "json",
+        }).done(function(response) {
+            $("#msg").html('');
+            var currentDate = new Date(selectedDate);
+            var weekDays = response.workingDay;
+
+            if(!weekDays.includes(currentDate.getDay().toString())) {
+                $("#msg").append('<p class="booked_msg error">'+translate.date_not_available+'</p>');
+                $("#time-slots").html('');
+            } else {
+                if(response.slots.length > 0) {
+                    var html = '';
+                    var disabled = '';
+
+                    // Create an array of matched slot strings for easier comparison
+                    var matchedSlotStrings = [];
+                    if (response.matchedSlots && response.matchedSlots.length > 0) {
+                        matchedSlotStrings = response.matchedSlots.map(function(slot) {
+                            return slot.start_time + '-' + slot.end_time;
+                        });
+                    }
+
+                    $.each(response.slots, function(key, value) {
+                        var hide_slots = '';
+                        var slotString = value.start_time + '-' + value.end_time;
+                        var isMatched = matchedSlotStrings.includes(slotString);
+                    
+                        if(response.book_time.length > 0) {
+                            $.each(response.book_time, function(k, val) {
+                                var start_time = moment(new Date(val.date+' '+val.start_time)).format('hh:mm A');
+                                var end_time = moment(new Date(val.date+' '+val.finish_time)).format('hh:mm A');
+
+                                var slot_start_time = new Date(selectedDate+' '+value.start_time);
+                                var slot_end_time = new Date(selectedDate+' '+value.end_time);
+
+                                var google_start_time = new Date(val.date+' '+start_time);
+                                var google_end_time = new Date(val.date+' '+end_time);
+
+                                var g_start = google_start_time.getTime();
+                                var g_end = google_end_time.getTime();
+
+                                var s_start = slot_start_time.getTime();
+                                var s_end = slot_end_time.getTime();
+
+                                if(g_end == s_start){
+                                    hide_slots = ''; 
+                                }
+                                else if(s_end == g_start){
+                                    hide_slots = '';
+                                } else if(s_end >= g_start && g_end >= s_start) {
+                                    hide_slots = 'not-allowed'; 
+                                    disabled = 'disabled';
+                                    isMatched = false; // Don't check if slot is booked
+                                }
+                            }); 
+                        }
+
+                        html += `
+                            <div class="col-md-4">
+                                <label class="bookly-hour ${hide_slots}" style="display: block; cursor: pointer;">
+                                    <input type="checkbox" name="timeslot[${service_id}][]" 
+                                        value="${slotString}" 
+                                        ${isMatched ? 'checked="checked"' : ''} 
+                                        ${disabled}>
+                                    <span class="ladda-label bookly-time-main bookly-bold">
+                                        <i class="bookly-hour-icon"><span></span></i>
+                                        ${value.start_time} - ${value.end_time}
+                                    </span>
+                                    <span class="bookly-time-additional"></span>
+                                </label>
+                            </div>`;                        
+                    });
+
+                    if (response.slots.length == response.book_time.length) {
+                        $("#msg").append('<p class="booked_msg error">'+translate.selected_date_appointment_booked+'</p>');
+                    }
+
+                    $('.timeslots_' + service_id).html("<div class='row'>"+html+"</div>");
+
+                } else {
+                    $("#msg").append('<p class="booked_msg error">'+translate.booking_not_available+'</p>');
+                    $("#time-slots").html('');
+                }
+            }
+        });
+    }
+}
+
+
+function employeeAjax(category_id, service_id) {
+    $.ajax({
+        type:'POST',
+        url: route('categoryservice') ,
+        headers: {'X-CSRF-TOKEN': _token },
+        data: { category_id : category_id },
+        success: function(response){
+            var html = ' <label class="form-label">'+translate.services+' <span class="text-danger">*</span></label>';
+            if(response.data){
+                var html = ' <label class="form-label">'+translate.services+' <span class="text-danger">*</span></label>';
+                jQuery.each(response.data, function(i, val) {
+                    html += '<li class="row list-group-item d-flex">';
+                    html += '<div class="col-md-10 p-0">'+val.name+'</div>';
+                    html += '<div class="col-md-2 material-switch p-0 text-center">';
+                    var checked = (service_id.includes(val.id)) ? "checked" : "";
+                    html += '<input data-cat="'+val.category_id+'" data-ser="'+val.id+'" data-u="'+$('input[name="emp_id"]').val()+'" onchange="get_timeslots(this, '+val.category_id+', '+val.id+', '+$('input[name="emp_id"]').val()+')" value="'+val.id+'" name="service_id['+val.category_id+'][]" type="checkbox" data-check="service" data-duration="'+val.duration+'" '+checked+' /><label for="'+val.id+'" class="label-success"></label></div>';
+                    html += `
+                    <div class="bookly-time-step">
+                            <div class="bookly-columnizer-wrap">
+                                <div class="bookly-columnizer">
+                                    <div class="bookly-time-screen">
+                                        <div class="bookly-column bookly-js-first-column">
+                                            <div id="time-slots" class="timeslots_${val.id}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div></li>`;
+                });
+                $("#service_id").html(html);
+
+                //Loop through the response data and trigger get_timeslots
+                jQuery.each(response.data, function(i, val) {
+                    var checkbox = $('input[name="service_id['+val.category_id+'][]"][value="'+val.id+'"]');
+                    get_timeslots(checkbox[0], val.category_id, val.id, $('input[name="emp_id"]').val());
+                });
+            }
+        }
+    });
+}
+
+
+
+
 function confirmGoogleCalendarAccess() {
     Swal.fire({
         title: translate.are_you_sure,
@@ -43,28 +303,28 @@ function googleCalendarEmailConfirmation(e) {
         }
     });
 }
-    function employeeAjax(category_id, service_id) {
-        $.ajax({
-            type:'POST',
-            url: route('categoryservice') ,
-            headers: {'X-CSRF-TOKEN': _token },
-            data: { category_id : category_id },
-            success: function(response){
-                var html = ' <label class="form-label">'+translate.services+' <span class="text-danger">*</span></label>';
-                if(response.data){
-                    var html = ' <label class="form-label">'+translate.services+' <span class="text-danger">*</span></label>';
-                    jQuery.each(response.data, function(i, val) {
-                        html += '<li class="row list-group-item d-flex">';
-                        html += '<div class="col-md-10 p-0">'+val.name+'</div>';
-                        html += '<div class="col-md-2 material-switch p-0 text-center">';
-                        var checked = (service_id.includes(val.id)) ? "checked" : "";
-                        html += '<input value="'+val.id+'" name="service_id['+val.category_id+'][]" type="checkbox" data-check="service" data-duration="'+val.duration+'" '+checked+' /><label for="'+val.id+'" class="label-success"></label></div></li>';
-                    });
-                    $("#service_id").html(html);
-                }
-            }
-        });
-    }
+    // function employeeAjax(category_id, service_id) {
+    //     $.ajax({
+    //         type:'POST',
+    //         url: route('categoryservice') ,
+    //         headers: {'X-CSRF-TOKEN': _token },
+    //         data: { category_id : category_id },
+    //         success: function(response){
+    //             var html = ' <label class="form-label">'+translate.services+' <span class="text-danger">*</span></label>';
+    //             if(response.data){
+    //                 var html = ' <label class="form-label">'+translate.services+' <span class="text-danger">*</span></label>';
+    //                 jQuery.each(response.data, function(i, val) {
+    //                     html += '<li class="row list-group-item d-flex">';
+    //                     html += '<div class="col-md-10 p-0">'+val.name+'</div>';
+    //                     html += '<div class="col-md-2 material-switch p-0 text-center">';
+    //                     var checked = (service_id.includes(val.id)) ? "checked" : "";
+    //                     html += '<input value="'+val.id+'" name="service_id['+val.category_id+'][]" type="checkbox" data-check="service" data-duration="'+val.duration+'" '+checked+' /><label for="'+val.id+'" class="label-success"></label></div></li>';
+    //                 });
+    //                 $("#service_id").html(html);
+    //             }
+    //         }
+    //     });
+    // }
 
 
 (function($) {

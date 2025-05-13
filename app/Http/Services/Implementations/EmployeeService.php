@@ -72,6 +72,7 @@ class EmployeeService implements IEmployeeService
                             $employeService->employee_id = $employee->id;
                             $employeService->service_id = $service;
                             $employeService->category_id =  $key;
+                            $employeService->available_timeslots = json_encode($employeeServiceViewModel->timeslot[$employeService->service_id] ?? []);
                             $this->serviceEmployeeRepository->insert($employeService);
                         }
                     }

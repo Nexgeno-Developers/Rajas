@@ -217,6 +217,8 @@ Route::prefix('proceeds')->middleware('xss')->group(function () {
 
 Route::any('/timeslots','Front\ServiceController@getTimeSlot')->name('getTimeSlot');
 
+Route::any('/timeslots2','Front\ServiceController@getTimeSlot2')->name('getTimeSlot2');
+
 Route::any('/slots','Front\ServiceController@getSlots')->name('getSlot');
 
 Route::get('dashboard', 'AppointmentController@dashboard')->name('dashboard')->middleware(['auth','xss']);

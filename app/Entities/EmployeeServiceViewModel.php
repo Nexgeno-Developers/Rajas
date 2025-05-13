@@ -13,7 +13,7 @@ class EmployeeServiceViewModel extends Model
      * @var array
      */
     protected $fillable = [
-        'country','state','user_id','service_id','category_id','first_name','days','last_name','country_name','country_code','phone', 'email','password','start_time','finish_time','rest_time','break_start_time','break_end_time'
+        'country','state','user_id','service_id','category_id','timeslot','first_name','days','last_name','country_name','country_code','phone', 'email','password','start_time','finish_time','rest_time','break_start_time','break_end_time'
     ];
 
     public function toEmployee()
@@ -53,6 +53,7 @@ class EmployeeServiceViewModel extends Model
         $employeeservice->service_id = $this->service_id;
         $employeeservice->employee_id = $this->employee_id;
         $employeeservice->user_id = $this->user_id;
+        $employeeservice->timeslot = $this->timeslot;
         return $employeeservice;
     }
 }

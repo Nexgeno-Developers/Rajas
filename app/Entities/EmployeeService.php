@@ -16,7 +16,7 @@ class EmployeeService extends Model
      * @var array
      */
     protected $fillable = [
-        'employee_id', 'service_id', 'user_id','category_id'
+        'employee_id', 'service_id', 'user_id','category_id', 'available_timeslots'
     ];
 
     public function service()

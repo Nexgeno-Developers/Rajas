@@ -224,7 +224,8 @@ class EmployeeController extends Controller
                 }
             })->get();
         }else {
-            $services = Service::where('user_id',Auth::user()->id)->get();
+            //$services = Service::where('user_id',Auth::user()->id)->get();
+            $services = [];
         }
         return response()->json(['data' => $services]);
     }

@@ -31,6 +31,8 @@
                         <input type="hidden" name="user_id" value="{{ isset($employee) ? $employee->parent_user_id : auth()->user()->parent_user_id }}">
                         @endif
                         {{ csrf_field() }}
+
+                        <input type="hidden" name="emp_id" value="{{ isset($employee) ? $employee->id : auth()->user()->id }}">
                        
                         <div class="container-fluid">
                             <div class="current-page">
@@ -241,7 +243,7 @@
                             <div class="next-page" style="display:none;">
                                 <div class="row">
                                     @if($custom->categories == 1)
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <div class="row">
                                             <div class="col-lg-12">
                                                 <div class="mb-3">
@@ -268,7 +270,7 @@
                                         <input value="0" name="category_id[]" type="hidden">
                                     @endif
                             
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <div class="row">
                                             <div class="col-lg-12">
                                                 <div class="mb-3" name="service_id" id="service_id">
