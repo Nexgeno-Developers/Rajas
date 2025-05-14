@@ -252,9 +252,41 @@ class ServiceController extends Controller
                 // $start_time->addMinute($rest_time);
             }
         } 
+
         $workingDays = !empty($working->days) ? json_decode($working->days) : [];
         unset($slots[count($slots) - 1]);
-        $data = array('book_time'=>$book_time,'slots'=>$slots,'days' => $days,'workingDay'=>$workingDays,'rest_time'=>$rest_time,'setting'=>$setting);
+
+        // Slot Filter - START
+        // Sample input from DB
+        $employeeService = \DB::table('employee_services')->where('employee_id', $request->employee_id)->where('service_id', $request->service_id)->first();
+        $targetTimes = $employeeService ? json_decode($employeeService->available_timeslots, true) : [];
+
+        // Process targetTimes to separate start and end times
+        $availableSlots = [];
+        foreach ($targetTimes as $timeRange) {
+            [$start, $end] = explode('-', $timeRange);
+            $availableSlots[] = [
+                'start_time' => trim($start),
+                'end_time' => trim($end),
+            ];
+        }
+
+        // Now filter $slots based on $availableSlots
+        $filteredSlots = array_filter($slots, function ($slot) use ($availableSlots) {
+            foreach ($availableSlots as $available) {
+                if ($slot->start_time === $available['start_time'] && $slot->end_time === $available['end_time']) {
+                    return true;
+                }
+            }
+            return false;
+        });
+
+        // Reindex array (optional)
+        $filteredSlots = array_values($filteredSlots);
+        $slots = $filteredSlots;
+        //Slot Filter - END
+
+        $data = array('book_time'=>$book_time,'filteredSlots'=>$filteredSlots,'slots'=>$slots,'days' => $days,'workingDay'=>$workingDays,'rest_time'=>$rest_time,'setting'=>$setting);
         echo json_encode($data);
     }
 
