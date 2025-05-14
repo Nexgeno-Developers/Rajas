@@ -35,7 +35,7 @@
                         <input type="hidden" name="emp_id" value="{{ isset($employee) ? $employee->id : auth()->user()->id }}">
                        
                         <div class="container-fluid">
-                            <div class="current-page">
+                            <div class="current-page" style="display: {{ request()->get('type') == 'details' ? 'block' : 'none' }};">
                                 <div class="row">
                                     <div class="col-md-12 col-lg-6">
                                         <div class="row">
@@ -230,17 +230,23 @@
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="row">
+                                    <div class="offset-sm-6 col-sm-2 col-xs-offset-2 col-xs-8">
+                                        <button type="submit" class="btn btn-default custom-btn btn-block btn-valid">{{ __('Submit') }}</button>
+                                    </div>
+                                </div>                                
+                                <!-- <div class="row">
                                     <div class="col-lg-6">
                                         <a href="{{ route('employees.index') }}" class="back-button-previous pull-left"><h4><i class="fa fa-arrow-left" aria-hidden="true"></i> {{ __('Back') }}</h4></a>
                                     </div>
                                     <div class="col-lg-6">
                                         <a class="next-button pull-right" id="next-button" style="cursor: pointer;"><h4>{{ __('Next') }} <i class="fa fa-arrow-right" aria-hidden="true"></i></h4></a>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
 
-                            <div class="next-page" style="display:none;">
+                            <div class="next-page" style="display: {{ request()->get('type') == 'service' ? 'block' : 'none' }};">
                                 <div class="row">
                                     @if($custom->categories == 1)
                                     <div class="col-md-12">
@@ -299,7 +305,7 @@
                                         <button type="submit" class="btn btn-default custom-btn btn-block btn-valid">{{ __('Submit') }}</button>
                                     </div>
                                 </div> 
-                                <a class="back-button-next btn-valid pull-left"><h4><i class="fa fa-arrow-left" aria-hidden="true"></i> {{ __('Back') }}</h4></a> 
+                                <!-- <a class="back-button-next btn-valid pull-left"><h4><i class="fa fa-arrow-left" aria-hidden="true"></i> {{ __('Back') }}</h4></a>  -->
                                 
                                 {{  Form::open(['method' => 'DELETE','id' => 'deleteItem','route' => ['employees.destroy', $employee->id],'style'=>'display:inline'])  }}
                                 {{  Form::close()  }}
