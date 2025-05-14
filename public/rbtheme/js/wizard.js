@@ -841,14 +841,15 @@ localStorage.time = "";
                           response.slots.length == response.book_time.length
                         ) {
                           $("#msg").html("");
-                          $("#msg").append(
-                            '<p class="booked_msg" style="color:red;">' +
-                              translate.selected_date_appointment_booked +
-                              "</p>"
-                          );
-                          toastr.error(
-                            translate.selected_date_appointment_booked
-                          );
+                          //Commendted because if 1 slot display it showing unnesesary
+                          // $("#msg").append(
+                          //   '<p class="booked_msg" style="color:red;">' +
+                          //     translate.selected_date_appointment_booked +
+                          //     "</p>"
+                          // );
+                          // toastr.error(
+                          //   translate.selected_date_appointment_booked
+                          // );
                         }
                         $("#time-slots").html(html);
                       } else {
