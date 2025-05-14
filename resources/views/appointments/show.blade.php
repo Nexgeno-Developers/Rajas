@@ -23,6 +23,9 @@
                         @if($appointment->status == 'cancel')
                         <div class="btn btn-danger fs--2"><span class="fa fa-close ms-1"
                                 data-fa-transform="shrink-2"></span> {{ ucfirst($appointment->status) }}</div>
+                        <div>
+                            <b>Reason : </b> {{$appointment->cancel_reason}}
+                        </div>
                         @endif
                         @if($appointment->status == 'pending')
                         <div class="btn btn-warning fs--2"><span class="fa fa-check ms-1"

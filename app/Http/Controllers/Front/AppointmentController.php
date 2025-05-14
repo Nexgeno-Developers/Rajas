@@ -37,7 +37,10 @@ class AppointmentController extends Controller
     public function home(Request $request)
     {
 
-        return redirect()->route('appointment.book');
+        if (!$request->has('token')) {
+
+            return redirect()->route('appointment.book');
+        }        
         
         $categories = Category::with('services')->get();
 
