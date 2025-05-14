@@ -155,7 +155,7 @@
                                                         <span class="glyphicon glyphicon-time"></span>
                                                     </span>
                                                 </div>
-                                                <div class="duration_24hr_div_optional {{ $service->duration != '23:59:59' ? '': ''}} mt-2">
+                                                <div class="d-none duration_24hr_div_optional {{ $service->duration != '23:59:59' ? '': ''}} mt-2">
                                                     <input type="checkbox" name="duration_24hr" id="service_duration" value="1" {{ $service->duration == '23:59:59' ? 'checked': ''}}>
                                                     <label for="service_duration">{{__('24 Hours Service Duration')}}</label>
                                                 </div>
@@ -178,7 +178,7 @@
                                         </div>
                                     </div>
     
-                                    <div class="row">
+                                    <div class="row d-none">
                                         <div class="col-lg-12">
                                             <div class="mb-3">
                                                 <label for="name">{{ __('Cancel Booking') }}:</label>

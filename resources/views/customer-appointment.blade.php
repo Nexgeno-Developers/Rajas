@@ -137,8 +137,17 @@
                     <div class="row justify-content-between mt-3 mb-3 pl-3 pr-3">
                         @if($appointment->status != 'completed')
                         @if($appointment->status != 'cancel')
-                        <button type="button" class="cancel_apppointment" data-bs-toggle="modal"
-                            data-bs-target="#exampleModalCenter"> <i class='bx bx-x'></i> {{ __('Cancel Booking') }}</button>
+                        <!-- <button type="button" class="cancel_apppointment" data-bs-toggle="modal"
+                            data-bs-target="#exampleModalCenter"> <i class='bx bx-x'></i> {{ __('Cancel Booking') }}</button> -->
+
+                            <!-- Hide button after booking date -->
+                            @if ($appointment->date <= date("Y-m-d"))
+                                <button type="button" class="cancel_apppointment" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModalCenter"> 
+                                    <i class='bx bx-x'></i> {{ __('Cancel Booking') }}
+                                </button>
+                            @endif
+
                         @endif
                         <button type="button" class="btn btn-info back-btn-click back_buttons"><i class='bx bx-arrow-back'></i> {{ __('Back') }}</button>
                         @endif

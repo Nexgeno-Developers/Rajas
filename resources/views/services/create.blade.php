@@ -157,7 +157,7 @@
                                                         <span class="glyphicon glyphicon-time"></span>
                                                     </span>
                                                 </div>
-                                                <div class="duration_24hr_div_optional mt-2">
+                                                <div class="d-none duration_24hr_div_optional mt-2">
                                                     <input type="checkbox" name="duration_24hr" id="service_duration" value="1">
                                                     <label for="service_duration">{{__('24 Hours Service Duration')}}</label>
                                                 </div>
@@ -177,12 +177,12 @@
                                         </div>
                                     </div>
     
-                                    <div class="row">
+                                    <div class="row d-none">
                                         <div class="col-lg-12">
                                             <div class="mb-3">
                                                 <label for="name" class="form-label">{{ __('Cancel Booking Duration')}}:</label>
                                                 <div class='input-group' id="datetimepickerRest1">
-                                                    <input type='text' class="form-control time @error('cancel_before') is-invalid @enderror timeDuration" placeholder="{{ __('Cancel Booking') }}" value="{{old('cancel_before')}}" name="cancel_before" id="cancel-before"/>
+                                                    <input type='text' class="form-control time @error('cancel_before') is-invalid @enderror timeDuration" placeholder="{{ __('Cancel Booking') }}" value="23:59" name="cancel_before" id="cancel-before"/>
                                                     <span class="input-group-text">
                                                         <span class="glyphicon glyphicon-time"></span>
                                                     </span>

@@ -716,10 +716,11 @@ class AppointmentController extends Controller
             $difference = $today->diff($date)->format('%H:%i:%s');
         
         
-            if($difference < $cancel_before && $date == $today) {
-                session()->flash('error-message', trans('You cannot cancel appointment because appointment cancellation time is over'));
-                return redirect()->back();
-            }
+            //cancel before validation removed
+            // if($difference < $cancel_before && $date == $today) {
+            //     session()->flash('error-message', trans('You cannot cancel appointment because appointment cancellation time is over'));
+            //     return redirect()->back();
+            // }
         }
 
         $cancel = Appointment::find($id)

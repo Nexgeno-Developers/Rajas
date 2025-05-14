@@ -27,7 +27,7 @@
                                 <th>{{ucfirst($custom->custom_field_service)}} {{ __('Fee') }}</th>
                                 <!-- <th>{{ __('Description') }}</th> -->
                                 <th>{{ __('Duration') }}</th>
-                                <th>{{ __('Cancel Before') }}</th>
+                                <!-- <th>{{ __('Cancel Before') }}</th> -->
                                 <!-- <th>{{ __('Service Image') }}</th> -->
                                 <th class="t-right">{{ __('Action') }}</th>
                             </tr>
@@ -43,7 +43,7 @@
                                     <td>{{ $custom->currency_icon }}{{ $service->price }}</td>
                                     <!-- <td>{!! $service->description !!}</td> -->
                                     <td>{{ Helper::timeformat($service->duration) }}</td>
-                                    <td>{{ Helper::timeformat($service->cancel_before) }}</td>
+                                    <!-- <td>{{ Helper::timeformat($service->cancel_before) }}</td> -->
                                     <!-- @if(!empty($service->image))
                                     <td>
                                         <a href="javascript:;" class="btn btn-default btn-lg open-service-image" data-original="{{ asset('img/services/'.$service->image) }}" title="{{ __('Service Image') }}">
@@ -65,9 +65,9 @@
                                         <a class="btn btn-default btn-lg edit_class" href="{{ route('services.edit',$service->id) }}">
                                             <img class="edit_img" src="{{asset('rbtheme/img/edit_img.svg')}}" alt="" class="img-fluid">
                                         </a>
-                                        <a class="btn btn-default btn-lg user_class" title="{{ __('employee') }}" href="{{route('service.employee',$service->id)}}">
+                                        <!-- <a class="btn btn-default btn-lg user_class" title="{{ __('employee') }}" href="{{route('service.employee',$service->id)}}">
                                             <img class="edit_img" src="{{asset('rbtheme/img/user_icon1.svg')}}" alt="" class="img-fluid">
-                                        </a> 
+                                        </a>  -->
                                     </td>
                                 </tr>
                             @endforeach
