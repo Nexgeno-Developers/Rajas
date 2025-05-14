@@ -727,7 +727,7 @@ class AppointmentController extends Controller
                 ->update([
                     'status'=>'cancel',
                     'approved_by'=>Auth::user()->id,
-                    'cancel_reason'=>$request->cancel_reason
+                    'cancel_reason'=>  date("Y-m-d H:iA").':'. $request->cancel_reason
                 ]);
 
         $cancel = Appointment::find($id); 
@@ -916,6 +916,9 @@ class AppointmentController extends Controller
       
                 Helper::emailinformation($data);
             }
+
+            session()->flash('message', trans('Appointment cancelled successfully'));
+            return redirect()->route('dashboard');           
         }
 
         if(Auth::user()->role_id == 3) {
