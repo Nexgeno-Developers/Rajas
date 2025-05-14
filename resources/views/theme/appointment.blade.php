@@ -63,7 +63,7 @@
                                     </div>
                                     </div>
                                     @if($custom->categories == 1)
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
                                          <div class="mb-3">
                                         <label class="form-label custom-category"
                                             for="bootstrap-wizard-category" data-custom-category="{{ucfirst($custom->custom_field_category)}}">{{ucfirst($custom->custom_field_category)}}<span
@@ -83,7 +83,7 @@
                                     </div>
                                    
                                     @endif
-                                  <div class="col-md-6">
+                                  <div class="col-md-4">
                                     <div class="mb-3">
                                         <label class="form-label custom-service"
                                             for="bootstrap-wizard-service" data-custom-service="{{ucfirst($custom->custom_field_service)}}">{{ucfirst($custom->custom_field_service)}}<span
@@ -105,7 +105,7 @@
                                     </div>
                                
                                 @if($custom->employees == 1)
-                                <div class="col-md-6">
+                                <div class="col-md-6 d-none">
                                     <div class="mb-3"><label class="form-label custom-employee"
                                             for="bootstrap-wizard-employee" data-custom-employee="{{ucfirst($custom->custom_field_text)}}">{{ucfirst($custom->custom_field_text)}}<span
                                                 class="text-danger">*</span></label>
@@ -123,7 +123,7 @@
                                     data-employee="{{ $admin->first_name.' '.$admin->last_name }}" value="{{ $admin->id }}">
                                     
                                 @endif
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
                                     <div class="mb-3"><label class="form-label" for="bootstrap-wizard-date">{{ __('Date') }}<span
                                                 class="text-danger">*</span></label>
                                         <input class="form-control custom-format" type="text" name="date" value="{{date('Y-m-d')}}" required="required" autocomplete="off"

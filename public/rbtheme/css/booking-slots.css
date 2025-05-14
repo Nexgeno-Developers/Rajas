@@ -17,13 +17,13 @@
 }
 
 .bookly-columnizer .bookly-time-screen {
-    display: inline-block;
+    /* display: inline-block; */
     min-height: .01%;
 }
 
 .bookly-columnizer .bookly-column {
     /* padding: 0 5px; */
-    display: inline-block;
+    /* display: inline-block; */
     zoom: 1;
     vertical-align: top;
     float: none !important;
