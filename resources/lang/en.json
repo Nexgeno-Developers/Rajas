@@ -32,6 +32,7 @@
     "notification_cancel_text": "Your trip booking has been Canceled on :title. The booking canceled details are as below",
     "notification_appointment_complete": ":name Your trip booking of :date has been Completed. Your time is :start To :end",
     "Employee": "Company",
+    "Employees": "Companies",
     "Appointment Created": "Booking Created",
     "Appointment Cancelled!": "Booking Cancelled!",
     "Appointment Cancellation": "Booking Cancellation",
@@ -69,5 +70,6 @@
     "Why your appointment with us?": "Why your trip booking with us?",
     "Unlimited Book Appointments": "Unlimited Book Trip Bookings",
     "Schedule your appointment with us, We'll serve you better. We've a experienced staff for various services.": "Schedule your trip booking with us, We'll serve you better. We've a experienced staff for various services.",
-    "Customer Appointment": "Customer Booking"
+    "Customer Appointment": "Customer Booking",
+    "List of all employees": "Companies"
 }

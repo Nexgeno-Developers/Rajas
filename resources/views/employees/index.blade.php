@@ -14,7 +14,9 @@
                
                             <div class="row">
 	<div class="col-md-6"><h2>{{ __('List of all employees') }} </h2></div>
-	<div class="col-md-6"><a href="{{ route('employees.create') }}" class="add-new-employee btn btn-secondary pull-c-right"> <span class="fa fa-plus"></span> Create Employees</a></div>
+	<div class="col-md-6">
+        <!-- <a href="{{ route('employees.create') }}" class="add-new-employee btn btn-secondary pull-c-right"> <span class="fa fa-plus"></span> Create Employees</a> -->
+    </div>
 </div>
 
 
@@ -26,15 +28,14 @@
                         <thead>
                             <tr>
                                 <th>{{ __('SR No.') }}</th>
-                                <th>{{ __('First Name') }}</th>
-                                <th>{{ __('Last Name') }}</th>
+                                <th>{{ __('Name') }}</th>
                                 <th>{{ __('Email') }}</th>
                                 <th>{{ __('Phone') }}</th>
                                 @if($custom->categories == 1)
                                     <th>{{ucfirst($custom->custom_field_category)}}</th>
                                 @endif
                                 <th>{{ucfirst($custom->custom_field_service)}}</th>
-                                <th>{{ __('Status') }}</th>
+                                <!-- <th>{{ __('Status') }}</th> -->
                                 <th></th>
                                 <th class="custom-column">{{ __('Action') }}</th>
                             </tr>
@@ -43,19 +44,18 @@
                             @foreach($employees as $employee)
                             <tr>
                                 <th>{{ $rowIndex++ }}</th>
-                                <td>{{ ucfirst($employee->first_name) }}</td>
-                                <td>{{ ucfirst($employee->last_name) }}</td>
+                                <td>{{ ucfirst($employee->first_name) }} {{ ucfirst($employee->last_name) }}</td>
                                 <td>{{ $employee->email }}</td>
                                 <td>{{ $employee->country_code.$employee->phone }}</td>
                                 @if($custom->categories == 1)
                                     <td>{{ ucfirst($employee->categories) }}</td>
                                 @endif
                                 <td>{{ $employee->services }}</td>
-                                <td>
+                                <!-- <td>
                                     <input type="checkbox" name="status" class="status" value="1" @if($employee->status == 1) {{ 'checked' }} @endif 
                                     data-toggle="toggle" data-style="slow" data-onstyle="success" data-offstyle="danger" data-off={{ __('Inactive') }} 
                                     data-employee_id="{{$employee->id}}" data-on="{{ __('Active') }}">
-                                </td>
+                                </td> -->
                                 <td>
                                     {{-- <a href="{{ Helper::googlecalendar($employee->email, $employee->id) }}"> --}}
                                     <a @if($employee->google_verify == true) {{ 'disabled' }} href="javascript:void(0)" class="remove-google" data-id="{{$employee->id}}" @else onclick="return googleCalendarEmailConfirmation(this);" data-href="{{ route('SendEmailGoogleCalenderLink',$employee->id) }}" @endif>
@@ -71,12 +71,15 @@
                                     </button> --}}
                                 </td>
                                 <td>
-                                    <a class="btn btn-default btn-lg eye_class" href="{{ route('employees.show',$employee->id) }}">
+                                    <!-- <a class="btn btn-default btn-lg eye_class" href="{{ route('employees.show',$employee->id) }}">
                                         <img class="eyes_img" src="{{asset('rbtheme/img/eyes_img.svg')}}" alt="" class="img-fluid">
-                                    </a>
-                                    <a class="btn btn-default btn-lg edit_class" href="{{ route('employees.edit',$employee->id) }}">
+                                    </a> -->
+                                    <a class="btn btn-default btn-lg edit_class" href="{{ route('employees.edit',$employee->id) }}?type=details">
                                         <img class="edit_img" src="{{asset('rbtheme/img/edit_img.svg')}}" alt="" class="img-fluid">
                                     </a>
+                                    <a class="btn btn-default btn-lg edit_class" href="{{ route('employees.edit',$employee->id) }}?type=service">
+                                        <img class="edit_img" src="{{asset('rbtheme/img/edit_img.svg')}}" alt="" class="img-fluid">
+                                    </a>                                    
                                     <a class="btn btn-default btn-lg calendar_class" title="{{ __('appointment') }}" href="{{ route('employees.appointment',$employee->id) }}">
                                         <img class="calnder_img" src="{{asset('rbtheme/img/calndar_icon1.svg')}}" alt="" class="img-fluid">
                                     </a> 
