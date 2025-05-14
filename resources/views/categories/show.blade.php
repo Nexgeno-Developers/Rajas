@@ -12,7 +12,7 @@
                         <div class="panel-heading panel-custom-heading">
                             
                                 <div class="btn-position">
-                                    <h3 class="panel-title">{{ __('View Category') }}: {{ $category->name }}</h3>
+                                    <h3 class="panel-title">{{ $category->name }}</h3>
     
                                     {{  Form::open(['method' => 'DELETE','id' => 'deleteItem','route' => ['categories.destroy', $category->id]])  }}
                                     <button type="button" class="btn btn-default btn-delete btn-lg btn-padding btn-color">

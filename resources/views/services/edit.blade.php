@@ -19,7 +19,7 @@
                     @endif
                     <div class="panel panel-default panel-custom">
                         <div class="panel-heading panel-custom-heading">
-                            <h3 class="panel-title">{{ucfirst($custom->custom_field_service)}}: {{ $service->name }}</h3>
+                            <h3 class="panel-title">{{ $service->name }}</h3>
                         </div>
                         <div class="panel-body">
                             {{ Form::model($service, ['method' => 'PATCH','enctype'=>'multipart/form-data','route' => ['services.update', $service->id],'id'=>'serviceDetail']) }}

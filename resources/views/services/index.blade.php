@@ -10,7 +10,7 @@
                 <div class="board-title">
                                     <div class="row">
 	<div class="col-md-6"><h2>{{ __('List of all services') }} </h2></div>
-	<div class="col-md-6"><a href="{{ route('services.create') }}" class="add-new-employee btn btn-secondary pull-c-right"> <span class="fa fa-plus"></span> Create services</a></div>
+	<div class="col-md-6"><a href="{{ route('services.create') }}" class="add-new-employee btn btn-secondary pull-c-right"> <span class="fa fa-plus"></span> {{__("Create services")}}</a></div>
 </div>
                 </div>
     

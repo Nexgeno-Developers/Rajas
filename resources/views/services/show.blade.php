@@ -11,7 +11,7 @@
                     <div class="panel panel-default panel-custom">
                         <div class="panel-heading panel-custom-heading">
                             <div class="btn-position">
-                                <h3 class="panel-title">{{ucfirst($custom->custom_field_service)}}: {{ $service->name }}</h3>
+                                <h3 class="panel-title">{{ $service->name }}</h3>
                                 {{ Form::open(['method' => 'DELETE','id' => 'deleteItem','route' => ['services.destroy', $service->id]]) }}
                                 <button type="button" class="btn btn-default btn-delete btn-lg btn-padding btn-color">
                                 <span class="glyphicon glyphicon-trash btn-delete-color"></span>

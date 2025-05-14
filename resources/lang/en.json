@@ -54,10 +54,10 @@
     "Appointment Time": "Booking Time",
     "Appointment Status": "Booking Status",
     "Appointment Detail": "Booking Detail",
-    "Category": "Location",
-    "List of all Categories": "List of all Locations",
-    "Create New Categories": "Create New Locations",
-    "Edit Category": "Edit Location",
+    "Category": "Service",
+    "List of all Categories": "List of all Services",
+    "Create New Categories": "Create New Services",
+    "Edit Category": "Edit Service",
     "Book Appointment": "Booking Form",
     "Services": "Packages",
     "Categories": "Services",
@@ -71,5 +71,9 @@
     "Unlimited Book Appointments": "Unlimited Book Trip Bookings",
     "Schedule your appointment with us, We'll serve you better. We've a experienced staff for various services.": "Schedule your trip booking with us, We'll serve you better. We've a experienced staff for various services.",
     "Customer Appointment": "Customer Booking",
-    "List of all employees": "Companies"
+    "List of all employees": "Companies",
+    "List of all services": "List of all packages",
+    "Create services": "Create packages",
+    "Edit Service": "Edit Package",
+    "Create Category": "Create Service"
 }

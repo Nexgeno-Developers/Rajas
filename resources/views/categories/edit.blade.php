@@ -19,7 +19,7 @@
                 @endif
                 <div class="panel panel-default panel-custom">
                     <div class="panel-heading panel-custom-heading">
-                    <h3 class="panel-title">{{ __('Edit Category') }}: {{ $category->name }}</h3>
+                    <h3 class="panel-title">{{ $category->name }}</h3>
                     </div>
                     <div class="panel-body">
                         {!! Form::model($category, ['method' => 'PATCH','route' => ['categories.update', $category->id],'id'=>'category-form'] ) !!}
