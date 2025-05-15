@@ -1,11 +1,21 @@
 @extends('layouts.home',['title' => trans('Home'), 'pagename' => trans('landing')])
 @section('slider')
 <!-- ======= Hero Section ======= -->
-
+<script>
+setTimeout(function () {
+    $('html, body').animate({
+        scrollTop: $(document).height()
+    }, 1000); // 1000 = 1 second
+}, 1000);
+</script>
 <style>
     header#header {
     position: absolute;
     width: 100%;
+}
+
+.footer-top2, .footer-top {
+    display: none;
 }
 </style>
 <div class="banner_section">
@@ -14,8 +24,9 @@
             <source src="{{asset('rbtheme/img/banner_video.mp4')}}" type="video/mp4">
     </video>
     <div class="banner_content">
-        <h3>Soar Above the City with Rajas Helicopter Rides! </h3>
-        <p>Unmatched adventure, stunning views—book your helicopter ride today!</p>
+        <!-- <h3>Soar Above the City with Rajas Helicopter Rides! </h3>
+        <p>Unmatched adventure, stunning views—book your helicopter ride today!</p> -->
+        <h3>Home Page Under Construction — Stay Tuned!</h3>
         <div class="button_design">
             <a href="/appointment/book">Book Your Ride Now <i class="bx bx-right-arrow-alt"></i></a>
         </div>
