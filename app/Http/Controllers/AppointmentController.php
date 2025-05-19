@@ -48,7 +48,7 @@ class AppointmentController extends Controller
 
         else if(Auth::user()->role_id == 2 ) {
 
-            $appointments = Appointment::where('user_id', Auth::user()->id)->get();
+            $appointments = Appointment::where('user_id', Auth::user()->id)->orderBy('date','desc')->get();
 
             $latestNotifications = DB::table('notification')->where('user_id',Auth::user()->id)->limit(3)->orderBy('id','desc')->get();
 
@@ -72,9 +72,15 @@ class AppointmentController extends Controller
 
         $payment = Payment::get()->count();
 
+        $service = Category::get()->count();
+        $Packages = Service::get()->count();
+
+        $toatalBookings = Appointment::get()->count();
+        $toatalBookings_approved = Appointment::where('status','approved')->get()->count();
+        $toatalBookings_cancel = Appointment::where('status','cancel')->get()->count();
         $todayAppointment = Appointment::where('date',date('Y-m-d'))->get()->count();
 
-        return view('dashboard', compact('appointments','user','employee','payment','todayAppointment'));
+        return view('dashboard', compact('appointments','user','employee','payment','toatalBookings','toatalBookings_approved','toatalBookings_cancel','todayAppointment','service','Packages'));
     }
 
     /**
@@ -98,10 +104,13 @@ class AppointmentController extends Controller
             $rowIndex = 1;
         }
         if($request->has('search')) {
-            if($request->search == 'today')
+            if($request->search == 'today'){
                 $appointments = Appointment::where('admin_id',Auth::user()->id)->where('date',date('Y-m-d'))->orderBy('id','DESC')->get();
-            else
+            } elseif($request->search == 'approved' || $request->search == 'cancel') {
+                $appointments = Appointment::where('status', $request->search)->orderBy('id','DESC')->get();
+            } else {
                 return redirect()->route('unauthorized');
+            }
         } else {
             $appointments = Appointment::where('admin_id',Auth::user()->id)->orderBy('id','DESC')->get();
         }
@@ -708,8 +717,23 @@ class AppointmentController extends Controller
         $date = date('Y-m-d h:i:s',strtotime($appointment->date.' '.$appointment->start_time));
         $date = new Carbon($date);
         $today = Carbon::now();
+
+        $appointmentDateTime = date("Y-m-d H:i", strtotime($appointment->date . ' ' . $appointment->start_time));
+        $currentDateTime = date("Y-m-d H:i");
+
         $service_id = $appointment->service_id;
         $services = Service::where('name', $service_id)->first();
+
+
+        if(Auth::user()->role_id == 2) {
+
+            if($appointmentDateTime < $currentDateTime) {
+                session()->flash('error-message', trans('You cannot cancel appointment because appointment cancellation time is over'));
+                return redirect()->back();
+            }
+        }
+
+
         if(!empty($services)) {
             $cancel_before = $services->cancel_before;
         

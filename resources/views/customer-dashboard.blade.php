@@ -21,6 +21,7 @@
                                 <th class="border-0 text-center">{{ __('Start Time') }}</th>
                                 <th class="border-0 text-end">{{ __('End Time') }}</th>
                                 <th class="border-0 text-end">{{ __('Appointment Date') }}</th>
+                                <th class="border-0 text-end">{{ __('status') }}</th>
                                 <th class="border-0 text-end">Details</th>
                             </tr>
                         </thead>
@@ -52,6 +53,13 @@
                                         {{ date('h:i a', strtotime($appointment->finish_time)) }}</td>
                                     <td class="align-middle text-end">
                                         {{ date($custom->date_format, strtotime($appointment->date)) }}
+                                    </td>
+                                    <td>
+                                        @if($appointment->status == "approved")
+                                            <span class="badge bg-success">Approved</span>
+                                        @else
+                                            <span class="badge bg-danger">Cancel</span>
+                                        @endif
                                     </td>
                                     <td>
                                         <a class="fc-daygrid-event ... back_buttons view_buttons" href="{{ route('customer-appointment', $appointment->id) }}">View</a>

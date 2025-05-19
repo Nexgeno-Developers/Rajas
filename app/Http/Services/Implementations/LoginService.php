@@ -34,7 +34,7 @@ class LoginService implements ILoginService
                 return redirect()->back();
             }
             session()->flash('message', trans('You are Login Successfully'));
-            return redirect()->route('welcome');
+            return redirect()->to(route('welcome') . '?login');
         }
         if( Auth::user()->role_id == 3) {
             if(Auth::user()->status == '0') {
@@ -56,7 +56,7 @@ class LoginService implements ILoginService
             if (session('redirect_link') != null) {
                 return redirect(session('redirect_link'));
             } else {
-                return redirect()->intended(route('welcome'));
+                return redirect()->intended(route('welcome') . '?login');
             }
         }
 

@@ -46,17 +46,84 @@
                 </div>
                 @endif
 
+
                 <div class="col-md-3 col-sm-6 col-xs-6 col-mobile">
-                    <a href="{{ route('paymentlist') }}">
+                    <a href="{{ route('categories.index') }}">
                         <div class="monitor-box relative">
                              <div class="count-number">
-                                <p>{{ $payment }} </p>
+                                <p>{{ $service }} </p>
                             </div>
                          <div class="dashbaod_title">
-                           <h4>{{ __('Total Payments') }}</h4>
+                           <h4>{{ __('Total Services') }}</h4>
                             <img src="{{asset('rbtheme/img/payment_icons.svg')}}" class="img-fluid animated" alt="">
                         </div>
                            
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-md-3 col-sm-6 col-xs-6 col-mobile">
+                    <a href="{{ route('services.index') }}">
+                        <div class="monitor-box relative">
+                             <div class="count-number">
+                                <p>{{ $Packages }} </p>
+                            </div>
+                         <div class="dashbaod_title">
+                           <h4>{{ __('Total Packages') }}</h4>
+                            <img src="{{asset('rbtheme/img/payment_icons.svg')}}" class="img-fluid animated" alt="">
+                        </div>
+                           
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-md-3 col-sm-6 col-xs-6 col-mobile">
+                    <a href="{{ route('appointments.index') }}">
+                        <div class="monitor-box relative">
+                           
+                           <div class="count-number">
+                                <p>{{ $toatalBookings }}</p>
+                            
+                            </div>
+                         <div class="dashbaod_title">
+                           <h4>{{ __('Total Bookings') }}</h4>
+                            <img src="{{asset('rbtheme/img/date_icons.svg')}}" class="img-fluid animated" alt="">
+                        </div>
+                            
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-md-3 col-sm-6 col-xs-6 col-mobile">
+                    <a href="{{ route('appointments.index').'?search=approved' }}">
+                        <div class="monitor-box relative">
+                           
+                           <div class="count-number">
+                                <p>{{ $toatalBookings_approved }}</p>
+                            
+                            </div>
+                         <div class="dashbaod_title">
+                           <h4>{{ __('Total Approved Bookings') }}</h4>
+                            <img src="{{asset('rbtheme/img/date_icons.svg')}}" class="img-fluid animated" alt="">
+                        </div>
+                            
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-md-3 col-sm-6 col-xs-6 col-mobile">
+                    <a href="{{ route('appointments.index').'?search=cancel' }}">
+                        <div class="monitor-box relative">
+                           
+                           <div class="count-number">
+                                <p>{{ $toatalBookings_cancel }}</p>
+                            
+                            </div>
+                         <div class="dashbaod_title">
+                           <h4>{{ __('Total Cancel Bookings') }}</h4>
+                            <img src="{{asset('rbtheme/img/date_icons.svg')}}" class="img-fluid animated" alt="">
+                        </div>
+                            
                         </div>
                     </a>
                 </div>
@@ -77,6 +144,24 @@
                         </div>
                     </a>
                 </div>
+                
+
+                {{-- <div class="col-md-3 col-sm-6 col-xs-6 col-mobile">
+                    <a href="{{ route('paymentlist') }}">
+                        <div class="monitor-box relative">
+                             <div class="count-number">
+                                <p>{{ $payment }} </p>
+                            </div>
+                         <div class="dashbaod_title">
+                           <h4>{{ __('Total Payments') }}</h4>
+                            <img src="{{asset('rbtheme/img/payment_icons.svg')}}" class="img-fluid animated" alt="">
+                        </div>
+                           
+                        </div>
+                    </a>
+                </div> --}}
+
+
             </div>
         </div>
     </section>

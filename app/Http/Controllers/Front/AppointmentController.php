@@ -37,8 +37,10 @@ class AppointmentController extends Controller
     public function home(Request $request)
     {
 
+        if ($request->has('login')) {
+            session()->flash('message', trans('You are abcd Login Successfully'));
+        }
         if (!$request->has('token')) {
-
             return redirect()->route('appointment.book');
         }        
         

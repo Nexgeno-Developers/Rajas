@@ -141,7 +141,11 @@
                             data-bs-target="#exampleModalCenter"> <i class='bx bx-x'></i> {{ __('Cancel Booking') }}</button> -->
 
                             <!-- Hide button after booking date -->
-                            @if ($appointment->date <= date("Y-m-d"))
+                            @php
+                                $appointmentDateTime = date("Y-m-d H:i", strtotime($appointment->date . ' ' . $appointment->start_time));
+                                $currentDateTime = date("Y-m-d H:i");
+                            @endphp
+                            @if ($appointmentDateTime >= $currentDateTime)
                                 <button type="button" class="cancel_apppointment" data-bs-toggle="modal"
                                     data-bs-target="#exampleModalCenter"> 
                                     <i class='bx bx-x'></i> {{ __('Cancel Booking') }}
