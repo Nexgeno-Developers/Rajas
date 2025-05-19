@@ -40,6 +40,22 @@ class AppointmentController extends Controller
         if ($request->has('login')) {
             session()->flash('message', trans('You are abcd Login Successfully'));
         }
+
+        //----------- For google Login ------------// 
+            if ($request->has('egmsg')) {
+                session()->flash('error-message', session('error-message'));
+            }
+
+            if ($request->has('sgmsg')) {
+                session()->flash('message', session('message'));
+            }
+
+            if ($request->has('sgmsg-rg')) {
+                session()->flash('message', session('message'));
+                return redirect()->to(route('appointment.book'). '?signup');
+            }
+        //----------- For google Login ------------// 
+
         if (!$request->has('token')) {
             return redirect()->route('appointment.book');
         }        

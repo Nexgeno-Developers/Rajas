@@ -22,6 +22,7 @@
 
 */
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SocialloginController;
 
 Route::get('/', 'Front\AppointmentController@home')->name('welcome');
 
@@ -232,6 +233,9 @@ Route::get('dashboard', 'AppointmentController@dashboard')->name('dashboard')->m
 
 Route::post('register', 'Auth\RegisterController@store')->name('register')->middleware(['xss', 'recaptcha', 'throttle:5,1', 'sql_guard']);
 Route::post('/login', 'Auth\LoginController@login')->name('login')->middleware(['xss', 'recaptcha', 'throttle:5,1', 'sql_guard']);
+
+Route::get('auth/google', 'SocialloginController@redirectToGoogle')->name('auth.google');
+Route::get('auth/google/callback', 'SocialloginController@handleGoogleCallback');
 
 Route::get('/signup','Auth\RegisterController@signup')->name('signup')->middleware('xss');
 

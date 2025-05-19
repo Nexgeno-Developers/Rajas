@@ -43,8 +43,8 @@
 
             <div class="row gx-2">
 
-                <div class="mb-3 col-sm-6"><input class="form-control" type="text" name="first_name" autocomplete="off" placeholder="{{ __('First Name') }}" /></div>
-
+                <div class="mb-3 col-sm-6"><input class="form-control" type="text" name="first_name" autocomplete="off" placeholder="{{ __('First Name') }}" value="{{ session('google_name') ?? '' }}" /></div>
+ 
                 <div class="mb-3 col-sm-6"><input class="form-control" type="text" name="last_name" autocomplete="off" placeholder="{{ __('Last Name') }}" /></div>
 
             </div>  
@@ -52,7 +52,7 @@
             <input type="hidden" name="country_code" class="country_code" id="dialcodeR" value="" data-country="" data-number="">
             <div class="row gx-2">
 
-                <div class="mb-3 col-sm-6"><input class="form-control" type="email" name="email" autocomplete="off" placeholder="{{ __('Email Address') }}" /></div>
+                <div class="mb-3 col-sm-6"><input class="form-control" type="email" name="email" autocomplete="off" placeholder="{{ __('Email Address') }}" value="{{ session('google_email') ?? '' }}" /></div>
  
                 <div class="mb-3 col-sm-6">
                   <input class="form-control mobile reg country-phone-validation" type="tel" name="mobile" autocomplete="off" placeholder="{{ __('Phone Number') }}" id="bootstrap-wizard-phone" data-wizard-validate-phone="true" data-name="{{ Auth::user()->country_name ?? $site->country_name }}"/>
@@ -91,6 +91,13 @@
             <div class="mb-3"><button class="btn btn-primary d-block w-100 mt-3" type="submit" name="submit">{{ __('Register') }}</button></div>
 
           </form>
+
+          <a href="{{ route('auth.google') }}">
+              <button class="google_btn">
+                  Login with
+                  <img src="/assets/images/google.svg" alt="google icon" class="google_icon" />
+              </button>
+          </a>  
 
         </div>
 

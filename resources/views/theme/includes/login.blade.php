@@ -57,6 +57,13 @@
                     <div class="mb-3"><button class="btn btn-primary d-block w-100 mt-3" type="submit"
                             name="submit">{{ __('Login') }}</button></div>
                 </form>
+
+                <a href="{{ route('auth.google') }}">
+                    <button class="google_btn">
+                        Login with
+                        <img src="/assets/images/google.svg" alt="google icon" class="google_icon" />
+                    </button>
+                </a>  
             </div>
         </div>
     </div>

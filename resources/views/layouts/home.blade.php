@@ -191,6 +191,12 @@
                 bgHolder.remove();
             }
         });
+
+        $(document).ready(function () {
+            if (window.location.search.includes('?signup')) {
+                $('#registerModel').modal('show'); // For Bootstrap modals
+            }
+        });
     </script>
 </body>
 
